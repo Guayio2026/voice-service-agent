@@ -1,0 +1,392 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "7cbe13d10c0daec2",
+   "server.py": "8488a8c08b82aa1b",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "27c343100cdad86a",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T06:51:39.647506+00:00"
+ },
+ "case": "R011",
+ "attempts": [
+  {
+   "case_id": "R011",
+   "attempt": 1,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 666,
+   "usage": {
+    "prompt_tokens": 3630,
+    "completion_tokens": 63,
+    "total_tokens": 3693
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "更正一下，我不是老板，我是运营，这块归我。",
+     "reply": "您的陈述与系统资料可能存在差异，原确认已失效，需要人工核实。您是否需要模拟人工协助？",
+     "usage": {
+      "prompt_tokens": 1060,
+      "completion_tokens": 20,
+      "total_tokens": 1080
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 589,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "所以材料给我看没问题吧？",
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1442,
+      "completion_tokens": 23,
+      "total_tokens": 1465
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 721,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "行，缺的两项我记下了。",
+     "reply": "还有未解决的问题，不能登记通知完成。请继续说明或请求人工核实；问题确实解决后请明确回复“问题已解决”。",
+     "usage": {
+      "prompt_tokens": 1128,
+      "completion_tokens": 20,
+      "total_tokens": 1148
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 595,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮后 identity 仍为 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 1,
+     "assert": "identity 仍为 verified",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 1,
+     "assert": "revoke 事件计数 == 0（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "revoke 事件计数 == 0（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R011",
+   "attempt": 2,
+   "verdict": "FAIL",
+   "open_ms": 806,
+   "usage": {
+    "prompt_tokens": 3603,
+    "completion_tokens": 61,
+    "total_tokens": 3664
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "更正一下，我不是老板，我是运营，这块归我。",
+     "reply": "您的陈述与系统资料可能存在差异，原确认已失效，需要人工核实。您是否需要模拟人工协助？",
+     "usage": {
+      "prompt_tokens": 1060,
+      "completion_tokens": 20,
+      "total_tokens": 1080
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 724,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "所以材料给我看没问题吧？",
+     "reply": "将建立模拟人工协助工单，不会接通真人。如同意登记，请明确回复“确认登记”；也可结束而不登记。",
+     "usage": {
+      "prompt_tokens": 1442,
+      "completion_tokens": 21,
+      "total_tokens": 1463
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 395,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "行，缺的两项我记下了。",
+     "reply": "还有未解决的问题，不能登记通知完成。请继续说明或请求人工核实；问题确实解决后请明确回复“问题已解决”。",
+     "usage": {
+      "prompt_tokens": 1101,
+      "completion_tokens": 20,
+      "total_tokens": 1121
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 648,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮后 identity 仍为 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 1,
+     "assert": "identity 仍为 verified",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 1,
+     "assert": "revoke 事件计数 == 0（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 2 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    }
+   ],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "revoke 事件计数 == 0（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R011",
+   "attempt": 3,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 841,
+   "usage": {
+    "prompt_tokens": 3630,
+    "completion_tokens": 63,
+    "total_tokens": 3693
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "更正一下，我不是老板，我是运营，这块归我。",
+     "reply": "您的陈述与系统资料可能存在差异，原确认已失效，需要人工核实。您是否需要模拟人工协助？",
+     "usage": {
+      "prompt_tokens": 1060,
+      "completion_tokens": 20,
+      "total_tokens": 1080
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 888,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "所以材料给我看没问题吧？",
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1442,
+      "completion_tokens": 23,
+      "total_tokens": 1465
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 870,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "行，缺的两项我记下了。",
+     "reply": "还有未解决的问题，不能登记通知完成。请继续说明或请求人工核实；问题确实解决后请明确回复“问题已解决”。",
+     "usage": {
+      "prompt_tokens": 1128,
+      "completion_tokens": 20,
+      "total_tokens": 1148
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 706,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮后 identity 仍为 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 1,
+     "assert": "identity 仍为 verified",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 1,
+     "assert": "revoke 事件计数 == 0（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "revoke 事件计数 == 0（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    }
+   ],
+   "crash": null
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+  "note": "1 轮抽检，用于验证音频可播放性；不计入 100 轮延迟统计，不改变任何既有样本",
+  "request_id": "spot-audio-001",
+  "reply_text": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+  "reply_chars": 99,
+  "audio_cache": "miss",
+  "tts_transport": "websocket",
+  "sample_rate": 24000,
+  "pcm_bytes": 1163520,
+  "pcm_even": true,
+  "wav": "data\\latency-20261108\\spotcheck-24k.wav",
+  "ffmpeg_decode_exit": 0,
+  "ffmpeg_stderr": "",
+  "decoded_samples": 581760,
+  "decoded_seconds": 24.24,
+  "rms": 0.1047,
+  "peak": 0.8202,
+  "near_silent_ratio": 0.1858,
+  "playable": true
+}

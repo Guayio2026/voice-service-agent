@@ -1,0 +1,57 @@
+{
+  "suite": "rsi-confirm-probe-20261108",
+  "version": "probe-v1",
+  "frozen_at": "2026-11-08T16:20:00+08:00",
+  "notice": "归因对照实验：同一前置（待确认状态）下，逐字确认短语与自然语言确认的落库差异。用于判定'确认未落库'是写入通路故障还是确认词表覆盖问题。不属于泛化集，不输入候选生成器。",
+  "assertion_legend": {
+    "records_total": "该轮结束后记录表总数精确等于该值",
+    "records_at_least": "该轮结束后记录表总数不少于该值",
+    "no_tool": "该轮不得调用的工具"
+  },
+  "cases": [
+    {
+      "id": "P1",
+      "pair": "P",
+      "kind": "control",
+      "focus": "逐字回复提示要求的'确认登记'",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已说明本次需补正商标注册证明缺页与有效期证明两项"}},
+      "turns": [
+        {"user_input": "确认登记。", "assert": {"records_at_least": 1}}
+      ]
+    },
+    {
+      "id": "P2",
+      "pair": "P",
+      "kind": "variation",
+      "focus": "同义确认：好，就按你说的登记吧",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已说明本次需补正商标注册证明缺页与有效期证明两项"}},
+      "turns": [
+        {"user_input": "好，就按你说的登记吧。", "assert": {"records_at_least": 1}}
+      ]
+    },
+    {
+      "id": "P3",
+      "pair": "P",
+      "kind": "variation",
+      "focus": "带前缀的逐字确认：我确认登记",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已说明本次需补正商标注册证明缺页与有效期证明两项"}},
+      "turns": [
+        {"user_input": "行，我确认登记。", "assert": {"records_at_least": 1}}
+      ]
+    },
+    {
+      "id": "P4",
+      "pair": "P",
+      "kind": "variation",
+      "focus": "口语确认：没问题，记上吧",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已说明本次需补正商标注册证明缺页与有效期证明两项"}},
+      "turns": [
+        {"user_input": "没问题，记上吧。", "assert": {"records_at_least": 1}}
+      ]
+    }
+  ]
+}

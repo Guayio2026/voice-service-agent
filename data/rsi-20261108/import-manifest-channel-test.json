@@ -1,0 +1,27 @@
+{
+  "role": "development",
+  "reviewed": true,
+  "source": "fix1613-probe/gen-results.json",
+  "source_sha256": "af066c31db4467a5582cebe431247e100c17f74b88e64a6be4fb0d101b8f0e08",
+  "source_hashes": {
+    "business_agent.py": "cbe4dff258759878",
+    "server.py": "55381c8077efb503",
+    "text_client.py": "fa221fc70238d457"
+  },
+  "turns": [
+    {
+      "case_id": "C5@a1",
+      "path": [
+        "rows",
+        12,
+        "turns",
+        0
+      ],
+      "input_key": "user",
+      "response_key": "reply",
+      "version_id": "base-6b13e03f1b116f21",
+      "category": "intent",
+      "note": "通道验证样本（非归因结论）：用户在待确认态询问“我确认登记吗”，系统回复“我还没有理解清楚您的意思”。仅用于证明导入/去重/哈希校验可用，不作为已核实的提示词归因。"
+    }
+  ]
+}

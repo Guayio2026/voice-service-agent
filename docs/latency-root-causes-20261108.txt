@@ -1,0 +1,59 @@
+2026-11-08: follow-up to the 2622ms failed voice run
+
+Confirmed causes and changes
+1. The speculative classification was reused while still running: reuse=true
+   did not mean its latency was hidden. Business processing took 1438ms.
+   Explicit material reason/action/basis questions now use a complete-utterance
+   compositional parser. It supports material scope/numbers and combined topics;
+   unknown wording, mixed actions, corrections and negations fall back to the
+   existing model/controller. Answers still come from authorized current records,
+   with grounding/output checks. This is not unrestricted local NLU.
+2. Breeze reported GENERATION_CONCURRENCY_EXCEEDED. Foreground used WebSocket
+   but audio prediction still used HTTP; closing the HTTP response did not
+   establish provider-side cancellation. Realtime-mode predictions now share
+   the foreground WebSocket and cancellation acknowledgement. Retiring tasks
+   remain tracked until cleanup completes.
+3. Multi-topic predictions cached separate answers, which did not match the
+   combined final answer. Current-question preparation now preserves all topics
+   and the exact requested issue numbers, yielding the same audio cache key.
+4. Foreground cancelled even an exactly matching in-progress preparation. It
+   now adopts buffered and subsequent PCM from that task. Matching requires
+   session, identity, voice, complete spoken text and grounding equality. The
+   endpoint checks authorization before adoption and again for each audio chunk.
+   Interruption cancels both consumer and producer; cache size remains bounded.
+5. An unfinished noun phrase could start TTS before the user added another
+   topic. Current-question TTS now waits for a complete question ending or ASR
+   sentence finalization. Model read-ahead remains independent.
+6. Endpoint inference could finish using an older ASR partial even after ASR
+   had supplied a retraction. Its result now checks both the VAD speech timestamp
+   and the transcript snapshot before ending the turn. Browser regression covers
+   this asynchronous race. The previous 2038ms run had split the revised sentence
+   and lost words at the boundary; it remains recorded as a failure.
+
+GitHub reference inspected through the GitHub connector:
+https://github.com/livekit/agents/blob/main/livekit-agents/livekit/agents/voice/turn.py
+PreemptiveGenerationOptions distinguishes preemptive LLM and preemptive TTS.
+Applied principle: overlap work, and reuse matching work without restarting it.
+No LiveKit dependency or provider switch was introduced.
+
+Measurement
+scripts/benchmark_voice_e2e.py: recorded speech enters the actual browser audio
+pipeline, real VAD/ASR/business/TTS; stops at scheduled output plus browser
+outputLatency estimate. Warm session after greeting. Physical microphone and
+speaker latency are not measured. Input end uses last 20ms block RMS > .002.
+Each run now saves a timestamped report including failures and speech_cache.
+An inflight value means the existing synthesis was adopted, not a new TTS call.
+
+Failures retained, not excluded: startup before server readiness; one provider
+concurrency error; prior intermediate 2711ms and 2341ms runs. These were before
+the complete-question preparation guard. A strict universal <=2s bound cannot
+be inferred from a small batch or from cached/overlapped first bytes alone.
+
+Validation: readonly parser 4 tests; latency paths 18; realtime transport 7;
+stream/read-ahead 6; voice API 25; browser barge-in contract passed. Broader
+test_agent previously had two unrelated business-expectation failures, recorded
+in e2e-followup-20261108.txt; this work does not claim all repository tests green.
+
+Final-batch measurements are recorded in latency-final-batch-20261108.json.
+After the last endpoint fix: materials 1533ms, revised question 1185ms.
+Both passed the software check; only two samples, not a percentile guarantee.

@@ -1,0 +1,18 @@
+{
+  "role": "development", "reviewed": true,
+  "notice": "项目合成开发集，已知数据；用于收集真实分类错误，不保证一定存在错误，不伪造失败。",
+  "cases": [
+    {"id":"D-context","family":"clarification_followup","identity":"verified","turns":[
+      {"text":"我想把本次要补的事情弄清楚。","expect":{"identity":"verified","records":0}},
+      {"text":"就是需要补正的问题，你解释一下。","expect":{"identity":"verified","records":0,"decision":{"intent":"question","topics":["materials"],"issue_numbers":[]}}}
+    ]},
+    {"id":"D-mixed","family":"thanks_with_handoff","identity":"verified","turns":[
+      {"text":"我没听懂你说的要求。","expect":{"identity":"verified","records":0}},
+      {"text":"谢谢你耐心解释，但这件事我还是想请人工帮忙核实。","expect":{"identity":"verified","records":0,"decision":{"intent":"handoff","topics":[],"issue_numbers":[]}}}
+    ]},
+    {"id":"D-detail","family":"material_reason_followup","identity":"verified","turns":[
+      {"text":"这份材料有哪些地方不符合要求？","expect":{"identity":"verified","records":0}},
+      {"text":"我问的是第一项的原因，不是所有材料。","expect":{"identity":"verified","records":0,"decision":{"intent":"question","topics":["reason"],"issue_numbers":[1]}}}
+    ]}
+  ]
+}

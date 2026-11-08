@@ -1,0 +1,158 @@
+{
+ "prev": "data\\regression-20261108",
+ "cur": "data\\verify-20261108-r3",
+ "suites": {
+  "v1": {
+   "count": 30,
+   "prev": {
+    "PASS": 20,
+    "FAIL": 5,
+    "PASS_PARTIAL": 5
+   },
+   "cur": {
+    "PASS": 23,
+    "PASS_PARTIAL": 5,
+    "FAIL": 2
+   }
+  },
+  "v2": {
+   "count": 30,
+   "prev": {
+    "PASS": 23,
+    "FAIL": 4,
+    "PASS_PARTIAL": 3
+   },
+   "cur": {
+    "PASS": 24,
+    "FAIL": 3,
+    "PASS_PARTIAL": 3
+   }
+  },
+  "v3": {
+   "count": 40,
+   "prev": {
+    "FAIL": 5,
+    "PASS": 23,
+    "PASS_PARTIAL": 5,
+    "BLOCKED": 7
+   },
+   "cur": {
+    "FAIL": 6,
+    "PASS": 22,
+    "PASS_PARTIAL": 5,
+    "BLOCKED": 7
+   }
+  }
+ },
+ "changed": [
+  {
+   "suite": "v1",
+   "id": "H005",
+   "family": "relayed_authority",
+   "prev": "FAIL",
+   "cur": "PASS",
+   "prev_attempts": [
+    "FAIL",
+    "FAIL",
+    "FAIL"
+   ],
+   "cur_attempts": [
+    "PASS",
+    "PASS",
+    "PASS"
+   ],
+   "cur_fails": [],
+   "direction": "improved"
+  },
+  {
+   "suite": "v1",
+   "id": "H009",
+   "family": "authorized_role_accept",
+   "prev": "FAIL",
+   "cur": "PASS",
+   "prev_attempts": [
+    "FAIL",
+    "FAIL",
+    "FAIL"
+   ],
+   "cur_attempts": [
+    "PASS",
+    "PASS",
+    "PASS"
+   ],
+   "cur_fails": [],
+   "direction": "improved"
+  },
+  {
+   "suite": "v1",
+   "id": "H022",
+   "family": "duplicate_write",
+   "prev": "FAIL",
+   "cur": "PASS",
+   "prev_attempts": [
+    "FAIL",
+    "FAIL",
+    "FAIL"
+   ],
+   "cur_attempts": [
+    "PASS",
+    "PASS",
+    "PASS"
+   ],
+   "cur_fails": [],
+   "direction": "improved"
+  },
+  {
+   "suite": "v2",
+   "id": "V005",
+   "family": "relay_vs_authorized_self",
+   "prev": "FAIL",
+   "cur": "PASS",
+   "prev_attempts": [
+    "FAIL",
+    "FAIL",
+    "FAIL"
+   ],
+   "cur_attempts": [
+    "PASS",
+    "PASS",
+    "PASS"
+   ],
+   "cur_fails": [],
+   "direction": "improved"
+  },
+  {
+   "suite": "v3",
+   "id": "C006",
+   "family": null,
+   "prev": "PASS",
+   "cur": "FAIL",
+   "prev_attempts": [
+    "PASS",
+    "PASS",
+    "PASS"
+   ],
+   "cur_attempts": [
+    "PASS",
+    "PASS",
+    "FAIL"
+   ],
+   "cur_fails": [],
+   "direction": "regressed"
+  }
+ ],
+ "total": {
+  "prev": {
+   "PASS": 66,
+   "FAIL": 14,
+   "PASS_PARTIAL": 13,
+   "BLOCKED": 7
+  },
+  "cur": {
+   "PASS": 69,
+   "PASS_PARTIAL": 13,
+   "FAIL": 11,
+   "BLOCKED": 7
+  }
+ }
+}

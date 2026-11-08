@@ -1,0 +1,406 @@
+{
+  "scope": "Two recorded-input software E2E checks after stale endpoint prediction fix; warm sessions, not physical microphone/speaker or P95 validation",
+  "samples": [
+    {
+      "fixture": "materials",
+      "scope": "recorded input through real software pipeline; no physical hardware",
+      "end_reference": "last 20ms input block RMS > .002",
+      "limit_ms": 2000,
+      "e2e_scheduled_ms": 1469,
+      "estimated_output_latency_ms": 64,
+      "speech_cache": "miss",
+      "transcripts": [
+        {
+          "at": -4892,
+          "type": "ready"
+        },
+        {
+          "at": -4872,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4831,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4831,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4735,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4735,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4735,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4735,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4735,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4732,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4661,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4661,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4658,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4658,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4658,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4658,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4529,
+          "type": "transcript",
+          "text": "我想",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -3977,
+          "type": "transcript",
+          "text": "我想了解这次",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -3261,
+          "type": "transcript",
+          "text": "我想了解这次申请里每",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -2542,
+          "type": "transcript",
+          "text": "我想了解这次申请里每一项材料",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -1760,
+          "type": "transcript",
+          "text": "我想了解这次申请里每一项材料，为什么需",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -1073,
+          "type": "transcript",
+          "text": "我想了解这次申请里每一项材料为什么需要补正",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -324,
+          "type": "transcript",
+          "text": "我想了解这次申请里每一项材料为什么需要补正，以及我应该",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": 469,
+          "type": "transcript",
+          "text": "我想了解这次申请里每一项材料为什么需要补正，以及我应该怎样处理",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": 898,
+          "type": "transcript",
+          "text": "我想了解这次申请里每一项材料为什么需要补正以及我应该怎样处理。",
+          "final": true,
+          "sentence_id": 1
+        },
+        {
+          "at": 899,
+          "type": "done",
+          "text": "我想了解这次申请里每一项材料为什么需要补正以及我应该怎样处理。"
+        }
+      ],
+      "chats": [
+        {
+          "received": 963,
+          "reply_ms": 47,
+          "preparation": {
+            "reused": false,
+            "calls": 1
+          },
+          "text": "需要补正的原因是：本次商标注册证明缺页或无法辨认。需要补正的原因是：本次提交的商标有效期证明需要核实。以上来自当前合成案例资料。对应的处理方式是：补充完整清晰的商标注册证明。对应的处理方式是：提供有效状态证明；涉及续展的，补充相应证明供审核核实。"
+        }
+      ],
+      "displayed_metrics": "停顿/收尾 295 ms；识别收尾 489 ms；整段文字回复 47 ms；输入 0 / 输出 0 Token；语音首包 480 ms；末次声音到首段排定播放约 1354 ms（本地估算，非官方指标）",
+      "e2e_estimated_ms": 1533,
+      "passed": true,
+      "page_errors": []
+    },
+    {
+      "fixture": "revision",
+      "scope": "recorded input through real software pipeline; no physical hardware",
+      "end_reference": "last 20ms input block RMS > .002",
+      "limit_ms": 2000,
+      "e2e_scheduled_ms": 1121,
+      "estimated_output_latency_ms": 64,
+      "speech_cache": "inflight",
+      "transcripts": [
+        {
+          "at": -4613,
+          "type": "ready"
+        },
+        {
+          "at": -4596,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4557,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4557,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4511,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4511,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4511,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4511,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4511,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4511,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4475,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4475,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4475,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4475,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4475,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4475,
+          "type": "transcript",
+          "text": "",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -4358,
+          "type": "transcript",
+          "text": "我先",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -3735,
+          "type": "transcript",
+          "text": "我先不问材料",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -2978,
+          "type": "transcript",
+          "text": "我先不问材料了，我想",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -2292,
+          "type": "transcript",
+          "text": "我先不问材料了，我想知道补正",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -1569,
+          "type": "transcript",
+          "text": "我先不问材料了，我想知道补正截止时间",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -768,
+          "type": "transcript",
+          "text": "我先不问材料了，我想知道补证截止时间和提交入",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": -110,
+          "type": "transcript",
+          "text": "我先不问材料了，我想知道补证截止时间和提交入口能否",
+          "final": false,
+          "sentence_id": 1
+        },
+        {
+          "at": 623,
+          "type": "transcript",
+          "text": "我先不问材料了，我想知道补正截止时间和提交入口能否确定？",
+          "final": true,
+          "sentence_id": 1
+        },
+        {
+          "at": 627,
+          "type": "done",
+          "text": "我先不问材料了，我想知道补正截止时间和提交入口能否确定？"
+        }
+      ],
+      "chats": [
+        {
+          "received": 765,
+          "reply_ms": 125,
+          "preparation": {
+            "reused": false,
+            "calls": 4
+          },
+          "text": "当前资料未提供补正截止时间，我无法确认，需要进一步核实。当前资料未提供提交入口或办理渠道，我无法确认，需要进一步核实。"
+        }
+      ],
+      "displayed_metrics": "停顿/收尾 278 ms；识别收尾 213 ms；整段文字回复 125 ms；输入 0 / 输出 0 Token；语音首包 314 ms；末次声音到首段排定播放约 986 ms（本地估算，非官方指标）",
+      "e2e_estimated_ms": 1185,
+      "passed": true,
+      "page_errors": []
+    }
+  ],
+  "all_passed": true,
+  "prior_failures_retained": "runtime/e2e/*-20261108-*.json"
+}

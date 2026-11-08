@@ -1,0 +1,10 @@
+多问题对话修改说明
+参考：https://github.com/langchain-ai/langchain/blob/master/libs/langchain_v1/langchain/agents/middleware/todo.py
+借鉴带状态的任务清单，不引入新依赖，也不给模型额外工具权限。
+每轮 topics 拆为问题条目；answered / pending / needs_verification 由受控业务逻辑决定。
+混合请求使用可选 actions；拒绝优先停止、纠正优先核实，咨询加转人工则先答复再征求工单登记确认。
+新问题撤销旧确认；没有依据的期限/渠道/费用问题不能通过“问题已解决”直接清除。
+回写包含 questions，后端拒绝把待处理或待核实问题登记为通知完成。
+范围：按主题和材料序号跟踪，尚非逐句语义级问题拆分；真实模型提取完整率尚待现场评测。
+验证：新增6项离线回归，全套本次80项通过。测试日志 runtime/multi-question-tests.log。
+上线注意：基础分类提示词已改变，已有数据库旧版本会被版本校验拒绝。必须在受控切换新基线后重启后端；未自动修改运行数据库或重启现有服务。历史候选不得直接沿用，应重新评测。

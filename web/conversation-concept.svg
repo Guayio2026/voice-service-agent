@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 330" fill="none">
+<title>从对话到有据可查的沟通记录</title><desc>静态概念图：交叠的对话符号，经由依据节点，汇成一份文档。不代表音频活动或登记成功。</desc>
+<g stroke="#416c95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M38 78H124C146 78 148 104 170 104H334C388 104 385 58 438 58H566"/>
+<path d="M55 259H144C187 259 170 230 219 230H390C454 230 438 280 500 280H846"/>
+<path d="M333 157H398C449 157 441 112 486 112H669"/>
+<path d="M332 184H414C466 184 464 216 516 216H668"/>
+<circle cx="38" cy="78" r="5" fill="#102744"/><circle cx="55" cy="259" r="5" fill="#102744"/><circle cx="566" cy="58" r="5" fill="#102744"/>
+</g>
+<path d="M127 77H277a26 26 0 0 1 26 26v72a26 26 0 0 1-26 26H197l-48 40v-40h-22a26 26 0 0 1-26-26v-72a26 26 0 0 1 26-26Z" fill="#3275b8"/>
+<path d="M195 116H330a24 24 0 0 1 24 24v65a24 24 0 0 1-24 24h-16v35l-43-35h-76a24 24 0 0 1-24-24v-65a24 24 0 0 1 24-24Z" fill="#bce6ec"/>
+<g stroke="#153b59" stroke-width="2" stroke-linecap="round"><path d="M208 158h105m-105 19h72m-72 19h88"/></g>
+<g stroke="#9cd0e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="500" cy="162" r="30" fill="#102744"/><path d="M488 147h16l9 9v21h-25zM504 147v9h9M494 164h11m-11 6h7"/>
+<path d="M538 162h107m-9-6 9 6-9 6"/>
+</g>
+<g stroke="#a8d6ed" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M679 79h96l49 49v118H679z" fill="#163655"/><path d="M775 79v49h49"/>
+<path d="M698 155h103M698 176h103M698 197h65"/>
+<path d="M691 66h90l46 46M837 140v119H692" stroke="#416c95"/>
+</g>
+<g fill="#9dc4e0"><circle cx="390" cy="230" r="4"/><circle cx="438" cy="58" r="4"/><circle cx="846" cy="280" r="4"/></g>
+</svg>

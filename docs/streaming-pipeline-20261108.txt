@@ -1,0 +1,66 @@
+Three overlapping voice stages — 2026-11-08
+
+1. Partial ASR text now schedules read-only preparation after 250 ms without
+   revision. Revised text replaces pending preparation. Agent speculation uses
+   exact generation/context/text matching before final reuse; it cannot call
+   business tools. Identity, pending operations and paid-work limits still apply.
+   A final transcript need not reuse an earlier prediction if the input changed.
+
+2. Complex verified explanatory turns opt into application/x-ndjson from
+   /api/speech via stream_reply=true. Short exact-rule answers keep their existing
+   faster path. Identity and business operations still finish before any speech.
+   The first complete substantive sentence comes directly from the validated
+   business answer. It is labelled verified_business_answer in the stream.
+   An additional nonthinking LLM call generates the remaining oral explanation
+   concurrently. This is a hybrid first-answer + generative-continuation design,
+   not a claim that the first sentence itself came from newly streamed tokens.
+   Complete generated sentences pass the existing guard and, for paraphrases,
+   an additional semantic support check before synthesis. Exact whole source
+   sentences reuse source validation. Semantic checking is model-based, not a
+   mathematical factuality guarantee. Extra generation/checks consume API usage.
+   Separate tasks generate text, check sentences, send text.append/text.flush,
+   and receive Breeze PCM. turn.end is sent only once text input ends.
+   SSE consumption never waits for the sentence checker (total text is bounded),
+   so model completion timing is not inflated by a full sentence queue.
+   The UI displays the streamed oral text separately from expandable source facts.
+   Logs label generated text as generated, not confirmed heard by the user.
+
+3. Continuous microphone capture/VAD remains active during generation/playback.
+   Human speech stops browser playback locally, cancels model/verification/TTS
+   work, and retains pre-roll for ASR. Cancellation clears old audio; Breeze
+   socket reuse requires its matching cancellation acknowledgement. Click mode
+   and the manual stop button remain supported.
+
+Measured synthetic provider test after queue-timing correction:
+   first validated source sentence 1 ms; first PCM 452 ms;
+   LLM first token 466 ms; complete LLM response received 929 ms.
+   Connection was pre-established. No inserted sleeps in live generation.
+   This is not microphone-end to physical playback and not P50/P95.
+Browser/API + AudioContext scheduling results are saved separately in
+   runtime/voice-comparison/browser-stream-overlap.json.
+Earlier timing reports before the nonblocking SSE change are retained with
+   before-queue-timing-fix suffixes; do not use them to claim model overlap.
+The 500 ms–2 s end-to-end target still requires real microphone/endpoint/ASR
+   testing and distribution measurements; cloud outliers remain possible.
+
+Video reviewed via sampled frames and on-screen subtitles from uploaded file:
+   ~1:20 streaming ASR, endpointing and device preprocessing;
+   ~1:40 KV caching, speculative decoding, incremental TTS;
+   ~2:20 multimodal integration (outside current voice latency scope);
+   ~3:00 endpoint-to-endpoint targets.
+DeepSeek context cache is provider-managed and enabled by default:
+   https://api-docs.deepseek.com/guides/kv_cache/
+Application-level predicted questions are distinct from inference-engine
+   speculative decoding. No unsupported API switch was added.
+
+Final browser verification on 2026-11-08:
+text submission -> first scheduled audio 1912 ms, including 1413 ms business/chat.
+Oral pipeline: first PCM 452 ms, LLM first token 408 ms, LLM done 732 ms.
+First audio was scheduled before the client received the LLM completion event.
+An intervening browser run failed to fetch during cleanup; root cause was not
+established. Do not omit that failure from future reliability assessments.
+The successful 1912 ms sample EXCLUDES ASR, endpointing and physical output.
+It does not establish the user's complete voice end-to-end <= 2 s target.
+Tests: voice regression 24 passed plus the new streamed-route test; transport 6;
+stream pipeline 3; latency paths 9; browser binary and NDJSON playback/barge-in
+contracts passed. These are synthetic/contract tests, not human microphone QA.

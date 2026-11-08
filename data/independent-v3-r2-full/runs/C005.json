@@ -1,0 +1,118 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "3cd68920acfcc7e1",
+   "server.py": "6f5a455300a5d6bc",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:10:41.539315+00:00"
+ },
+ "case": "C005",
+ "attempts": [
+  {
+   "case_id": "C005",
+   "attempt": 1,
+   "verdict": "PASS",
+   "open_ms": 984,
+   "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "刚才那条取消掉吧。",
+     "reply": "已取消本次待确认内容；此前保存的记录仍保留，当前接口不能删除已有记录。您可以继续提问。",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 18,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "那系统里现在还有没有我那条？",
+     "reply": "沟通结果已登记。登记不代表材料审核通过。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 10,
+     "crash": null,
+     "calls": [
+      "get_operation_status"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "notification_completed",
+     "issues_explained": [
+      "Q01",
+      "Q02"
+     ],
+     "user_feedback": "confirmed",
+     "confirmation_turn_id": 1,
+     "unresolved": false,
+     "questions": [],
+     "session_id": "ee2yd0O-nkVWL6TtvguolNJNNrvRp7N2V4QfEjho8XM",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "80d722253c405dc6a9ee9b904789d1b4",
+     "result_revision": 1,
+     "outcome": "notification_completed",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T07:13:19.241630+00:00",
+     "updated_at": "2026-11-08T07:13:19.241630+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】records 记录数 == 1（未被删除）",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"已删除/已清除\"",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_operation_status 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

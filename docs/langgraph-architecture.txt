@@ -1,0 +1,25 @@
+LangGraph / LangChain 接入记录（2026-11-05）
+
+实际接入：src/business_graph.py 使用 LangGraph StateGraph 编排身份检查、明确确认、
+意图、业务分流、资料查询和业务回答；src/intent_graph.py 编排消息准备、分类、JSON校验和失败兜底。
+参考用户提供的条件分支教程：业务分流只返回路径标签，由条件边选择互斥节点；
+寒暄、拒绝/稍后/人工协助、无关问题、澄清、资料纠错分别执行独立节点；
+查询成功后分为回答业务问题和准备确认两条路径，查询失败则直接兜底。
+不复制教程中的岗位业务代码；继续使用项目既有的资质补正逻辑。
+消息准备节点使用 LangChain Core 的 SystemMessage、HumanMessage、AIMessage，再交给原有模型适配器。
+DeepSeek 和千问仍沿用原有后端客户端；未将密钥传到网页，也未接入 LangSmith 云追踪。
+每轮进入业务图；纯寒暄、身份不符、明确确认可以在身份或确认节点直接结束，不需要调用模型。
+查询节点通过 LangChain Core StructuredTool 调用受控模拟业务接口，查询参数由后端确定。
+身份校验、业务状态、工具权限、确认后写入、幂等与结果核对仍由原业务控制器和模拟后端强制执行。
+确认登记及结果核对逻辑位于身份或确认节点，未作为模型自主选择的工具暴露。
+没有启用LangGraph持久化checkpointer或跨会话记忆。
+已有 SQLite 仍存日志与业务结果，正在会话中的状态仍在内存。前端和语音链路不变。
+
+版本：langgraph 1.2.20，langchain 1.4.9；全部依赖固定在 requirements-voice.txt。
+两个上游项目根许可为MIT。依赖来源与安装包声明见 compliance/langchain-runtime.json，
+许可证副本见 compliance/licenses/langchain-runtime/。其中存在MPL、Apache等不同条款，
+提交或分发时应保留相应声明并检查完整依赖许可，不能只标注顶层项目许可证。
+来源：https://github.com/langchain-ai/langgraph 和 https://github.com/langchain-ai/langchain
+
+测试：.venv/Scripts/python.exe -m unittest discover -s tests -q
+版本变更后，旧自主进化评测的代码指纹失效，候选需要重新评测；正在运行的服务需重启后加载新代码。

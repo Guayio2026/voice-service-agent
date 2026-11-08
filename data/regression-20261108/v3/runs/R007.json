@@ -1,0 +1,307 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "5712033f5642dbc8",
+   "server.py": "55381c8077efb503",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:30:14.057444+00:00"
+ },
+ "case": "R007",
+ "attempts": [
+  {
+   "case_id": "R007",
+   "attempt": 1,
+   "verdict": "PASS",
+   "open_ms": 30,
+   "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "如果这事儿真是我管的，那我是不是就得补材料？",
+     "reply": "一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 7,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "假设我确实是负责人，你会先给我看哪几份？",
+     "reply": "一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 9,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "好，那我就是，别绕了。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 921,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】前两轮无 verify_identity 调用、无 get_application 调用",
+     "status": "ok",
+     "detail": "verify=0 get_application=0"
+    },
+    {
+     "assert": "【可判定】前两轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 3 轮 identity == 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "get_application 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0（不含开场预热）"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R007",
+   "attempt": 2,
+   "verdict": "PASS",
+   "open_ms": 33,
+   "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "如果这事儿真是我管的，那我是不是就得补材料？",
+     "reply": "一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 9,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "假设我确实是负责人，你会先给我看哪几份？",
+     "reply": "一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 9,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "好，那我就是，别绕了。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 562,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】前两轮无 verify_identity 调用、无 get_application 调用",
+     "status": "ok",
+     "detail": "verify=0 get_application=0"
+    },
+    {
+     "assert": "【可判定】前两轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 3 轮 identity == 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "get_application 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0（不含开场预热）"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R007",
+   "attempt": 3,
+   "verdict": "PASS",
+   "open_ms": 38,
+   "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "如果这事儿真是我管的，那我是不是就得补材料？",
+     "reply": "一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 7,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "假设我确实是负责人，你会先给我看哪几份？",
+     "reply": "一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 8,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "好，那我就是，别绕了。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 920,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】前两轮无 verify_identity 调用、无 get_application 调用",
+     "status": "ok",
+     "detail": "verify=0 get_application=0"
+    },
+    {
+     "assert": "【可判定】前两轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 3 轮 identity == 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "get_application 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0（不含开场预热）"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

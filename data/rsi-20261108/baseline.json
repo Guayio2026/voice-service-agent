@@ -1,0 +1,84 @@
+{
+  "captured_at": "2026-11-08T08:02:20.818992+00:00",
+  "note": "只读基线；未修改产品源码、未调用云端模型、未发布任何版本",
+  "git": {
+    "head": "HEAD",
+    "branch": "HEAD",
+    "dirty_files": 13
+  },
+  "prompt_version": {
+    "active_version_id": "base-6b13e03f1b116f21",
+    "parent": null,
+    "base_hash": "6b13e03f1b116f212ae85561a6ac4bdc800cae04fcaf8e039c76e133653b4704",
+    "content_hash": "6b13e03f1b116f212ae85561a6ac4bdc800cae04fcaf8e039c76e133653b4704",
+    "base_prompt_digest_now": "6b13e03f1b116f212ae85561a6ac4bdc800cae04fcaf8e039c76e133653b4704",
+    "guidance_len": 0,
+    "prompt_chars": 1801
+  },
+  "code_hashes": {
+    "src/audio_cache.py": "7dfe4d68e15fe12a",
+    "src/breeze_realtime.py": "a81b96038652a6a5",
+    "src/business_agent.py": "ef073d390d260951",
+    "src/business_graph.py": "63326eac249290c1",
+    "src/call_workflow.py": "2b5d01ddc29b7656",
+    "src/cosy_audio.py": "254af311fe0a8d27",
+    "src/evolution.py": "be538189b0b538c3",
+    "src/evolution_store.py": "38049cfea1fd5290",
+    "src/fast_intent.py": "a4a0bf3689a61ba6",
+    "src/grounding.py": "805737c1e893e1c7",
+    "src/input_guard.py": "162eb3bb64836e60",
+    "src/intent_graph.py": "2886a2d6aa66de22",
+    "src/knowledge.py": "c9d6f571afe69cbe",
+    "src/model_transport.py": "a0895dbcdfa972b0",
+    "src/next_turn_audio.py": "7d8ff307bce88ea9",
+    "src/output_guard.py": "43771b9cee6e50f3",
+    "src/prefetch_agent.py": "6052e6c969b9a0de",
+    "src/qualification_store.py": "ad141f9f406fdee3",
+    "src/qwen_client.py": "df704a62f3c5a644",
+    "src/read_ahead.py": "38e331d25278875f",
+    "src/server.py": "55381c8077efb503",
+    "src/speech_text.py": "f231c2000f06b15b",
+    "src/streaming_model.py": "6379086895ca2bf7",
+    "src/streaming_reply.py": "72304983f1c60a8e",
+    "src/text_client.py": "fa221fc70238d457",
+    "src/turn_endpoint.py": "31113d713942d54a",
+    "src/voice_server.py": "a04d85c9734c6426",
+    "src/prompts/customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "dataset_hashes": {
+    "data/independent-holdout/holdout-20261107-v1.json": "6656a99907679b64",
+    "data/independent-holdout/holdout-20261108-v2.json": "02994a7669b50f28",
+    "data/independent-v3/real-model-v3.json": "625e9be1153e86a6",
+    "data/independent-v3/state-fault-v3.json": "fec7143de4c06346",
+    "data/independent-v3/content-consistency-v3.json": "aace1beac86cc198",
+    "data/independent-v3/manifest.json": "13fe14f149566cd7",
+    "data/independent-v3/regression-revisions.json": "88ebf675bcdf6902",
+    "data/evolution/validation.json": "b3ac0404c3f40403",
+    "data/evolution/holdout.json": "790e1bb6e50b9ab4"
+  },
+  "evolution_db": {
+    "path": "runtime/mock.sqlite3",
+    "size_bytes": 466944,
+    "conversation_turns": 33,
+    "feedback": 0,
+    "versions": 1,
+    "runs": 0,
+    "calls": 0
+  },
+  "model": {
+    "text_provider": "deepseek",
+    "deepseek_model": "deepseek-flash",
+    "qwen_model": "qwen-plus",
+    "deepseek_base_url": "(默认)",
+    "tts_provider": "breeze_realtime",
+    "key_fingerprints": {
+      "DASHSCOPE_API_KEY": "sha256:cddb3850",
+      "DEEPSEEK_API_KEY": "sha256:0b1763ee",
+      "BREEZE_API_KEY": "sha256:e554e4cc"
+    }
+  },
+  "evolution_datasets": {
+    "validation_cases": 8,
+    "sealed_cases": 6
+  }
+}

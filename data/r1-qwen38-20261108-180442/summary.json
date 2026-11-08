@@ -1,0 +1,24 @@
+[
+  {
+    "model": "deepseek-r1-distill-qwen-1.5b",
+    "n": 30,
+    "success": 30,
+    "valid_schema": 0,
+    "correct": 0,
+    "p50_ms": 1648.32,
+    "p95_ms": 2838.51,
+    "truncated": 1,
+    "reasoning_nonempty": 30
+  },
+  {
+    "model": "qwen3.8-flash",
+    "n": 30,
+    "success": 30,
+    "valid_schema": 30,
+    "correct": 30,
+    "p50_ms": 589.9,
+    "p95_ms": 739.51,
+    "truncated": 0,
+    "reasoning_nonempty": 0
+  }
+]

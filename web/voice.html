@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>语音联调 · 智语外呼</title>
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="voice.css">
+</head>
+<body>
+  <header class="voice-header"><a href="index.html">智语外呼</a><nav aria-label="页面导航"><a href="workbench.html">预写演示</a><a href="mock.html">业务测试</a></nav></header>
+  <main class="voice-layout">
+    <section class="voice-settings" aria-labelledby="setup-title">
+      <h1 id="setup-title">语音联调</h1>
+      <p>用自己的音色，与 AI 客服交流。</p>
+      <p class="voice-note">云端识别、回答与合成按实际使用计费。业务资料为合成案例；当前结果仍需手动确认保存。</p>
+      <label for="voice-case">测试案例</label><select id="voice-case" disabled></select>
+      <button id="new-session" disabled>创建测试会话</button>
+      <p id="identity-state" role="status">尚未创建会话</p>
+      <div class="voice-actions"><button id="verify-yes" disabled>模拟负责人确认</button><button id="verify-no" disabled>身份不符 / 撤销</button></div>
+      <hr>
+      <label for="voice-source">音色来源</label><select id="voice-source"><option value="personal">我的音色</option><option value="default">平台音色</option></select>
+      <label for="voice-select">客服声音</label><select id="voice-select" disabled><option value="">正在读取音色</option></select>
+      <button id="refresh-voices">刷新音色列表</button>
+      <p id="voice-detail" class="voice-note">读取列表不消耗合成积分。</p>
+      <label class="voice-check"><input id="speak-replies" type="checkbox" checked>用所选音色播报回复</label>
+      <details><summary>连接与用量</summary><p id="provider-state">正在检查本地配置</p><p id="metrics">尚无调用记录</p><p class="voice-note">“已配置”不代表云端验证成功。页面不显示或保存 API 密钥。</p></details>
+    </section>
+    <section class="voice-conversation" aria-labelledby="conversation-title">
+      <div class="voice-title"><h2 id="conversation-title">客服对话</h2><span id="phase" role="status">待开始</span></div>
+      <p id="voice-error" role="alert" hidden></p>
+      <div id="conversation" role="log" aria-label="对话记录" aria-live="polite"><p class="voice-empty">先创建会话并模拟确认身份，再说出你的问题。<br>例如：我需要补充什么材料？</p></div>
+      <p id="live-transcript" role="status"></p>
+      <form id="chat-form">
+        <label for="message">你的问题</label>
+        <textarea id="message" rows="2" maxlength="1000" placeholder="也可以输入文字，先测试客服回答" disabled></textarea>
+        <div class="voice-actions"><button id="record" type="button" disabled>开始说话</button><button id="finish-record" type="button" disabled>说完了</button><button id="send" type="submit" disabled>发送</button><button id="interrupt" type="button" disabled>停止 / 打断</button></div>
+      </form>
+      <p class="voice-note">每次点击“开始说话”后实时识别；停顿约 1 秒自动发送。回复边生成音频边播放，点击“停止 / 打断”可停止本轮。建议戴耳机。</p>
+    </section>
+  </main>
+  <script type="module" src="voice.js"></script>
+</body>
+</html>

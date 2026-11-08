@@ -1,0 +1,25 @@
+百炼千问文字API | 2026-11-04
+已实现src/qwen_client.py（Python标准库），未接ASR/TTS，未接页面/业务Agent。
+默认模型qwen-plus可改；当前非流式，关闭思考，单次默认最多256输出tokens，无自动重试。
+尚无本地密钥，未进行真实云端调用；14项离线/Mock测试通过，不代表云端权限或时延已验证。
+
+配置步骤
+1. 阿里云总控制台→大模型服务平台百炼→API Key→创建API Key。
+2. 在控制台确认地域和业务空间；复制对应OpenAI兼容Base URL，不凭地域猜地址。
+   官方当前北京示例：https://{WorkspaceId}.cn-beijing.maas.aliyuncs.com/compatible-mode/v1
+   将占位符替换为你的真实业务空间ID，或直接复制控制台提供地址。
+3. 将项目.env.example复制为.env（已有文件不要覆盖），本地填写：
+   DASHSCOPE_API_KEY=你的密钥
+   DASHSCOPE_BASE_URL=控制台提供的兼容Base URL
+   QWEN_MODEL=qwen-plus
+   不要把密钥发到聊天、写入web或Git。
+4. 项目根目录运行 .venv\Scripts\python.exe src/qwen_client.py
+   只校验本地配置，不发送云端请求。
+5. 运行 .venv\Scripts\python.exe src/qwen_client.py --live
+   发出一次短文本测试，可能计费；输出回答、模型与token用量。失败不自动重试。
+
+配置加载仅用于qwen_client.py，进程环境变量优先；原Mock启动脚本仍使用进程环境。
+下一阶段：将此适配器接入受控的业务对话逻辑和工具调用，不把自由生成文本当作后台成功证据。
+本次不执行下载模型、不使用第三方SDK、不公开部署。
+官方依据：https://help.aliyun.com/zh/model-studio/first-api-call-to-qwen
+API使用需遵守百炼账号服务协议；云端API调用不等于取得模型权重许可证。

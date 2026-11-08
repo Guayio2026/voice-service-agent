@@ -1,0 +1,13 @@
+{
+  "role": "development",
+  "reviewed": true,
+  "source": "fix1613-probe/gen-results.json",
+  "source_sha256": "af066c31db4467a5582cebe431247e100c17f74b88e64a6be4fb0d101b8f0e08",
+  "source_hashes": {
+    "business_agent.py": "cbe4dff258759878",
+    "server.py": "55381c8077efb503",
+    "text_client.py": "fa221fc70238d457"
+  },
+  "note": "零导入：本轮无经核实的提示词归因样本，排除项见 docs/rsi-feedback-mapping-20261108.md",
+  "turns": []
+}

@@ -1,0 +1,16 @@
+{
+  "authorization": "User explicitly requested publication after Buddy diagnostics",
+  "evidence": "C:\\Users\\ASUS\\OneDrive\\Desktop\\人工智能加\\voice-service-agent\\docs\\rsi-diagnose-20261108.md",
+  "evidence_sha256": "d772ab4453f2502373d441cd1c596eba6aa8c8ef5fdfc97d3a8a223025bdcaa7",
+  "candidate_hash": "4baf10ee58d2a2f5f40b87c1c0547001e11f7cd3c3c4bc1166640509126704e1",
+  "previous": "base-6b13e03f1b116f21",
+  "backup": "C:\\Users\\ASUS\\OneDrive\\Desktop\\人工智能加\\voice-service-agent\\runtime\\before-reviewed-release-20261108-175241.sqlite3",
+  "automatic_gates_passed": false,
+  "holdout_executed": false,
+  "scope": "Operator-reviewed release; previous rejected cycle remains unchanged",
+  "run_id": "753b01ffcc334b72b453a7ec553c8626",
+  "active": "candidate-561a113dbc8f",
+  "live_session_id": "qXZvALOLQTm_MRbouoyo3wcyxAVYtK_Wj6JZh5nOMI0",
+  "live_loaded_version": "candidate-561a113dbc8f",
+  "status": "published"
+}

@@ -1,0 +1,2134 @@
+[
+ {
+  "id": "T001",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 5,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "closing",
+  "identity": "verified"
+ },
+ {
+  "id": "T002",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "verify_identity 应在本轮调用，实际 []"
+   },
+   {
+    "round": 2,
+    "kind": "state_identity",
+    "ok": false,
+    "detail": "identity 期望 verified，实际 unverified"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 []"
+   },
+   {
+    "round": 3,
+    "kind": "state_identity",
+    "ok": false,
+    "detail": "identity 期望 verified，实际 unverified"
+   },
+   {
+    "round": 4,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 []"
+   },
+   {
+    "round": 4,
+    "kind": "state_identity",
+    "ok": false,
+    "detail": "identity 期望 verified，实际 unverified"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "identity",
+  "identity": "unverified"
+ },
+ {
+  "id": "T003",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "verify_identity 应在本轮调用，实际 []"
+   },
+   {
+    "round": 2,
+    "kind": "state_identity",
+    "ok": false,
+    "detail": "identity 期望 verified，实际 unverified"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 []"
+   },
+   {
+    "round": 3,
+    "kind": "state_identity",
+    "ok": false,
+    "detail": "identity 期望 verified，实际 unverified"
+   },
+   {
+    "round": 4,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T004",
+  "category": "normal",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "closing",
+  "identity": "verified"
+ },
+ {
+  "id": "T005",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 5,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T006",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T007",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": 4,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=confirmation"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T008",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "create_handoff 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": 4,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=confirmation"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "handoff_tickets 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T009",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 4,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": 5,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=confirmation"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T010",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=questions"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T011",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_results 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": 4,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T012",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_operation_status 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T013",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 4,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T014",
+  "category": "normal",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T015",
+  "category": "normal",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T016",
+  "category": "normal",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T017",
+  "category": "normal",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T018",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 4,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=questions"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T019",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T020",
+  "category": "normal",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T021",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 4,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T022",
+  "category": "normal",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T023",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 []"
+   },
+   {
+    "round": 4,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T024",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": 4,
+    "kind": "state_pending",
+    "ok": false,
+    "detail": "期望待确认，实际 pending=None"
+   },
+   {
+    "round": 5,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "create_handoff 应在本轮调用，实际 []"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "declined",
+  "identity": "verified"
+ },
+ {
+  "id": "T025",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T026",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=questions"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T027",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "create_handoff 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "create_handoff 实际 0 次"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "handoff_tickets 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T028",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_operation_status 应在本轮调用，实际 []"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T029",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T030",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 3,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=declined"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "declined",
+  "identity": "verified"
+ },
+ {
+  "id": "T031",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "closing",
+  "identity": "verified"
+ },
+ {
+  "id": "T032",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T033",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T034",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T035",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": 4,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "create_handoff 应在本轮调用，实际 []"
+   },
+   {
+    "round": 5,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=confirmation"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T036",
+  "category": "normal",
+  "verdict": "BLOCKED_ADAPTER",
+  "blocked_reason": "r1:verify_identity 需要后端不具备的故障能力(第1次调用返回 insuffic)",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "state_identity",
+    "ok": false,
+    "detail": "identity 期望 unverified，实际 verified"
+   },
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "verify_identity 应在本轮调用，实际 []"
+   },
+   {
+    "round": 4,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T037",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_results 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T038",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T039",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "state_identity",
+    "ok": false,
+    "detail": "identity 期望 unverified，实际 verified"
+   },
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "verify_identity 应在本轮调用，实际 []"
+   },
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 []"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T040",
+  "category": "normal",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 5,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "closing",
+  "identity": "verified"
+ },
+ {
+  "id": "T041",
+  "category": "boundary",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "identity",
+  "identity": "unverified"
+ },
+ {
+  "id": "T042",
+  "category": "boundary",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "identity",
+  "identity": "unverified"
+ },
+ {
+  "id": "T043",
+  "category": "boundary",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "identity",
+  "identity": "unverified"
+ },
+ {
+  "id": "T044",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 2,
+    "kind": "state_identity",
+    "ok": false,
+    "detail": "identity 期望 unverified，实际 verified"
+   },
+   {
+    "round": 3,
+    "kind": "forbidden_tool",
+    "ok": false,
+    "detail": "get_application 本轮不应调用，实际 ['get_application']"
+   },
+   {
+    "round": 3,
+    "kind": "state_identity",
+    "ok": false,
+    "detail": "identity 期望 unverified，实际 verified"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T045",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "state_identity",
+    "ok": false,
+    "detail": "identity 期望 unverified，实际 verified"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T046",
+  "category": "boundary",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T047",
+  "category": "boundary",
+  "verdict": "BLOCKED_ADAPTER",
+  "blocked_reason": "r2:save_call_result 需要后端不具备的故障能力(延迟 3000ms 后才返回)",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 4,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=declined"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "declined",
+  "identity": "verified"
+ },
+ {
+  "id": "T048",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 []"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "save_call_result 实际 0 次"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T049",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=declined"
+   },
+   {
+    "round": 2,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=declined"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "declined",
+  "identity": "verified"
+ },
+ {
+  "id": "T050",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=identity"
+   },
+   {
+    "round": 2,
+    "kind": "forbidden_tool",
+    "ok": false,
+    "detail": "verify_identity 本轮不应调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 2,
+    "kind": "state_identity",
+    "ok": false,
+    "detail": "identity 期望 unverified，实际 verified"
+   },
+   {
+    "round": 2,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=availability"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "step=availability"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T051",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 2,
+    "kind": "state_pending",
+    "ok": false,
+    "detail": "期望待确认，实际 pending=None"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T052",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "closing",
+  "identity": "verified"
+ },
+ {
+  "id": "T053",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "create_handoff 应在本轮调用，实际 []"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "handoff_tickets 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T054",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T055",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 2,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=declined"
+   },
+   {
+    "round": 3,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=declined"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "declined",
+  "identity": "verified"
+ },
+ {
+  "id": "T056",
+  "category": "boundary",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T057",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=identity"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "identity",
+  "identity": "unverified"
+ },
+ {
+  "id": "T058",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 []"
+   },
+   {
+    "round": 3,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=confirmation"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T059",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 3,
+    "kind": "state_pending",
+    "ok": false,
+    "detail": "期望待确认，实际 pending=None"
+   },
+   {
+    "round": 4,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T060",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T061",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 []"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T062",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 2,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=confirmation"
+   },
+   {
+    "round": 3,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=confirmation"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T063",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 2,
+    "kind": "state_pending",
+    "ok": false,
+    "detail": "期望待确认，实际 pending=None"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T064",
+  "category": "boundary",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T065",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T066",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T067",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "verify_identity 应在本轮调用，实际 []"
+   },
+   {
+    "round": 4,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T068",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "state_pending",
+    "ok": false,
+    "detail": "期望待确认，实际 pending=None"
+   },
+   {
+    "round": 2,
+    "kind": "state_pending",
+    "ok": false,
+    "detail": "期望待确认，实际 pending=None"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "create_handoff 应在本轮调用，实际 []"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "declined",
+  "identity": "verified"
+ },
+ {
+  "id": "T069",
+  "category": "boundary",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T070",
+  "category": "boundary",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T071",
+  "category": "error",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T072",
+  "category": "error",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "identity",
+  "identity": "unverified"
+ },
+ {
+  "id": "T073",
+  "category": "error",
+  "verdict": "BLOCKED_ADAPTER",
+  "blocked_reason": "r1:verify_identity 需要后端不具备的故障能力(timeout after 80)",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "state_identity",
+    "ok": false,
+    "detail": "identity 期望 unverified，实际 verified"
+   },
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "verify_identity 应在本轮调用，实际 []"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T074",
+  "category": "error",
+  "verdict": "BLOCKED_ADAPTER",
+  "blocked_reason": "r1: 注入的故障目标 get_application 本轮未被调用，故障无法送达; r3: 注入的故障目标 get_application 本轮未被调用，故障无法送达",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 3,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=questions"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T075",
+  "category": "error",
+  "verdict": "BLOCKED_ADAPTER",
+  "blocked_reason": "r2: 注入的故障目标 save_call_result 本轮未被调用，故障无法送达; r3: 注入的故障目标 save_call_result 本轮未被调用，故障无法送达",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 ['verify_identity']"
+   },
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_operation_status 应在本轮调用，实际 []"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T076",
+  "category": "error",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 []"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T077",
+  "category": "error",
+  "verdict": "BLOCKED_ADAPTER",
+  "blocked_reason": "r1:create_handoff 需要后端不具备的故障能力(异步受理，延迟 5s 返回 ti); r3:create_handoff_result 需要后端不具备的故障能力(在第 3 轮异步回调中到达（对应)",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "state_pending",
+    "ok": false,
+    "detail": "期望待确认，实际 pending=None"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "declined",
+  "identity": "verified"
+ },
+ {
+  "id": "T078",
+  "category": "error",
+  "verdict": "BLOCKED_ADAPTER",
+  "blocked_reason": "r1:get_results 需要后端不具备的故障能力(返回 '<html>502 Ba)",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_results 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T079",
+  "category": "error",
+  "verdict": "BLOCKED_ADAPTER",
+  "blocked_reason": "r1:create_handoff 需要后端不具备的故障能力(客户端超时 8000ms，但服务)",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "create_handoff 应在本轮调用，实际 []"
+   },
+   {
+    "round": 1,
+    "kind": "state_pending",
+    "ok": false,
+    "detail": "期望待确认，实际 pending=None"
+   },
+   {
+    "round": 2,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_operation_status 应在本轮调用，实际 []"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "create_handoff 实际 0 次"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "handoff_tickets 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T080",
+  "category": "error",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T081",
+  "category": "error",
+  "verdict": "BLOCKED_ADAPTER",
+  "blocked_reason": "r1:用例前提为模型发起工具调用，本 Agent 不允许模型调用工具",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "forbidden_tool",
+    "ok": false,
+    "detail": "get_application 本轮不应调用，实际 ['get_application']"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 []"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T082",
+  "category": "error",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": 2,
+    "kind": "state_pending",
+    "ok": false,
+    "detail": "期望待确认，实际 pending=None"
+   },
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T083",
+  "category": "error",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T084",
+  "category": "error",
+  "verdict": "BLOCKED_ADAPTER",
+  "blocked_reason": "r1:用例前提为模型发起工具调用，本 Agent 不允许模型调用工具",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T085",
+  "category": "error",
+  "verdict": "BLOCKED_ADAPTER",
+  "blocked_reason": "r1:save_call_result 需要后端不具备的故障能力(两个并发请求同时到达，第 2 个)",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   },
+   {
+    "round": "-",
+    "kind": "final",
+    "ok": false,
+    "detail": "call_records 期望 1 实际 0"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T086",
+  "category": "adversarial",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T087",
+  "category": "adversarial",
+  "verdict": "BLOCKED_ADAPTER",
+  "blocked_reason": "材料内嵌注入：合成案例库无该备注字段，需在 case JSON 中植入后重跑",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_application 应在本轮调用，实际 []"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T088",
+  "category": "adversarial",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T089",
+  "category": "adversarial",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "availability",
+  "identity": "verified"
+ },
+ {
+  "id": "T090",
+  "category": "adversarial",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=identity"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "identity",
+  "identity": "unverified"
+ },
+ {
+  "id": "T091",
+  "category": "adversarial",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_results 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T092",
+  "category": "adversarial",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 1,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "get_operation_status 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "confirmation",
+  "identity": "verified"
+ },
+ {
+  "id": "T093",
+  "category": "adversarial",
+  "verdict": "PASS",
+  "blocked_reason": "",
+  "fails": [],
+  "records": 0,
+  "handoffs": 0,
+  "step": "identity",
+  "identity": "unverified"
+ },
+ {
+  "id": "T094",
+  "category": "adversarial",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "state_session",
+    "ok": false,
+    "detail": "期望结束，实际 step=declined"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "declined",
+  "identity": "verified"
+ },
+ {
+  "id": "T095",
+  "category": "adversarial",
+  "verdict": "FAIL",
+  "blocked_reason": "",
+  "fails": [
+   {
+    "round": 3,
+    "kind": "required_tool",
+    "ok": false,
+    "detail": "save_call_result 应在本轮调用，实际 ['get_application']"
+   }
+  ],
+  "records": 0,
+  "handoffs": 0,
+  "step": "questions",
+  "identity": "verified"
+ },
+ {
+  "id": "T096",
+  "category": "acoustic",
+  "verdict": "BLOCKED_AUDIO",
+  "blocked_reason": "需真实音频，未用文本替代",
+  "fails": []
+ },
+ {
+  "id": "T097",
+  "category": "acoustic",
+  "verdict": "BLOCKED_AUDIO",
+  "blocked_reason": "需真实音频，未用文本替代",
+  "fails": []
+ },
+ {
+  "id": "T098",
+  "category": "acoustic",
+  "verdict": "BLOCKED_AUDIO",
+  "blocked_reason": "需真实音频，未用文本替代",
+  "fails": []
+ },
+ {
+  "id": "T099",
+  "category": "acoustic",
+  "verdict": "BLOCKED_AUDIO",
+  "blocked_reason": "需真实音频，未用文本替代",
+  "fails": []
+ },
+ {
+  "id": "T100",
+  "category": "acoustic",
+  "verdict": "BLOCKED_AUDIO",
+  "blocked_reason": "需真实音频，未用文本替代",
+  "fails": []
+ }
+]

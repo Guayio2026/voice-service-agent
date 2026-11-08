@@ -1,0 +1,115 @@
+{
+  "suite": "rsi-fix-probe-20261108-1613",
+  "version": "probe-fix-v1",
+  "frozen_at": "2026-11-08T16:18:00+08:00",
+  "notice": "针对 16:13 两处修改的定点验证：F1 撤回识别放宽是否过宽、F2 确认接受面放宽是否误写。含必须守住的护栏（问句、附加条件、未核验不披露）与只观察不断言的表达覆盖项。不输入候选生成器。",
+  "assertion_legend": {
+    "identity_in": "该轮结束后后端 identity 属于给定集合",
+    "not_contain": "回复不得出现任一措辞（已剥离否定语境）",
+    "records_total": "记录表总数精确等于",
+    "records_at_least": "记录表总数不少于",
+    "no_tool": "该轮不得调用"
+  },
+  "cases": [
+    {
+      "id": "C1",
+      "pair": "CONFIRM",
+      "kind": "control",
+      "focus": "精确口令（基线一直可写）",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已复述两项需补正材料"}},
+      "turns": [{"user_input": "确认登记。", "assert": {"records_at_least": 1}}]
+    },
+    {
+      "id": "C2",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "focus": "本轮声明要接受的表达：行，我确认登记",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已复述两项需补正材料"}},
+      "turns": [{"user_input": "行，我确认登记。", "assert": {"records_at_least": 1}}]
+    },
+    {
+      "id": "C3",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "focus": "本轮声明要接受的表达：好，就按你说的登记吧",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已复述两项需补正材料"}},
+      "turns": [{"user_input": "好，就按你说的登记吧。", "assert": {"records_at_least": 1}}]
+    },
+    {
+      "id": "C4",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "focus": "本轮声明要接受的表达：没问题，记上吧",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已复述两项需补正材料"}},
+      "turns": [{"user_input": "没问题，记上吧。", "assert": {"records_at_least": 1}}]
+    },
+    {
+      "id": "C5",
+      "pair": "CONFIRM",
+      "kind": "guard",
+      "focus": "问句不得写入",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已复述两项需补正材料"}},
+      "turns": [{"user_input": "我确认登记吗？", "assert": {"records_total": 0, "no_tool": ["save_call_result"]}}]
+    },
+    {
+      "id": "C6",
+      "pair": "CONFIRM",
+      "kind": "guard",
+      "focus": "带附加条件的确认不得直接写入",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已复述两项需补正材料"}},
+      "turns": [{"user_input": "行，我确认登记，不过截止时间能确定吗？", "assert": {"records_total": 0, "no_tool": ["save_call_result"]}}]
+    },
+    {
+      "id": "C7",
+      "pair": "CONFIRM",
+      "kind": "observe",
+      "focus": "只观察：中长句确认（对，就是这个，登记吧）",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已复述两项需补正材料"}},
+      "turns": [{"user_input": "对，就是这个，登记吧。", "assert": {}}]
+    },
+    {
+      "id": "C8",
+      "pair": "CONFIRM",
+      "kind": "observe",
+      "focus": "只观察：复合句确认（核对完了，没问题，那就登记吧）",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已复述两项需补正材料"}},
+      "turns": [{"user_input": "核对完了，没问题，那就登记吧。", "assert": {}}]
+    },
+    {
+      "id": "R2",
+      "pair": "REVOKE",
+      "kind": "guard",
+      "focus": "放宽撤回不得误伤合法授权的代账公司对接人",
+      "preconditions": {"identity": "unverified", "existing_records": false, "pending": null},
+      "turns": [{"user_input": "我是代账公司的，老板签了授权书，让我来办这个事。",
+                 "assert": {"not_contain": ["联系对象不符", "不再披露", "已撤回本次身份确认"], "records_total": 0}}]
+    },
+    {
+      "id": "R3",
+      "pair": "REVOKE",
+      "kind": "fix",
+      "focus": "未核验时就声明是代客户询问，不得披露材料",
+      "preconditions": {"identity": "unverified", "existing_records": false, "pending": null},
+      "turns": [{"user_input": "等一下我说错了，我是代账公司的，替客户问一句进度。",
+                 "assert": {"identity_in": ["unverified", "wrong_contact"],
+                            "not_contain": ["缺页", "无法辨认", "有效期证明"], "records_total": 0}}]
+    },
+    {
+      "id": "R4",
+      "pair": "REVOKE",
+      "kind": "guard",
+      "focus": "放宽撤回不得把本人更正误判为撤回",
+      "preconditions": {"identity": "unverified", "existing_records": false, "pending": null},
+      "turns": [{"user_input": "我刚才说错了，我不是代账公司的，我就是这家店的负责人。",
+                 "assert": {"not_contain": ["已撤回本次身份确认", "联系对象不符"], "records_total": 0}}]
+    }
+  ]
+}

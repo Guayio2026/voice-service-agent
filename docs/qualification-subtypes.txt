@@ -1,0 +1,112 @@
+四类资质问题分类：100项（项目合成分类，非官方完整驳回规则）
+每类25项；当前四个演示申请各含2个问题，其余类型用于知识检索和后续案例配置。
+每条含分类编码、审核关注点、建议追问、示例原因、整改动作、依据和处理类型。
+检索命中不等于申请存在问题。需要核实的疑点必须保留核实状态。
+
+trademark
+trademark.missing | 证明缺失或不清晰 | supplement_or_clarify
+trademark.validity | 有效期问题 | supplement_or_clarify
+trademark.holder | 持有人不一致 | supplement_or_clarify
+trademark.brand | 商标信息不一致 | supplement_or_clarify
+trademark.category | 类别不匹配 | supplement_or_clarify
+trademark.certificate_page | 证书正文缺失 | supplement_or_clarify
+trademark.attachment_page | 附页缺失 | supplement_or_clarify
+trademark.number_blurred | 注册号不清晰 | supplement_or_clarify
+trademark.owner_blurred | 持有人名称不清晰 | supplement_or_clarify
+trademark.date_blurred | 日期不清晰 | supplement_or_clarify
+trademark.cropped | 证书边缘裁切 | supplement_or_clarify
+trademark.number_mismatch | 注册号不一致 | supplement_or_clarify
+trademark.name_mismatch | 品牌文字不一致 | supplement_or_clarify
+trademark.graphic_mismatch | 图形标识不一致 | supplement_or_clarify
+trademark.owner_change | 持有人变更证明缺失 | supplement_or_clarify
+trademark.transfer_pending | 转让办理状态待核实 | manual_verification
+trademark.renewal_pending | 续展状态待核实 | manual_verification
+trademark.renewal_attachment | 续展证明缺失 | supplement_or_clarify
+trademark.cancellation_status | 注销状态待核实 | manual_verification
+trademark.revocation_status | 撤销状态待核实 | manual_verification
+trademark.application_vs_registration | 申请受理与注册证明混淆 | manual_verification
+trademark.class_detail | 具体商品范围待核实 | manual_verification
+trademark.multiple_marks | 多个商标对应不明确 | manual_verification
+trademark.translation | 外文信息对应待核实 | manual_verification
+trademark.conflicting_versions | 不同版本证书信息冲突 | manual_verification
+
+authorization
+authorization.chain | 授权链缺环 | supplement_or_clarify
+authorization.validity | 授权有效期问题 | supplement_or_clarify
+authorization.entity | 授权主体不对应 | supplement_or_clarify
+authorization.brand | 授权品牌不一致 | supplement_or_clarify
+authorization.scope | 授权范围不覆盖 | supplement_or_clarify
+authorization.page_missing | 授权书正文缺失 | supplement_or_clarify
+authorization.signature_page | 签署页缺失 | supplement_or_clarify
+authorization.seal_unclear | 印章无法辨认 | supplement_or_clarify
+authorization.signer_authority | 签署人权限待核实 | manual_verification
+authorization.unsigned | 签署情况待核实 | manual_verification
+authorization.start_date | 授权尚未生效 | supplement_or_clarify
+authorization.end_date_missing | 授权期限未明确 | supplement_or_clarify
+authorization.date_conflict | 各层授权期限不衔接 | supplement_or_clarify
+authorization.grantor_mismatch | 首层授权方与持有人不一致 | supplement_or_clarify
+authorization.grantee_mismatch | 末层被授权方与开店公司不一致 | supplement_or_clarify
+authorization.middle_entity_change | 中间主体更名关系不明 | manual_verification
+authorization.subdelegation | 转授权权限未明确 | supplement_or_clarify
+authorization.territory | 地域范围待核实 | manual_verification
+authorization.platform | 平台范围待核实 | manual_verification
+authorization.store_type | 店型授权适用性待核实 | manual_verification
+authorization.exclusive | 独占性表述待核实 | manual_verification
+authorization.product_scope | 商品范围未明确 | supplement_or_clarify
+authorization.multiple_brands | 多品牌授权对应不明 | manual_verification
+authorization.revoked | 授权撤回情况待核实 | manual_verification
+authorization.conflicting_documents | 多份授权内容冲突 | manual_verification
+
+purchase
+purchase.missing | 采购凭证缺失 | supplement_or_clarify
+purchase.entity | 交易主体不对应 | supplement_or_clarify
+purchase.transaction | 交易时间或金额疑点 | manual_verification
+purchase.chain | 采购链路不明确 | manual_verification
+purchase.clarity | 凭证不清晰 | supplement_or_clarify
+purchase.invoice_missing | 购货发票缺失 | supplement_or_clarify
+purchase.statement_missing | 付款凭证缺失 | supplement_or_clarify
+purchase.invoice_number | 发票号码无法辨认 | supplement_or_clarify
+purchase.invoice_status | 发票查验状态待核实 | manual_verification
+purchase.red_invoice | 红冲关系待核实 | manual_verification
+purchase.void_invoice | 作废状态待核实 | manual_verification
+purchase.buyer | 购方与采购主体不一致 | supplement_or_clarify
+purchase.seller | 销方与供货方不一致 | supplement_or_clarify
+purchase.payer | 付款方与购方不一致 | supplement_or_clarify
+purchase.payee | 收款方与销方不一致 | supplement_or_clarify
+purchase.split_payment | 分笔付款对应不明确 | manual_verification
+purchase.combined_payment | 合并付款对应不明确 | manual_verification
+purchase.prepayment | 预付款与尾款对应待核实 | manual_verification
+purchase.refund | 退款记录影响待核实 | manual_verification
+purchase.currency | 币种或汇率对应不明确 | manual_verification
+purchase.product_name | 商品名称无法对应 | manual_verification
+purchase.quantity | 采购数量对应不明 | manual_verification
+purchase.duplicate | 重复凭证待核实 | manual_verification
+purchase.supplier_chain | 供应商与授权链关系不明 | manual_verification
+purchase.sensitive_fields | 敏感字段处理后无法核实 | supplement_or_clarify
+
+industry
+industry.missing | 所需资质缺失 | supplement_or_clarify
+industry.validity | 资质有效期问题 | supplement_or_clarify
+industry.entity | 资质主体不一致 | supplement_or_clarify
+industry.scope | 经营范围不匹配 | supplement_or_clarify
+industry.permit_record | 许可备案类型待核实 | manual_verification
+industry.food_prepacked | 仅预包装食品经营情形待核实 | manual_verification
+industry.food_mixed | 混合食品经营范围待核实 | manual_verification
+industry.food_producer | 生产与经营主体关系待核实 | manual_verification
+industry.agricultural | 食用农产品范围待核实 | manual_verification
+industry.food_special | 特殊食品资质适用性待核实 | manual_verification
+industry.device_class | 医疗器械分类待核实 | manual_verification
+industry.device_business | 器械经营资质类型待核实 | manual_verification
+industry.device_product | 产品注册备案与经营资质混淆 | manual_verification
+industry.device_model | 器械型号与证载范围不对应 | supplement_or_clarify
+industry.device_holder | 器械注册人与供货主体关系不明 | manual_verification
+industry.license_page | 资质证照附页缺失 | supplement_or_clarify
+industry.license_number | 许可证号无法辨认 | supplement_or_clarify
+industry.business_address | 经营地址对应待核实 | manual_verification
+industry.branch_entity | 分支机构与持证主体关系不明 | manual_verification
+industry.scope_change | 经营项目变更待核实 | manual_verification
+industry.renewal_processing | 换证办理状态待核实 | manual_verification
+industry.suspension | 暂停或注销状态待核实 | manual_verification
+industry.regional_scope | 地域适用范围待核实 | manual_verification
+industry.cross_category | 跨类目资质覆盖不明 | manual_verification
+industry.policy_version | 审核要求版本待核实 | manual_verification

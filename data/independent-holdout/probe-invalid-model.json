@@ -1,0 +1,29 @@
+[
+ {
+  "text": "我这边就是管这事的，你把情况说一下。",
+  "invalid": "{kind: yes,,}",
+  "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+  "calls": [],
+  "identity": "unverified",
+  "step": "identity",
+  "records": 0
+ },
+ {
+  "text": "我这边就是管这事的，你把情况说一下。",
+  "invalid": "{\"kind\": \"yes\", \"extra\": 1}",
+  "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+  "calls": [],
+  "identity": "unverified",
+  "step": "identity",
+  "records": 0
+ },
+ {
+  "text": "我这边就是管这事的，你把情况说一下。",
+  "invalid": null,
+  "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+  "calls": [],
+  "identity": "unverified",
+  "step": "identity",
+  "records": 0
+ }
+]

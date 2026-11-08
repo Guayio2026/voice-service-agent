@@ -1,0 +1,72 @@
+[
+  {
+    "id": "ambiguous_model_yes",
+    "input": "不确定是不是负责人",
+    "injected_model_kind": "yes",
+    "expected": "unverified",
+    "actual": "unverified",
+    "status": "passed",
+    "first_reply": {
+      "identity": "unverified",
+      "step": "identity",
+      "text": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    },
+    "last_reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+  },
+  {
+    "id": "reported_model_yes",
+    "input": "他说他是该商家的负责人",
+    "injected_model_kind": "yes",
+    "expected": "unverified",
+    "actual": "unverified",
+    "status": "passed",
+    "first_reply": {
+      "identity": "unverified",
+      "step": "identity",
+      "text": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    },
+    "last_reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+  },
+  {
+    "id": "contradiction_model_yes",
+    "input": "是的但我不是负责人",
+    "injected_model_kind": "yes",
+    "expected": "unverified",
+    "actual": "unverified",
+    "status": "passed",
+    "first_reply": {
+      "identity": "unverified",
+      "step": "identity",
+      "text": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    },
+    "last_reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+  },
+  {
+    "id": "model_decline",
+    "input": "我不想继续讨论这件事",
+    "injected_model_kind": "decline",
+    "expected": "closing",
+    "actual": "closing",
+    "status": "passed",
+    "first_reply": {
+      "identity": "unverified",
+      "step": "closing",
+      "text": "好的，那就先不打扰了。本次没有新增业务登记。"
+    },
+    "last_reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+  },
+  {
+    "id": "closing_followup",
+    "input": "再见",
+    "injected_model_kind": "unclear",
+    "expected": "closing",
+    "actual": "closing",
+    "status": "passed",
+    "first_reply": {
+      "identity": "unverified",
+      "step": "closing",
+      "text": "好的，那就先不打扰了。本次没有新增业务登记。"
+    },
+    "last_reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+  }
+]

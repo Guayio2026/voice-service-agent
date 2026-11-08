@@ -1,0 +1,11 @@
+Smart Turn v3.2 CPU ONNX model
+Source: https://huggingface.co/pipecat-ai/smart-turn-v3/tree/f766f81
+File: smart-turn-v3.2-cpu.onnx
+SHA256: 2bb026316b14a660486a75b1733cd3fbab8c2fd0314dc9af7be49f8cca967e4f
+Declared model license: BSD-2-Clause
+Reference implementation: https://github.com/pipecat-ai/smart-turn/blob/main/inference.py
+Local weights: runtime/models/smart-turn-v3.2-cpu.onnx (not committed)
+Install dependencies: uv pip install --python .venv/Scripts/python.exe -r requirements-endpoint.txt
+Download pinned weights from https://huggingface.co/pipecat-ai/smart-turn-v3/resolve/f766f81/smart-turn-v3.2-cpu.onnx
+Missing/unloadable weights disable semantic endpointing; lexical endpointing stays active.
+No arbitrary model code or remote-code loading is used.

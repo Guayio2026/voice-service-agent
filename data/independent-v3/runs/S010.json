@@ -1,0 +1,149 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "7cbe13d10c0daec2",
+   "server.py": "8488a8c08b82aa1b",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "27c343100cdad86a",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T06:51:39.647506+00:00"
+ },
+ "case": "S010",
+ "attempts": [
+  {
+   "case_id": "S010",
+   "attempt": 1,
+   "verdict": "PASS",
+   "open_ms": 1077,
+   "usage": {
+    "prompt_tokens": 1091,
+    "completion_tokens": 21,
+    "total_tokens": 1112
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 37,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "确认登记。确认登记。",
+     "reply": "沟通结果已登记，无需重复确认。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 7,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "我说了三遍了，你记上没？",
+     "reply": "将建立模拟人工协助工单，不会接通真人。如同意登记，请明确回复“确认登记”；也可结束而不登记。",
+     "usage": {
+      "prompt_tokens": 1091,
+      "completion_tokens": 21,
+      "total_tokens": 1112
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 799,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "notification_completed",
+     "issues_explained": [
+      "Q01",
+      "Q02"
+     ],
+     "user_feedback": "confirmed",
+     "confirmation_turn_id": 2,
+     "unresolved": false,
+     "questions": [],
+     "session_id": "D7s7Vv3QSj4RwupLxQczaEAJaDKQ37JU6oS7NZFq-Gs",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "0c505406649bfd1d059f86e91b22d577",
+     "result_revision": 1,
+     "outcome": "notification_completed",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T06:54:12.046589+00:00",
+     "updated_at": "2026-11-08T06:54:12.046589+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "assert": "【可判定】save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 2、3 轮回复不含\"两条/第二次\"类表述",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 3,
+     "assert": "save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

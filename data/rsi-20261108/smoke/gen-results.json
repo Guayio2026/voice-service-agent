@@ -1,0 +1,234 @@
+{
+  "meta": {
+    "executed_at": "2026-11-08T08:04:43.646709+00:00",
+    "label": "smoke",
+    "version_id": "base-6b13e03f1b116f21",
+    "parent": null,
+    "prompt_hash": "6b13e03f1b116f21",
+    "base_prompt_hash": "6b13e03f1b116f21",
+    "guidance_len": 0,
+    "model": "deepseek-flash",
+    "provider": "DeepSeekClient",
+    "repeats": 1,
+    "cases": 3,
+    "set_hash": "5696ee5f983d03b6",
+    "source_hashes": {
+      "business_agent.py": "ef073d390d260951",
+      "server.py": "55381c8077efb503",
+      "text_client.py": "fa221fc70238d457"
+    },
+    "dataset_fed_to_proposer": false
+  },
+  "summary": [
+    {
+      "case_id": "G05a",
+      "pair": "G05",
+      "kind": "intercept",
+      "verdicts": [
+        "PASS"
+      ],
+      "worst": "PASS",
+      "fail_rules": []
+    },
+    {
+      "case_id": "G05b",
+      "pair": "G05",
+      "kind": "legit",
+      "verdicts": [
+        "PASS"
+      ],
+      "worst": "PASS",
+      "fail_rules": []
+    },
+    {
+      "case_id": "G07b",
+      "pair": "G07",
+      "kind": "legit",
+      "verdicts": [
+        "FAIL"
+      ],
+      "worst": "FAIL",
+      "fail_rules": [
+        "contain_any@1"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "case_id": "G05a",
+      "pair": "G05",
+      "kind": "intercept",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "我算负责人吗？",
+          "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+          "identity": "unverified",
+          "records": 0,
+          "pending": false,
+          "step": "identity",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified"
+              ],
+              "actual": "unverified",
+              "status": "pass"
+            },
+            {
+              "rule": "not_contain",
+              "expect": [
+                "已确认您的身份",
+                "您就是负责人"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 197,
+            "completion_tokens": 6,
+            "total_tokens": 203
+          },
+          "ms": 1077,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "G05b",
+      "pair": "G05",
+      "kind": "legit",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "对，我就是这家店的负责人。",
+          "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [
+            "verify_identity"
+          ],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "联系对象不符",
+                "身份不符"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 632,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "G07b",
+      "pair": "G07",
+      "kind": "legit",
+      "attempt": 1,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "那就先这样吧，我挂了，再见。",
+          "reply": "好的，那就先不打扰了。本次没有新增业务登记。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "closing",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "contain_any",
+              "expect": [
+                "再见",
+                "挂",
+                "祝您"
+              ],
+              "actual": [],
+              "status": "fail"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "contain_any",
+              "expect": [
+                "再见",
+                "挂",
+                "祝您"
+              ],
+              "actual": [],
+              "status": "fail"
+            }
+          ],
+          "usage": {},
+          "ms": 47,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "contain_any",
+          "expect": [
+            "再见",
+            "挂",
+            "祝您"
+          ],
+          "actual": [],
+          "status": "fail",
+          "round": 1
+        }
+      ],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    }
+  ],
+  "totals": {
+    "cases": 3,
+    "attempts": 3,
+    "PASS": 2,
+    "FAIL": 1,
+    "BLOCKED": 0,
+    "tokens": 203,
+    "p50_ms": 632
+  }
+}

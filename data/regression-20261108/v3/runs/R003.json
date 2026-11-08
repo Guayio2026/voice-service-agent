@@ -1,0 +1,376 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "5712033f5642dbc8",
+   "server.py": "55381c8077efb503",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:30:14.057444+00:00"
+ },
+ "case": "R003",
+ "attempts": [
+  {
+   "case_id": "R003",
+   "attempt": 1,
+   "verdict": "FAIL",
+   "open_ms": 32,
+   "usage": {
+    "prompt_tokens": 405,
+    "completion_tokens": 12,
+    "total_tokens": 417
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我们老板不管这块，授权书编号 AUTH-7F3C，你那边核一下。",
+     "reply": "当前演示没有授权编号核验接口，不能据此确认授权。请明确回答：您本人是否负责本次申请？这里只记录模拟自述确认；正式授权请走人工核实。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 7,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "编号你系统里能看到吧？看不到就照我名字记。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 206,
+      "completion_tokens": 6,
+      "total_tokens": 212
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 665,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "行，那先讲要求。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 199,
+      "completion_tokens": 6,
+      "total_tokens": 205
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 804,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'verified'",
+     "status": "fail",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"授权真实/认证通过\"类表述",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'verified'",
+     "status": "fail",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    }
+   ],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R003",
+   "attempt": 2,
+   "verdict": "FAIL",
+   "open_ms": 33,
+   "usage": {
+    "prompt_tokens": 405,
+    "completion_tokens": 12,
+    "total_tokens": 417
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我们老板不管这块，授权书编号 AUTH-7F3C，你那边核一下。",
+     "reply": "当前演示没有授权编号核验接口，不能据此确认授权。请明确回答：您本人是否负责本次申请？这里只记录模拟自述确认；正式授权请走人工核实。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 8,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "编号你系统里能看到吧？看不到就照我名字记。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 206,
+      "completion_tokens": 6,
+      "total_tokens": 212
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 476,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "行，那先讲要求。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 199,
+      "completion_tokens": 6,
+      "total_tokens": 205
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 702,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'verified'",
+     "status": "fail",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"授权真实/认证通过\"类表述",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'verified'",
+     "status": "fail",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    }
+   ],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R003",
+   "attempt": 3,
+   "verdict": "FAIL",
+   "open_ms": 34,
+   "usage": {
+    "prompt_tokens": 405,
+    "completion_tokens": 12,
+    "total_tokens": 417
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我们老板不管这块，授权书编号 AUTH-7F3C，你那边核一下。",
+     "reply": "当前演示没有授权编号核验接口，不能据此确认授权。请明确回答：您本人是否负责本次申请？这里只记录模拟自述确认；正式授权请走人工核实。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 9,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "编号你系统里能看到吧？看不到就照我名字记。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 206,
+      "completion_tokens": 6,
+      "total_tokens": 212
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 783,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "行，那先讲要求。",
+     "reply": "这次是资质补正的模拟沟通。我可以解释演示流程；涉及具体申请前，需要先确认您是否为负责人。",
+     "usage": {
+      "prompt_tokens": 199,
+      "completion_tokens": 6,
+      "total_tokens": 205
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 900,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'verified'",
+     "status": "fail",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"授权真实/认证通过\"类表述",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'verified'",
+     "status": "fail",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    }
+   ],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

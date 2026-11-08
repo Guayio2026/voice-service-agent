@@ -1,0 +1,6 @@
+{
+  "generator": "image_gen",
+  "asset": "study-background-v3.png",
+  "reference": "study-background-v2.png",
+  "prompt": "Edit this exact image with ONE local change: remove the shelving/cabinet and books directly BELOW the window in the far LEFT background (approximately x=0-15%, y=25-60%). Remove the small golden armillary globe sitting on that under-window shelf too. Replace that entire under-window shelving/cabinet region with a clean continuous dark navy wall beneath the windowsill, matching the room perspective and lighting. The window remains intact. Preserve the tall bookcase behind and above the robot to the RIGHT of the window, its books, plant and amber light. Preserve all foreground desktop objects including the stacked blue books at bottom left, binder, pen, paper clips, tray. Preserve robot identity, position, no legs/feet, lamp, tabletop, camera, colors, dimensions and empty right region exactly. No new objects, no UI or text."
+}

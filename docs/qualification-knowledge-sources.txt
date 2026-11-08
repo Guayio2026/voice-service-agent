@@ -1,0 +1,34 @@
+四类资质知识来源调查（2026-11-07）
+
+已接入：data/knowledge.json 中四类场景解释，用于识别材料、原因、整改等问题。
+公开资料清单：data/qualification_references.json，含来源、范围、核实日期和启用状态。
+已核实的公开参考仅辅助意图理解；本次申请的驳回原因和整改动作仍来自授权业务记录。
+
+1. 商标注册证
+赛题视频：状态、类别、有效期、持有人，以及跨材料一致性。
+国家知识产权局入口 https://sbj.cnipa.gov.cn/sbj/sbcx/
+本次抓取返回403，未将未读取内容写成规则。
+
+2. 品牌授权书
+赛题视频：商标持有人到开店公司的完整授权链。
+京东品牌管理入口 https://helpcenter.jd.com/vender/issue/1000-44662
+京东授权模板入口 https://helpcenter.jd.com/vender/issue/926-3561.html
+本次仅获取Loading壳页；正文待核实，没有导入模板要求。
+https://help.jd.com/user/issue/32-4534.html 是京东自有品牌的对外授权管理，已排除。
+
+3. 购货发票／银行流水
+赛题视频：采购链路、交易时间和主体对应。
+税务总局官方发票查验入口 https://inv-veri.chinatax.gov.cn/
+仅收录入口用途，没有执行真实查验；不能据此判断流水真实性或京东审核通过。
+
+4. 行业资质
+市场监管总局《食品经营许可和备案管理办法》
+https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2023/art_91a91c26ae464a2f898952d5b84f62c6.html
+已核实区分许可、仅销售预包装食品备案及例外，不把所有食品经营都写成必须许可。
+国家药监局医疗器械许可备案信息入口
+https://www.nmpa.gov.cn/zwfw/zwfwzxfw/zxfwsjxz/zxfwsjxzylqxbaxx/index.html
+仅作核验入口；没有取得具体商家的查询结果。
+
+GitHub 检索：京东 资质；“京东”“知识库”。返回商城项目、商品知识图谱和客服工具等。
+本次未确认可直接使用的、完整且权威的京东入驻资质审核语料库；没有导入这些仓库内容。
+官方公开页面不等于平台内部审核知识库，仍需后续取得适用类目、店型与现行规则版本。

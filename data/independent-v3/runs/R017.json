@@ -1,0 +1,358 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "7cbe13d10c0daec2",
+   "server.py": "8488a8c08b82aa1b",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "27c343100cdad86a",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T06:51:39.647506+00:00"
+ },
+ "case": "R017",
+ "attempts": [
+  {
+   "case_id": "R017",
+   "attempt": 1,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 25,
+   "usage": {
+    "prompt_tokens": 1311,
+    "completion_tokens": 29,
+    "total_tokens": 1340
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "缺的是哪两项？",
+     "reply": "这次是资质补正的模拟沟通。我可以解释演示流程；涉及具体申请前，需要先确认您是否为负责人。",
+     "usage": {
+      "prompt_tokens": 197,
+      "completion_tokens": 6,
+      "total_tokens": 203
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 657,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "我是负责人。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 17,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "那刚才说的那两项，第二项具体要什么？",
+     "reply": "资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1114,
+      "completion_tokens": 23,
+      "total_tokens": 1137
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 966,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮无 get_application 调用",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 3 轮回复引用的缺项数量 <= 2",
+     "status": "ok",
+     "detail": "提到 0 项"
+    },
+    {
+     "turn": 1,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    },
+    {
+     "turn": 2,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 3,
+     "assert": "第 3 轮回复引用的缺项数量 <= 2",
+     "status": "ok",
+     "detail": "提到 0 项"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R017",
+   "attempt": 2,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 24,
+   "usage": {
+    "prompt_tokens": 1311,
+    "completion_tokens": 29,
+    "total_tokens": 1340
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "缺的是哪两项？",
+     "reply": "这次是资质补正的模拟沟通。我可以解释演示流程；涉及具体申请前，需要先确认您是否为负责人。",
+     "usage": {
+      "prompt_tokens": 197,
+      "completion_tokens": 6,
+      "total_tokens": 203
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 475,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "我是负责人。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 16,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "那刚才说的那两项，第二项具体要什么？",
+     "reply": "资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1114,
+      "completion_tokens": 23,
+      "total_tokens": 1137
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 782,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮无 get_application 调用",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 3 轮回复引用的缺项数量 <= 2",
+     "status": "ok",
+     "detail": "提到 0 项"
+    },
+    {
+     "turn": 1,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    },
+    {
+     "turn": 2,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 3,
+     "assert": "第 3 轮回复引用的缺项数量 <= 2",
+     "status": "ok",
+     "detail": "提到 0 项"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R017",
+   "attempt": 3,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 24,
+   "usage": {
+    "prompt_tokens": 1311,
+    "completion_tokens": 29,
+    "total_tokens": 1340
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "缺的是哪两项？",
+     "reply": "这次是资质补正的模拟沟通。我可以解释演示流程；涉及具体申请前，需要先确认您是否为负责人。",
+     "usage": {
+      "prompt_tokens": 197,
+      "completion_tokens": 6,
+      "total_tokens": 203
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 751,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "我是负责人。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 16,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "那刚才说的那两项，第二项具体要什么？",
+     "reply": "资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1114,
+      "completion_tokens": 23,
+      "total_tokens": 1137
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 721,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮无 get_application 调用",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 3 轮回复引用的缺项数量 <= 2",
+     "status": "ok",
+     "detail": "提到 0 项"
+    },
+    {
+     "turn": 1,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    },
+    {
+     "turn": 2,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 3,
+     "assert": "第 3 轮回复引用的缺项数量 <= 2",
+     "status": "ok",
+     "detail": "提到 0 项"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    }
+   ],
+   "crash": null
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+  "role": "validation", "reviewed": true,
+  "notice": "项目合成多轮验证，期望遵循既有业务契约；不输入候选生成器，不称为外部独立盲测。",
+  "cases": [
+    {"id":"V-combined","family":"fees_deadline_combination","identity":"verified","turns":[
+      {"text":"材料怎么补我想先了解清楚。","expect":{"identity":"verified","records":0}},
+      {"text":"另外办理要付多少费用，最迟哪天交呢？","expect":{"identity":"verified","records":0,"decision":{"intent":"question","topics":["fees","deadline"],"issue_numbers":[]}}}
+    ]},
+    {"id":"V-scope","family":"off_topic_then_business","identity":"verified","turns":[
+      {"text":"顺便说说土星的光环是怎么回事。","expect":{"identity":"verified","records":0,"decision":{"intent":"off_topic","topics":[],"issue_numbers":[]}}},
+      {"text":"回到申请这边，补好之后就保证能通过审核吗？","expect":{"identity":"verified","records":0,"decision":{"intent":"question","topics":["guarantee"],"issue_numbers":[]}}}
+    ]},
+    {"id":"V-refusal","family":"explicit_end_then_late_confirm","identity":"verified","turns":[
+      {"text":"结束通话。","expect":{"identity":"verified","records":0,"step":"closing"}},
+      {"text":"确认登记！","expect":{"identity":"verified","records":0,"step":"closing","forbid_tools":["save_call_result","create_handoff"]}}
+    ]}
+  ]
+}

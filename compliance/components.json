@@ -1,0 +1,188 @@
+{
+  "checked_on": "2026-11-04",
+  "runtime_dependencies": [
+    {
+      "name": "aiohappyeyeballs",
+      "version": "2.7.1",
+      "license": "PSF-2.0",
+      "status": "installed_voice_runtime",
+      "license_files": [
+        "compliance/licenses/aiohappyeyeballs-2.7.1/LICENSE"
+      ],
+      "source": "https://pypi.org/project/aiohappyeyeballs/2.7.1/"
+    },
+    {
+      "name": "aiohttp",
+      "version": "3.14.5",
+      "license": "Apache-2.0 AND MIT",
+      "status": "installed_voice_runtime",
+      "license_files": [
+        "compliance/licenses/aiohttp-3.14.5/LICENSE.txt",
+        "compliance/licenses/aiohttp-3.14.5/vendor/llhttp/LICENSE"
+      ],
+      "source": "https://pypi.org/project/aiohttp/3.14.5/"
+    },
+    {
+      "name": "aiosignal",
+      "version": "1.4.0",
+      "license": "Apache 2.0",
+      "status": "installed_voice_runtime",
+      "license_files": [
+        "compliance/licenses/aiosignal-1.4.0/LICENSE"
+      ],
+      "source": "https://pypi.org/project/aiosignal/1.4.0/"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "license": "MIT",
+      "status": "installed_voice_runtime",
+      "license_files": [
+        "compliance/licenses/attrs-26.1.0/LICENSE"
+      ],
+      "source": "https://pypi.org/project/attrs/26.1.0/"
+    },
+    {
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "license": "Apache-2.0",
+      "status": "installed_voice_runtime",
+      "license_files": [
+        "compliance/licenses/frozenlist-1.8.0/LICENSE"
+      ],
+      "source": "https://pypi.org/project/frozenlist/1.8.0/"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "license": "BSD-3-Clause",
+      "status": "installed_voice_runtime",
+      "license_files": [
+        "compliance/licenses/idna-3.20/LICENSE.md"
+      ],
+      "source": "https://pypi.org/project/idna/3.20/"
+    },
+    {
+      "name": "multidict",
+      "version": "7.2.1",
+      "license": "Apache-2.0",
+      "status": "installed_voice_runtime",
+      "license_files": [
+        "compliance/licenses/multidict-7.2.1/LICENSE"
+      ],
+      "source": "https://pypi.org/project/multidict/7.2.1/"
+    },
+    {
+      "name": "propcache",
+      "version": "0.5.4",
+      "license": "Apache-2.0",
+      "status": "installed_voice_runtime",
+      "license_files": [
+        "compliance/licenses/propcache-0.5.4/LICENSE",
+        "compliance/licenses/propcache-0.5.4/NOTICE"
+      ],
+      "source": "https://pypi.org/project/propcache/0.5.4/"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "license": "PSF-2.0",
+      "status": "installed_voice_runtime",
+      "license_files": [
+        "compliance/licenses/typing_extensions-4.16.0/LICENSE"
+      ],
+      "source": "https://pypi.org/project/typing_extensions/4.16.0/"
+    },
+    {
+      "name": "yarl",
+      "version": "1.25.1",
+      "license": "Apache-2.0",
+      "status": "installed_voice_runtime",
+      "license_files": [
+        "compliance/licenses/yarl-1.25.1/LICENSE",
+        "compliance/licenses/yarl-1.25.1/NOTICE"
+      ],
+      "source": "https://pypi.org/project/yarl/1.25.1/"
+    }
+  ],
+  "candidates": [
+    {
+      "name": "pipecat-ai/pipecat",
+      "commit": "114c4d39849146b8e38376f5c6f6834d7f17e683",
+      "license": "BSD-2-Clause",
+      "source": "https://github.com/pipecat-ai/pipecat/blob/114c4d39849146b8e38376f5c6f6834d7f17e683/LICENSE",
+      "status": "candidate_not_installed",
+      "dependency_audit": "pending"
+    },
+    {
+      "name": "livekit/agents",
+      "commit": "c2b2f5cbd66aba063ab4208d86cf3427497efa96",
+      "license": "Apache-2.0",
+      "source": "https://github.com/livekit/agents/blob/c2b2f5cbd66aba063ab4208d86cf3427497efa96/LICENSE",
+      "status": "candidate_not_installed",
+      "dependency_audit": "pending"
+    }
+  ],
+  "excluded": [
+    {
+      "name": "TEN-framework/ten-framework",
+      "reason": "Root license includes additional deployment and competition restrictions; not adopted."
+    }
+  ],
+  "backend_mock": {
+    "runtime": "existing Python 3.12 standard library and bundled SQLite",
+    "new_third_party_dependencies": false,
+    "source_record": "backend-sources.txt"
+  },
+  "cloud_services": [
+    {
+      "name": "Alibaba Cloud Bailian Qwen",
+      "model": "qwen-plus (configurable alias)",
+      "purpose": "text LLM",
+      "integration": "Python standard-library HTTP adapter",
+      "status": "live_text_call_and_browser_roundtrip_verified",
+      "terms": "Bailian account service terms; not a model weight license",
+      "source": "https://help.aliyun.com/zh/model-studio/first-api-call-to-qwen"
+    },
+    {
+      "name": "Alibaba Cloud Fun-ASR",
+      "model": "fun-asr-realtime",
+      "purpose": "streaming speech recognition",
+      "status": "live_synthetic_audio_verified",
+      "source": "https://help.aliyun.com/zh/model-studio/fun-asr-realtime-websocket-api",
+      "terms": "Cloud service terms; no model weights redistributed"
+    },
+    {
+      "name": "BreezeBlue",
+      "purpose": "voice listing and streaming speech synthesis",
+      "model": "provider automatic selection",
+      "status": "personal_designed_voices_and_live_synthesis_verified",
+      "source": "https://docs.breezeblue.ai/api-reference/text-to-speech/stream-text-to-speech",
+      "terms": "User account service authorization; no voice weights or external cloning"
+    }
+  ],
+  "local_audio_enhancement": {
+    "status": "integrated_local_browser_runtime",
+    "manifest": "compliance/audio-assets.json",
+    "licenses_directory": "compliance/licenses/audio",
+    "components": [
+      {
+        "name": "jitsi/rnnoise-wasm + xiph/rnnoise",
+        "license": "Apache-2.0 AND BSD-3-Clause",
+        "purpose": "48kHz noise suppression, fixed upstream build"
+      },
+      {
+        "name": "snakers4/silero-vad",
+        "license": "MIT",
+        "purpose": "local pretrained speech detection"
+      },
+      {
+        "name": "onnxruntime-web",
+        "version": "1.22.0",
+        "license": "MIT plus bundled third-party notices",
+        "purpose": "local single-thread WASM inference"
+      }
+    ],
+    "notes": "Upstream assets unmodified. Project adapters are separate files. Retain all license and third-party notices when distributing. No new voice cloning or paid denoising service."
+  }
+}

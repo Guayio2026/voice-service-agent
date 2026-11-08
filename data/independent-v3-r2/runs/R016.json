@@ -1,0 +1,415 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "3cd68920acfcc7e1",
+   "server.py": "6f5a455300a5d6bc",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:09:15.637357+00:00"
+ },
+ "case": "R016",
+ "attempts": [
+  {
+   "case_id": "R016",
+   "attempt": 1,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 634,
+   "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "先别存，我把话说清楚再记。",
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 76,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "我要记的是：材料清单已经念给我听了。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。用户要求：我要记的是：材料清单已经念给我听了。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 25,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 31,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "unresolved",
+     "issues_explained": [],
+     "user_feedback": "unknown",
+     "confirmation_turn_id": null,
+     "unresolved": true,
+     "questions": [],
+     "registration_summary": "本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。用户要求：我要记的是：材料清单已经念给我听了。",
+     "session_id": "6eZLbk_x0Q7tF93ak874-YzI5aAaCgze9zm_VbzrxeE",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "c2de63e0b515b47f8e1bf2ad6540d134",
+     "result_revision": 1,
+     "outcome": "unresolved",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T07:09:45.778784+00:00",
+     "updated_at": "2026-11-08T07:09:45.778784+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1、2 轮 records 记录数 == 0",
+     "status": "ok",
+     "detail": "实际 [0, 0]"
+    },
+    {
+     "assert": "【可判定】第 3 轮 records 记录数 == 1 且 save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "records=1 calls=1"
+    },
+    {
+     "assert": "【可判定】记录 payload 的 issues_explained 集合与第 2 轮复述一致",
+     "status": "blocked",
+     "detail": "无机械判定规则：记录 payload 的 issues_explained 集合与第 2 轮复述一致"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 3,
+     "assert": "save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【可判定】记录 payload 的 issues_explained 集合与第 2 轮复述一致",
+     "status": "blocked",
+     "detail": "无机械判定规则：记录 payload 的 issues_explained 集合与第 2 轮复述一致"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R016",
+   "attempt": 2,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 1002,
+   "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "先别存，我把话说清楚再记。",
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 31,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "我要记的是：材料清单已经念给我听了。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。用户要求：我要记的是：材料清单已经念给我听了。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 18,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 34,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "unresolved",
+     "issues_explained": [],
+     "user_feedback": "unknown",
+     "confirmation_turn_id": null,
+     "unresolved": true,
+     "questions": [],
+     "registration_summary": "本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。用户要求：我要记的是：材料清单已经念给我听了。",
+     "session_id": "PmRNljQz4hR-4OzPUpKxzREx_XslKtVftaa8cD5Utao",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "a6058118fefaad6a5eb840a80f64815a",
+     "result_revision": 1,
+     "outcome": "unresolved",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T07:09:47.133350+00:00",
+     "updated_at": "2026-11-08T07:09:47.133350+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1、2 轮 records 记录数 == 0",
+     "status": "ok",
+     "detail": "实际 [0, 0]"
+    },
+    {
+     "assert": "【可判定】第 3 轮 records 记录数 == 1 且 save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "records=1 calls=1"
+    },
+    {
+     "assert": "【可判定】记录 payload 的 issues_explained 集合与第 2 轮复述一致",
+     "status": "blocked",
+     "detail": "无机械判定规则：记录 payload 的 issues_explained 集合与第 2 轮复述一致"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 3,
+     "assert": "save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【可判定】记录 payload 的 issues_explained 集合与第 2 轮复述一致",
+     "status": "blocked",
+     "detail": "无机械判定规则：记录 payload 的 issues_explained 集合与第 2 轮复述一致"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R016",
+   "attempt": 3,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 931,
+   "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "先别存，我把话说清楚再记。",
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 20,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "我要记的是：材料清单已经念给我听了。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。用户要求：我要记的是：材料清单已经念给我听了。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 21,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 31,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "unresolved",
+     "issues_explained": [],
+     "user_feedback": "unknown",
+     "confirmation_turn_id": null,
+     "unresolved": true,
+     "questions": [],
+     "registration_summary": "本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。用户要求：我要记的是：材料清单已经念给我听了。",
+     "session_id": "1_73AkxPZpZ6BczyKdF8P38WTORM8NxDewYFwmb8zQE",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "bbfd3882e553f74b7bc8521d48bdbfbd",
+     "result_revision": 1,
+     "outcome": "unresolved",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T07:09:48.412768+00:00",
+     "updated_at": "2026-11-08T07:09:48.412768+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1、2 轮 records 记录数 == 0",
+     "status": "ok",
+     "detail": "实际 [0, 0]"
+    },
+    {
+     "assert": "【可判定】第 3 轮 records 记录数 == 1 且 save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "records=1 calls=1"
+    },
+    {
+     "assert": "【可判定】记录 payload 的 issues_explained 集合与第 2 轮复述一致",
+     "status": "blocked",
+     "detail": "无机械判定规则：记录 payload 的 issues_explained 集合与第 2 轮复述一致"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 3,
+     "assert": "save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【可判定】记录 payload 的 issues_explained 集合与第 2 轮复述一致",
+     "status": "blocked",
+     "detail": "无机械判定规则：记录 payload 的 issues_explained 集合与第 2 轮复述一致"
+    }
+   ],
+   "crash": null
+  }
+ ]
+}

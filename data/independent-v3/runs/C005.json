@@ -1,0 +1,134 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "7cbe13d10c0daec2",
+   "server.py": "8488a8c08b82aa1b",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "27c343100cdad86a",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T06:51:39.647506+00:00"
+ },
+ "case": "C005",
+ "attempts": [
+  {
+   "case_id": "C005",
+   "attempt": 1,
+   "verdict": "FAIL",
+   "open_ms": 913,
+   "usage": {
+    "prompt_tokens": 1069,
+    "completion_tokens": 22,
+    "total_tokens": 1091
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "刚才那条取消掉吧。",
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 20,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "那系统里现在还有没有我那条？",
+     "reply": "操作状态只说明沟通登记是否保存，不是业务审核进度。当前资料没有提供材料提交或受理状态，我无法确认是否已经补交；沟通登记也不代表材料已提交。",
+     "usage": {
+      "prompt_tokens": 1069,
+      "completion_tokens": 22,
+      "total_tokens": 1091
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 1105,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "notification_completed",
+     "issues_explained": [
+      "Q01",
+      "Q02"
+     ],
+     "user_feedback": "confirmed",
+     "confirmation_turn_id": 1,
+     "unresolved": false,
+     "questions": [],
+     "session_id": "mWsHbGTEdjGE5h3G-OV98bQf8XPu0DxfUgDSG6jmV_o",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "e2d5dd5f5a4ffafa87e2cc7064d8955c",
+     "result_revision": 1,
+     "outcome": "notification_completed",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T06:54:22.791101+00:00",
+     "updated_at": "2026-11-08T06:54:22.791101+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】records 记录数 == 1（未被删除）",
+     "status": "blocked",
+     "detail": "无机械判定规则：records 记录数 == 1（未被删除）"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"已删除/已清除\"",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_operation_status 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 2 轮 get_operation_status 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    }
+   ],
+   "blocked": [
+    {
+     "assert": "【可判定】records 记录数 == 1（未被删除）",
+     "status": "blocked",
+     "detail": "无机械判定规则：records 记录数 == 1（未被删除）"
+    }
+   ],
+   "crash": null
+  }
+ ]
+}

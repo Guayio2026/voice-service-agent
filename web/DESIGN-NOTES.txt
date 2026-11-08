@@ -1,0 +1,7 @@
+布局参考：Chatwoot ConversationView 与 ContactPanel 的对话/联系人侧栏分工。https://github.com/chatwoot/chatwoot/tree/develop/app/javascript/dashboard/routes/dashboard/conversation
+本版本重新编写原生 CSS，未复制第三方代码、未新增依赖。采用连续分栏、无边框对话记录、纵向流程与可展开原始结果。
+参赛图案：competition-flow.svg 为本次自行绘制的几何流程图。GitHub Lucide 图标检索仅用于线条风格参考，没有复制素材、代码或引入依赖。图案静态，不代表音频输入或服务连接。未使用官方赛事标识、奖项或虚构参赛编号。
+
+本轮：conversation-concept.svg 为原创几何图案，将工作台下移到概念图之后，保留锚点直达。Lucide design-principles.md 只参考线宽一致、圆角线端、低密度与平滑曲线原则，未复制图标。没有外部素材或新增依赖。图案静态，区别于真实音量和工具状态。
+
+动态场景：参考 GitHub tengbao/vanta、DavidHDev/react-bits 的连续流动背景方向，以及 Shopify/dawn 的减弱动态效果处理。scene.js 为原创 Canvas 实现，未复制上游代码或安装依赖。支持暂停、系统减少动态效果、离屏及后台停止；鼠标轻微偏移不影响业务。

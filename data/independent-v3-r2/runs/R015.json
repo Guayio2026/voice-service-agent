@@ -1,0 +1,343 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "3cd68920acfcc7e1",
+   "server.py": "6f5a455300a5d6bc",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:09:15.637357+00:00"
+ },
+ "case": "R015",
+ "attempts": [
+  {
+   "case_id": "R015",
+   "attempt": 1,
+   "verdict": "PASS",
+   "open_ms": 974,
+   "usage": {
+    "prompt_tokens": 1396,
+    "completion_tokens": 23,
+    "total_tokens": 1419
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "刚才那条不算，别存。",
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 22,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "我问一下，授权书要原件还是复印件？",
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1396,
+      "completion_tokens": 23,
+      "total_tokens": 1419
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1030,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "明白了，那重新记：沟通已完成。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。用户要求：明白了，那重新记：沟通已完成。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 28,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮后 session_status != 'ended'",
+     "status": "ok",
+     "detail": "step=availability"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 3 轮 pending_state == awaiting_confirmation 且 records 记录数 == 0",
+     "status": "ok",
+     "detail": "pending=True records=0"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 1,
+     "assert": "session_status 不为 ended",
+     "status": "ok",
+     "detail": "step=availability"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R015",
+   "attempt": 2,
+   "verdict": "PASS",
+   "open_ms": 791,
+   "usage": {
+    "prompt_tokens": 1471,
+    "completion_tokens": 23,
+    "total_tokens": 1494
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "刚才那条不算，别存。",
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 27,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "我问一下，授权书要原件还是复印件？",
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1471,
+      "completion_tokens": 23,
+      "total_tokens": 1494
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1113,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "明白了，那重新记：沟通已完成。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。用户要求：明白了，那重新记：沟通已完成。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 30,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮后 session_status != 'ended'",
+     "status": "ok",
+     "detail": "step=availability"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 3 轮 pending_state == awaiting_confirmation 且 records 记录数 == 0",
+     "status": "ok",
+     "detail": "pending=True records=0"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 1,
+     "assert": "session_status 不为 ended",
+     "status": "ok",
+     "detail": "step=availability"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R015",
+   "attempt": 3,
+   "verdict": "PASS",
+   "open_ms": 1220,
+   "usage": {
+    "prompt_tokens": 1396,
+    "completion_tokens": 23,
+    "total_tokens": 1419
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "刚才那条不算，别存。",
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 25,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "我问一下，授权书要原件还是复印件？",
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1396,
+      "completion_tokens": 23,
+      "total_tokens": 1419
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 843,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "明白了，那重新记：沟通已完成。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。用户要求：明白了，那重新记：沟通已完成。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 28,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮后 session_status != 'ended'",
+     "status": "ok",
+     "detail": "step=availability"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 3 轮 pending_state == awaiting_confirmation 且 records 记录数 == 0",
+     "status": "ok",
+     "detail": "pending=True records=0"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 1,
+     "assert": "session_status 不为 ended",
+     "status": "ok",
+     "detail": "step=availability"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

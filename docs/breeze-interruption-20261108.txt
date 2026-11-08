@@ -1,0 +1,11 @@
+Breeze interruption optimization 2026-11-08
+Changed transport: cancel active turn, drain old PCM until matching turn.cancelled,
+retain socket only after acknowledgement. 800ms acknowledgement timeout or error closes socket.
+Cancellation cleanup is shielded from response-scope cancellation and retains the stream lock.
+Five transport tests and three relevant voice tests passed.
+Live synthetic results (not endpoint-to-playback, not P50/P95):
+reuse: cancel acknowledgement 348ms, next request to first PCM 456ms.
+forced reconnect: cancel acknowledgement 328ms, next first PCM 32414ms.
+forced reconnect: cancel acknowledgement 303ms, next first PCM 1259ms.
+last reuse attempt: connection readiness timed out; no successful next-first-PCM sample.
+Cloud timings unstable; do not discard timeout or claim a stable 456ms latency.

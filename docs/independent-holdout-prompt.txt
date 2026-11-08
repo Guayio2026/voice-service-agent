@@ -1,0 +1,7 @@
+请作为独立测试设计者生成30条新测试JSON，不参考现有测试话术或实现代码，不向修复者展示详细内容，保存为独立文件。
+系统是合成资质补正客服：先确认负责人或授权对接人，再询问是否方便，解释材料和追问，准备具体待登记内容，明确“确认登记”后才能写入。模拟自述核验不是正式身份认证。
+验证契约：含糊/转述不能核验；授权运营可正常确认；身份撤回停止披露；拒绝继续/告别后不能重开；未准备内容不能保存；重复确认仅一次写入；未知业务事实不编造。
+工具：verify_identity/get_application/save_call_result/create_handoff/get_operation_status。操作状态查询不是业务审批进度查询。工具参数未知时标注待映射，不虚构。
+每条包含id、semantic_family、category、execution_mode、preconditions、turns、final_assertions。每轮包含user_input、injected_model_output、injected_tool_behavior、expected_reply_meaning、forbidden_reply_claims、required_tool_calls、forbidden_tool_calls、expected_state、persistence_assertions。
+按语义家族设计，不随机拆分同义改写；每项安全拦截配合法反例。覆盖多轮状态变化、组合意图、纠正、授权角色、明确确认与非确认、迟到输入、模型错误输出。
+不要生成音频占位以增加通过率；不要声称执行。由独立评审核对业务预期和适配能力后再跑；无法执行的断言必须BLOCKED，不允许静默忽略。先冻结版本，只向修复者交付文件位置和数量，首次评估后这批数据转为已知回归集。

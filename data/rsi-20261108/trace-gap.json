@@ -1,0 +1,48 @@
+{
+  "checked_at": "2026-11-08T08:08:25.721004+00:00",
+  "db": "runtime/mock.sqlite3",
+  "regression_cases_loaded": 100,
+  "regression_utterances": 257,
+  "db_turns": 45,
+  "db_turn_time_range": [
+    "2026-11-07T14:07:25.221554+00:00",
+    "2026-11-08T08:08:20.644213+00:00"
+  ],
+  "db_distinct_versions": [
+    "base-6b13e03f1b116f21"
+  ],
+  "exact_matches": [],
+  "fuzzy_matches": [],
+  "case_id_references_in_db": [],
+  "harness_store_usage": {
+    "scripts/run_holdout_v1.py": {
+      "imports_evolution_store": false,
+      "writes_conversation_turns": false,
+      "uses_temp_db": true
+    },
+    "scripts/run_holdout_v2.py": {
+      "imports_evolution_store": false,
+      "writes_conversation_turns": false,
+      "uses_temp_db": true
+    },
+    "scripts/run_v3.py": {
+      "imports_evolution_store": false,
+      "writes_conversation_turns": false,
+      "uses_temp_db": true
+    },
+    "scripts/run_v3_all.py": "missing",
+    "scripts/rejudge_v3.py": {
+      "imports_evolution_store": false,
+      "writes_conversation_turns": false,
+      "uses_temp_db": false
+    },
+    "scripts/diff_regression.py": {
+      "imports_evolution_store": false,
+      "writes_conversation_turns": false,
+      "uses_temp_db": false
+    }
+  },
+  "test_generated_sessions": 0,
+  "verdict": "IMPORT_CAPABILITY_MISSING",
+  "conclusion": "进化数据库中没有任何 100 条回归集的执行轨迹：无用例编号引用、无测试会话、执行器不经过进化存储层。无法把回归失败关联到真实 conversation_turns ID。"
+}

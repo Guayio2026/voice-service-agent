@@ -1,0 +1,93 @@
+[
+  {
+    "id": "PUBLIC-FOOD",
+    "category": "industry",
+    "title": "食品经营许可和备案管理办法",
+    "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2023/art_91a91c26ae464a2f898952d5b84f62c6.html",
+    "status": "verified_public_reference",
+    "scope": "食品经营许可与备案的一般规定，非京东平台审核结论",
+    "keywords": "食品 经营许可 预包装 备案 行业资质",
+    "text": "仅销售预包装食品等情形不应被一概要求食品经营许可；应根据经营情形区分许可、备案和例外。缺少经营范围信息时，应先核实。",
+    "checked_at": "2026-11-07",
+    "authority": "official",
+    "decision_authority": false
+  },
+  {
+    "id": "PUBLIC-DEVICE",
+    "category": "industry",
+    "title": "医疗器械许可备案相关信息",
+    "url": "https://www.nmpa.gov.cn/zwfw/zwfwzxfw/zxfwsjxz/zxfwsjxzylqxbaxx/index.html",
+    "status": "reference_portal",
+    "scope": "官方核验入口；未查询任何具体商家",
+    "keywords": "医疗器械 行业资质 许可 备案 查询",
+    "text": "医疗器械许可备案可从国家药监局官方信息入口进一步核实；当前系统没有执行具体证照核验。",
+    "checked_at": "2026-11-07",
+    "authority": "official",
+    "decision_authority": false
+  },
+  {
+    "id": "PUBLIC-INVOICE",
+    "category": "purchase",
+    "title": "全国增值税发票查验平台",
+    "url": "https://inv-veri.chinatax.gov.cn/",
+    "status": "reference_portal",
+    "scope": "发票官方查验入口；不提供银行流水核验，不代表采购链审核通过",
+    "keywords": "发票 购货 银行流水 查验 真伪",
+    "text": "税务总局提供全国增值税发票查验入口。发票查询与本次采购链、交易主体是否一致是不同的问题；系统没有自动查验发票或银行流水。",
+    "checked_at": "2026-11-07",
+    "authority": "official",
+    "decision_authority": false
+  },
+  {
+    "id": "PUBLIC-TRADEMARK",
+    "category": "trademark",
+    "title": "国家知识产权局商标查询入口",
+    "url": "https://sbj.cnipa.gov.cn/sbj/sbcx/",
+    "status": "pending_verification",
+    "scope": "本次访问403，未导入正文",
+    "keywords": "商标 注册证 查询",
+    "text": "",
+    "checked_at": "2026-11-07",
+    "authority": "official",
+    "decision_authority": false
+  },
+  {
+    "id": "PUBLIC-JD-BRAND",
+    "category": "authorization",
+    "title": "京东商家品牌管理操作手册（待核实正文）",
+    "url": "https://helpcenter.jd.com/vender/issue/1000-44662",
+    "status": "pending_verification",
+    "scope": "动态页面仅返回Loading，未导入具体要求",
+    "keywords": "品牌 授权 管理",
+    "text": "",
+    "checked_at": "2026-11-07",
+    "authority": "official",
+    "decision_authority": false
+  },
+  {
+    "id": "PUBLIC-JD-TEMPLATE",
+    "category": "authorization",
+    "title": "京东商家授权模板入口（待核实正文）",
+    "url": "https://helpcenter.jd.com/vender/issue/926-3561.html",
+    "status": "pending_verification",
+    "scope": "动态页面仅返回Loading，不推断模板内容",
+    "keywords": "授权书 模板",
+    "text": "",
+    "checked_at": "2026-11-07",
+    "authority": "official",
+    "decision_authority": false
+  },
+  {
+    "id": "EXCLUDED-JD-OWN-BRAND",
+    "category": "authorization",
+    "title": "京东集团品牌授权管理规范",
+    "url": "https://help.jd.com/user/issue/32-4534.html",
+    "status": "excluded_scope",
+    "scope": "京东自身品牌对外授权，与商家入驻品牌审核不同",
+    "keywords": "品牌 授权",
+    "text": "",
+    "checked_at": "2026-11-07",
+    "authority": "official",
+    "decision_authority": false
+  }
+]

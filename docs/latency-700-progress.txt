@@ -1,0 +1,64 @@
+700ms latency work — 2026-11-07
+
+Implemented
+1. Exact whole-utterance intent fast paths for common material questions, deferral,
+   refusal and handoff requests. They still pass the existing identity gate,
+   confirmation controller, grounding and output guard. Mixed utterances and
+   negations are not substring-matched. No model-generated write authority.
+2. Current-utterance speculative classification starts on ASR sentence-final
+   events (not unstable partial tokens). It runs only the classifier graph.
+   Reuse requires an identical sanitized utterance, history, state/knowledge
+   prompt and generation. Interrupted/stale work cannot grant tool authority.
+   One speculative request in flight, maximum eight per session. No extra
+   next-question model prediction after every answer. This overlaps only work
+   after the provider has finalized a sentence; savings depend on ASR timing.
+3. Memory-only audio cache: exact text, voice, session, identity and evidence key;
+   300-second TTL, global 8.64MB bound. Check current identity, citations and
+   output safety before every hit. Cache only complete valid PCM streams.
+   Cold/new replies still use the existing streaming TTS service.
+4. Model HTTP connection pool, no redirects or automatic retries. Existing
+   standalone client remains compatible with its test transport.
+5. Optional local Smart Turn v3.2 CPU endpointing. Installed dependencies and
+   pinned weights on this machine; setup/provenance in compliance/smart-turn.txt.
+   After 180ms silence and a nonempty transcript, try local inference at >=0.9
+   completion probability. Number/unfinished phrase protection remains active.
+   New speech invalidates a pending prediction. 350ms request timeout and lexical
+   timer remain as fallbacks. This is not validated as a universal 180ms endpoint.
+
+Measured (small samples; no P50/P95 claim)
+Edge browser, real local backend and cloud TTS, same synthetic materials question:
+  Cold: text reply 63ms (server32), TTS first PCM747ms, text->first PCM810ms.
+  Warm: text reply 56ms (server47), TTS first PCM8ms, text->first PCM64ms.
+  Both routes consumed zero LLM tokens. Cold TTS called once; warm response reused
+  the fully completed PCM. Metrics exclude speech endpointing, ASR, and physical
+  speaker output. Report: runtime/live-latency.json.
+Local Smart Turn inference on an existing Chinese synthetic TTS WAV, five runs:
+  58.0, 84.5, 86.4, 71.3, 84.8ms. Model classified this complete sample as complete.
+  This is a smoke test, NOT human turn-boundary accuracy validation.
+  Report: runtime/endpoint-latency.json.
+
+Validation
+Full existing 127-test suite passed; subsequently added transport redirect test
+and endpoint session/body-size test passed in targeted runs (six latency tests,
+one endpoint test). Browser contract passed: barge-in, noise, cleanup, continued
+conversation, and ignoring an endpoint result after speech resumes.
+Logs: runtime/latency-regression-final.txt, runtime/latency-new-tests.txt.
+
+Local server restarted on port8766; /api/status reports all four optimization
+flags true. Click-per-turn and continuous mode remain available.
+
+Not yet achieved
+No real microphone end-to-end 700ms result has been established. In this cold
+sample TTS alone took747ms, so endpoint tuning cannot by itself meet700ms.
+Next validation must compare cold/warm and simple/complex turns separately,
+measure last user speech->first meaningful played audio, and report P50/P95,
+false-cutoff rate and business correctness. A lower-first-audio TTS service or
+carefully authorized audio prewarming is needed if cold TTS remains this slow.
+ASR still opens one provider task per utterance; no unsupported cross-turn
+provider-session reuse has been assumed.
+
+Reproduce
+python scripts/check_live_latency.py --url http://127.0.0.1:8766
+  Live cloud test; can incur TTS costs, creates only a synthetic test session.
+.venv/Scripts/python.exe scripts/check_endpoint_latency.py
+python tests/check_barge_in_browser.py

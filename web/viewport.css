@@ -1,0 +1,51 @@
+/* Fit the complete desktop composition, including its controls, to the viewport.
+   Keep image and hotspot coordinates on one proportional canvas; never crop them. */
+@media (min-width:901px) {
+  body[data-page="home"] {margin:0;}
+  body[data-page="home"] .desk-shell {
+    height:100vh;
+    height:100dvh;
+    display:grid;
+    place-items:center;
+    /* Extend the image's window-blue left edge and wall-blue right edge into
+       the letterbox margins. The scene itself keeps its original colors. */
+    background:
+      linear-gradient(180deg,#001e5c 0%,#012f74 22%,#001c51 46%,#082b64 72%,#09377e 100%) left / 50% 100% no-repeat,
+      linear-gradient(180deg,#0a2758 0%,#25375e 26%,#142e55 48%,#122b5b 70%,#092967 100%) right / 50% 100% no-repeat;
+  }
+  body[data-page="home"] .desk-stage {
+    width:min(100vw, calc(100vh * 1588 / 991));
+    width:min(100vw, calc(100dvh * 1588 / 991));
+    aspect-ratio:1588/991;
+    container-type:inline-size;
+  }
+  .desk-brand {font-size:clamp(22px,2cqw,34px);}
+  .desk-header nav a {font-size:clamp(14px,1.2cqw,20px);}
+  .desk-copy h1 {font-size:clamp(30px,4.05cqw,76px);}
+  .desk-copy p {font-size:clamp(12px,1.06cqw,18px);margin:1.1cqw 0 1.3cqw;}
+  .desk-copy .enter-demo {font-size:clamp(14px,1.25cqw,20px);padding:10px 20px;gap:16px;}
+  .desk-copy .copy-note {font-size:clamp(10px,.85cqw,12px);margin-top:8px;}
+  .hotspot-label {font-size:clamp(12px,1cqw,16px);padding:6px 9px;gap:6px;}
+  .hotspot-label small {font-size:clamp(11px,.9cqw,14px);}
+  .desk-footer {font-size:clamp(10px,.9cqw,14px);}
+}
+/* Short browser windows: conserve space in the overlay, without shrinking the
+   scene independently of its targets or hiding the bottom controls. */
+@media (min-width:901px) and (max-height:700px) {
+  .desk-header {padding:10px 3.3%;gap:14px;}
+  .desk-header nav {gap:20px;}
+  .desk-brand {font-size:22px;gap:8px;}
+  .desk-brand svg {width:28px;height:28px;}
+  .desk-header .service-state {font-size:10px;}
+  .service-state span {font-size:10px;}
+  .desk-copy {top:17%;}
+  .desk-copy p {line-height:1.6;margin:8px 0 12px;}
+  .desk-copy .copy-note {display:none;}
+  .desk-copy .enter-demo {padding:8px 12px;min-height:44px;gap:12px;}
+  .hotspot-label {font-size:11px;padding:4px 6px;gap:5px;bottom:-27px;}
+  .hotspot-label small {font-size:10px;}
+  .hotspot-label.label-top {bottom:auto;top:-28px;}
+  .desk-footer {bottom:1%;font-size:10px;gap:10px;}
+  .home-utilities {gap:12px;}
+  .home-utilities button {font-size:11px;padding:5px 7px;min-height:32px;}
+}

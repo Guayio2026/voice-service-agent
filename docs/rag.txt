@@ -1,0 +1,10 @@
+本地检索增强（第一版）
+启动方式不变，重启 scripts/start-voice.ps1 生效，无新增依赖。
+data/knowledge.json 是公开合成知识库，不得写入客户资料或密钥。
+每次模型意图分类前，使用中文双字片段和英文词进行词汇检索，最多注入三条资料。
+模型使用资料辅助意图分类；业务回答继续由已授权申请事实和受控模板产生。
+这不是向量检索，也不是让模型自由生成业务政策的问答系统。
+没有命中或知识库不可读时，不注入资料，继续原有分类和缺失依据处理。
+agent.events 中 knowledge_retrieval 记录来源ID和命中状态。
+新增知识条目需要唯一id、text、keywords和synthetic:true；重启不必需，每轮读取。
+验证：.venv\Scripts\python.exe -m unittest discover -s tests -v

@@ -1,0 +1,396 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "3cd68920acfcc7e1",
+   "server.py": "6f5a455300a5d6bc",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:10:41.539315+00:00"
+ },
+ "case": "R011",
+ "attempts": [
+  {
+   "case_id": "R011",
+   "attempt": 1,
+   "verdict": "FAIL",
+   "open_ms": 963,
+   "usage": {
+    "prompt_tokens": 3750,
+    "completion_tokens": 60,
+    "total_tokens": 3810
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "更正一下，我不是老板，我是运营，这块归我。",
+     "reply": "您的陈述与系统资料可能存在差异，原登记确认已失效，需要人工核实。您是否需要模拟人工协助？",
+     "usage": {
+      "prompt_tokens": 1135,
+      "completion_tokens": 20,
+      "total_tokens": 1155
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 805,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "所以材料给我看没问题吧？",
+     "reply": "您的陈述与系统资料可能存在差异，原登记确认已失效，需要人工核实。您是否需要模拟人工协助？",
+     "usage": {
+      "prompt_tokens": 1518,
+      "completion_tokens": 20,
+      "total_tokens": 1538
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1116,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "行，缺的两项我记下了。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {
+      "prompt_tokens": 1097,
+      "completion_tokens": 20,
+      "total_tokens": 1117
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 832,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮后 identity 仍为 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 1,
+     "assert": "identity 仍为 verified",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 1,
+     "assert": "revoke 事件计数 == 0（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 2 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    }
+   ],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "revoke 事件计数 == 0（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R011",
+   "attempt": 2,
+   "verdict": "FAIL",
+   "open_ms": 893,
+   "usage": {
+    "prompt_tokens": 3605,
+    "completion_tokens": 57,
+    "total_tokens": 3662
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "更正一下，我不是老板，我是运营，这块归我。",
+     "reply": "您的陈述与系统资料可能存在差异，原登记确认已失效，需要人工核实。您是否需要模拟人工协助？",
+     "usage": {
+      "prompt_tokens": 1060,
+      "completion_tokens": 16,
+      "total_tokens": 1076
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 899,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "所以材料给我看没问题吧？",
+     "reply": "将建立模拟人工协助工单，不会接通真人。如同意登记，请明确回复“确认登记”；也可结束而不登记。",
+     "usage": {
+      "prompt_tokens": 1443,
+      "completion_tokens": 21,
+      "total_tokens": 1464
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 954,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "行，缺的两项我记下了。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {
+      "prompt_tokens": 1102,
+      "completion_tokens": 20,
+      "total_tokens": 1122
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 975,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮后 identity 仍为 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 1,
+     "assert": "identity 仍为 verified",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 1,
+     "assert": "revoke 事件计数 == 0（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 2 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    }
+   ],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "revoke 事件计数 == 0（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R011",
+   "attempt": 3,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 973,
+   "usage": {
+    "prompt_tokens": 3625,
+    "completion_tokens": 56,
+    "total_tokens": 3681
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "更正一下，我不是老板，我是运营，这块归我。",
+     "reply": "您的陈述与系统资料可能存在差异，原登记确认已失效，需要人工核实。您是否需要模拟人工协助？",
+     "usage": {
+      "prompt_tokens": 1060,
+      "completion_tokens": 16,
+      "total_tokens": 1076
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 687,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "所以材料给我看没问题吧？",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {
+      "prompt_tokens": 1443,
+      "completion_tokens": 20,
+      "total_tokens": 1463
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1256,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "行，缺的两项我记下了。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {
+      "prompt_tokens": 1122,
+      "completion_tokens": 20,
+      "total_tokens": 1142
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 805,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮后 identity 仍为 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 1,
+     "assert": "identity 仍为 verified",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 1,
+     "assert": "revoke 事件计数 == 0（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "revoke 事件计数 == 0（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    }
+   ],
+   "crash": null
+  }
+ ]
+}

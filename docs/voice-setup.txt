@@ -1,0 +1,84 @@
+语音联调版 | 2026-11-04
+
+启动与打开
+1. 在项目根目录执行：powershell -ExecutionPolicy Bypass -File scripts/start-voice.ps1
+2. 浏览器打开 http://127.0.0.1:8766 ，在蓝色首页点“开始语音对话”。统一工作台为 /workbench.html。也可以双击 web/打开网页.cmd 自动启动并打开。
+3. 选择案例，创建测试会话，点击“模拟负责人确认”。
+4. “音色来源”选“我的音色”，选择自己的设计或克隆音色。刷新列表不生成音频。
+5. 点击“开始说话”，允许麦克风；停顿约1秒或点击“说完了”发送。
+6. 客服回答后流式播放。点击“停止 / 打断”停止本轮，再点击“开始说话”继续。
+7. 也可输入文字。取消“用所选音色播报回复”只测试千问，不调用语音合成。
+8. 页面右上“业务测试”进入同源Mock后台；该页面的手动会话与语音会话独立。
+
+配置
+后端从根目录 .env 读取密钥；系统环境变量优先。网页不接收密钥。
+DASHSCOPE_API_KEY：百炼密钥，识别与回答共用，需要对应模型权限。
+DASHSCOPE_BASE_URL：与密钥同地域/业务空间的 OpenAI 兼容地址。
+本次北京旧域名 https://dashscope.aliyuncs.com/compatible-mode/v1 已实测成功。
+如控制台要求工作空间专属域名，请使用控制台提供的完整地址；ASR地址由其派生。
+QWEN_MODEL=qwen-plus
+BREEZE_API_KEY：BreezeBlue 密钥。
+BREEZE_VOICE_ID：可选默认音色ID；留空时选择个人音色列表第一项。
+VOICE_PORT=8766：修改后使用对应端口打开。
+ASR_VOCABULARY_ID：可选、预先创建的Fun-ASR热词表ID；未创建时留空。
+修改 .env 后重启语音服务。不要把密钥写入 .env.example、截图或提交到Git。
+
+依赖与检查
+运行环境 Python3.12。新增异步HTTP/WebSocket依赖见 requirements-voice.txt。
+安装：uv pip install --python .venv/Scripts/python.exe -r requirements-voice.txt
+离线测试：.venv/Scripts/python.exe -m unittest discover -s tests -v
+浏览器离线测试（需启动8766服务、Python安装Playwright和Edge）：python web/qa/verify_voice.py
+付费真实接口检查：.venv/Scripts/python.exe scripts/check-voice-live.py --live
+后者产生一条短千问回答、一段Breeze音频和一次Fun-ASR识别；生成测试音频保存在runtime/qa/live-reply.wav。
+浏览器真实音频测试：python web/qa/verify_voice.py --live
+它以该WAV模拟麦克风，会额外发生一次真实识别、文字回答和合成；不采集实际麦克风。
+
+架构
+浏览器AudioWorklet采集16kHz单声道PCM，经本地WebSocket转发给Fun-ASR。
+云端识别中间结果即时显示；用户停顿或点击结束后取最终文本。
+服务端按会话绑定的案例和当前身份读取合成资料，再调用千问。
+千问当前为整段短回复模式，尚非token流；随后Breeze HTTP流返回24kHz PCM，浏览器排队播放。
+最多保留6轮上下文；会话1小时过期、最多30轮；单次麦克风最多约26秒。
+所有云端调用不自动重试。相同request_id的文字请求重放返回已有结果，不重复调用。
+同一回复只允许请求一次合成；失败或被打断后不会自动重合成，以避免重复扣费。
+接口只绑定127.0.0.1，校验Host/Origin；业务身份未确认时不送出审核详情。
+音色列表可选“personal / default”，真实voice_id由服务端读取并验证后使用。
+
+当前边界
+这是逐轮语音联调版，需要点击开始下一轮；尚未实现持续双工、语音自动插话、可靠意图判定与自主工具闭环。
+确认身份仍是模拟按钮；AI只解释，不能自动保存结果、修改申请、声称已转接真人。
+切换/撤销身份时清空AI上下文，原Mock业务记录按原规则保护。
+官方业务接口、真实鉴权、电话线路、三轮整任务自动完成和比赛指标仍待实现/验收。
+服务重启后语音对话上下文丢失；SQLite手动业务结果保留。
+不在本地记录真实麦克风原始音频；云平台处理/保存规则以服务条款为准。
+页面只提供单次耗时与token计数，不把单次值称为P50，不估造合规率或任务完成率。
+
+源码依据
+https://help.aliyun.com/zh/model-studio/fun-asr-realtime-websocket-api
+https://help.aliyun.com/zh/model-studio/fun-asr-client-events
+https://help.aliyun.com/zh/model-studio/fun-asr-server-events
+https://docs.breezeblue.ai/api-reference/voices/list-voices
+https://docs.breezeblue.ai/api-reference/text-to-speech/stream-text-to-speech
+https://docs.breezeblue.ai/concepts/output-format
+
+本次验证
+22项后端单元/接口测试通过。
+真实接口：Qwen回复1453ms，合成2.24秒音频，Fun-ASR识别出15字并含预期材料关键词。
+真实Edge浏览器：模拟麦克风 → AudioWorklet → Fun-ASR → Qwen → BreezeBlue → WebAudio播放通过。
+该次浏览器文字回复1516ms，TTS首包541ms；二者为分段测量，不能直接作为全链路P50。
+离线浏览器检查：音色选择、文本安全显示、重复调用控制、合成失败保留文字、播放中断、1440/768/390宽度。
+未测试用户真实麦克风、噪声/方言大样本、长期运行或并发通话。
+界面采用现有设计体系，人工看过截图。Impeccable引擎下载失败，Taste Node22 inspector未运行（现有Node16）；不声称其自动检查通过。
+
+界面合并（2026-11-04）
+蓝色首页与语音工作台统一使用8766服务。工作台提供“语音对话 / 流程演示”切换，切换时停止录音/播放或暂停预写演示，语音文字保留。
+旧/voice.html地址转到统一工作台；旧文件夹的file://首页转到当前应用。两个文件夹的“打开网页.cmd”均使用统一启动脚本。
+验证：离线语音播放/错误/中断回归、真实音色列表、首页入口、模式切换暂停、旧地址跳转、1440/768/390宽度截图。此轮未新增付费合成调用。
+
+DeepSeek文字适配（2026-11-04）
+本地.env设置TEXT_PROVIDER=deepseek、DEEPSEEK_API_KEY及DEEPSEEK_MODEL=deepseek-flash，重启服务。
+默认仍为qwen，不影响已配置千问；Fun-ASR继续使用百炼，BreezeBlue保持不变。
+官方依据：https://api-docs.deepseek.com/api/create-chat-completion/
+接口https://api.deepseek.com/chat/completions，thinking.type=disabled；不发送千问enable_thinking。
+密钥只读取后端环境或.env；不重定向、不自动重试、不输出供应商错误正文。
+无新增第三方依赖。26项离线测试通过；没有执行DeepSeek真实调用或浏览器验收。

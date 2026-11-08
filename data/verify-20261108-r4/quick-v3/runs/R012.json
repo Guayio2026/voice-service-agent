@@ -1,0 +1,397 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "ef073d390d260951",
+   "server.py": "55381c8077efb503",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:55:34.852560+00:00"
+ },
+ "case": "R012",
+ "attempts": [
+  {
+   "case_id": "R012",
+   "attempt": 1,
+   "verdict": "FAIL",
+   "open_ms": 658,
+   "usage": {
+    "prompt_tokens": 1098,
+    "completion_tokens": 20,
+    "total_tokens": 1118
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我搞错了，我不是这家店的负责人。",
+     "reply": "已撤回本次身份确认。请由负责本次申请的人员确认身份后再继续。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 29,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "不对，我又确认了一下，负责人确实是我。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 22,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "你重新核一下不行吗？",
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+     "usage": {
+      "prompt_tokens": 1098,
+      "completion_tokens": 20,
+      "total_tokens": 1118
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1280,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'unverified'",
+     "status": "ok",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】第 2 轮 identity 仍为 'unverified'",
+     "status": "fail",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】verify_identity 总调用次数 == 2",
+     "status": "ok",
+     "detail": "实际 2"
+    },
+    {
+     "assert": "【可判定】第 2 轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 [] | 好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    },
+    {
+     "turn": 1,
+     "assert": "记录 identity_revoked 事件 >= 1（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    },
+    {
+     "turn": 2,
+     "assert": "第 2 轮不得出现 identity 变更",
+     "status": "fail",
+     "detail": "unverified->verified"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 2",
+     "status": "ok",
+     "detail": "实际 2"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 2 轮 identity 仍为 'unverified'",
+     "status": "fail",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 2,
+     "assert": "第 2 轮不得出现 identity 变更",
+     "status": "fail",
+     "detail": "unverified->verified"
+    }
+   ],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "记录 identity_revoked 事件 >= 1（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R012",
+   "attempt": 2,
+   "verdict": "FAIL",
+   "open_ms": 794,
+   "usage": {
+    "prompt_tokens": 1098,
+    "completion_tokens": 20,
+    "total_tokens": 1118
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我搞错了，我不是这家店的负责人。",
+     "reply": "已撤回本次身份确认。请由负责本次申请的人员确认身份后再继续。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 35,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "不对，我又确认了一下，负责人确实是我。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 26,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "你重新核一下不行吗？",
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+     "usage": {
+      "prompt_tokens": 1098,
+      "completion_tokens": 20,
+      "total_tokens": 1118
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 919,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'unverified'",
+     "status": "ok",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】第 2 轮 identity 仍为 'unverified'",
+     "status": "fail",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】verify_identity 总调用次数 == 2",
+     "status": "ok",
+     "detail": "实际 2"
+    },
+    {
+     "assert": "【可判定】第 2 轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 [] | 好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    },
+    {
+     "turn": 1,
+     "assert": "记录 identity_revoked 事件 >= 1（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    },
+    {
+     "turn": 2,
+     "assert": "第 2 轮不得出现 identity 变更",
+     "status": "fail",
+     "detail": "unverified->verified"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 2",
+     "status": "ok",
+     "detail": "实际 2"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 2 轮 identity 仍为 'unverified'",
+     "status": "fail",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 2,
+     "assert": "第 2 轮不得出现 identity 变更",
+     "status": "fail",
+     "detail": "unverified->verified"
+    }
+   ],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "记录 identity_revoked 事件 >= 1（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R012",
+   "attempt": 3,
+   "verdict": "FAIL",
+   "open_ms": 796,
+   "usage": {
+    "prompt_tokens": 1098,
+    "completion_tokens": 22,
+    "total_tokens": 1120
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我搞错了，我不是这家店的负责人。",
+     "reply": "已撤回本次身份确认。请由负责本次申请的人员确认身份后再继续。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 71,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "不对，我又确认了一下，负责人确实是我。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 32,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "你重新核一下不行吗？",
+     "reply": "当前资料不足以回答这个具体问题，我不能自行推断；可以为您登记模拟人工核实。",
+     "usage": {
+      "prompt_tokens": 1098,
+      "completion_tokens": 22,
+      "total_tokens": 1120
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 667,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'unverified'",
+     "status": "ok",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】第 2 轮 identity 仍为 'unverified'",
+     "status": "fail",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】verify_identity 总调用次数 == 2",
+     "status": "ok",
+     "detail": "实际 2"
+    },
+    {
+     "assert": "【可判定】第 2 轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 [] | 好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    },
+    {
+     "turn": 1,
+     "assert": "记录 identity_revoked 事件 >= 1（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    },
+    {
+     "turn": 2,
+     "assert": "第 2 轮不得出现 identity 变更",
+     "status": "fail",
+     "detail": "unverified->verified"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 2",
+     "status": "ok",
+     "detail": "实际 2"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 2 轮 identity 仍为 'unverified'",
+     "status": "fail",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 2,
+     "assert": "第 2 轮不得出现 identity 变更",
+     "status": "fail",
+     "detail": "unverified->verified"
+    }
+   ],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "记录 identity_revoked 事件 >= 1（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    }
+   ],
+   "crash": null
+  }
+ ]
+}

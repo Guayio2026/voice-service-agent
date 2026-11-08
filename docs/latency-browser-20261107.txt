@@ -1,0 +1,19 @@
+连续语音等待优化与页面验证（2026-11-07）
+
+改动：web/realtime-voice.js
+播报中高置信度人声的累计确认窗口从96ms减到64ms；仍使用0.85阈值，丢弃超过300ms的旧检测结果。
+可识别问句的静音收尾从650ms减到450ms；普通表达仍650ms，简短确认300ms，编号和未完句尾1200ms。
+词法判断不能保证句子语义完整，慢速说话/回声较强场景还需真人复测。
+
+实际启动Edge无头浏览器，加载本地workbench.html并操作页面。
+测试脚本：python tests/check_barge_in_browser.py
+API、麦克风、VAD概率和音频输出均模拟，不调用付费服务。
+本轮单次对比：模拟首个人声概率到AudioBufferSource.stop：基线135ms，修改后86ms。
+此值包含浏览器调度；不含真实VAD推理、声学回声、麦克风/扬声器硬件缓冲，不是端到端P50或P95。
+问句等待预算650→450ms为配置差异，不是云端实测总时间差。
+通过：噪声不触发、短声不打断、过期检测丢弃、连续人声打断、音频预留、下一轮对话、编号/未完句保护、停止与切页释放麦克风。
+截图：runtime/continuous-option.png。
+
+参考检查：Silero官方实现采用16kHz、512采样点（32ms）帧，流式状态和静音时长按音频累计。
+https://github.com/snakers4/silero-vad/blob/master/src/silero_vad/utils_vad.py
+本次未更换文字模型，未取消安全检查，未用占位话术计算首响。

@@ -1,0 +1,121 @@
+﻿provider,model,case,repetition,latency_ms,http_status,ok,valid_json,correct,reasoning_chars,finish_reason
+Bailian,qwen3.8-flash,9,0,623.63,200,True,True,True,0,stop
+Bailian,qwen-flash,9,0,334.83,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,9,0,713.44,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,9,0,910.48,200,True,True,True,0,stop
+Bailian,qwen-flash,1,0,358.04,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,1,0,527.49,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,1,0,544.5,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,1,0,1033.08,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,6,0,436.65,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,6,0,542.54,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,6,0,558.71,200,True,True,True,0,stop
+Bailian,qwen-flash,6,0,344.49,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,0,0,1005.23,200,True,True,True,0,stop
+Bailian,qwen-flash,0,0,329.5,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,0,0,505.67,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,0,0,483.46,200,True,True,True,0,stop
+Bailian,qwen-flash,4,0,295.89,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,4,0,442.84,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,4,0,853.35,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,4,0,821.31,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,8,0,804.82,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,8,0,451.87,200,True,True,True,0,stop
+Bailian,qwen-flash,8,0,257.76,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,8,0,502.36,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,2,0,627.63,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,2,0,538.63,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,2,0,624.33,200,True,True,True,0,stop
+Bailian,qwen-flash,2,0,344.85,200,True,True,True,0,stop
+Bailian,qwen-flash,3,0,384.36,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,3,0,588.08,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,3,0,548.27,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,3,0,775.71,200,True,True,True,0,stop
+Bailian,qwen-flash,7,0,331.53,200,True,False,False,0,stop
+Bailian,qwen3.8-flash,7,0,534.02,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,7,0,759.11,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,7,0,879.09,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,5,0,711.68,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,5,0,671.52,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,5,0,691.3,200,True,True,True,0,stop
+Bailian,qwen-flash,5,0,349.82,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,3,1,636.61,200,True,True,True,0,stop
+Bailian,qwen-flash,3,1,379.99,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,3,1,1091.25,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,3,1,568.58,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,4,1,490.76,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,4,1,775.09,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,4,1,871.54,200,True,True,True,0,stop
+Bailian,qwen-flash,4,1,343.81,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,7,1,653.83,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,7,1,652.88,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,7,1,586.18,200,True,True,True,0,stop
+Bailian,qwen-flash,7,1,350.68,200,True,False,False,0,stop
+Bailian,qwen3.8-flash,0,1,666.07,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,0,1,844.63,200,True,True,True,0,stop
+Bailian,qwen-flash,0,1,294.7,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,0,1,811.27,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,2,1,718.1,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,2,1,627.87,200,True,True,True,0,stop
+Bailian,qwen-flash,2,1,394.6,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,2,1,706.45,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,6,1,496.02,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,6,1,837.94,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,6,1,546.08,200,True,True,True,0,stop
+Bailian,qwen-flash,6,1,272.04,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,5,1,628.68,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,5,1,407.59,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,5,1,788.22,200,True,True,True,0,stop
+Bailian,qwen-flash,5,1,397.64,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,9,1,683.78,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,9,1,939.62,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,9,1,563.89,200,True,True,True,0,stop
+Bailian,qwen-flash,9,1,429.23,200,True,False,False,0,stop
+Bailian,qwen-flash,1,1,339.94,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,1,1,580.76,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,1,1,602.77,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,1,1,609.03,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,8,1,850.51,200,True,True,True,0,stop
+Bailian,qwen-flash,8,1,264.46,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,8,1,416.32,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,8,1,549.92,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,3,2,979.88,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,3,2,582.55,200,True,True,True,0,stop
+Bailian,qwen-flash,3,2,348.83,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,3,2,558.12,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,2,2,633.41,200,True,True,True,0,stop
+Bailian,qwen-flash,2,2,344.42,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,2,2,481.18,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,2,2,577.23,200,True,True,True,0,stop
+Bailian,qwen-flash,8,2,255.39,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,8,2,960.51,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,8,2,491.01,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,8,2,551.7,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,6,2,497.93,200,True,True,True,0,stop
+Bailian,qwen-flash,6,2,338.73,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,6,2,606.06,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,6,2,674.07,200,True,True,True,0,stop
+Bailian,qwen-flash,1,2,278.51,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,1,2,666.18,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,1,2,526.72,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,1,2,690.72,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,4,2,545.71,200,True,True,True,0,stop
+Bailian,qwen-flash,4,2,426.18,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,4,2,698.66,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,4,2,525.04,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,0,2,585.24,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,0,2,615.81,200,True,True,True,0,stop
+Bailian,qwen-flash,0,2,349.28,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,0,2,619.15,200,True,True,True,0,stop
+Bailian,qwen-flash,9,2,411.45,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,9,2,565.8,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,9,2,737.46,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,9,2,562.44,200,True,True,True,0,stop
+Bailian,deepseek-v4.1-flash,7,2,643.53,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,7,2,549.57,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,7,2,635.67,200,True,True,True,0,stop
+Bailian,qwen-flash,7,2,268.59,200,True,False,False,0,stop
+Bailian,deepseek-v4.1-flash,5,2,588.96,200,True,True,True,0,stop
+Bailian,qwen3.8-flash,5,2,628.09,200,True,True,True,0,stop
+DeepSeek official,deepseek-flash,5,2,553.47,200,True,True,True,0,stop
+Bailian,qwen-flash,5,2,334.5,200,True,True,True,0,stop

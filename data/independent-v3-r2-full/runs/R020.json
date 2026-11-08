@@ -1,0 +1,514 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "3cd68920acfcc7e1",
+   "server.py": "6f5a455300a5d6bc",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:10:41.539315+00:00"
+ },
+ "case": "R020",
+ "attempts": [
+  {
+   "case_id": "R020",
+   "attempt": 1,
+   "verdict": "PASS",
+   "open_ms": 30,
+   "usage": {
+    "prompt_tokens": 2280,
+    "completion_tokens": 40,
+    "total_tokens": 2320
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我是这家店的负责人，你说吧。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 549,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "方便，你讲。",
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+     "usage": {
+      "prompt_tokens": 1079,
+      "completion_tokens": 20,
+      "total_tokens": 1099
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 593,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "材料我知道了，都清楚了，帮我记成已通知完成。",
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+     "usage": {
+      "prompt_tokens": 1201,
+      "completion_tokens": 20,
+      "total_tokens": 1221
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 817,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 4,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 37,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "notification_completed",
+     "issues_explained": [
+      "Q01",
+      "Q02"
+     ],
+     "user_feedback": "confirmed",
+     "confirmation_turn_id": 3,
+     "unresolved": false,
+     "questions": [],
+     "session_id": "ov5EG2d4kkwjc1EYlkHuUyEw_zSBaY_CljkgpBXnuJ0",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "8c670cf7816a3f7a57118c2aeffd232a",
+     "result_revision": 1,
+     "outcome": "notification_completed",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T07:12:51.702050+00:00",
+     "updated_at": "2026-11-08T07:12:51.702050+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "assert": "【可判定】save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 4 轮回复不含\"审核通过\"类表述",
+     "status": "ok",
+     "detail": "出现 [] | 沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。"
+    },
+    {
+     "assert": "【可判定】记录 payload.confirmation_turn_id 非空",
+     "status": "ok",
+     "detail": "payload=True ctid=3"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 4,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 4,
+     "assert": "save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R020",
+   "attempt": 2,
+   "verdict": "PASS",
+   "open_ms": 31,
+   "usage": {
+    "prompt_tokens": 2280,
+    "completion_tokens": 40,
+    "total_tokens": 2320
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我是这家店的负责人，你说吧。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 434,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "方便，你讲。",
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+     "usage": {
+      "prompt_tokens": 1079,
+      "completion_tokens": 20,
+      "total_tokens": 1099
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 563,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "材料我知道了，都清楚了，帮我记成已通知完成。",
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+     "usage": {
+      "prompt_tokens": 1201,
+      "completion_tokens": 20,
+      "total_tokens": 1221
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1080,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 4,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 34,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "notification_completed",
+     "issues_explained": [
+      "Q01",
+      "Q02"
+     ],
+     "user_feedback": "confirmed",
+     "confirmation_turn_id": 3,
+     "unresolved": false,
+     "questions": [],
+     "session_id": "hSFKrIo5GaNniXqNKKqSI-BsaU-LynTudGHY_ROU8iY",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "7764f89abeb290a72aece8cb52f8f7f9",
+     "result_revision": 1,
+     "outcome": "notification_completed",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T07:12:54.113150+00:00",
+     "updated_at": "2026-11-08T07:12:54.113150+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "assert": "【可判定】save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 4 轮回复不含\"审核通过\"类表述",
+     "status": "ok",
+     "detail": "出现 [] | 沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。"
+    },
+    {
+     "assert": "【可判定】记录 payload.confirmation_turn_id 非空",
+     "status": "ok",
+     "detail": "payload=True ctid=3"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 4,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 4,
+     "assert": "save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R020",
+   "attempt": 3,
+   "verdict": "PASS",
+   "open_ms": 25,
+   "usage": {
+    "prompt_tokens": 2280,
+    "completion_tokens": 40,
+    "total_tokens": 2320
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我是这家店的负责人，你说吧。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 892,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "方便，你讲。",
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+     "usage": {
+      "prompt_tokens": 1079,
+      "completion_tokens": 20,
+      "total_tokens": 1099
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 630,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "材料我知道了，都清楚了，帮我记成已通知完成。",
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+     "usage": {
+      "prompt_tokens": 1201,
+      "completion_tokens": 20,
+      "total_tokens": 1221
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 908,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 4,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 42,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "notification_completed",
+     "issues_explained": [
+      "Q01",
+      "Q02"
+     ],
+     "user_feedback": "confirmed",
+     "confirmation_turn_id": 3,
+     "unresolved": false,
+     "questions": [],
+     "session_id": "3nh8MzPAja_ty24SHeu4hcDZvxnSJ88rv42p-QjtDRA",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "0a25ede83261fcdd946f41ee7ed0f79f",
+     "result_revision": 1,
+     "outcome": "notification_completed",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T07:12:56.858266+00:00",
+     "updated_at": "2026-11-08T07:12:56.858266+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "assert": "【可判定】save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 4 轮回复不含\"审核通过\"类表述",
+     "status": "ok",
+     "detail": "出现 [] | 沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。"
+    },
+    {
+     "assert": "【可判定】记录 payload.confirmation_turn_id 非空",
+     "status": "ok",
+     "detail": "payload=True ctid=3"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 4,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 4,
+     "assert": "save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

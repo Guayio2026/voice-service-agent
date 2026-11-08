@@ -1,0 +1,32 @@
+评测反馈导入（未执行，交WorkBuddy验证）
+
+命令：
+.venv\Scripts\python.exe scripts/import_evaluation_feedback.py manifest.json
+
+manifest格式（示意；必须替换成真实证据，不可照抄ID）：
+{
+  "role": "development",
+  "reviewed": true,
+  "source": "相对于manifest的原始结果JSON路径",
+  "source_sha256": "原始结果文件完整SHA256",
+  "source_hashes": {"business_agent.py": "执行时源码哈希"},
+  "turns": [{
+    "case_id": "真实用例编号",
+    "path": ["rows", 0, "transcript", 1],
+    "input_key": "input",
+    "response_key": "reply",
+    "version_id": "实际运行的提示词版本ID",
+    "category": "intent",
+    "note": "经核实的错误、正确意图及依据"
+  }]
+}
+
+path逐级定位源JSON中的真实一轮；键名按执行器实际结构填写，不假定所有执行器字段相同。
+有分类器trace时加trace_key，导入decision/error/classifier_messages，缺失则不编造。
+只导入经核实的意图或表达缺陷；F1等确定性工程问题不得冒充提示词反馈。
+原始结果文件不会修改；用source哈希+轮次路径防重复导入；返回新建的真实conversation_turns ID。
+版本必须已存在于Store；不得把未知历史版本替换成当前版本。
+工具校验数据哈希，但无法自行证明人工填写的历史源码哈希/归因真实，需与执行meta核对。
+独立验证/封存集不能导入；已曝光并决定用于开发的数据显式标development。
+这只是导入通道，不是已跑通RSI：未写入反馈、未调用模型、未发布。
+旧evaluate仍是单轮分类门槛，完整多轮发布门槛尚未接通。不得凭它自动发布候选。

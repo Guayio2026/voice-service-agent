@@ -1,0 +1,119 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "c6b01a66ee093221",
+   "server.py": "55381c8077efb503",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:45:57.727093+00:00"
+ },
+ "case": "S004",
+ "attempts": [
+  {
+   "case_id": "S004",
+   "attempt": 1,
+   "verdict": "PASS",
+   "open_ms": 1421,
+   "usage": {
+    "prompt_tokens": 1055,
+    "completion_tokens": 17,
+    "total_tokens": 1072
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "那就记：本次已通知完成。",
+     "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。",
+     "usage": {
+      "prompt_tokens": 1055,
+      "completion_tokens": 17,
+      "total_tokens": 1072
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1531,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "等等，先别记，我还想问：授权书要不要原件？",
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 26,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "确认登记。",
+     "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：尚未确认。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 17,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 2 轮 pending_state == none 或 awaiting_confirmation（不得保留旧内容）",
+     "status": "ok",
+     "detail": "状态取值合法（旧内容是否保留由后续轮次写入结果判定）"
+    },
+    {
+     "assert": "【可判定】第 3 轮 records 记录数 == 0",
+     "status": "ok",
+     "detail": "第 3 轮 records=0"
+    },
+    {
+     "assert": "【可判定】save_call_result 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

@@ -1,0 +1,80 @@
+{
+  "checked_on": "2026-11-04",
+  "rnnoise_wasm_commit": "cb529a59a8478fe604e57986fc96afdaecfa6fb7",
+  "rnnoise_core_commit": "372f7b4b76cde4ca1ec4605353dd17898a99de38",
+  "silero_commit": "066409f3d9db45a30d21dfcbf9147826ffdd7052",
+  "onnxruntime_web_version": "1.22.0",
+  "npm_integrity": "sha512-Ud/+EBo6mhuaQWt/OjaOk0iNWjXqJoeeMFr6xQEERZdIZH2OWpGzuujz7lfuOBjUa6TEE/sc4nb7Da5dNL34fg==",
+  "files": [
+    {
+      "path": "compliance/licenses/audio/jitsi-LICENSE.txt",
+      "source": "https://raw.githubusercontent.com/jitsi/rnnoise-wasm/cb529a59a8478fe604e57986fc96afdaecfa6fb7/LICENSE",
+      "sha256": "4646d0ab74a05730f8b3b12b6376ddccb7f0905ee5b69265b3d873b97ace3e94",
+      "bytes": 12588,
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "compliance/licenses/audio/rnnoise-COPYING.txt",
+      "source": "https://raw.githubusercontent.com/xiph/rnnoise/372f7b4b76cde4ca1ec4605353dd17898a99de38/COPYING",
+      "sha256": "45d37ca1cdb278c088e1aa85e0e65ca3a534ed86a28dcc96ca16810248a61d35",
+      "bytes": 1612,
+      "license": "BSD-3-Clause"
+    },
+    {
+      "path": "compliance/licenses/audio/silero-LICENSE.txt",
+      "source": "https://raw.githubusercontent.com/snakers4/silero-vad/066409f3d9db45a30d21dfcbf9147826ffdd7052/LICENSE",
+      "sha256": "2e63e9a38b6e8fc0c7bc37ce174caca1862870856c6daf5697cfb785e925520b",
+      "bytes": 1075,
+      "license": "MIT"
+    },
+    {
+      "path": "web/vendor/audio/rnnoise-sync.js",
+      "source": "https://raw.githubusercontent.com/jitsi/rnnoise-wasm/cb529a59a8478fe604e57986fc96afdaecfa6fb7/dist/rnnoise-sync.js",
+      "sha256": "05a553f523d59502d133a6d05dbf1878137c9e7bcff06edf5561f7001b62f95f",
+      "bytes": 1933102,
+      "license": "Apache-2.0 AND BSD-3-Clause"
+    },
+    {
+      "path": "web/vendor/audio/silero_vad.onnx",
+      "source": "https://raw.githubusercontent.com/snakers4/silero-vad/066409f3d9db45a30d21dfcbf9147826ffdd7052/src/silero_vad/data/silero_vad.onnx",
+      "sha256": "1a153a22f4509e292a94e67d6f9b85e8deb25b4988682b7e174c65279d8788e3",
+      "bytes": 2327524,
+      "license": "MIT"
+    },
+    {
+      "path": "web/vendor/audio/ort.wasm.min.js",
+      "source": "https://registry.npmjs.org/onnxruntime-web/-/onnxruntime-web-1.22.0.tgz#package/dist/ort.wasm.min.js",
+      "sha256": "65e09376df69107e881b5c34d2d37aed333a366b6d941073ec518168e269b87d",
+      "bytes": 48327,
+      "license": "MIT (plus bundled third-party notices)"
+    },
+    {
+      "path": "web/vendor/audio/ort-wasm-simd-threaded.mjs",
+      "source": "https://registry.npmjs.org/onnxruntime-web/-/onnxruntime-web-1.22.0.tgz#package/dist/ort-wasm-simd-threaded.mjs",
+      "sha256": "30dd851d9c00622940500f71ddd2ff8820c5cb65270816080175b958705385a8",
+      "bytes": 20856,
+      "license": "MIT (plus bundled third-party notices)"
+    },
+    {
+      "path": "web/vendor/audio/ort-wasm-simd-threaded.wasm",
+      "source": "https://registry.npmjs.org/onnxruntime-web/-/onnxruntime-web-1.22.0.tgz#package/dist/ort-wasm-simd-threaded.wasm",
+      "sha256": "71aef04959c5c1b6de461b6538e2058e306610034a85aad2742d0c7fd4533fe4",
+      "bytes": 11210254,
+      "license": "MIT (plus bundled third-party notices)"
+    },
+    {
+      "path": "compliance/licenses/audio/onnxruntime-LICENSE.txt",
+      "source": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.22.0/LICENSE",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "bytes": 1073,
+      "license": "MIT"
+    },
+    {
+      "path": "compliance/licenses/audio/onnxruntime-ThirdPartyNotices.txt",
+      "source": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.22.0/ThirdPartyNotices.txt",
+      "sha256": "e9e90971a8e75a9a8ac0c6412e29c1202d079998389915aa485f46c816c3b4cc",
+      "bytes": 326866,
+      "license": "Third-party notices"
+    }
+  ]
+}

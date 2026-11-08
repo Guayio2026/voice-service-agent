@@ -1,0 +1,1602 @@
+[
+  {
+    "code": "trademark.missing",
+    "material_type": "trademark",
+    "label": "证明缺失或不清晰",
+    "reason": "本次商标注册证明缺页或无法辨认",
+    "action": "补充完整清晰的商标注册证明",
+    "evidence_id": "SUB-trademark.missing",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "证明缺失或不清晰"
+    ],
+    "followup_question": "请说明证明缺失或不清晰涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.validity",
+    "material_type": "trademark",
+    "label": "有效期问题",
+    "reason": "本次提交的商标有效期证明需要核实",
+    "action": "提供有效状态证明；涉及续展的，补充相应证明供审核核实",
+    "evidence_id": "SUB-trademark.validity",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "有效期问题"
+    ],
+    "followup_question": "请说明有效期问题涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.holder",
+    "material_type": "trademark",
+    "label": "持有人不一致",
+    "reason": "商标注册证上的持有人与申请填写的持有人不一致",
+    "action": "核对持有人信息，补充一致的证明；涉及变更或转让的，提供相关证明",
+    "evidence_id": "SUB-trademark.holder",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "持有人不一致"
+    ],
+    "followup_question": "请说明持有人不一致涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.brand",
+    "material_type": "trademark",
+    "label": "商标信息不一致",
+    "reason": "本次申请品牌与商标证明记载的信息不一致",
+    "action": "核对品牌名称及商标信息并补充对应证明",
+    "evidence_id": "SUB-trademark.brand",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "商标信息不一致"
+    ],
+    "followup_question": "请说明商标信息不一致涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.category",
+    "material_type": "trademark",
+    "label": "类别不匹配",
+    "reason": "本次申请类目与商标证明类别的对应关系不明确",
+    "action": "补充类别对应说明与相应证明，交由审核人员核实",
+    "evidence_id": "SUB-trademark.category",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "类别不匹配"
+    ],
+    "followup_question": "请说明类别不匹配涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.chain",
+    "material_type": "authorization",
+    "label": "授权链缺环",
+    "reason": "品牌授权链缺少中间授权证明",
+    "action": "补齐商标持有人至开店公司之间缺失的授权证明",
+    "evidence_id": "SUB-authorization.chain",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权链缺环"
+    ],
+    "followup_question": "请说明授权链缺环涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.validity",
+    "material_type": "authorization",
+    "label": "授权有效期问题",
+    "reason": "本次授权书记载的授权期限已过",
+    "action": "补充有效授权文件供审核核实",
+    "evidence_id": "SUB-authorization.validity",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权有效期问题"
+    ],
+    "followup_question": "请说明授权有效期问题涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.entity",
+    "material_type": "authorization",
+    "label": "授权主体不对应",
+    "reason": "相邻授权文件的授权方与被授权方无法衔接",
+    "action": "核对各层授权主体并补充衔接证明",
+    "evidence_id": "SUB-authorization.entity",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权主体不对应"
+    ],
+    "followup_question": "请说明授权主体不对应涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.brand",
+    "material_type": "authorization",
+    "label": "授权品牌不一致",
+    "reason": "授权文件中的品牌与本次申请品牌不一致",
+    "action": "核对品牌并补充对应品牌的授权证明",
+    "evidence_id": "SUB-authorization.brand",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权品牌不一致"
+    ],
+    "followup_question": "请说明授权品牌不一致涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.scope",
+    "material_type": "authorization",
+    "label": "授权范围不覆盖",
+    "reason": "本次申请类目不在所提交授权文件记载的范围内",
+    "action": "补充覆盖申请范围的授权文件，具体适用性需审核核实",
+    "evidence_id": "SUB-authorization.scope",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权范围不覆盖"
+    ],
+    "followup_question": "请说明授权范围不覆盖涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.missing",
+    "material_type": "purchase",
+    "label": "采购凭证缺失",
+    "reason": "本次采购链记录缺少对应购货凭证",
+    "action": "补充对应购货发票或本次审核记录要求的采购凭证",
+    "evidence_id": "SUB-purchase.missing",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "采购凭证缺失"
+    ],
+    "followup_question": "请说明采购凭证缺失涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.entity",
+    "material_type": "purchase",
+    "label": "交易主体不对应",
+    "reason": "购货发票与银行流水记载的交易主体无法对应",
+    "action": "核对交易双方并提供相互对应的凭证或关联说明",
+    "evidence_id": "SUB-purchase.entity",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "交易主体不对应"
+    ],
+    "followup_question": "请说明交易主体不对应涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.transaction",
+    "material_type": "purchase",
+    "label": "交易时间或金额疑点",
+    "reason": "本次发票与银行流水的时间或金额存在待核实差异",
+    "action": "补充交易对应说明；涉及分批付款等情况，提供相关凭证",
+    "evidence_id": "SUB-purchase.transaction",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "交易时间或金额疑点"
+    ],
+    "followup_question": "请说明交易时间或金额疑点涉及的材料和具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.chain",
+    "material_type": "purchase",
+    "label": "采购链路不明确",
+    "reason": "现有凭证无法对应本次申请涉及的采购链路",
+    "action": "补充关联采购凭证和链路说明供审核核实",
+    "evidence_id": "SUB-purchase.chain",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "采购链路不明确"
+    ],
+    "followup_question": "请说明采购链路不明确涉及的材料和具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.clarity",
+    "material_type": "purchase",
+    "label": "凭证不清晰",
+    "reason": "本次采购凭证的关键内容无法辨认",
+    "action": "提供完整清晰的凭证，通过受控业务渠道提交",
+    "evidence_id": "SUB-purchase.clarity",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "凭证不清晰"
+    ],
+    "followup_question": "请说明凭证不清晰涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.missing",
+    "material_type": "industry",
+    "label": "所需资质缺失",
+    "reason": "本次演示审核记录缺少对应行业资质材料",
+    "action": "根据经营情形核实适用的许可、备案或例外，再补充相应材料",
+    "evidence_id": "SUB-industry.missing",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "所需资质缺失"
+    ],
+    "followup_question": "请说明所需资质缺失涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.validity",
+    "material_type": "industry",
+    "label": "资质有效期问题",
+    "reason": "本次行业资质材料的有效状态需要核实",
+    "action": "提供当前有效状态的证明材料供审核核实",
+    "evidence_id": "SUB-industry.validity",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "资质有效期问题"
+    ],
+    "followup_question": "请说明资质有效期问题涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.entity",
+    "material_type": "industry",
+    "label": "资质主体不一致",
+    "reason": "行业资质记载主体与本次申请主体不一致",
+    "action": "核对主体并补充对应资质或主体关系说明",
+    "evidence_id": "SUB-industry.entity",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "资质主体不一致"
+    ],
+    "followup_question": "请说明资质主体不一致涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.scope",
+    "material_type": "industry",
+    "label": "经营范围不匹配",
+    "reason": "行业资质记载范围与本次申请经营内容无法对应",
+    "action": "说明实际经营内容并补充适用资质供审核核实",
+    "evidence_id": "SUB-industry.scope",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "经营范围不匹配"
+    ],
+    "followup_question": "请说明经营范围不匹配涉及的材料和具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.permit_record",
+    "material_type": "industry",
+    "label": "许可备案类型待核实",
+    "reason": "本次经营情形尚不足以确定适用许可还是备案",
+    "action": "补充具体经营范围和商品信息，由审核人员确认适用许可、备案或例外",
+    "evidence_id": "SUB-industry.permit_record",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "许可备案类型待核实"
+    ],
+    "followup_question": "请说明许可备案类型待核实涉及的材料和具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.certificate_page",
+    "material_type": "trademark",
+    "label": "证书正文缺失",
+    "reason": "本次合成审核记录标记：证书正文缺失",
+    "action": "核对商标注册证正文，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.certificate_page",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "商标注册证正文"
+    ],
+    "followup_question": "请说明商标注册证正文的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.attachment_page",
+    "material_type": "trademark",
+    "label": "附页缺失",
+    "reason": "本次合成审核记录标记：附页缺失",
+    "action": "核对商标注册证附页，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.attachment_page",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "商标注册证附页"
+    ],
+    "followup_question": "请说明商标注册证附页的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.number_blurred",
+    "material_type": "trademark",
+    "label": "注册号不清晰",
+    "reason": "本次合成审核记录标记：注册号不清晰",
+    "action": "核对注册号，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.number_blurred",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "注册号"
+    ],
+    "followup_question": "请说明注册号的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.owner_blurred",
+    "material_type": "trademark",
+    "label": "持有人名称不清晰",
+    "reason": "本次合成审核记录标记：持有人名称不清晰",
+    "action": "核对持有人名称，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.owner_blurred",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "持有人名称"
+    ],
+    "followup_question": "请说明持有人名称的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.date_blurred",
+    "material_type": "trademark",
+    "label": "日期不清晰",
+    "reason": "本次合成审核记录标记：日期不清晰",
+    "action": "核对证载日期，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.date_blurred",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "证载日期"
+    ],
+    "followup_question": "请说明证载日期的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.cropped",
+    "material_type": "trademark",
+    "label": "证书边缘裁切",
+    "reason": "本次合成审核记录标记：证书边缘裁切",
+    "action": "核对完整证书页面，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.cropped",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "完整证书页面"
+    ],
+    "followup_question": "请说明完整证书页面的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.number_mismatch",
+    "material_type": "trademark",
+    "label": "注册号不一致",
+    "reason": "本次合成审核记录标记：注册号不一致",
+    "action": "核对申请注册号与证书注册号，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.number_mismatch",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "申请注册号与证书注册号"
+    ],
+    "followup_question": "请说明申请注册号与证书注册号的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.name_mismatch",
+    "material_type": "trademark",
+    "label": "品牌文字不一致",
+    "reason": "本次合成审核记录标记：品牌文字不一致",
+    "action": "核对品牌中英文名称，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.name_mismatch",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "品牌中英文名称"
+    ],
+    "followup_question": "请说明品牌中英文名称的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.graphic_mismatch",
+    "material_type": "trademark",
+    "label": "图形标识不一致",
+    "reason": "本次合成审核记录标记：图形标识不一致",
+    "action": "核对品牌图形与证载图样，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.graphic_mismatch",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "品牌图形与证载图样"
+    ],
+    "followup_question": "请说明品牌图形与证载图样的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.owner_change",
+    "material_type": "trademark",
+    "label": "持有人变更证明缺失",
+    "reason": "本次合成审核记录标记：持有人变更证明缺失",
+    "action": "核对持有人变更证明，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.owner_change",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "持有人变更证明"
+    ],
+    "followup_question": "请说明持有人变更证明的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.transfer_pending",
+    "material_type": "trademark",
+    "label": "转让办理状态待核实",
+    "reason": "本次合成审核记录标记：转让办理状态待核实",
+    "action": "核对商标转让状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.transfer_pending",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "商标转让状态"
+    ],
+    "followup_question": "请说明商标转让状态的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.renewal_pending",
+    "material_type": "trademark",
+    "label": "续展状态待核实",
+    "reason": "本次合成审核记录标记：续展状态待核实",
+    "action": "核对商标续展状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.renewal_pending",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "商标续展状态"
+    ],
+    "followup_question": "请说明商标续展状态的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.renewal_attachment",
+    "material_type": "trademark",
+    "label": "续展证明缺失",
+    "reason": "本次合成审核记录标记：续展证明缺失",
+    "action": "核对续展证明与原注册证，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.renewal_attachment",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "续展证明与原注册证"
+    ],
+    "followup_question": "请说明续展证明与原注册证的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.cancellation_status",
+    "material_type": "trademark",
+    "label": "注销状态待核实",
+    "reason": "本次合成审核记录标记：注销状态待核实",
+    "action": "核对当前商标状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.cancellation_status",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "当前商标状态"
+    ],
+    "followup_question": "请说明当前商标状态的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.revocation_status",
+    "material_type": "trademark",
+    "label": "撤销状态待核实",
+    "reason": "本次合成审核记录标记：撤销状态待核实",
+    "action": "核对当前商标状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.revocation_status",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "当前商标状态"
+    ],
+    "followup_question": "请说明当前商标状态的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.application_vs_registration",
+    "material_type": "trademark",
+    "label": "申请受理与注册证明混淆",
+    "reason": "本次合成审核记录标记：申请受理与注册证明混淆",
+    "action": "核对文件类型及当前注册状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.application_vs_registration",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "文件类型及当前注册状态"
+    ],
+    "followup_question": "请说明文件类型及当前注册状态的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.class_detail",
+    "material_type": "trademark",
+    "label": "具体商品范围待核实",
+    "reason": "本次合成审核记录标记：具体商品范围待核实",
+    "action": "核对核定商品与申请商品，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.class_detail",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "核定商品与申请商品"
+    ],
+    "followup_question": "请说明核定商品与申请商品的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.multiple_marks",
+    "material_type": "trademark",
+    "label": "多个商标对应不明确",
+    "reason": "本次合成审核记录标记：多个商标对应不明确",
+    "action": "核对多个注册号与申请品牌的对应关系，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.multiple_marks",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "多个注册号与申请品牌的对应关系"
+    ],
+    "followup_question": "请说明多个注册号与申请品牌的对应关系的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.translation",
+    "material_type": "trademark",
+    "label": "外文信息对应待核实",
+    "reason": "本次合成审核记录标记：外文信息对应待核实",
+    "action": "核对外文证书与申请填写信息，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.translation",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "外文证书与申请填写信息"
+    ],
+    "followup_question": "请说明外文证书与申请填写信息的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "trademark.conflicting_versions",
+    "material_type": "trademark",
+    "label": "不同版本证书信息冲突",
+    "reason": "本次合成审核记录标记：不同版本证书信息冲突",
+    "action": "核对各版本证书的时间和变更关系，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.conflicting_versions",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "各版本证书的时间和变更关系"
+    ],
+    "followup_question": "请说明各版本证书的时间和变更关系的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.page_missing",
+    "material_type": "authorization",
+    "label": "授权书正文缺失",
+    "reason": "本次合成审核记录标记：授权书正文缺失",
+    "action": "核对授权书完整正文，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.page_missing",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权书完整正文"
+    ],
+    "followup_question": "请说明授权书完整正文的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.signature_page",
+    "material_type": "authorization",
+    "label": "签署页缺失",
+    "reason": "本次合成审核记录标记：签署页缺失",
+    "action": "核对签署页，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.signature_page",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "签署页"
+    ],
+    "followup_question": "请说明签署页的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.seal_unclear",
+    "material_type": "authorization",
+    "label": "印章无法辨认",
+    "reason": "本次合成审核记录标记：印章无法辨认",
+    "action": "核对签章清晰副本，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.seal_unclear",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "签章清晰副本"
+    ],
+    "followup_question": "请说明签章清晰副本的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.signer_authority",
+    "material_type": "authorization",
+    "label": "签署人权限待核实",
+    "reason": "本次合成审核记录标记：签署人权限待核实",
+    "action": "核对签署人身份及授权依据，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.signer_authority",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "签署人身份及授权依据"
+    ],
+    "followup_question": "请说明签署人身份及授权依据的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.unsigned",
+    "material_type": "authorization",
+    "label": "签署情况待核实",
+    "reason": "本次合成审核记录标记：签署情况待核实",
+    "action": "核对文件签署情况，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.unsigned",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "文件签署情况"
+    ],
+    "followup_question": "请说明文件签署情况的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.start_date",
+    "material_type": "authorization",
+    "label": "授权尚未生效",
+    "reason": "本次合成审核记录标记：授权尚未生效",
+    "action": "核对授权开始时间，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.start_date",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权开始时间"
+    ],
+    "followup_question": "请说明授权开始时间的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.end_date_missing",
+    "material_type": "authorization",
+    "label": "授权期限未明确",
+    "reason": "本次合成审核记录标记：授权期限未明确",
+    "action": "核对授权期限，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.end_date_missing",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权期限"
+    ],
+    "followup_question": "请说明授权期限的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.date_conflict",
+    "material_type": "authorization",
+    "label": "各层授权期限不衔接",
+    "reason": "本次合成审核记录标记：各层授权期限不衔接",
+    "action": "核对各层授权起止时间，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.date_conflict",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "各层授权起止时间"
+    ],
+    "followup_question": "请说明各层授权起止时间的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.grantor_mismatch",
+    "material_type": "authorization",
+    "label": "首层授权方与持有人不一致",
+    "reason": "本次合成审核记录标记：首层授权方与持有人不一致",
+    "action": "核对商标持有人及首层授权方，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.grantor_mismatch",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "商标持有人及首层授权方"
+    ],
+    "followup_question": "请说明商标持有人及首层授权方的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.grantee_mismatch",
+    "material_type": "authorization",
+    "label": "末层被授权方与开店公司不一致",
+    "reason": "本次合成审核记录标记：末层被授权方与开店公司不一致",
+    "action": "核对末层被授权方及开店公司，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.grantee_mismatch",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "末层被授权方及开店公司"
+    ],
+    "followup_question": "请说明末层被授权方及开店公司的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.middle_entity_change",
+    "material_type": "authorization",
+    "label": "中间主体更名关系不明",
+    "reason": "本次合成审核记录标记：中间主体更名关系不明",
+    "action": "核对主体更名与授权衔接证明，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.middle_entity_change",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "主体更名与授权衔接证明"
+    ],
+    "followup_question": "请说明主体更名与授权衔接证明的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.subdelegation",
+    "material_type": "authorization",
+    "label": "转授权权限未明确",
+    "reason": "本次合成审核记录标记：转授权权限未明确",
+    "action": "核对上层授权的转授权范围，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.subdelegation",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "上层授权的转授权范围"
+    ],
+    "followup_question": "请说明上层授权的转授权范围的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.territory",
+    "material_type": "authorization",
+    "label": "地域范围待核实",
+    "reason": "本次合成审核记录标记：地域范围待核实",
+    "action": "核对授权地域及实际销售区域，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.territory",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权地域及实际销售区域"
+    ],
+    "followup_question": "请说明授权地域及实际销售区域的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.platform",
+    "material_type": "authorization",
+    "label": "平台范围待核实",
+    "reason": "本次合成审核记录标记：平台范围待核实",
+    "action": "核对授权平台范围，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.platform",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权平台范围"
+    ],
+    "followup_question": "请说明授权平台范围的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.store_type",
+    "material_type": "authorization",
+    "label": "店型授权适用性待核实",
+    "reason": "本次合成审核记录标记：店型授权适用性待核实",
+    "action": "核对拟开店型与授权用途，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.store_type",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "拟开店型与授权用途"
+    ],
+    "followup_question": "请说明拟开店型与授权用途的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.exclusive",
+    "material_type": "authorization",
+    "label": "独占性表述待核实",
+    "reason": "本次合成审核记录标记：独占性表述待核实",
+    "action": "核对授权性质及适用店型要求，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.exclusive",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权性质及适用店型要求"
+    ],
+    "followup_question": "请说明授权性质及适用店型要求的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.product_scope",
+    "material_type": "authorization",
+    "label": "商品范围未明确",
+    "reason": "本次合成审核记录标记：商品范围未明确",
+    "action": "核对授权覆盖商品清单，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.product_scope",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权覆盖商品清单"
+    ],
+    "followup_question": "请说明授权覆盖商品清单的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.multiple_brands",
+    "material_type": "authorization",
+    "label": "多品牌授权对应不明",
+    "reason": "本次合成审核记录标记：多品牌授权对应不明",
+    "action": "核对每个品牌的对应授权文件，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.multiple_brands",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "每个品牌的对应授权文件"
+    ],
+    "followup_question": "请说明每个品牌的对应授权文件的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.revoked",
+    "material_type": "authorization",
+    "label": "授权撤回情况待核实",
+    "reason": "本次合成审核记录标记：授权撤回情况待核实",
+    "action": "核对授权当前有效状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.revoked",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权当前有效状态"
+    ],
+    "followup_question": "请说明授权当前有效状态的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "authorization.conflicting_documents",
+    "material_type": "authorization",
+    "label": "多份授权内容冲突",
+    "reason": "本次合成审核记录标记：多份授权内容冲突",
+    "action": "核对授权版本、主体、范围和时间，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.conflicting_documents",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "授权版本、主体、范围和时间"
+    ],
+    "followup_question": "请说明授权版本、主体、范围和时间的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.invoice_missing",
+    "material_type": "purchase",
+    "label": "购货发票缺失",
+    "reason": "本次合成审核记录标记：购货发票缺失",
+    "action": "核对对应购货发票，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.invoice_missing",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "对应购货发票"
+    ],
+    "followup_question": "请说明对应购货发票的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.statement_missing",
+    "material_type": "purchase",
+    "label": "付款凭证缺失",
+    "reason": "本次合成审核记录标记：付款凭证缺失",
+    "action": "核对审核记录要求的付款凭证，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.statement_missing",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "审核记录要求的付款凭证"
+    ],
+    "followup_question": "请说明审核记录要求的付款凭证的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.invoice_number",
+    "material_type": "purchase",
+    "label": "发票号码无法辨认",
+    "reason": "本次合成审核记录标记：发票号码无法辨认",
+    "action": "核对发票识别信息，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.invoice_number",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "发票识别信息"
+    ],
+    "followup_question": "请说明发票识别信息的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.invoice_status",
+    "material_type": "purchase",
+    "label": "发票查验状态待核实",
+    "reason": "本次合成审核记录标记：发票查验状态待核实",
+    "action": "核对官方发票查验结果，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.invoice_status",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "官方发票查验结果"
+    ],
+    "followup_question": "请说明官方发票查验结果的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.red_invoice",
+    "material_type": "purchase",
+    "label": "红冲关系待核实",
+    "reason": "本次合成审核记录标记：红冲关系待核实",
+    "action": "核对原发票与红字发票对应关系，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.red_invoice",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "原发票与红字发票对应关系"
+    ],
+    "followup_question": "请说明原发票与红字发票对应关系的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.void_invoice",
+    "material_type": "purchase",
+    "label": "作废状态待核实",
+    "reason": "本次合成审核记录标记：作废状态待核实",
+    "action": "核对发票有效状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.void_invoice",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "发票有效状态"
+    ],
+    "followup_question": "请说明发票有效状态的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.buyer",
+    "material_type": "purchase",
+    "label": "购方与采购主体不一致",
+    "reason": "本次合成审核记录标记：购方与采购主体不一致",
+    "action": "核对发票购方与采购主体，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.buyer",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "发票购方与采购主体"
+    ],
+    "followup_question": "请说明发票购方与采购主体的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.seller",
+    "material_type": "purchase",
+    "label": "销方与供货方不一致",
+    "reason": "本次合成审核记录标记：销方与供货方不一致",
+    "action": "核对发票销方与供货主体，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.seller",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "发票销方与供货主体"
+    ],
+    "followup_question": "请说明发票销方与供货主体的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.payer",
+    "material_type": "purchase",
+    "label": "付款方与购方不一致",
+    "reason": "本次合成审核记录标记：付款方与购方不一致",
+    "action": "核对付款主体及关系说明，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.payer",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "付款主体及关系说明"
+    ],
+    "followup_question": "请说明付款主体及关系说明的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.payee",
+    "material_type": "purchase",
+    "label": "收款方与销方不一致",
+    "reason": "本次合成审核记录标记：收款方与销方不一致",
+    "action": "核对收款主体及关系说明，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.payee",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "收款主体及关系说明"
+    ],
+    "followup_question": "请说明收款主体及关系说明的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.split_payment",
+    "material_type": "purchase",
+    "label": "分笔付款对应不明确",
+    "reason": "本次合成审核记录标记：分笔付款对应不明确",
+    "action": "核对分笔付款与同一交易的对应关系，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.split_payment",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "分笔付款与同一交易的对应关系"
+    ],
+    "followup_question": "请说明分笔付款与同一交易的对应关系的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.combined_payment",
+    "material_type": "purchase",
+    "label": "合并付款对应不明确",
+    "reason": "本次合成审核记录标记：合并付款对应不明确",
+    "action": "核对合并付款与多笔订单的对应关系，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.combined_payment",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "合并付款与多笔订单的对应关系"
+    ],
+    "followup_question": "请说明合并付款与多笔订单的对应关系的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.prepayment",
+    "material_type": "purchase",
+    "label": "预付款与尾款对应待核实",
+    "reason": "本次合成审核记录标记：预付款与尾款对应待核实",
+    "action": "核对合同付款安排及交易凭证，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.prepayment",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "合同付款安排及交易凭证"
+    ],
+    "followup_question": "请说明合同付款安排及交易凭证的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.refund",
+    "material_type": "purchase",
+    "label": "退款记录影响待核实",
+    "reason": "本次合成审核记录标记：退款记录影响待核实",
+    "action": "核对退款原因及实际采购情况，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.refund",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "退款原因及实际采购情况"
+    ],
+    "followup_question": "请说明退款原因及实际采购情况的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.currency",
+    "material_type": "purchase",
+    "label": "币种或汇率对应不明确",
+    "reason": "本次合成审核记录标记：币种或汇率对应不明确",
+    "action": "核对交易币种及金额换算说明，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.currency",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "交易币种及金额换算说明"
+    ],
+    "followup_question": "请说明交易币种及金额换算说明的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.product_name",
+    "material_type": "purchase",
+    "label": "商品名称无法对应",
+    "reason": "本次合成审核记录标记：商品名称无法对应",
+    "action": "核对发票品名与申请商品，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.product_name",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "发票品名与申请商品"
+    ],
+    "followup_question": "请说明发票品名与申请商品的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.quantity",
+    "material_type": "purchase",
+    "label": "采购数量对应不明",
+    "reason": "本次合成审核记录标记：采购数量对应不明",
+    "action": "核对订单、发票、收货数量，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.quantity",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "订单、发票、收货数量"
+    ],
+    "followup_question": "请说明订单、发票、收货数量的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.duplicate",
+    "material_type": "purchase",
+    "label": "重复凭证待核实",
+    "reason": "本次合成审核记录标记：重复凭证待核实",
+    "action": "核对凭证编号与交易唯一性，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.duplicate",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "凭证编号与交易唯一性"
+    ],
+    "followup_question": "请说明凭证编号与交易唯一性的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.supplier_chain",
+    "material_type": "purchase",
+    "label": "供应商与授权链关系不明",
+    "reason": "本次合成审核记录标记：供应商与授权链关系不明",
+    "action": "核对供货主体与授权链的关联，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.supplier_chain",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "供货主体与授权链的关联"
+    ],
+    "followup_question": "请说明供货主体与授权链的关联的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "purchase.sensitive_fields",
+    "material_type": "purchase",
+    "label": "敏感字段处理后无法核实",
+    "reason": "本次合成审核记录标记：敏感字段处理后无法核实",
+    "action": "核对经受控渠道提供的必要交易字段，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.sensitive_fields",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "经受控渠道提供的必要交易字段"
+    ],
+    "followup_question": "请说明经受控渠道提供的必要交易字段的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.food_prepacked",
+    "material_type": "industry",
+    "label": "仅预包装食品经营情形待核实",
+    "reason": "本次合成审核记录标记：仅预包装食品经营情形待核实",
+    "action": "核对实际食品经营项目及备案适用性，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.food_prepacked",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "实际食品经营项目及备案适用性"
+    ],
+    "followup_question": "请说明实际食品经营项目及备案适用性的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.food_mixed",
+    "material_type": "industry",
+    "label": "混合食品经营范围待核实",
+    "reason": "本次合成审核记录标记：混合食品经营范围待核实",
+    "action": "核对除预包装外是否存在其他经营项目，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.food_mixed",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "除预包装外是否存在其他经营项目"
+    ],
+    "followup_question": "请说明除预包装外是否存在其他经营项目的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.food_producer",
+    "material_type": "industry",
+    "label": "生产与经营主体关系待核实",
+    "reason": "本次合成审核记录标记：生产与经营主体关系待核实",
+    "action": "核对生产许可主体及销售方式，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.food_producer",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "生产许可主体及销售方式"
+    ],
+    "followup_question": "请说明生产许可主体及销售方式的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.agricultural",
+    "material_type": "industry",
+    "label": "食用农产品范围待核实",
+    "reason": "本次合成审核记录标记：食用农产品范围待核实",
+    "action": "核对实际商品性质及适用资质要求，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.agricultural",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "实际商品性质及适用资质要求"
+    ],
+    "followup_question": "请说明实际商品性质及适用资质要求的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.food_special",
+    "material_type": "industry",
+    "label": "特殊食品资质适用性待核实",
+    "reason": "本次合成审核记录标记：特殊食品资质适用性待核实",
+    "action": "核对商品分类与现行适用要求，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.food_special",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "商品分类与现行适用要求"
+    ],
+    "followup_question": "请说明商品分类与现行适用要求的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.device_class",
+    "material_type": "industry",
+    "label": "医疗器械分类待核实",
+    "reason": "本次合成审核记录标记：医疗器械分类待核实",
+    "action": "核对产品分类及官方分类依据，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.device_class",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "产品分类及官方分类依据"
+    ],
+    "followup_question": "请说明产品分类及官方分类依据的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.device_business",
+    "material_type": "industry",
+    "label": "器械经营资质类型待核实",
+    "reason": "本次合成审核记录标记：器械经营资质类型待核实",
+    "action": "核对经营主体、产品分类及许可备案要求，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.device_business",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "经营主体、产品分类及许可备案要求"
+    ],
+    "followup_question": "请说明经营主体、产品分类及许可备案要求的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.device_product",
+    "material_type": "industry",
+    "label": "产品注册备案与经营资质混淆",
+    "reason": "本次合成审核记录标记：产品注册备案与经营资质混淆",
+    "action": "核对产品证明和经营主体证明，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.device_product",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "产品证明和经营主体证明"
+    ],
+    "followup_question": "请说明产品证明和经营主体证明的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.device_model",
+    "material_type": "industry",
+    "label": "器械型号与证载范围不对应",
+    "reason": "本次合成审核记录标记：器械型号与证载范围不对应",
+    "action": "核对型号规格及注册备案信息，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.device_model",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "型号规格及注册备案信息"
+    ],
+    "followup_question": "请说明型号规格及注册备案信息的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.device_holder",
+    "material_type": "industry",
+    "label": "器械注册人与供货主体关系不明",
+    "reason": "本次合成审核记录标记：器械注册人与供货主体关系不明",
+    "action": "核对注册备案主体与供货关系，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.device_holder",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "注册备案主体与供货关系"
+    ],
+    "followup_question": "请说明注册备案主体与供货关系的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.license_page",
+    "material_type": "industry",
+    "label": "资质证照附页缺失",
+    "reason": "本次合成审核记录标记：资质证照附页缺失",
+    "action": "核对证照正文和附页，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.license_page",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "证照正文和附页"
+    ],
+    "followup_question": "请说明证照正文和附页的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.license_number",
+    "material_type": "industry",
+    "label": "许可证号无法辨认",
+    "reason": "本次合成审核记录标记：许可证号无法辨认",
+    "action": "核对许可证号及可核验信息，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.license_number",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "许可证号及可核验信息"
+    ],
+    "followup_question": "请说明许可证号及可核验信息的具体情况。",
+    "handling": "supplement_or_clarify",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.business_address",
+    "material_type": "industry",
+    "label": "经营地址对应待核实",
+    "reason": "本次合成审核记录标记：经营地址对应待核实",
+    "action": "核对证照地址与实际经营场所，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.business_address",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "证照地址与实际经营场所"
+    ],
+    "followup_question": "请说明证照地址与实际经营场所的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.branch_entity",
+    "material_type": "industry",
+    "label": "分支机构与持证主体关系不明",
+    "reason": "本次合成审核记录标记：分支机构与持证主体关系不明",
+    "action": "核对总分支机构关系及资质适用范围，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.branch_entity",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "总分支机构关系及资质适用范围"
+    ],
+    "followup_question": "请说明总分支机构关系及资质适用范围的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.scope_change",
+    "material_type": "industry",
+    "label": "经营项目变更待核实",
+    "reason": "本次合成审核记录标记：经营项目变更待核实",
+    "action": "核对变更后的项目与证照范围，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.scope_change",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "变更后的项目与证照范围"
+    ],
+    "followup_question": "请说明变更后的项目与证照范围的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.renewal_processing",
+    "material_type": "industry",
+    "label": "换证办理状态待核实",
+    "reason": "本次合成审核记录标记：换证办理状态待核实",
+    "action": "核对换证申请及当前有效状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.renewal_processing",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "换证申请及当前有效状态"
+    ],
+    "followup_question": "请说明换证申请及当前有效状态的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.suspension",
+    "material_type": "industry",
+    "label": "暂停或注销状态待核实",
+    "reason": "本次合成审核记录标记：暂停或注销状态待核实",
+    "action": "核对主管部门公示的证照状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.suspension",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "主管部门公示的证照状态"
+    ],
+    "followup_question": "请说明主管部门公示的证照状态的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.regional_scope",
+    "material_type": "industry",
+    "label": "地域适用范围待核实",
+    "reason": "本次合成审核记录标记：地域适用范围待核实",
+    "action": "核对证照地域与实际经营区域，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.regional_scope",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "证照地域与实际经营区域"
+    ],
+    "followup_question": "请说明证照地域与实际经营区域的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.cross_category",
+    "material_type": "industry",
+    "label": "跨类目资质覆盖不明",
+    "reason": "本次合成审核记录标记：跨类目资质覆盖不明",
+    "action": "核对各申请类目的对应资质，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.cross_category",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "各申请类目的对应资质"
+    ],
+    "followup_question": "请说明各申请类目的对应资质的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  },
+  {
+    "code": "industry.policy_version",
+    "material_type": "industry",
+    "label": "审核要求版本待核实",
+    "reason": "本次合成审核记录标记：审核要求版本待核实",
+    "action": "核对适用地区、类目、日期及规则版本，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.policy_version",
+    "synthetic": true,
+    "scope": "项目合成问题分类，不是官方完整驳回规则",
+    "review_points": [
+      "适用地区、类目、日期及规则版本"
+    ],
+    "followup_question": "请说明适用地区、类目、日期及规则版本的具体情况。",
+    "handling": "manual_verification",
+    "decision_authority": false
+  }
+]

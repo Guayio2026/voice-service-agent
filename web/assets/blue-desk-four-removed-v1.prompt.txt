@@ -1,0 +1,24 @@
+Built-in image_gen edit, 2026-11-04. Source: blue-desk-neutral-v1.png.
+Output: blue-desk-four-removed-v1.png. User corrected removal scope to four objects. Preserved lamp, books, notebook, pen and note pad. Not activated in website.
+Final prompt:
+Use case: precise-object-edit.
+Edit the supplied ORIGINAL blue desktop scene. This is a strict local object removal, NOT a redesign.
+Remove ONLY these FOUR objects and their own contact shadows/reflections:
+1. The gold gyroscope in lower-left foreground.
+2. The upright gold-framed document/contract stand labeled 审核依据 at center-left, including its base.
+3. The white and blue headphone robot in the center.
+4. The blue/silver reel-to-reel recorder labeled 会话记录 on the right, including the reels and base.
+Inpaint ONLY the areas revealed by these four removed objects with the existing continuous blue desk wood or blue fabric mat, preserving the fabric weave, stitched gold border and correct perspective.
+
+EVERY OTHER ELEMENT MUST REMAIN UNCHANGED, at the same position, size, shape, color, and lighting as the input:
+KEEP the large blue articulated lamp in the top right, including its arm and warm light;
+KEEP the two stacked blue books on the left side of the desk;
+KEEP the blue notebook with its yellow speech logo and strap at bottom-left;
+KEEP the blue/gold fountain pen at bottom center;
+KEEP the yellow sticky-note pad at bottom-right;
+KEEP the pen cup and all pens at far right;
+KEEP the small pinned yellow note on the wall, framed robot drawing, plants, bookshelf with books and glowing warm shelf light, left window and city skyline.
+KEEP the entire blue cloth mat exactly where it is, with unchanged edges and shape.
+Keep the exact original camera angle, framing, dimensions/aspect ratio, room geometry, scene exposure, material colors, and blue/warm lighting balance. Do not move, remove or add any other item. Do not zoom, crop or change perspective. No UI, labels, new text or watermark. Opaque background.
+The goal is the ORIGINAL scene with exactly four specified objects missing.
+

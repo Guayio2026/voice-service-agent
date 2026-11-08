@@ -1,0 +1,73 @@
+RSI多轮闭环入口
+
+当前提供完整执行路径，不等于已经在本机完成实测。按用户分工，实际模型评测由WorkBuddy执行。
+
+运行（会调用真实文字模型，最多128次、全局预留Token预算100万；不足即失败停止）：
+cd C:\Users\ASUS\OneDrive\Desktop\人工智能加\voice-service-agent
+.venv\Scripts\python.exe scripts/rsi_loop.py --config data/rsi-loop/config.json --activate
+
+兼容统一入口（现在也使用完整多轮闭环）：
+.venv\Scripts\python.exe scripts/evolution.py cycle --activate
+不调用模型的进度查看：
+.venv\Scripts\python.exe scripts/evolution.py rsi-status
+优先在隔离进化库验收：
+.venv\Scripts\python.exe scripts/evolution.py --db runtime/rsi-sandbox.sqlite3 cycle --activate
+对应沙箱状态：
+.venv\Scripts\python.exe scripts/evolution.py --db runtime/rsi-sandbox.sqlite3 rsi-status
+
+--activate 明确启用“门槛通过后自动发布”；省略则完整评估后停在eligible_shadow，不切换客服版本。
+--db 可指定隔离进化库，例如runtime/rsi-sandbox.sqlite3。沙箱验证发布/回滚只影响沙箱指针。
+默认使用runtime/mock.sqlite3；测试业务工具始终使用临时库，不操作真实业务记录。
+
+步骤与可见证据
+1. 冻结源码、三份数据、当前版本。开发/验证/封存禁止家族与原句重叠。
+2. 跑开发多轮对话，自动留存真实conversation_turns。不再需要WorkBuddy结果手工映射。
+3. 只将“有实际模型分类上下文、模型决策不符、其他断言成立”的错误作为intent反馈。
+   工程故障、无法判定、执行异常不冒充意图错误。
+4. proposer只读取本轮选定的开发反馈，不读取验证/封存答案。自动生成候选和prompt.diff。
+5. 候选先重跑开发集：至少重复3次，至少2个家族各有一轮基线至少2/3意图判错、候选所有重复均通过；开发断言不得退步、硬断言通过。未达标为rejected_no_stable_gain，不消费封存集。这是开发集上的修复证据，不是统计显著性或泛化提升证明。
+   独立多轮验证比较基线/候选各3次；要求无用例/断言退步、硬断言通过、用量完整、延迟/Token达标。验证集已满分时允许持平，observed_improvement仅记录，不作为必须涨分的门槛。
+6. 候选通过后才消费封存集。封存数据hash永久登记为已曝光，不能再次冒充封存集。
+7. 封存全部通过且代码/数据/当前版本未变化，才可自动切换版本；只影响之后新建的语音会话。
+8. 自动对候选做一次发布后验证；失败/预算耗尽等异常自动回滚到父版本（前提当前指针仍是该候选）。
+   这是一轮受控发布后检查，不是持续生产流量监控，不宣称已实现全天候监控。
+
+每次运行目录：runtime/rsi-loops/<run_id>/
+summary.txt：阶段、当前状态、基线、候选、门槛、发布结论。
+report.json：开发证据、验证/封存逐例结果、工具参数与返回值、Token、错误及发布后检查。
+prompt.diff：模型自行生成的提示词差异，只有生成候选时存在。
+数据库：evolution_runs、evolution_calls、evolution_feedback、evolution_releases；新增rsi_holdout_uses保存封存消费记录。
+
+状态释义
+no_eligible_feedback：没有可用于提示词改进的真实错误，诚实结束，不凑样本。
+rejected_development：开发执行异常或预算不足，不将错误冒充可优化反馈。
+rejected_no_stable_gain：候选重跑开发集后未证明稳定修复，或出现退步/执行异常。
+rejected_validation / rejected_holdout：候选不够好或违反门槛，保留旧版。
+eligible_shadow：通过门槛，但本次未指定--activate。
+published：已自动切换版本，发布后受控检查通过。
+rolled_back / rolled_back_after_error：发布后检查失败，已恢复父版本。
+failed：异常或预算不足，停止。看error与calls，不自动重试。
+
+数据格式
+套件必须含role（development/validation/holdout）、reviewed:true、cases。
+case字段：id、family、identity（默认unverified）、application_id（默认QUAL-001）、turns（至少2轮）。
+turn字段：text、expect。每轮必须检查identity和records。
+支持expect键：identity、records、step、decision、contains_any、not_contains、forbid_tools。
+decision使用既有intent/topics/issue_numbers/actions结构；只在确实要求模型分类的轮次断言。
+不支持的断言直接拒绝整份配置，不能静默算通过。
+provided data/rsi-loop/*.json 是项目合成样例，不是官方或外部独立盲测；reviewed标记仅指代码编写时按现行契约检查，仍需WorkBuddy检查断言口径。
+家族/原句检查只能防止明显泄漏，不能证明没有语义近重复。新外部封存集应由独立评审准备。
+
+范围
+本次门槛修订增加候选开发集复测：调用量需重新预估；例如6例×2轮×3次增加36个对话轮，不等于保证36次模型调用。全局128次上限及Token上限未提高，预算不足仍停止，不得把未完成阶段算通过。不得沿用旧的97次估算直接宣称预算足够。
+本次未补pending/已有记录/故障注入适配，也未增加生产库隔离参数；执行仍须明确传入沙箱--db。已有候选和报告不追溯改判，需在固定新源码哈希下重新评估。
+自动改进分类提示词，不修改模型权重或身份/写入授权代码。
+不承诺每次必有候选或必发布。真实失败→真实候选→对照→采用/拒绝才是可验收证据。
+scripts/evolution.py cycle与scripts/rsi_loop.py现已统一调用src/rsi_loop.py；旧evaluate仍为单轮评测，不用于新闭环自动发布。
+
+验收交给WorkBuddy（本次实现未代跑）：
+1. .venv\Scripts\python.exe -m unittest discover -s tests -p test_rsi_loop.py -v
+   这些是模拟评分/候选的生命周期测试，只证明编排路径，不能冒充真实模型改进。
+2. 沙箱运行cycle --activate，核对真实开发trace、feedback、candidate、prompt.diff及validation/holdout。
+3. 验收每种结束状态，拒绝/no_eligible也是有效运行结论；不能要求造出正向提升。
+4. 沙箱发布只影响沙箱，不能宣称语音服务已换版。生产库仅在实测验收后使用同一入口。

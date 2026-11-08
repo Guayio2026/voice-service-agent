@@ -1,0 +1,68 @@
+自主进化第一版：使用说明（2026-11-04）
+
+已实现：脱敏对话持久化、执行轨迹、人工纠错反馈、文字模型分析与候选生成、独立验证、
+封存测试、发布检查、人工审核发布、版本回滚。仅优化分类提示词的附加指导，不生成或执行任意代码。
+不自动修改业务政策、身份核验、结果确认、工具权限、数据库结构或模型权重。
+目前通过命令行操作，不是自动周期训练，也还没有网页“进化中心”。
+
+一、让新对话开始留存
+在原 VS Code 的后端终端停止旧服务，再从项目目录启动：
+  $env:VOICE_PORT = '8767'
+  .\.venv\Scripts\python.exe .\src\voice_server.py
+这是前台运行命令；不要同时再启动一个占用8767的进程。
+浏览器打开 http://127.0.0.1:8767/workbench.html?mode=voice，刷新并创建新测试会话。
+此前旧服务的内存对话不能补回。历史保存不代表恢复过去的身份确认或写库权限。
+
+二、Navicat 查看
+连接原文件 voice-service-agent/runtime/mock.sqlite3，在“表”上右键刷新。
+conversation_turns：每轮问题input、回复response、状态status、执行trace、版本version_id和时间。
+conversation_events：会话创建、身份变更、打断、ASR识别结果/音频字节数/错误事件；不保存原始录音。
+evolution_feedback：问题标注、类别、纠错依据。
+evolution_versions：基础提示词校验值、附加指导、父版本、模型分析。
+evolution_runs：分析与评测结果；evolution_calls：调用次数、Token预留与服务商实际用量。
+evolution_state：当前版本；evolution_releases：发布和回滚审计。
+原来的 sessions/records/handoffs/operations 继续保存业务状态，不被覆盖。
+记录会过滤常见密钥、手机号、证件号和邮箱；不是完整匿名化保证，请只使用合成或已脱敏案例。
+这些表不通过静态网页开放。请勿把含对话的runtime数据库上传公开仓库。
+
+三、操作命令（在 voice-service-agent 目录的第二个 PowerShell 终端执行）
+1. 查看状态、历史：
+  .\.venv\Scripts\python.exe -X utf8 scripts/evolution.py status
+  .\.venv\Scripts\python.exe -X utf8 scripts/evolution.py history
+2. 找到确实有问题的一轮，用它的实际id替换下列123：
+  .\.venv\Scripts\python.exe -X utf8 scripts/evolution.py turn 123
+  .\.venv\Scripts\python.exe -X utf8 scripts/evolution.py feedback 123 --category intent --note "说明哪里理解错，以及正确判断的依据"
+   类别：intent意图，asr听错，knowledge知识，tool工具，flow流程，expression表达，other其他。
+3. 让当前配置的文字模型分析并生成候选（默认最多一次调用，会计费）：
+  .\.venv\Scripts\python.exe -X utf8 scripts/evolution.py propose
+   只读取最近最多8条已标注问题；不会读取验证集或封存集来写提示词。返回candidate编号，不发布。
+4. 查看改动并评测，把candidate-xxx替换为真实编号：
+  .\.venv\Scripts\python.exe -X utf8 scripts/evolution.py diff candidate-xxx
+  .\.venv\Scripts\python.exe -X utf8 scripts/evolution.py evaluate candidate-xxx
+   先跑本地回归测试，再比较8个独立验证场景（新旧版本共16次文本调用）。
+   全部检查达标后才运行6个封存场景（再12次）；业务工具使用临时数据库，无语音调用。
+   默认最多40次请求、250000预留Token。预留按UTF8字节加输出上限保守估计，并非账单。
+   可用 --max-calls 和 --token-budget 调低预算；不足时不发布、不重试。实付以服务商账单为准。
+   publish要求质量严格提升、验证中已正确的案例不退步、封存集不退步、硬约束通过，
+   P95文字处理时间不超过基线1.25倍（最低容差3000ms）、Token用量不超过1.5倍。
+   这里的P50/P95是少量文字Agent样本耗时，不是比赛语音端到端P50/P95，也不能证明总体泛化能力。
+5. 查看评测：
+  .\.venv\Scripts\python.exe -X utf8 scripts/evolution.py runs
+  .\.venv\Scripts\python.exe -X utf8 scripts/evolution.py report 实际run编号
+6. 仅在你审阅差异、证据和报告后发布：
+  .\.venv\Scripts\python.exe -X utf8 scripts/evolution.py publish 实际run编号 --reviewed
+   rejected/failed不会发布；代码、数据、候选或当前版本改变后旧评测无效。
+   发布只影响随后创建的新会话，不改变正在通话的版本。不需要为提示词版本切换重启后端。
+7. 回滚：
+  .\.venv\Scripts\python.exe -X utf8 scripts/evolution.py versions
+  .\.venv\Scripts\python.exe -X utf8 scripts/evolution.py rollback 先前启用的版本编号 --reason "填写原因"
+   不能借回滚启用从未发布的候选。
+
+四、能力边界
+这是受控、离线、提示词级优化；标注和发布由操作者决定。不会自己训练基础大模型。
+没有业务依据时，分析只能提出待补资料，不能生成正式政策。ASR/工具故障需另修工程实现。
+当前测试集是项目自建小样本，非官方评测；不允许针对其答案做特判。
+封存集只用来检验已选候选；看过结果后不得将其复制为优化反馈，应另准备未见新场景。
+未来可增加模拟客户自动生成、失败聚类、更多多轮场景、知识检索优化及辅助LLM裁判。
+当前优先采用可核对的预期意图与硬规则评分，模型的自评分不能直接授予发布权限。
+没有自动删除历史功能；可根据项目保留期限另行添加导出/清理流程。

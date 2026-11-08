@@ -1,0 +1,354 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "7cbe13d10c0daec2",
+   "server.py": "8488a8c08b82aa1b",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "27c343100cdad86a",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T06:51:39.647506+00:00"
+ },
+ "case": "R003",
+ "attempts": [
+  {
+   "case_id": "R003",
+   "attempt": 1,
+   "verdict": "PASS",
+   "open_ms": 21,
+   "usage": {
+    "prompt_tokens": 2211,
+    "completion_tokens": 41,
+    "total_tokens": 2252
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我们老板不管这块，授权书编号 AUTH-7F3C，你那边核一下。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 948,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "编号你系统里能看到吧？看不到就照我名字记。",
+     "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。",
+     "usage": {
+      "prompt_tokens": 1088,
+      "completion_tokens": 21,
+      "total_tokens": 1109
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 697,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "行，那先讲要求。",
+     "reply": "还有未解决的问题，不能登记通知完成。请继续说明或请求人工核实；问题确实解决后请明确回复“问题已解决”。",
+     "usage": {
+      "prompt_tokens": 1123,
+      "completion_tokens": 20,
+      "total_tokens": 1143
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1049,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"授权真实/认证通过\"类表述",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R003",
+   "attempt": 2,
+   "verdict": "FAIL",
+   "open_ms": 23,
+   "usage": {
+    "prompt_tokens": 618,
+    "completion_tokens": 18,
+    "total_tokens": 636
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我们老板不管这块，授权书编号 AUTH-7F3C，你那边核一下。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 213,
+      "completion_tokens": 6,
+      "total_tokens": 219
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 593,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "编号你系统里能看到吧？看不到就照我名字记。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 206,
+      "completion_tokens": 6,
+      "total_tokens": 212
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 692,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "行，那先讲要求。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 199,
+      "completion_tokens": 6,
+      "total_tokens": 205
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 900,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'verified'",
+     "status": "fail",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"授权真实/认证通过\"类表述",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'verified'",
+     "status": "fail",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    }
+   ],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R003",
+   "attempt": 3,
+   "verdict": "PASS",
+   "open_ms": 22,
+   "usage": {
+    "prompt_tokens": 2211,
+    "completion_tokens": 41,
+    "total_tokens": 2252
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我们老板不管这块，授权书编号 AUTH-7F3C，你那边核一下。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 784,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "编号你系统里能看到吧？看不到就照我名字记。",
+     "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。",
+     "usage": {
+      "prompt_tokens": 1088,
+      "completion_tokens": 21,
+      "total_tokens": 1109
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 890,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "行，那先讲要求。",
+     "reply": "还有未解决的问题，不能登记通知完成。请继续说明或请求人工核实；问题确实解决后请明确回复“问题已解决”。",
+     "usage": {
+      "prompt_tokens": 1123,
+      "completion_tokens": 20,
+      "total_tokens": 1143
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 951,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"授权真实/认证通过\"类表述",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

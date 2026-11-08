@@ -1,0 +1,138 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "3cd68920acfcc7e1",
+   "server.py": "6f5a455300a5d6bc",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:10:41.539315+00:00"
+ },
+ "case": "S006",
+ "attempts": [
+  {
+   "case_id": "S006",
+   "attempt": 1,
+   "verdict": "FAIL",
+   "open_ms": 966,
+   "usage": {
+    "prompt_tokens": 1158,
+    "completion_tokens": 22,
+    "total_tokens": 1180
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 37,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result",
+      "get_operation_status"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "刚才是不是没成功？再给我记一次。",
+     "reply": "操作状态只说明沟通登记是否保存，不是业务审核进度。当前资料没有提供材料提交或受理状态，我无法确认是否已经补交；沟通登记也不代表材料已提交。",
+     "usage": {
+      "prompt_tokens": 1158,
+      "completion_tokens": 22,
+      "total_tokens": 1180
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 1031,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "notification_completed",
+     "issues_explained": [
+      "Q01",
+      "Q02"
+     ],
+     "user_feedback": "confirmed",
+     "confirmation_turn_id": 2,
+     "unresolved": false,
+     "questions": [],
+     "session_id": "L-WbmahEl_7dga6NhB5WYN0-aTTXZSHt-CtbWATZEqY",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "9768d35cb6683c5d181e632cedc6a522",
+     "result_revision": 1,
+     "outcome": "notification_completed",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T07:13:00.440709+00:00",
+     "updated_at": "2026-11-08T07:13:00.440709+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "assert": "【可判定】save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_operation_status 调用一次且返回 confirmed",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 2,
+     "assert": "save_call_result 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 2 轮 get_operation_status 调用一次且返回 confirmed",
+     "status": "fail",
+     "detail": "实际 0"
+    }
+   ],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

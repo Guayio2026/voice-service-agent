@@ -1,0 +1,178 @@
+[
+  {
+    "application_id": "TEST-001",
+    "label": "正常补正",
+    "synthetic": true,
+    "merchant": "虚构测试商家1",
+    "rule_version": "TEST-v1",
+    "basis_status": "valid",
+    "issues": [
+      {
+        "issue_id": "I01",
+        "reason": "虚构材料缺页",
+        "action": "补充虚构材料页",
+        "evidence_id": "TEST-R01"
+      }
+    ]
+  },
+  {
+    "application_id": "TEST-002",
+    "label": "多项材料问题",
+    "synthetic": true,
+    "merchant": "虚构测试商家2",
+    "rule_version": "TEST-v1",
+    "basis_status": "valid",
+    "issues": [
+      {
+        "issue_id": "I01",
+        "reason": "虚构材料缺页",
+        "action": "补充虚构材料页",
+        "evidence_id": "TEST-R01"
+      },
+      {
+        "issue_id": "I02",
+        "reason": "虚构材料模糊",
+        "action": "重新上传虚构清晰副本",
+        "evidence_id": "TEST-R02"
+      }
+    ]
+  },
+  {
+    "application_id": "TEST-003",
+    "label": "身份不符",
+    "synthetic": true,
+    "merchant": "虚构测试商家3",
+    "rule_version": "TEST-v1",
+    "basis_status": "valid",
+    "issues": [
+      {
+        "issue_id": "I01",
+        "reason": "虚构材料缺页",
+        "action": "补充虚构材料页",
+        "evidence_id": "TEST-R01"
+      }
+    ]
+  },
+  {
+    "application_id": "TEST-004",
+    "label": "依据缺失",
+    "synthetic": true,
+    "merchant": "虚构测试商家4",
+    "rule_version": "TEST-v1",
+    "basis_status": "missing",
+    "issues": [
+      {
+        "issue_id": "I01",
+        "reason": "虚构材料缺页",
+        "action": "补充虚构材料页",
+        "evidence_id": "TEST-R01"
+      }
+    ]
+  },
+  {
+    "application_id": "TEST-005",
+    "label": "依据冲突",
+    "synthetic": true,
+    "merchant": "虚构测试商家5",
+    "rule_version": "TEST-v1",
+    "basis_status": "conflict",
+    "issues": [
+      {
+        "issue_id": "I01",
+        "reason": "虚构材料缺页",
+        "action": "补充虚构材料页",
+        "evidence_id": "TEST-R01"
+      }
+    ]
+  },
+  {
+    "application_id": "TEST-006",
+    "label": "拒绝沟通",
+    "synthetic": true,
+    "merchant": "虚构测试商家6",
+    "rule_version": "TEST-v1",
+    "basis_status": "valid",
+    "issues": [
+      {
+        "issue_id": "I01",
+        "reason": "虚构材料缺页",
+        "action": "补充虚构材料页",
+        "evidence_id": "TEST-R01"
+      }
+    ]
+  },
+  {
+    "application_id": "TEST-007",
+    "label": "人工协助",
+    "synthetic": true,
+    "merchant": "虚构测试商家7",
+    "rule_version": "TEST-v1",
+    "basis_status": "valid",
+    "issues": [
+      {
+        "issue_id": "I01",
+        "reason": "虚构材料缺页",
+        "action": "补充虚构材料页",
+        "evidence_id": "TEST-R01"
+      }
+    ]
+  },
+  {
+    "application_id": "TEST-008",
+    "label": "材料已过期",
+    "synthetic": true,
+    "merchant": "虚构测试商家8",
+    "rule_version": "TEST-v1",
+    "basis_status": "valid",
+    "issues": [
+      {
+        "issue_id": "I01",
+        "reason": "虚构材料已过期",
+        "action": "重新上传有效期内的虚构材料",
+        "evidence_id": "TEST-R08"
+      }
+    ]
+  },
+  {
+    "application_id": "TEST-009",
+    "label": "综合业务（全部场景）",
+    "synthetic": true,
+    "merchant": "虚构综合测试商家",
+    "rule_version": "TEST-v1",
+    "basis_status": "valid",
+    "issues": [
+      {
+        "issue_id": "I01",
+        "reason": "虚构材料缺页",
+        "action": "补充虚构材料页",
+        "evidence_id": "TEST-R01"
+      },
+      {
+        "issue_id": "I02",
+        "reason": "虚构材料模糊",
+        "action": "重新上传虚构清晰副本",
+        "evidence_id": "TEST-R02"
+      },
+      {
+        "issue_id": "I03",
+        "reason": "虚构材料已过期",
+        "action": "重新上传有效期内的虚构材料",
+        "evidence_id": "TEST-R08"
+      },
+      {
+        "issue_id": "I04",
+        "reason": "一项虚构材料的审核依据缺失",
+        "action": "需要人工核实，暂不提供补正要求",
+        "evidence_id": "TEST-PENDING-04",
+        "basis_status": "missing"
+      },
+      {
+        "issue_id": "I05",
+        "reason": "一项虚构材料的审核依据存在冲突",
+        "action": "需要人工核实，暂不选择任一冲突结论",
+        "evidence_id": "TEST-PENDING-05",
+        "basis_status": "conflict"
+      }
+    ]
+  }
+]

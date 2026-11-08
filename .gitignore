@@ -1,0 +1,13 @@
+.venv/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+runtime/
+data/official/
+*.log
+web/qa/
+web/.history/
+web/模型参考图/
+

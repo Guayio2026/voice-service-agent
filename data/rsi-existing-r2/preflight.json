@@ -1,0 +1,54 @@
+{
+  "frozen_at": "2026-11-08T08:54:22.214472+00:00",
+  "round": "r2 (candidate development replay)",
+  "engine_hash": "b8e6d8a46be93909989a6dd308a15b245c925f074508659a9c3c6c912980cd33",
+  "file_sha256": {
+    "src/business_agent.py": "398818e5828dfb5ec07af265fc679e438ba17f7455012e2b18a9d1cc34d662d4",
+    "src/server.py": "55381c8077efb503d781c1fc86a5696935a50d839e928841837965eee6fee52a",
+    "src/intent_graph.py": "2886a2d6aa66de220096ee095b502c0c96c6739f01ab3e0028c79d7d2b7915a2",
+    "src/business_graph.py": "63326eac249290c1b8b2f661b427dbecb1db823c1dc2e8f6344a8a962d418bbd",
+    "src/text_client.py": "fa221fc70238d457d9c40c005fd2e88fb4cff070532b355f34b772fe2908e8f7",
+    "src/fast_intent.py": "0cdbb124143ee2f94a3c53c2a580ef3392dcec711743b006f75c5a610bcd8213",
+    "src/evolution.py": "be538189b0b538c3d32bda03847f149ed8198b5cdb848b373882d724d51df9f2",
+    "src/evolution_store.py": "38049cfea1fd52907063f5578a4f0e28fd35428f342b3721d64e224f9dfaf593",
+    "src/rsi_loop.py": "6d6a8111c7fcbb926cebccb1f7333522570eac5b97d20b8ef1eca3c241dffd62",
+    "src/prompts/customer_service.txt": "a7d8c95078bc9d605007af84dfdf9b61237a5c041be8d34b71efc2eb52db909c",
+    "scripts/evolution.py": "bb26cdef2908adef2e85ac82e83793c6850d467236fa4cd60bbd97fcbfbedca1",
+    "scripts/rsi_loop.py": "96ac78dc11f74204577c3e49fd0cb7a32f31f814ceb96239b7e1417712b8e1ec",
+    "scripts/rsi_existing_preflight.py": "0705f3a7221e6cae63a75e5c9104fa3d526ba92fcd0fcdf54532b47474b38482",
+    "scripts/rsi_existing_inventory.py": "5cf8f2f408f922e6203847e478c85a548a26f7d3c005ea4a22651d425d2a94e6",
+    "tests/test_rsi_loop.py": "ea626789b67bda2f708df7363b28c0db990bbe5284463d9122f846b24c2d74b5"
+  },
+  "suite_sha256": {
+    "data/rsi-existing-r2/development.json": "6e00a68da0dcb279d8fb64b8eede11dc2cd7651b368ec11c1500df40af0a13e2",
+    "data/rsi-existing-r2/validation.json": "a053edd0a291abb01a54e2e64842c8e741664b1e6fc59ba4777193b83bb75c4f",
+    "data/rsi-existing-r2/holdout.json": "6ce2911e76c6ae5f42a19b6d13377054e47b7cbd19d020faaae84b3d3d806df2",
+    "data/rsi-existing-r2/config.json": "3c384c4500f3287a0eedc418a4653c8a8720d233f1a0508a3585a2e33a848e2d"
+  },
+  "production_db": {
+    "path": "runtime/mock.sqlite3",
+    "active": "base-6b13e03f1b116f21",
+    "runs": 0
+  },
+  "round1_db": {
+    "path": "runtime/rsi-existing-data.sqlite3",
+    "active": "base-6b13e03f1b116f21",
+    "holdout_uses": 0
+  },
+  "sandbox_db": "runtime/rsi-existing-data-r2.sqlite3 (新建)",
+  "budget": {
+    "max_calls": 128,
+    "token_budget": 1000000,
+    "repeat": 3,
+    "projected_calls": 119,
+    "breakdown": {
+      "development_baseline": 36,
+      "development_candidate": 36,
+      "proposal": 1,
+      "validation": 24,
+      "holdout": 18,
+      "post_release": 4
+    }
+  },
+  "note": "新门槛下重新冻结；engine_hash 或数据哈希变化即禁止发布"
+}

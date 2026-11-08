@@ -1,0 +1,262 @@
+export const QUALIFICATION_SCENARIOS = {
+  "trademark": {
+    "application_id": "QUAL-001",
+    "label": "商标注册证（演示）",
+    "synthetic": true,
+    "merchant": "演示商家1",
+    "company": "合成示例商贸公司1",
+    "store": "合成示例店铺1",
+    "brand": "示例品牌青禾",
+    "category": "食品（演示）",
+    "application_type": "入驻",
+    "rule_version": "DEMO-v2",
+    "basis_status": "valid",
+    "review_status": "correction_required",
+    "formal_rejection_status": "not_connected",
+    "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+    "materials": [
+      {
+        "material_id": "M01",
+        "material_type": "trademark",
+        "review_status": "needs_correction",
+        "synthetic": true
+      },
+      {
+        "material_id": "M02",
+        "material_type": "authorization",
+        "review_status": "not_reviewed",
+        "synthetic": true
+      },
+      {
+        "material_id": "M03",
+        "material_type": "purchase",
+        "review_status": "not_reviewed",
+        "synthetic": true
+      },
+      {
+        "material_id": "M04",
+        "material_type": "industry",
+        "review_status": "not_reviewed",
+        "synthetic": true
+      }
+    ],
+    "issues": [
+      {
+        "issue_id": "Q01",
+        "material_id": "M01",
+        "material_type": "trademark",
+        "subtype_code": "trademark.missing",
+        "subtype_label": "证明缺失或不清晰",
+        "reason": "本次商标注册证明缺页或无法辨认",
+        "action": "补充完整清晰的商标注册证明",
+        "evidence_id": "SUB-trademark.missing"
+      },
+      {
+        "issue_id": "Q02",
+        "material_id": "M01",
+        "material_type": "trademark",
+        "subtype_code": "trademark.validity",
+        "subtype_label": "有效期问题",
+        "reason": "本次提交的商标有效期证明需要核实",
+        "action": "提供有效状态证明；涉及续展的，补充相应证明供审核核实",
+        "evidence_id": "SUB-trademark.validity"
+      }
+    ],
+    "seed_revision": 2
+  },
+  "authorization": {
+    "application_id": "QUAL-002",
+    "label": "品牌授权书（演示）",
+    "synthetic": true,
+    "merchant": "演示商家2",
+    "company": "合成示例商贸公司2",
+    "store": "合成示例店铺2",
+    "brand": "示例品牌青禾",
+    "category": "食品（演示）",
+    "application_type": "新增品牌",
+    "rule_version": "DEMO-v2",
+    "basis_status": "valid",
+    "review_status": "correction_required",
+    "formal_rejection_status": "not_connected",
+    "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+    "materials": [
+      {
+        "material_id": "M01",
+        "material_type": "trademark",
+        "review_status": "not_reviewed",
+        "synthetic": true
+      },
+      {
+        "material_id": "M02",
+        "material_type": "authorization",
+        "review_status": "needs_correction",
+        "synthetic": true
+      },
+      {
+        "material_id": "M03",
+        "material_type": "purchase",
+        "review_status": "not_reviewed",
+        "synthetic": true
+      },
+      {
+        "material_id": "M04",
+        "material_type": "industry",
+        "review_status": "not_reviewed",
+        "synthetic": true
+      }
+    ],
+    "issues": [
+      {
+        "issue_id": "Q01",
+        "material_id": "M02",
+        "material_type": "authorization",
+        "subtype_code": "authorization.chain",
+        "subtype_label": "授权链缺环",
+        "reason": "品牌授权链缺少中间授权证明",
+        "action": "补齐商标持有人至开店公司之间缺失的授权证明",
+        "evidence_id": "SUB-authorization.chain"
+      },
+      {
+        "issue_id": "Q02",
+        "material_id": "M02",
+        "material_type": "authorization",
+        "subtype_code": "authorization.validity",
+        "subtype_label": "授权有效期问题",
+        "reason": "本次授权书记载的授权期限已过",
+        "action": "补充有效授权文件供审核核实",
+        "evidence_id": "SUB-authorization.validity"
+      }
+    ],
+    "seed_revision": 2
+  },
+  "purchase": {
+    "application_id": "QUAL-003",
+    "label": "购货发票／银行流水（演示）",
+    "synthetic": true,
+    "merchant": "演示商家3",
+    "company": "合成示例商贸公司3",
+    "store": "合成示例店铺3",
+    "brand": "示例品牌青禾",
+    "category": "食品（演示）",
+    "application_type": "新增类目",
+    "rule_version": "DEMO-v2",
+    "basis_status": "valid",
+    "review_status": "correction_required",
+    "formal_rejection_status": "not_connected",
+    "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+    "materials": [
+      {
+        "material_id": "M01",
+        "material_type": "trademark",
+        "review_status": "not_reviewed",
+        "synthetic": true
+      },
+      {
+        "material_id": "M02",
+        "material_type": "authorization",
+        "review_status": "not_reviewed",
+        "synthetic": true
+      },
+      {
+        "material_id": "M03",
+        "material_type": "purchase",
+        "review_status": "needs_correction",
+        "synthetic": true
+      },
+      {
+        "material_id": "M04",
+        "material_type": "industry",
+        "review_status": "not_reviewed",
+        "synthetic": true
+      }
+    ],
+    "issues": [
+      {
+        "issue_id": "Q01",
+        "material_id": "M03",
+        "material_type": "purchase",
+        "subtype_code": "purchase.missing",
+        "subtype_label": "采购凭证缺失",
+        "reason": "本次采购链记录缺少对应购货凭证",
+        "action": "补充对应购货发票或本次审核记录要求的采购凭证",
+        "evidence_id": "SUB-purchase.missing"
+      },
+      {
+        "issue_id": "Q02",
+        "material_id": "M03",
+        "material_type": "purchase",
+        "subtype_code": "purchase.entity",
+        "subtype_label": "交易主体不对应",
+        "reason": "购货发票与银行流水记载的交易主体无法对应",
+        "action": "核对交易双方并提供相互对应的凭证或关联说明",
+        "evidence_id": "SUB-purchase.entity"
+      }
+    ],
+    "seed_revision": 2
+  },
+  "industry": {
+    "application_id": "QUAL-004",
+    "label": "行业资质（演示）",
+    "synthetic": true,
+    "merchant": "演示商家4",
+    "company": "合成示例商贸公司4",
+    "store": "合成示例店铺4",
+    "brand": "示例品牌青禾",
+    "category": "食品（演示）",
+    "application_type": "入驻",
+    "rule_version": "DEMO-v2",
+    "basis_status": "valid",
+    "review_status": "correction_required",
+    "formal_rejection_status": "not_connected",
+    "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+    "materials": [
+      {
+        "material_id": "M01",
+        "material_type": "trademark",
+        "review_status": "not_reviewed",
+        "synthetic": true
+      },
+      {
+        "material_id": "M02",
+        "material_type": "authorization",
+        "review_status": "not_reviewed",
+        "synthetic": true
+      },
+      {
+        "material_id": "M03",
+        "material_type": "purchase",
+        "review_status": "not_reviewed",
+        "synthetic": true
+      },
+      {
+        "material_id": "M04",
+        "material_type": "industry",
+        "review_status": "needs_correction",
+        "synthetic": true
+      }
+    ],
+    "issues": [
+      {
+        "issue_id": "Q01",
+        "material_id": "M04",
+        "material_type": "industry",
+        "subtype_code": "industry.missing",
+        "subtype_label": "所需资质缺失",
+        "reason": "本次演示审核记录缺少对应行业资质材料",
+        "action": "根据经营情形核实适用的许可、备案或例外，再补充相应材料",
+        "evidence_id": "SUB-industry.missing"
+      },
+      {
+        "issue_id": "Q02",
+        "material_id": "M04",
+        "material_type": "industry",
+        "subtype_code": "industry.validity",
+        "subtype_label": "资质有效期问题",
+        "reason": "本次行业资质材料的有效状态需要核实",
+        "action": "提供当前有效状态的证明材料供审核核实",
+        "evidence_id": "SUB-industry.validity"
+      }
+    ],
+    "seed_revision": 2
+  }
+};

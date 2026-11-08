@@ -1,0 +1,162 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "3cd68920acfcc7e1",
+   "server.py": "6f5a455300a5d6bc",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:10:41.539315+00:00"
+ },
+ "case": "C003",
+ "attempts": [
+  {
+   "case_id": "C003",
+   "attempt": 1,
+   "verdict": "FAIL",
+   "open_ms": 861,
+   "usage": {
+    "prompt_tokens": 2318,
+    "completion_tokens": 48,
+    "total_tokens": 2366
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 38,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "那我这就算过了吧？",
+     "reply": "无法保证审核通过。补充材料不等于审核通过，最终结果需要以审核结果为准。操作状态只说明沟通登记是否保存，不是业务审核进度。当前资料没有提供材料提交或受理状态，我无法确认是否已经补交；沟通登记也不代表材料已提交。",
+     "usage": {
+      "prompt_tokens": 1079,
+      "completion_tokens": 26,
+      "total_tokens": 1105
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 820,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "登记和审核到底啥区别？",
+     "reply": "当前资料不足以回答这个具体问题，我不能自行推断；可以为您登记模拟人工核实。",
+     "usage": {
+      "prompt_tokens": 1239,
+      "completion_tokens": 22,
+      "total_tokens": 1261
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 665,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "notification_completed",
+     "issues_explained": [
+      "Q01",
+      "Q02"
+     ],
+     "user_feedback": "confirmed",
+     "confirmation_turn_id": 2,
+     "unresolved": false,
+     "questions": [],
+     "session_id": "u29Vi_mdPCFnngtof9PPB4qGMVESqhHbNtOjhAUVqrc",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "467389f3d4477258a6a3ded1807ebf2d",
+     "result_revision": 1,
+     "outcome": "notification_completed",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T07:13:15.604860+00:00",
+     "updated_at": "2026-11-08T07:13:15.604860+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮回复含\"已登记\"，且不含\"审核通过\"",
+     "status": "ok",
+     "detail": "reply=沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_operation_status 调用一次且回复不含审核结论",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】第 3 轮回复同时出现\"登记/操作状态\"与\"审核\"并明确区分",
+     "status": "fail",
+     "detail": "reply=当前资料不足以回答这个具体问题，我不能自行推断；可以为您登记模拟人工核实。"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 1",
+     "status": "ok",
+     "detail": "records=1"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 2 轮 get_operation_status 调用一次且回复不含审核结论",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】第 3 轮回复同时出现\"登记/操作状态\"与\"审核\"并明确区分",
+     "status": "fail",
+     "detail": "reply=当前资料不足以回答这个具体问题，我不能自行推断；可以为您登记模拟人工核实。"
+    }
+   ],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

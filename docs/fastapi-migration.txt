@@ -1,0 +1,17 @@
+FastAPI 迁移（2026-11-07）
+
+主服务 src/voice_server.py 现在使用 FastAPI + Uvicorn。
+启动方式不变：powershell -ExecutionPolicy Bypass -File scripts/start-voice.ps1
+默认 http://127.0.0.1:8766；重启旧服务后生效。
+接口文档 /docs，接口结构 /openapi.json。
+保留原 /api/*、/business/*、静态网页路径和 JSON 错误格式。
+保留本机 Host、同源 Origin、32KiB JSON、身份及幂等校验。
+ASR 使用 FastAPI WebSocket，TTS 使用 StreamingResponse。
+aiohttp 仍作为云服务 HTTP/WebSocket 客户端使用。
+src/server.py 保留 Backend 业务数据层和独立的旧 Mock 标准库启动入口。
+该独立 Mock 入口不是主语音服务；主服务的 /business 接口已由 FastAPI 提供。
+Vue 页面无须修改接口调用。
+
+安装：python -m pip install -r requirements-voice.txt
+验证：.venv\Scripts\python.exe -m unittest discover -s tests -v
+测试使用临时数据库、真实本地 Uvicorn HTTP/WebSocket 及模拟云端，不调用收费服务。

@@ -1,0 +1,121 @@
+{
+ "version": "v3-20261108",
+ "generated_at": "2026-11-08T06:48:02.552655+00:00",
+ "generator": "scripts/build_v3_suite.py",
+ "total": 40,
+ "files": [
+  {
+   "file": "real-model-v3.json",
+   "count": 20,
+   "bytes": 68987,
+   "sha256": "625e9be1153e86a6fcbf01a9088672c6baacf0bda618025b2f14b24555832b46",
+   "families": [
+    "ambiguity_and_hedging",
+    "cancel_and_end_same_utterance",
+    "cancel_only_and_continue",
+    "conditional_and_hypothetical",
+    "cross_turn_correction",
+    "cross_turn_reference",
+    "happy_path_control",
+    "joke_and_sarcasm",
+    "legit_responsible_denies_owner",
+    "reported_speech_and_relay",
+    "revoke_after_verified"
+   ]
+  },
+  {
+   "file": "state-fault-v3.json",
+   "count": 12,
+   "bytes": 37488,
+   "sha256": "fec7143de4c06346ee53a6b24fffdd23081b99191e17ad52d38ef4fc25ace653",
+   "families": [
+    "async_task_after_cancel",
+    "concurrent_confirmation",
+    "confirmation_invalidated_by_interruption",
+    "late_model_result_after_end",
+    "late_query_result_after_revoke",
+    "late_tool_result_after_end",
+    "malformed_tool_response",
+    "query_failure",
+    "repeated_confirmation",
+    "write_failure",
+    "write_ok_response_lost",
+    "write_timeout"
+   ]
+  },
+  {
+   "file": "content-consistency-v3.json",
+   "count": 8,
+   "bytes": 25440,
+   "sha256": "aace1beac86cc198683d1cc4354131df5a7526b027f92e58deac7dc7c00f3a54",
+   "families": [
+    "cancel_does_not_delete_existing",
+    "duplicate_write_prevention",
+    "faithful_recap",
+    "scope_inflation_received_vs_resolved",
+    "scope_inflation_saved_vs_approved",
+    "scope_inflation_understood_vs_submitted",
+    "semantic_tampering_resisted",
+    "stale_confirmation_after_edit"
+   ]
+  }
+ ],
+ "source": {
+  "design_basis": "本轮需求说明（40 条：真实模型 20 / 状态故障 12 / 内容一致性 8）",
+  "referenced_implementation": "src/server.py（工具面与故障位）、src/text_client.py（模型选择）",
+  "not_referenced": "v1/v2 冻结用例话术、判定器、执行器输出"
+ },
+ "independence": {
+  "reused_wording": false,
+  "note": "本批未参考 v1/v2 具体话术；仅复用产品已公开的工具名与状态取值"
+ },
+ "status_summary": {
+  "executed": 33,
+  "blocked_before_execution": 7,
+  "attempt_level_records": 73,
+  "verdicts_original": {
+   "FAIL": 15,
+   "PASS": 9,
+   "PASS_PARTIAL": 9,
+   "BLOCKED": 7
+  },
+  "verdicts_rejudged": {
+   "FAIL": 15,
+   "PASS": 17,
+   "PASS_PARTIAL": 1,
+   "BLOCKED": 7
+  }
+ },
+ "run": {
+  "executed_at": "2026-11-08T06:51:39Z",
+  "executor": "scripts/run_v3.py",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "attempts": {
+   "real_model_dialogue": 3,
+   "state_fault": 1,
+   "content_consistency": 1
+  },
+  "tokens": {
+   "prompt": 114904,
+   "completion": 2176,
+   "total": 117080
+  },
+  "source_sha256": {
+   "business_agent.py": "7cbe13d10c0daec2",
+   "server.py": "8488a8c08b82aa1b",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "27c343100cdad86a",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "artifacts": {
+   "raw_results": "results-v3.json",
+   "rejudged_results": "results-v3-rejudged.json",
+   "attribution": "attribution-v3.json",
+   "fault_evidence": "fault-evidence.json",
+   "report": "docs/independent-holdout-report-v3.md",
+   "per_attempt": "runs/<case_id>.json"
+  },
+  "note": "原始判定 results-v3.json 保留不动；rejudged 仅补齐判定器缺失规则（28 条断言由 blocked 变为可判），未修改任何用例文本或断言话术。"
+ }
+}

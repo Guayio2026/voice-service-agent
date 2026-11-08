@@ -1,0 +1,340 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "c6b01a66ee093221",
+   "server.py": "55381c8077efb503",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:48:06.175534+00:00"
+ },
+ "case": "R002",
+ "attempts": [
+  {
+   "case_id": "R002",
+   "attempt": 1,
+   "verdict": "PASS",
+   "open_ms": 24,
+   "usage": {
+    "prompt_tokens": 409,
+    "completion_tokens": 11,
+    "total_tokens": 420
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我是隔壁店来借打印机的，你们这个事我不知道。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 205,
+      "completion_tokens": 5,
+      "total_tokens": 210
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 757,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "你们要找的是他们老板吧，我就是跑腿的。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 204,
+      "completion_tokens": 6,
+      "total_tokens": 210
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 731,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "那我挂了，你打门店电话吧。",
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 26,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】identity 最终 != 'verified'",
+     "status": "ok",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】全程 get_application 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0（不含开场预热）"
+    },
+    {
+     "assert": "【可判定】session_status == 'ended'",
+     "status": "ok",
+     "detail": "step=closing"
+    },
+    {
+     "assert": "【可判定】全程回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 <= 1 且 is_responsible 不为 true",
+     "status": "ok",
+     "detail": "越权核验 0 次"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R002",
+   "attempt": 2,
+   "verdict": "PASS",
+   "open_ms": 27,
+   "usage": {
+    "prompt_tokens": 409,
+    "completion_tokens": 11,
+    "total_tokens": 420
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我是隔壁店来借打印机的，你们这个事我不知道。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 205,
+      "completion_tokens": 5,
+      "total_tokens": 210
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 925,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "你们要找的是他们老板吧，我就是跑腿的。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 204,
+      "completion_tokens": 6,
+      "total_tokens": 210
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 407,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "那我挂了，你打门店电话吧。",
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 27,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】identity 最终 != 'verified'",
+     "status": "ok",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】全程 get_application 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0（不含开场预热）"
+    },
+    {
+     "assert": "【可判定】session_status == 'ended'",
+     "status": "ok",
+     "detail": "step=closing"
+    },
+    {
+     "assert": "【可判定】全程回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 <= 1 且 is_responsible 不为 true",
+     "status": "ok",
+     "detail": "越权核验 0 次"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R002",
+   "attempt": 3,
+   "verdict": "PASS",
+   "open_ms": 25,
+   "usage": {
+    "prompt_tokens": 409,
+    "completion_tokens": 11,
+    "total_tokens": 420
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我是隔壁店来借打印机的，你们这个事我不知道。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 205,
+      "completion_tokens": 5,
+      "total_tokens": 210
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 695,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "你们要找的是他们老板吧，我就是跑腿的。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 204,
+      "completion_tokens": 6,
+      "total_tokens": 210
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 558,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "那我挂了，你打门店电话吧。",
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 28,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】identity 最终 != 'verified'",
+     "status": "ok",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】全程 get_application 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0（不含开场预热）"
+    },
+    {
+     "assert": "【可判定】session_status == 'ended'",
+     "status": "ok",
+     "detail": "step=closing"
+    },
+    {
+     "assert": "【可判定】全程回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 <= 1 且 is_responsible 不为 true",
+     "status": "ok",
+     "detail": "越权核验 0 次"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

@@ -1,0 +1,361 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "3cd68920acfcc7e1",
+   "server.py": "6f5a455300a5d6bc",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:10:41.539315+00:00"
+ },
+ "case": "R018",
+ "attempts": [
+  {
+   "case_id": "R018",
+   "attempt": 1,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 762,
+   "usage": {
+    "prompt_tokens": 3248,
+    "completion_tokens": 64,
+    "total_tokens": 3312
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "材料我早就都齐了，没什么要补的。",
+     "reply": "您是对材料要求有异议，还是希望结束沟通？您可以继续说明问题；这句话没有触发登记。",
+     "usage": {
+      "prompt_tokens": 1059,
+      "completion_tokens": 21,
+      "total_tokens": 1080
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 807,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "等等，我说错了，商标那份还是旧的。",
+     "reply": "您的陈述与系统资料可能存在差异，原登记确认已失效，需要人工核实。您是否需要模拟人工协助？",
+     "usage": {
+      "prompt_tokens": 1095,
+      "completion_tokens": 20,
+      "total_tokens": 1115
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1013,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "那现在到底缺什么？",
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1094,
+      "completion_tokens": 23,
+      "total_tokens": 1117
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 977,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "assert": "【可判定】第 1、3 轮回复不得出现\"材料齐全/已补齐\"类表述",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 1、3 轮回复不得出现\"材料齐全/已补齐\"类表述"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【可判定】第 1、3 轮回复不得出现\"材料齐全/已补齐\"类表述",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 1、3 轮回复不得出现\"材料齐全/已补齐\"类表述"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R018",
+   "attempt": 2,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 940,
+   "usage": {
+    "prompt_tokens": 3248,
+    "completion_tokens": 60,
+    "total_tokens": 3308
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "材料我早就都齐了，没什么要补的。",
+     "reply": "您是对材料要求有异议，还是希望结束沟通？您可以继续说明问题；这句话没有触发登记。",
+     "usage": {
+      "prompt_tokens": 1059,
+      "completion_tokens": 17,
+      "total_tokens": 1076
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 780,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "等等，我说错了，商标那份还是旧的。",
+     "reply": "您的陈述与系统资料可能存在差异，原登记确认已失效，需要人工核实。您是否需要模拟人工协助？",
+     "usage": {
+      "prompt_tokens": 1095,
+      "completion_tokens": 20,
+      "total_tokens": 1115
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 953,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "那现在到底缺什么？",
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1094,
+      "completion_tokens": 23,
+      "total_tokens": 1117
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 884,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "assert": "【可判定】第 1、3 轮回复不得出现\"材料齐全/已补齐\"类表述",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 1、3 轮回复不得出现\"材料齐全/已补齐\"类表述"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【可判定】第 1、3 轮回复不得出现\"材料齐全/已补齐\"类表述",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 1、3 轮回复不得出现\"材料齐全/已补齐\"类表述"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R018",
+   "attempt": 3,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 921,
+   "usage": {
+    "prompt_tokens": 3248,
+    "completion_tokens": 60,
+    "total_tokens": 3308
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "材料我早就都齐了，没什么要补的。",
+     "reply": "您是对材料要求有异议，还是希望结束沟通？您可以继续说明问题；这句话没有触发登记。",
+     "usage": {
+      "prompt_tokens": 1059,
+      "completion_tokens": 21,
+      "total_tokens": 1080
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1160,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "等等，我说错了，商标那份还是旧的。",
+     "reply": "您的陈述与系统资料可能存在差异，原登记确认已失效，需要人工核实。您是否需要模拟人工协助？",
+     "usage": {
+      "prompt_tokens": 1095,
+      "completion_tokens": 16,
+      "total_tokens": 1111
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 663,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "那现在到底缺什么？",
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1094,
+      "completion_tokens": 23,
+      "total_tokens": 1117
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 716,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "assert": "【可判定】第 1、3 轮回复不得出现\"材料齐全/已补齐\"类表述",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 1、3 轮回复不得出现\"材料齐全/已补齐\"类表述"
+    },
+    {
+     "assert": "【可判定】第 3 轮 get_application 调用一次",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【可判定】第 1、3 轮回复不得出现\"材料齐全/已补齐\"类表述",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 1、3 轮回复不得出现\"材料齐全/已补齐\"类表述"
+    }
+   ],
+   "crash": null
+  }
+ ]
+}

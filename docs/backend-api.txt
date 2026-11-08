@@ -1,0 +1,58 @@
+智语外呼内部 Mock API | 2026-11-04
+所有接口、商家、申请、规则均为虚构本地测试，不是官方接口、审核政策或生产身份认证。
+无模型、ASR、TTS、真实外呼、收费服务或公开部署。
+
+启动（项目根目录）：
+powershell -ExecutionPolicy Bypass -File scripts/start.ps1
+测试：.venv\Scripts\python.exe -m unittest discover -s tests -v
+仅监听127.0.0.1:8765。APP_PORT可修改端口，APP_HOST只能为127.0.0.1。
+默认数据库 runtime/mock.sqlite3，MOCK_DB可指定独立路径。启动不清库；合成案例每次从data/synthetic/cases.json确定性加载。
+不要将项目根目录作为静态网页目录；网页服务只能暴露web目录。
+
+GET /health：status=ok,stage=mock,simulated=true,voice_ready=false,official_api_connected=false。
+GET /cases：{simulated:true,cases:[{application_id:"TEST-001",label:"正常补正",synthetic:true},...]}
+以下全部POST，Content-Type: application/json，大小上限32768字节，拒绝额外字段。
+/start_session 请求 {"application_id":"TEST-001"}
+返回 {"session_id":"随机会话凭据","identity_status":"unverified","simulated":true,"notice":"仅本地测试，不是生产身份认证"}
+会话编号是本地访问凭据，不应写入日志或分享。案例选择仅是本地任务分配，没有生产用户权限体系。
+/verify_identity {"session_id":"S","is_responsible":true}
+返回identity_status=verified；false为wrong_contact。这是明确的测试开关，不是真实认证。
+/get_application {"session_id":"S","application_id":"TEST-001"}
+必须核实且与会话绑定一致，返回synthetic、merchant、rule_version、basis_status、issues。
+issues每项为issue_id、reason、action、evidence_id。依据缺失/冲突返回BASIS_UNAVAILABLE。
+/save_call_result 示例：
+{"session_id":"S","idempotency_key":"save-1","result_revision":1,"result":{"candidate_outcome":"notification_completed","issues_explained":["I01"],"user_feedback":"confirmed","confirmation_turn_id":1,"unresolved":false}}
+返回原result字段及record_id、result_revision、outcome、persistence_status=confirmed、identity_status、application_id、rule_version、created_at、updated_at、simulated=true。
+候选状态：notification_completed/wrong_contact/unverified/declined/deferred/handoff_registered/unresolved/interrupted。
+反馈仅允许confirmed/declined/unknown/needs_help。confirmation_turn_id为正整数或null，unresolved为布尔。
+正常完成必须身份核实、依据有效、问题全部说明、明确确认、有确认轮次且无未解决事项。
+未核实时问题列表必须为空、确认轮次null、反馈不能confirmed，仅保存最小异常结果。
+/get_results {"session_id":"S"} 返回 {"results":[历史版本...]}; 未核实只返回编号、版本、结果和保存状态。
+/create_handoff {"session_id":"S","idempotency_key":"handoff-1","consent":true,"reason":"user_request"}
+reason枚举user_request/basis_unavailable/communication_difficulty，不收自由文本或申请详情。
+返回handoff_id、status=registered、simulated=true和未接通真人提示。consent必须严格true。
+handoff_registered结果必须传入属于当前会话的handoff_id。
+/get_operation_status {"session_id":"S","idempotency_key":"save-1"}
+已提交返回 {"status":"confirmed","result":{原保存响应}}；没有记录返回 {"status":"unknown","result":null}。
+unknown不等于失败：请求可能仍在途，可以原键原载荷重试。
+同会话同键同内容返回原操作结果，但按当前身份脱敏；不同内容409，不覆盖。两类写操作共享键空间。
+未核实身份时，保存响应（包括幂等重放）、历史及操作核对中的业务记录统一只返回record_id、result_revision、outcome、persistence_status；这些是历史操作结果，不表示当前身份已核实。
+修订使用新键、连续递增版本；正常完成需要大于该会话全部历史记录中确认轮次的新轮次。中间未解决/null确认记录或身份切换不重置该要求。原操作同键重试不产生新修订。历史保留。
+业务记录和幂等响应在同一BEGIN IMMEDIATE事务提交，串行化并发写入。
+
+错误响应 {"error":{"code":"IDENTITY_REQUIRED"},"simulated":true}（部分通用错误仅含error）。
+400 INVALID_FIELDS/INVALID_JSON/INVALID_LENGTH/INVALID_BODY/CONSENT_REQUIRED/COMPLETION_CONDITIONS/FRESH_CONFIRMATION_REQUIRED/HANDOFF_REQUIRED/FAULT_DISABLED
+403 IDENTITY_REQUIRED/APPLICATION_SCOPE/MINIMAL_RESULT_REQUIRED/ORIGIN_DENIED
+404 NOT_FOUND/SESSION_NOT_FOUND；409 IDEMPOTENCY_CONFLICT/STALE_REVISION/BASIS_UNAVAILABLE
+413 BODY_TOO_LARGE；415 CONTENT_TYPE；503 QUERY_FAILED/WRITE_FAILED/STORAGE_ERROR。
+未成功保存不返回完成编号；连接丢失应显示unknown并核对，不自行生成编号。
+
+故障默认关闭。仅测试进程启动前设置 $env:MOCK_FAULTS='1'。
+单次请求头 X-Mock-Fault: query_fail（查询失败）、write_fail（事务写入前失败）、response_lost（结果/工单提交后真正断开HTTP响应）。
+故障不随机；退出测试后 Remove-Item Env:MOCK_FAULTS。用独立MOCK_DB测试，禁止清理演示库。
+
+前端联调：web尚未修改。adapter需增加以上业务POST调用并保留session_id与幂等键，使用服务端结果呈现持久化状态。
+跨端口显式配置，例如 $env:MOCK_ORIGINS='http://127.0.0.1:8080'，多个来源用逗号分隔；默认无跨来源许可，拒绝file/null和通配来源。
+此后端没有WebRTC/WebSocket、事件流、stop_session、set_muted。不能据backend=true打开真实语音按钮。
+事件如后续适配必须simulated=true，不采用前端草案中的simulated=false；不能将预写文本包装为模型生成。
+目前确认轮次由本地测试调用者提交并做版本校验，尚无Agent事件账本或生产认证；语音打断与真实用户确认真实性留待后续验证。

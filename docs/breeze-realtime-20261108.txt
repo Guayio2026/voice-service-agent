@@ -1,0 +1,33 @@
+Breeze realtime optimization — 2026-11-08
+
+Active provider: TTS_PROVIDER=breeze_realtime (local .env).
+Voice discovery orders 柔美治愈女声 first and preconnects its websocket.
+Completed turns reuse the connection; idle connections older than 150 seconds reconnect.
+Cancelled/failed streams close the connection and are never cached or replayed.
+Existing HTTP Breeze and CosyVoice paths remain available by provider selection.
+Output guard, identity and grounding checks still precede synthesis.
+Existing next-turn audio preparation remains enabled.
+
+Same-run direct-provider comparison, no local audio cache:
+HTTP: 632, 640, 595 ms (mean 622 ms).
+WebSocket cold connection: 1266 ms.
+WebSocket reused connection: 427, 425 ms (mean 426 ms).
+Both paths used same original voice and same text, default speaking instructions.
+The reused path improved by approximately 31.5% in this small sample.
+
+Browser API-chain test:
+Uncached: text 72 ms + TTS 449 ms = 521 ms to first PCM.
+Cached repeated question: 61 ms (not uncached performance).
+Excludes microphone capture, ASR finalization, endpoint detection and physical playback.
+This example used a deterministic business fast path (0 LLM tokens), not an arbitrary LLM answer.
+No reliable P50/P95 claim can be made from these samples.
+
+Validation: existing voice tests 22 passed; realtime transport tests 3 passed;
+new server realtime route and interruption tests 2 passed.
+Browser simulated VAD-to-stop: 88.2 ms; interruption/next-turn/cleanup tests passed.
+This is a simulated detector event, not real-microphone interruption latency.
+
+Remaining: the app still completes and validates the business reply before TTS.
+The transport uses text.append/flush, but does not yet consume live LLM text deltas.
+Do not send classifier JSON or unvalidated partial business claims to TTS.
+First connection, voice change, long idle and post-interruption reconnection may be slower.

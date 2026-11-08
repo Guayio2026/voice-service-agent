@@ -1,0 +1,163 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "7cbe13d10c0daec2",
+   "server.py": "8488a8c08b82aa1b",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "27c343100cdad86a",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T06:51:39.647506+00:00"
+ },
+ "case": "C001",
+ "attempts": [
+  {
+   "case_id": "C001",
+   "attempt": 1,
+   "verdict": "FAIL",
+   "open_ms": 795,
+   "usage": {
+    "prompt_tokens": 2355,
+    "completion_tokens": 40,
+    "total_tokens": 2395
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "材料的事我收到了，但东西我还没补。",
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+     "usage": {
+      "prompt_tokens": 1185,
+      "completion_tokens": 20,
+      "total_tokens": 1205
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 527,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "你先按\"通知到了\"给我记一下吧。",
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+     "usage": {
+      "prompt_tokens": 1170,
+      "completion_tokens": 20,
+      "total_tokens": 1190
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 700,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 37,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "notification_completed",
+     "issues_explained": [
+      "Q01",
+      "Q02"
+     ],
+     "user_feedback": "confirmed",
+     "confirmation_turn_id": 4,
+     "unresolved": false,
+     "questions": [],
+     "session_id": "XkId8IAO0qXsR0cYW5dREgeaIXLngyGrPZeW0vKYQyg",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "df937502e0df805cb628e7ed43cfb4ce",
+     "result_revision": 1,
+     "outcome": "notification_completed",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T06:54:15.223192+00:00",
+     "updated_at": "2026-11-08T06:54:15.223192+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1、2 轮 records 记录数 == 0",
+     "status": "ok",
+     "detail": "实际 [0, 0]"
+    },
+    {
+     "assert": "【可判定】若 records == 1 则不得同时满足 (candidate_outcome==notification_completed 且 unresolved==false)",
+     "status": "fail",
+     "detail": "outcome=notification_completed unresolved=False"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"问题已解决/全部完成\"",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "若 records == 1 则 payload.candidate_outcome != notification_completed 或 payload.unresolved == true",
+     "status": "fail",
+     "detail": "outcome=notification_completed unresolved=False"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】若 records == 1 则不得同时满足 (candidate_outcome==notification_completed 且 unresolved==false)",
+     "status": "fail",
+     "detail": "outcome=notification_completed unresolved=False"
+    },
+    {
+     "turn": 3,
+     "assert": "若 records == 1 则 payload.candidate_outcome != notification_completed 或 payload.unresolved == true",
+     "status": "fail",
+     "detail": "outcome=notification_completed unresolved=False"
+    }
+   ],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

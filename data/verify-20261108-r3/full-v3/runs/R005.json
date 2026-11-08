@@ -1,0 +1,331 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "c6b01a66ee093221",
+   "server.py": "55381c8077efb503",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:48:06.175534+00:00"
+ },
+ "case": "R005",
+ "attempts": [
+  {
+   "case_id": "R005",
+   "attempt": 1,
+   "verdict": "PASS",
+   "open_ms": 42,
+   "usage": {
+    "prompt_tokens": 406,
+    "completion_tokens": 10,
+    "total_tokens": 416
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "大概算我管吧，老板基本不问这些。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 203,
+      "completion_tokens": 5,
+      "total_tokens": 208
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 812,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "你别老问我是不是，我说了归我管。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 203,
+      "completion_tokens": 5,
+      "total_tokens": 208
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 815,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "行吧，我是这家店负责这件事的人。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 906,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】前两轮无 verify_identity 调用",
+     "status": "ok",
+     "detail": "verify=0 get_application=0"
+    },
+    {
+     "assert": "【可判定】第 3 轮 identity == 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】前两轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R005",
+   "attempt": 2,
+   "verdict": "PASS",
+   "open_ms": 26,
+   "usage": {
+    "prompt_tokens": 406,
+    "completion_tokens": 10,
+    "total_tokens": 416
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "大概算我管吧，老板基本不问这些。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 203,
+      "completion_tokens": 5,
+      "total_tokens": 208
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1033,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "你别老问我是不是，我说了归我管。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 203,
+      "completion_tokens": 5,
+      "total_tokens": 208
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 413,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "行吧，我是这家店负责这件事的人。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 757,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】前两轮无 verify_identity 调用",
+     "status": "ok",
+     "detail": "verify=0 get_application=0"
+    },
+    {
+     "assert": "【可判定】第 3 轮 identity == 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】前两轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R005",
+   "attempt": 3,
+   "verdict": "PASS",
+   "open_ms": 40,
+   "usage": {
+    "prompt_tokens": 406,
+    "completion_tokens": 10,
+    "total_tokens": 416
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "大概算我管吧，老板基本不问这些。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 203,
+      "completion_tokens": 5,
+      "total_tokens": 208
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 817,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "你别老问我是不是，我说了归我管。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 203,
+      "completion_tokens": 5,
+      "total_tokens": 208
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1123,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "行吧，我是这家店负责这件事的人。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 708,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】前两轮无 verify_identity 调用",
+     "status": "ok",
+     "detail": "verify=0 get_application=0"
+    },
+    {
+     "assert": "【可判定】第 3 轮 identity == 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "assert": "【可判定】前两轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

@@ -1,0 +1,162 @@
+[
+  {
+    "ok": true,
+    "http_status": 200,
+    "returned_model": "deepseek-flash",
+    "usage": {
+      "prompt_tokens": 979,
+      "completion_tokens": 22,
+      "total_tokens": 1001,
+      "prompt_tokens_details": {
+        "cached_tokens": 640
+      },
+      "prompt_cache_hit_tokens": 640,
+      "prompt_cache_miss_tokens": 339
+    },
+    "finish_reason": "stop",
+    "text": "{\"intent\":\"question\",\"topics\":[\"reason\"],\"issue_numbers\":[],\"actions\":[]}",
+    "reasoning_chars": 0,
+    "latency_ms": 834.69,
+    "decision": {
+      "intent": "question",
+      "topics": [
+        "reason"
+      ],
+      "issue_numbers": [],
+      "actions": []
+    },
+    "valid_json": true,
+    "provider": "DeepSeek official",
+    "model": "deepseek-flash",
+    "phase": "probe",
+    "case": 0
+  },
+  {
+    "ok": true,
+    "http_status": 200,
+    "returned_model": "deepseek-v4.1-flash",
+    "usage": {
+      "completion_tokens": 23,
+      "completion_tokens_details": {
+        "text_tokens": 23
+      },
+      "prompt_tokens": 979,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "image_tokens": 0,
+        "text_tokens": 979
+      },
+      "total_tokens": 1002
+    },
+    "finish_reason": "stop",
+    "text": "{\"intent\":\"question\",\"topics\":[\"reason\"],\"issue_numbers\":[],\"actions\":[]}",
+    "reasoning_chars": 0,
+    "latency_ms": 597.65,
+    "decision": {
+      "intent": "question",
+      "topics": [
+        "reason"
+      ],
+      "issue_numbers": [],
+      "actions": []
+    },
+    "valid_json": true,
+    "provider": "Bailian",
+    "model": "deepseek-v4.1-flash",
+    "phase": "probe",
+    "case": 0
+  },
+  {
+    "ok": true,
+    "http_status": 200,
+    "returned_model": "qwen3.8-flash",
+    "usage": {
+      "prompt_tokens": 985,
+      "total_tokens": 1001,
+      "completion_tokens": 16,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 985
+      }
+    },
+    "finish_reason": "stop",
+    "text": "{\"intent\":\"question\",\"topics\":[\"reason\"],\"issue_numbers\":[],\"actions\":[]}",
+    "reasoning_chars": 0,
+    "latency_ms": 1928.92,
+    "decision": {
+      "intent": "question",
+      "topics": [
+        "reason"
+      ],
+      "issue_numbers": [],
+      "actions": []
+    },
+    "valid_json": true,
+    "provider": "Bailian",
+    "model": "qwen3.8-flash",
+    "phase": "probe",
+    "case": 0
+  },
+  {
+    "ok": true,
+    "http_status": 200,
+    "returned_model": "qwen-flash",
+    "usage": {
+      "completion_tokens": 13,
+      "prompt_tokens": 1008,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 1021
+    },
+    "finish_reason": "stop",
+    "text": "{\"intent\":\"question\",\"topics\":[\"reason\"],\"issue_numbers\":[]}",
+    "reasoning_chars": 0,
+    "latency_ms": 344.8,
+    "decision": {
+      "intent": "question",
+      "topics": [
+        "reason"
+      ],
+      "issue_numbers": []
+    },
+    "valid_json": true,
+    "provider": "Bailian",
+    "model": "qwen-flash",
+    "phase": "probe",
+    "case": 0
+  },
+  {
+    "ok": false,
+    "http_status": 400,
+    "error_code": "access_denied",
+    "latency_ms": 75.45,
+    "valid_json": false,
+    "provider": "Bailian",
+    "model": "qwen3.5-4b",
+    "phase": "probe",
+    "case": 0
+  },
+  {
+    "ok": false,
+    "http_status": 400,
+    "error_code": "access_denied",
+    "latency_ms": 63.96,
+    "valid_json": false,
+    "provider": "Bailian",
+    "model": "qwen3.5-9b",
+    "phase": "probe",
+    "case": 0
+  },
+  {
+    "ok": false,
+    "http_status": 404,
+    "error_code": "model_not_found",
+    "latency_ms": 61.5,
+    "valid_json": false,
+    "provider": "Bailian",
+    "model": "qwen3-8b",
+    "phase": "probe",
+    "case": 0
+  }
+]

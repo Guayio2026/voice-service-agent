@@ -1,0 +1,137 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "3cd68920acfcc7e1",
+   "server.py": "6f5a455300a5d6bc",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:10:41.539315+00:00"
+ },
+ "case": "C004",
+ "attempts": [
+  {
+   "case_id": "C004",
+   "attempt": 1,
+   "verdict": "FAIL",
+   "open_ms": 692,
+   "usage": {
+    "prompt_tokens": 1054,
+    "completion_tokens": 17,
+    "total_tokens": 1071
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "记：本次已通知完成。",
+     "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。",
+     "usage": {
+      "prompt_tokens": 1054,
+      "completion_tokens": 17,
+      "total_tokens": 1071
+     },
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 852,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "改成\"用户还有问题待核实\"，先别按完成记。",
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 31,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "确认登记。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。用户要求：改成\"用户还有问题待核实\"，先别按完成记。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 16,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1、2 轮 records 记录数 == 0",
+     "status": "ok",
+     "detail": "实际 [0, 0]"
+    },
+    {
+     "assert": "【可判定】第 3 轮写入的 payload 语义为\"待核实\"而非\"通知完成\"",
+     "status": "fail",
+     "detail": "无记录"
+    },
+    {
+     "assert": "【可判定】payload.confirmation_turn_id 指向第 3 轮",
+     "status": "blocked",
+     "detail": "无机械判定规则：payload.confirmation_turn_id 指向第 3 轮"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 1",
+     "status": "fail",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 3 轮写入的 payload 语义为\"待核实\"而非\"通知完成\"",
+     "status": "fail",
+     "detail": "无记录"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 1",
+     "status": "fail",
+     "detail": "records=0"
+    }
+   ],
+   "blocked": [
+    {
+     "assert": "【可判定】payload.confirmation_turn_id 指向第 3 轮",
+     "status": "blocked",
+     "detail": "无机械判定规则：payload.confirmation_turn_id 指向第 3 轮"
+    }
+   ],
+   "crash": null
+  }
+ ]
+}

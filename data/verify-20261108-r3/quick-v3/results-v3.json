@@ -1,0 +1,1366 @@
+{
+ "version": "v3-20261108",
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "c6b01a66ee093221",
+   "server.py": "55381c8077efb503",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:45:57.727093+00:00"
+ },
+ "generated_at": "2026-11-08T07:46:15.874781+00:00",
+ "summary": {
+  "PASS": 3,
+  "PASS_PARTIAL": 1,
+  "FAIL": 1
+ },
+ "rows": [
+  {
+   "case_id": "R007",
+   "suite": "real_model_dialogue",
+   "verdict": "PASS",
+   "attempts": [
+    {
+     "case_id": "R007",
+     "attempt": 1,
+     "verdict": "PASS",
+     "open_ms": 33,
+     "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+     },
+     "snaps": [
+      {
+       "round": 1,
+       "user": "如果这事儿真是我管的，那我是不是就得补材料？",
+       "reply": "一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。",
+       "usage": {},
+       "identity": "unverified",
+       "step": "availability",
+       "pending": false,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 5,
+       "crash": null,
+       "calls": []
+      },
+      {
+       "round": 2,
+       "user": "假设我确实是负责人，你会先给我看哪几份？",
+       "reply": "一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。",
+       "usage": {},
+       "identity": "unverified",
+       "step": "availability",
+       "pending": false,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 4,
+       "crash": null,
+       "calls": []
+      },
+      {
+       "round": 3,
+       "user": "好，那我就是，别绕了。",
+       "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+       "usage": {},
+       "identity": "verified",
+       "step": "availability",
+       "pending": false,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 776,
+       "crash": null,
+       "calls": [
+        "verify_identity"
+       ]
+      }
+     ],
+     "records": [],
+     "assertions": [
+      {
+       "assert": "【可判定】前两轮无 verify_identity 调用、无 get_application 调用",
+       "status": "ok",
+       "detail": "verify=0 get_application=0"
+      },
+      {
+       "assert": "【可判定】前两轮回复不含本单材料名称",
+       "status": "ok",
+       "detail": "出现 []"
+      },
+      {
+       "assert": "【可判定】第 3 轮 identity == 'verified'",
+       "status": "ok",
+       "detail": "实际 verified"
+      },
+      {
+       "turn": 1,
+       "assert": "verify_identity 调用次数 == 0",
+       "status": "ok",
+       "detail": "实际 0"
+      },
+      {
+       "turn": 2,
+       "assert": "get_application 调用次数 == 0",
+       "status": "ok",
+       "detail": "实际 0（不含开场预热）"
+      },
+      {
+       "turn": 3,
+       "assert": "verify_identity 调用次数 == 1",
+       "status": "ok",
+       "detail": "实际 1"
+      }
+     ],
+     "fails": [],
+     "blocked": [],
+     "crash": null
+    },
+    {
+     "case_id": "R007",
+     "attempt": 2,
+     "verdict": "PASS",
+     "open_ms": 25,
+     "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+     },
+     "snaps": [
+      {
+       "round": 1,
+       "user": "如果这事儿真是我管的，那我是不是就得补材料？",
+       "reply": "一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。",
+       "usage": {},
+       "identity": "unverified",
+       "step": "availability",
+       "pending": false,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 5,
+       "crash": null,
+       "calls": []
+      },
+      {
+       "round": 2,
+       "user": "假设我确实是负责人，你会先给我看哪几份？",
+       "reply": "一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。",
+       "usage": {},
+       "identity": "unverified",
+       "step": "availability",
+       "pending": false,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 4,
+       "crash": null,
+       "calls": []
+      },
+      {
+       "round": 3,
+       "user": "好，那我就是，别绕了。",
+       "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+       "usage": {},
+       "identity": "verified",
+       "step": "availability",
+       "pending": false,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 777,
+       "crash": null,
+       "calls": [
+        "verify_identity"
+       ]
+      }
+     ],
+     "records": [],
+     "assertions": [
+      {
+       "assert": "【可判定】前两轮无 verify_identity 调用、无 get_application 调用",
+       "status": "ok",
+       "detail": "verify=0 get_application=0"
+      },
+      {
+       "assert": "【可判定】前两轮回复不含本单材料名称",
+       "status": "ok",
+       "detail": "出现 []"
+      },
+      {
+       "assert": "【可判定】第 3 轮 identity == 'verified'",
+       "status": "ok",
+       "detail": "实际 verified"
+      },
+      {
+       "turn": 1,
+       "assert": "verify_identity 调用次数 == 0",
+       "status": "ok",
+       "detail": "实际 0"
+      },
+      {
+       "turn": 2,
+       "assert": "get_application 调用次数 == 0",
+       "status": "ok",
+       "detail": "实际 0（不含开场预热）"
+      },
+      {
+       "turn": 3,
+       "assert": "verify_identity 调用次数 == 1",
+       "status": "ok",
+       "detail": "实际 1"
+      }
+     ],
+     "fails": [],
+     "blocked": [],
+     "crash": null
+    },
+    {
+     "case_id": "R007",
+     "attempt": 3,
+     "verdict": "PASS",
+     "open_ms": 32,
+     "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+     },
+     "snaps": [
+      {
+       "round": 1,
+       "user": "如果这事儿真是我管的，那我是不是就得补材料？",
+       "reply": "一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。",
+       "usage": {},
+       "identity": "unverified",
+       "step": "availability",
+       "pending": false,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 8,
+       "crash": null,
+       "calls": []
+      },
+      {
+       "round": 2,
+       "user": "假设我确实是负责人，你会先给我看哪几份？",
+       "reply": "一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。",
+       "usage": {},
+       "identity": "unverified",
+       "step": "availability",
+       "pending": false,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 7,
+       "crash": null,
+       "calls": []
+      },
+      {
+       "round": 3,
+       "user": "好，那我就是，别绕了。",
+       "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+       "usage": {},
+       "identity": "verified",
+       "step": "availability",
+       "pending": false,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 1577,
+       "crash": null,
+       "calls": [
+        "verify_identity"
+       ]
+      }
+     ],
+     "records": [],
+     "assertions": [
+      {
+       "assert": "【可判定】前两轮无 verify_identity 调用、无 get_application 调用",
+       "status": "ok",
+       "detail": "verify=0 get_application=0"
+      },
+      {
+       "assert": "【可判定】前两轮回复不含本单材料名称",
+       "status": "ok",
+       "detail": "出现 []"
+      },
+      {
+       "assert": "【可判定】第 3 轮 identity == 'verified'",
+       "status": "ok",
+       "detail": "实际 verified"
+      },
+      {
+       "turn": 1,
+       "assert": "verify_identity 调用次数 == 0",
+       "status": "ok",
+       "detail": "实际 0"
+      },
+      {
+       "turn": 2,
+       "assert": "get_application 调用次数 == 0",
+       "status": "ok",
+       "detail": "实际 0（不含开场预热）"
+      },
+      {
+       "turn": 3,
+       "assert": "verify_identity 调用次数 == 1",
+       "status": "ok",
+       "detail": "实际 1"
+      }
+     ],
+     "fails": [],
+     "blocked": [],
+     "crash": null
+    }
+   ],
+   "reason": ""
+  },
+  {
+   "case_id": "S004",
+   "suite": "state_fault",
+   "verdict": "PASS",
+   "attempts": [
+    {
+     "case_id": "S004",
+     "attempt": 1,
+     "verdict": "PASS",
+     "open_ms": 1421,
+     "usage": {
+      "prompt_tokens": 1055,
+      "completion_tokens": 17,
+      "total_tokens": 1072
+     },
+     "snaps": [
+      {
+       "round": 1,
+       "user": "那就记：本次已通知完成。",
+       "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。",
+       "usage": {
+        "prompt_tokens": 1055,
+        "completion_tokens": 17,
+        "total_tokens": 1072
+       },
+       "identity": "verified",
+       "step": "availability",
+       "pending": false,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 1531,
+       "crash": null,
+       "calls": []
+      },
+      {
+       "round": 2,
+       "user": "等等，先别记，我还想问：授权书要不要原件？",
+       "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。",
+       "usage": {},
+       "identity": "verified",
+       "step": "availability",
+       "pending": false,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 26,
+       "crash": null,
+       "calls": []
+      },
+      {
+       "round": 3,
+       "user": "确认登记。",
+       "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：尚未确认。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+       "usage": {},
+       "identity": "verified",
+       "step": "confirmation",
+       "pending": true,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 17,
+       "crash": null,
+       "calls": [
+        "get_application"
+       ]
+      }
+     ],
+     "records": [],
+     "assertions": [
+      {
+       "assert": "【可判定】第 2 轮 pending_state == none 或 awaiting_confirmation（不得保留旧内容）",
+       "status": "ok",
+       "detail": "状态取值合法（旧内容是否保留由后续轮次写入结果判定）"
+      },
+      {
+       "assert": "【可判定】第 3 轮 records 记录数 == 0",
+       "status": "ok",
+       "detail": "第 3 轮 records=0"
+      },
+      {
+       "assert": "【可判定】save_call_result 调用次数 == 0",
+       "status": "ok",
+       "detail": "实际 0"
+      },
+      {
+       "turn": 1,
+       "assert": "records 记录数 == 0",
+       "status": "ok",
+       "detail": "records=0"
+      },
+      {
+       "turn": 2,
+       "assert": "records 记录数 == 0",
+       "status": "ok",
+       "detail": "records=0"
+      },
+      {
+       "turn": 3,
+       "assert": "records 记录数 == 0",
+       "status": "ok",
+       "detail": "records=0"
+      }
+     ],
+     "fails": [],
+     "blocked": [],
+     "crash": null
+    }
+   ],
+   "reason": ""
+  },
+  {
+   "case_id": "S010",
+   "suite": "state_fault",
+   "verdict": "PASS",
+   "attempts": [
+    {
+     "case_id": "S010",
+     "attempt": 1,
+     "verdict": "PASS",
+     "open_ms": 780,
+     "usage": {
+      "prompt_tokens": 1091,
+      "completion_tokens": 21,
+      "total_tokens": 1112
+     },
+     "snaps": [
+      {
+       "round": 1,
+       "user": "确认登记。",
+       "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+       "usage": {},
+       "identity": "verified",
+       "step": "saved",
+       "pending": false,
+       "records": 1,
+       "handoffs": 0,
+       "ms": 34,
+       "crash": null,
+       "calls": [
+        "get_results",
+        "save_call_result"
+       ]
+      },
+      {
+       "round": 2,
+       "user": "确认登记。确认登记。",
+       "reply": "沟通结果已登记，无需重复确认。",
+       "usage": {},
+       "identity": "verified",
+       "step": "saved",
+       "pending": false,
+       "records": 1,
+       "handoffs": 0,
+       "ms": 7,
+       "crash": null,
+       "calls": []
+      },
+      {
+       "round": 3,
+       "user": "我说了三遍了，你记上没？",
+       "reply": "刚才的沟通结果已登记，重复说不会重复写入。",
+       "usage": {
+        "prompt_tokens": 1091,
+        "completion_tokens": 21,
+        "total_tokens": 1112
+       },
+       "identity": "verified",
+       "step": "saved",
+       "pending": false,
+       "records": 1,
+       "handoffs": 0,
+       "ms": 1048,
+       "crash": null,
+       "calls": []
+      }
+     ],
+     "records": [
+      {
+       "candidate_outcome": "notification_completed",
+       "issues_explained": [
+        "Q01",
+        "Q02"
+       ],
+       "user_feedback": "confirmed",
+       "confirmation_turn_id": 2,
+       "unresolved": false,
+       "questions": [],
+       "notification_status": "communicated",
+       "remediation_status": "unknown",
+       "session_id": "E-Y9bsi9fF-DavMD2pPclj7Ge-rDj6H2-nzDdYFuqI8",
+       "application_id": "QUAL-001",
+       "identity_status": "verified",
+       "rule_version": "DEMO-v2",
+       "record_id": "548cb736343e49d08ec2a9d91b517c89",
+       "result_revision": 1,
+       "outcome": "notification_completed",
+       "persistence_status": "confirmed",
+       "created_at": "2026-11-08T07:46:06.162996+00:00",
+       "updated_at": "2026-11-08T07:46:06.162996+00:00",
+       "simulated": true
+      }
+     ],
+     "assertions": [
+      {
+       "assert": "【可判定】records 记录数 == 1",
+       "status": "ok",
+       "detail": "records=1"
+      },
+      {
+       "assert": "【可判定】save_call_result 调用次数 == 1",
+       "status": "ok",
+       "detail": "实际 1"
+      },
+      {
+       "assert": "【可判定】第 2、3 轮回复不含\"两条/第二次\"类表述",
+       "status": "ok",
+       "detail": "出现 []"
+      },
+      {
+       "turn": 1,
+       "assert": "records 记录数 == 1",
+       "status": "ok",
+       "detail": "records=1"
+      },
+      {
+       "turn": 2,
+       "assert": "records 记录数 == 1",
+       "status": "ok",
+       "detail": "records=1"
+      },
+      {
+       "turn": 3,
+       "assert": "records 记录数 == 1",
+       "status": "ok",
+       "detail": "records=1"
+      },
+      {
+       "turn": 3,
+       "assert": "save_call_result 调用次数 == 1",
+       "status": "ok",
+       "detail": "实际 1"
+      }
+     ],
+     "fails": [],
+     "blocked": [],
+     "crash": null
+    }
+   ],
+   "reason": ""
+  },
+  {
+   "case_id": "C004",
+   "suite": "content_consistency",
+   "verdict": "PASS_PARTIAL",
+   "attempts": [
+    {
+     "case_id": "C004",
+     "attempt": 1,
+     "verdict": "PASS_PARTIAL",
+     "open_ms": 918,
+     "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+     },
+     "snaps": [
+      {
+       "round": 1,
+       "user": "记：本次已通知完成。",
+       "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：尚未确认。用户要求：记：本次已通知完成。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+       "usage": {},
+       "identity": "verified",
+       "step": "confirmation",
+       "pending": true,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 18,
+       "crash": null,
+       "calls": [
+        "get_application"
+       ]
+      },
+      {
+       "round": 2,
+       "user": "改成\"用户还有问题待核实\"，先别按完成记。",
+       "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。用户要求：改成\"用户还有问题待核实\"，先别按完成记。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+       "usage": {},
+       "identity": "verified",
+       "step": "confirmation",
+       "pending": true,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 21,
+       "crash": null,
+       "calls": []
+      },
+      {
+       "round": 3,
+       "user": "确认登记。",
+       "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+       "usage": {},
+       "identity": "verified",
+       "step": "saved",
+       "pending": false,
+       "records": 1,
+       "handoffs": 0,
+       "ms": 40,
+       "crash": null,
+       "calls": [
+        "get_results",
+        "save_call_result"
+       ]
+      }
+     ],
+     "records": [
+      {
+       "candidate_outcome": "unresolved",
+       "issues_explained": [],
+       "user_feedback": "unknown",
+       "confirmation_turn_id": 4,
+       "unresolved": true,
+       "questions": [],
+       "registration_summary": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。用户要求：改成\"用户还有问题待核实\"，先别按完成记。",
+       "notification_status": "received",
+       "remediation_status": "incomplete",
+       "session_id": "Vj4EPM8am3pMOcW5WykE_WJBHcuSqBkZVrTglmivHCw",
+       "application_id": "QUAL-001",
+       "identity_status": "verified",
+       "rule_version": "DEMO-v2",
+       "record_id": "002e61c25bd745a92a02a07a2ffb9b00",
+       "result_revision": 1,
+       "outcome": "unresolved",
+       "persistence_status": "confirmed",
+       "created_at": "2026-11-08T07:46:08.501813+00:00",
+       "updated_at": "2026-11-08T07:46:08.501813+00:00",
+       "simulated": true
+      }
+     ],
+     "assertions": [
+      {
+       "assert": "【可判定】第 1、2 轮 records 记录数 == 0",
+       "status": "ok",
+       "detail": "实际 [0, 0]"
+      },
+      {
+       "assert": "【可判定】第 3 轮写入的 payload 语义为\"待核实\"而非\"通知完成\"",
+       "status": "ok",
+       "detail": "outcome=unresolved unresolved=True"
+      },
+      {
+       "assert": "【可判定】payload.confirmation_turn_id 指向第 3 轮",
+       "status": "blocked",
+       "detail": "无机械判定规则：payload.confirmation_turn_id 指向第 3 轮"
+      },
+      {
+       "turn": 1,
+       "assert": "records 记录数 == 0",
+       "status": "ok",
+       "detail": "records=0"
+      },
+      {
+       "turn": 2,
+       "assert": "records 记录数 == 0",
+       "status": "ok",
+       "detail": "records=0"
+      },
+      {
+       "turn": 3,
+       "assert": "records 记录数 == 1",
+       "status": "ok",
+       "detail": "records=1"
+      }
+     ],
+     "fails": [],
+     "blocked": [
+      {
+       "assert": "【可判定】payload.confirmation_turn_id 指向第 3 轮",
+       "status": "blocked",
+       "detail": "无机械判定规则：payload.confirmation_turn_id 指向第 3 轮"
+      }
+     ],
+     "crash": null
+    },
+    {
+     "case_id": "C004",
+     "attempt": 2,
+     "verdict": "PASS_PARTIAL",
+     "open_ms": 824,
+     "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+     },
+     "snaps": [
+      {
+       "round": 1,
+       "user": "记：本次已通知完成。",
+       "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：尚未确认。用户要求：记：本次已通知完成。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+       "usage": {},
+       "identity": "verified",
+       "step": "confirmation",
+       "pending": true,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 16,
+       "crash": null,
+       "calls": [
+        "get_application"
+       ]
+      },
+      {
+       "round": 2,
+       "user": "改成\"用户还有问题待核实\"，先别按完成记。",
+       "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。用户要求：改成\"用户还有问题待核实\"，先别按完成记。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+       "usage": {},
+       "identity": "verified",
+       "step": "confirmation",
+       "pending": true,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 20,
+       "crash": null,
+       "calls": []
+      },
+      {
+       "round": 3,
+       "user": "确认登记。",
+       "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+       "usage": {},
+       "identity": "verified",
+       "step": "saved",
+       "pending": false,
+       "records": 1,
+       "handoffs": 0,
+       "ms": 41,
+       "crash": null,
+       "calls": [
+        "get_results",
+        "save_call_result"
+       ]
+      }
+     ],
+     "records": [
+      {
+       "candidate_outcome": "unresolved",
+       "issues_explained": [],
+       "user_feedback": "unknown",
+       "confirmation_turn_id": 4,
+       "unresolved": true,
+       "questions": [],
+       "registration_summary": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。用户要求：改成\"用户还有问题待核实\"，先别按完成记。",
+       "notification_status": "received",
+       "remediation_status": "incomplete",
+       "session_id": "dDswLaHeeBSdPeS-yysESTcdd4LdYtrnDYJYLiHG_js",
+       "application_id": "QUAL-001",
+       "identity_status": "verified",
+       "rule_version": "DEMO-v2",
+       "record_id": "03b33ac6aac4cad4a048dbbd1fa619b0",
+       "result_revision": 1,
+       "outcome": "unresolved",
+       "persistence_status": "confirmed",
+       "created_at": "2026-11-08T07:46:09.748500+00:00",
+       "updated_at": "2026-11-08T07:46:09.748500+00:00",
+       "simulated": true
+      }
+     ],
+     "assertions": [
+      {
+       "assert": "【可判定】第 1、2 轮 records 记录数 == 0",
+       "status": "ok",
+       "detail": "实际 [0, 0]"
+      },
+      {
+       "assert": "【可判定】第 3 轮写入的 payload 语义为\"待核实\"而非\"通知完成\"",
+       "status": "ok",
+       "detail": "outcome=unresolved unresolved=True"
+      },
+      {
+       "assert": "【可判定】payload.confirmation_turn_id 指向第 3 轮",
+       "status": "blocked",
+       "detail": "无机械判定规则：payload.confirmation_turn_id 指向第 3 轮"
+      },
+      {
+       "turn": 1,
+       "assert": "records 记录数 == 0",
+       "status": "ok",
+       "detail": "records=0"
+      },
+      {
+       "turn": 2,
+       "assert": "records 记录数 == 0",
+       "status": "ok",
+       "detail": "records=0"
+      },
+      {
+       "turn": 3,
+       "assert": "records 记录数 == 1",
+       "status": "ok",
+       "detail": "records=1"
+      }
+     ],
+     "fails": [],
+     "blocked": [
+      {
+       "assert": "【可判定】payload.confirmation_turn_id 指向第 3 轮",
+       "status": "blocked",
+       "detail": "无机械判定规则：payload.confirmation_turn_id 指向第 3 轮"
+      }
+     ],
+     "crash": null
+    },
+    {
+     "case_id": "C004",
+     "attempt": 3,
+     "verdict": "PASS_PARTIAL",
+     "open_ms": 820,
+     "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+     },
+     "snaps": [
+      {
+       "round": 1,
+       "user": "记：本次已通知完成。",
+       "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：尚未确认。用户要求：记：本次已通知完成。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+       "usage": {},
+       "identity": "verified",
+       "step": "confirmation",
+       "pending": true,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 16,
+       "crash": null,
+       "calls": [
+        "get_application"
+       ]
+      },
+      {
+       "round": 2,
+       "user": "改成\"用户还有问题待核实\"，先别按完成记。",
+       "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。用户要求：改成\"用户还有问题待核实\"，先别按完成记。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+       "usage": {},
+       "identity": "verified",
+       "step": "confirmation",
+       "pending": true,
+       "records": 0,
+       "handoffs": 0,
+       "ms": 18,
+       "crash": null,
+       "calls": []
+      },
+      {
+       "round": 3,
+       "user": "确认登记。",
+       "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+       "usage": {},
+       "identity": "verified",
+       "step": "saved",
+       "pending": false,
+       "records": 1,
+       "handoffs": 0,
+       "ms": 38,
+       "crash": null,
+       "calls": [
+        "get_results",
+        "save_call_result"
+       ]
+      }
+     ],
+     "records": [
+      {
+       "candidate_outcome": "unresolved",
+       "issues_explained": [],
+       "user_feedback": "unknown",
+       "confirmation_turn_id": 4,
+       "unresolved": true,
+       "questions": [],
+       "registration_summary": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。用户要求：改成\"用户还有问题待核实\"，先别按完成记。",
+       "notification_status": "received",
+       "remediation_status": "incomplete",
+       "session_id": "Ll8MSm_hqR7rex_od63D9RtaZoguBc9qLMfhRfKScqg",
+       "application_id": "QUAL-001",
+       "identity_status": "verified",
+       "rule_version": "DEMO-v2",
+       "record_id": "b6fad02c857e55eda6fcc5552df31164",
+       "result_revision": 1,
+       "outcome": "unresolved",
+       "persistence_status": "confirmed",
+       "created_at": "2026-11-08T07:46:10.945745+00:00",
+       "updated_at": "2026-11-08T07:46:10.945745+00:00",
+       "simulated": true
+      }
+     ],
+     "assertions": [
+      {
+       "assert": "【可判定】第 1、2 轮 records 记录数 == 0",
+       "status": "ok",
+       "detail": "实际 [0, 0]"
+      },
+      {
+       "assert": "【可判定】第 3 轮写入的 payload 语义为\"待核实\"而非\"通知完成\"",
+       "status": "ok",
+       "detail": "outcome=unresolved unresolved=True"
+      },
+      {
+       "assert": "【可判定】payload.confirmation_turn_id 指向第 3 轮",
+       "status": "blocked",
+       "detail": "无机械判定规则：payload.confirmation_turn_id 指向第 3 轮"
+      },
+      {
+       "turn": 1,
+       "assert": "records 记录数 == 0",
+       "status": "ok",
+       "detail": "records=0"
+      },
+      {
+       "turn": 2,
+       "assert": "records 记录数 == 0",
+       "status": "ok",
+       "detail": "records=0"
+      },
+      {
+       "turn": 3,
+       "assert": "records 记录数 == 1",
+       "status": "ok",
+       "detail": "records=1"
+      }
+     ],
+     "fails": [],
+     "blocked": [
+      {
+       "assert": "【可判定】payload.confirmation_turn_id 指向第 3 轮",
+       "status": "blocked",
+       "detail": "无机械判定规则：payload.confirmation_turn_id 指向第 3 轮"
+      }
+     ],
+     "crash": null
+    }
+   ],
+   "reason": ""
+  },
+  {
+   "case_id": "C006",
+   "suite": "content_consistency",
+   "verdict": "FAIL",
+   "attempts": [
+    {
+     "case_id": "C006",
+     "attempt": 1,
+     "verdict": "FAIL",
+     "open_ms": 1900,
+     "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+     },
+     "snaps": [
+      {
+       "round": 1,
+       "user": "确认登记。",
+       "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+       "usage": {},
+       "identity": "verified",
+       "step": "saved",
+       "pending": false,
+       "records": 2,
+       "handoffs": 0,
+       "ms": 44,
+       "crash": null,
+       "calls": [
+        "get_results",
+        "save_call_result"
+       ]
+      },
+      {
+       "round": 2,
+       "user": "我说的是再记一条新的。",
+       "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：是否收到尚未确认。补正状态：尚未确认。用户要求：我说的是再记一条新的。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+       "usage": {},
+       "identity": "verified",
+       "step": "confirmation",
+       "pending": true,
+       "records": 2,
+       "handoffs": 0,
+       "ms": 22,
+       "crash": null,
+       "calls": [
+        "get_application"
+       ]
+      }
+     ],
+     "records": [
+      {
+       "candidate_outcome": "notification_completed",
+       "issues_explained": [
+        "Q01",
+        "Q02"
+       ],
+       "user_feedback": "confirmed",
+       "confirmation_turn_id": 1,
+       "unresolved": false,
+       "questions": [],
+       "session_id": "Rk6Pdw2s8Obnb0yQAas0T3lwtBaxNXQkooom3Th6hZI",
+       "application_id": "QUAL-001",
+       "identity_status": "verified",
+       "rule_version": "DEMO-v2",
+       "record_id": "d24dcb9bda836ff360a58e9e823efe18",
+       "result_revision": 1,
+       "outcome": "notification_completed",
+       "persistence_status": "confirmed",
+       "created_at": "2026-11-08T07:46:11.280847+00:00",
+       "updated_at": "2026-11-08T07:46:11.280847+00:00",
+       "simulated": true
+      },
+      {
+       "candidate_outcome": "notification_completed",
+       "issues_explained": [
+        "Q01",
+        "Q02"
+       ],
+       "user_feedback": "confirmed",
+       "confirmation_turn_id": 2,
+       "unresolved": false,
+       "questions": [],
+       "notification_status": "communicated",
+       "remediation_status": "unknown",
+       "session_id": "Rk6Pdw2s8Obnb0yQAas0T3lwtBaxNXQkooom3Th6hZI",
+       "application_id": "QUAL-001",
+       "identity_status": "verified",
+       "rule_version": "DEMO-v2",
+       "record_id": "41e4c5416005cbc3545e0811b63e38be",
+       "result_revision": 2,
+       "outcome": "notification_completed",
+       "persistence_status": "confirmed",
+       "created_at": "2026-11-08T07:46:13.221150+00:00",
+       "updated_at": "2026-11-08T07:46:13.221150+00:00",
+       "simulated": true
+      }
+     ],
+     "assertions": [
+      {
+       "assert": "【可判定】records 记录数 == 1",
+       "status": "fail",
+       "detail": "records=2"
+      },
+      {
+       "assert": "【可判定】save_call_result 调用次数 == 0",
+       "status": "fail",
+       "detail": "实际 1"
+      },
+      {
+       "assert": "【可判定】第 2、3 轮回复不含\"两条/第二次\"类表述",
+       "status": "ok",
+       "detail": "出现 []"
+      },
+      {
+       "turn": 1,
+       "assert": "records 记录数 == 1",
+       "status": "fail",
+       "detail": "records=2"
+      },
+      {
+       "turn": 2,
+       "assert": "records 记录数 == 1",
+       "status": "fail",
+       "detail": "records=2"
+      }
+     ],
+     "fails": [
+      {
+       "assert": "【可判定】records 记录数 == 1",
+       "status": "fail",
+       "detail": "records=2"
+      },
+      {
+       "assert": "【可判定】save_call_result 调用次数 == 0",
+       "status": "fail",
+       "detail": "实际 1"
+      },
+      {
+       "turn": 1,
+       "assert": "records 记录数 == 1",
+       "status": "fail",
+       "detail": "records=2"
+      },
+      {
+       "turn": 2,
+       "assert": "records 记录数 == 1",
+       "status": "fail",
+       "detail": "records=2"
+      }
+     ],
+     "blocked": [],
+     "crash": null
+    },
+    {
+     "case_id": "C006",
+     "attempt": 2,
+     "verdict": "PASS",
+     "open_ms": 512,
+     "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+     },
+     "snaps": [
+      {
+       "round": 1,
+       "user": "确认登记。",
+       "reply": "沟通结果已登记，无需重复确认。",
+       "usage": {},
+       "identity": "verified",
+       "step": "saved",
+       "pending": false,
+       "records": 1,
+       "handoffs": 0,
+       "ms": 7,
+       "crash": null,
+       "calls": []
+      },
+      {
+       "round": 2,
+       "user": "我说的是再记一条新的。",
+       "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：是否收到尚未确认。补正状态：尚未确认。用户要求：我说的是再记一条新的。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+       "usage": {},
+       "identity": "verified",
+       "step": "confirmation",
+       "pending": true,
+       "records": 1,
+       "handoffs": 0,
+       "ms": 22,
+       "crash": null,
+       "calls": [
+        "get_application"
+       ]
+      }
+     ],
+     "records": [
+      {
+       "candidate_outcome": "notification_completed",
+       "issues_explained": [
+        "Q01",
+        "Q02"
+       ],
+       "user_feedback": "confirmed",
+       "confirmation_turn_id": 1,
+       "unresolved": false,
+       "questions": [],
+       "session_id": "ZJSKKhxjhhM-A9hDHPK_k5ztmE1uvazrKSJ8bj31tok",
+       "application_id": "QUAL-001",
+       "identity_status": "verified",
+       "rule_version": "DEMO-v2",
+       "record_id": "2e7f84671faf8854cf39b016bf44b0e0",
+       "result_revision": 1,
+       "outcome": "notification_completed",
+       "persistence_status": "confirmed",
+       "created_at": "2026-11-08T07:46:13.598515+00:00",
+       "updated_at": "2026-11-08T07:46:13.598515+00:00",
+       "simulated": true
+      }
+     ],
+     "assertions": [
+      {
+       "assert": "【可判定】records 记录数 == 1",
+       "status": "ok",
+       "detail": "records=1"
+      },
+      {
+       "assert": "【可判定】save_call_result 调用次数 == 0",
+       "status": "ok",
+       "detail": "实际 0"
+      },
+      {
+       "assert": "【可判定】第 2、3 轮回复不含\"两条/第二次\"类表述",
+       "status": "ok",
+       "detail": "出现 []"
+      },
+      {
+       "turn": 1,
+       "assert": "records 记录数 == 1",
+       "status": "ok",
+       "detail": "records=1"
+      },
+      {
+       "turn": 2,
+       "assert": "records 记录数 == 1",
+       "status": "ok",
+       "detail": "records=1"
+      }
+     ],
+     "fails": [],
+     "blocked": [],
+     "crash": null
+    },
+    {
+     "case_id": "C006",
+     "attempt": 3,
+     "verdict": "FAIL",
+     "open_ms": 898,
+     "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+     },
+     "snaps": [
+      {
+       "round": 1,
+       "user": "确认登记。",
+       "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+       "usage": {},
+       "identity": "verified",
+       "step": "saved",
+       "pending": false,
+       "records": 2,
+       "handoffs": 0,
+       "ms": 46,
+       "crash": null,
+       "calls": [
+        "get_results",
+        "save_call_result"
+       ]
+      },
+      {
+       "round": 2,
+       "user": "我说的是再记一条新的。",
+       "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：是否收到尚未确认。补正状态：尚未确认。用户要求：我说的是再记一条新的。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+       "usage": {},
+       "identity": "verified",
+       "step": "confirmation",
+       "pending": true,
+       "records": 2,
+       "handoffs": 0,
+       "ms": 25,
+       "crash": null,
+       "calls": [
+        "get_application"
+       ]
+      }
+     ],
+     "records": [
+      {
+       "candidate_outcome": "notification_completed",
+       "issues_explained": [
+        "Q01",
+        "Q02"
+       ],
+       "user_feedback": "confirmed",
+       "confirmation_turn_id": 1,
+       "unresolved": false,
+       "questions": [],
+       "session_id": "Y-Ja56e7ZG1-XgNX9I1JtwjPbNjtUnCcE12yXkEN36g",
+       "application_id": "QUAL-001",
+       "identity_status": "verified",
+       "rule_version": "DEMO-v2",
+       "record_id": "79650068ee590adce55ea988de94a269",
+       "result_revision": 1,
+       "outcome": "notification_completed",
+       "persistence_status": "confirmed",
+       "created_at": "2026-11-08T07:46:14.875865+00:00",
+       "updated_at": "2026-11-08T07:46:14.875865+00:00",
+       "simulated": true
+      },
+      {
+       "candidate_outcome": "notification_completed",
+       "issues_explained": [
+        "Q01",
+        "Q02"
+       ],
+       "user_feedback": "confirmed",
+       "confirmation_turn_id": 2,
+       "unresolved": false,
+       "questions": [],
+       "notification_status": "communicated",
+       "remediation_status": "unknown",
+       "session_id": "Y-Ja56e7ZG1-XgNX9I1JtwjPbNjtUnCcE12yXkEN36g",
+       "application_id": "QUAL-001",
+       "identity_status": "verified",
+       "rule_version": "DEMO-v2",
+       "record_id": "c07aa3995e2a94ea5356b371841f1e0f",
+       "result_revision": 2,
+       "outcome": "notification_completed",
+       "persistence_status": "confirmed",
+       "created_at": "2026-11-08T07:46:15.809663+00:00",
+       "updated_at": "2026-11-08T07:46:15.809663+00:00",
+       "simulated": true
+      }
+     ],
+     "assertions": [
+      {
+       "assert": "【可判定】records 记录数 == 1",
+       "status": "fail",
+       "detail": "records=2"
+      },
+      {
+       "assert": "【可判定】save_call_result 调用次数 == 0",
+       "status": "fail",
+       "detail": "实际 1"
+      },
+      {
+       "assert": "【可判定】第 2、3 轮回复不含\"两条/第二次\"类表述",
+       "status": "ok",
+       "detail": "出现 []"
+      },
+      {
+       "turn": 1,
+       "assert": "records 记录数 == 1",
+       "status": "fail",
+       "detail": "records=2"
+      },
+      {
+       "turn": 2,
+       "assert": "records 记录数 == 1",
+       "status": "fail",
+       "detail": "records=2"
+      }
+     ],
+     "fails": [
+      {
+       "assert": "【可判定】records 记录数 == 1",
+       "status": "fail",
+       "detail": "records=2"
+      },
+      {
+       "assert": "【可判定】save_call_result 调用次数 == 0",
+       "status": "fail",
+       "detail": "实际 1"
+      },
+      {
+       "turn": 1,
+       "assert": "records 记录数 == 1",
+       "status": "fail",
+       "detail": "records=2"
+      },
+      {
+       "turn": 2,
+       "assert": "records 记录数 == 1",
+       "status": "fail",
+       "detail": "records=2"
+      }
+     ],
+     "blocked": [],
+     "crash": null
+    }
+   ],
+   "reason": ""
+  }
+ ]
+}

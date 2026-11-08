@@ -1,0 +1,39 @@
+本地降噪与人声检测（2026-11-04）
+
+已接入 workbench.html 的“本地环境降噪与人声检测”，默认开启。
+链路：实体麦克风 → 浏览器回声消除 → RNNoise 48kHz 降噪 → FIR 低通重采样到 16kHz → 云端 ASR。
+同一份 16kHz 音频交给本机 Worker 中的 Silero VAD，以人声概率辅助停顿判断。
+不剪掉音频帧，不等待整段录音结束才上传。人声检测不等于说话人身份识别。
+
+使用：
+1. 在原来的 VSCode 后端终端 Ctrl+C，重新运行原启动命令，保持 VOICE_PORT=8767。
+   本次新增了后端对指定 .onnx/.wasm/.mjs 文件的访问支持，旧进程必须重启一次。
+2. 打开 http://127.0.0.1:8767/workbench.html?mode=voice，Ctrl+F5 刷新。
+3. 创建测试会话，选实际麦克风。保持“本地环境降噪与人声检测”勾选。
+4. 点击开始说话。等“正在听你说话”再开口；模型加载发生在云端 ASR 连接之前。
+5. 若本机兼容性有问题，取消增强勾选即可使用原浏览器基础降噪模式。
+
+组件与许可：
+- Jitsi rnnoise-wasm：Apache-2.0；上游 xiph/rnnoise：BSD-3-Clause。
+- Silero VAD 模型：MIT。
+- ONNX Runtime Web 1.22.0：MIT，附第三方声明。
+固定来源、版本、文件 SHA256、npm 完整性校验在 compliance/audio-assets.json。
+全部许可证在 compliance/licenses/audio；分发作品时一起保留这些文件。
+上游构建与模型保持原样，项目适配代码在 denoise-worklet.js、vad-worker.js、voice.js。
+遵循所查版本的许可条件不等于对所有第三方权利作绝对保证。
+此功能不训练或克隆声音，不新增收费降噪 API；原有云端识别、文字和合成仍按服务商计费。
+
+验证：
+python web/qa/verify_audio_enhancement.py
+python web/qa/verify_microphone.py
+python web/qa/verify_voice.py
+.venv/Scripts/python.exe -m unittest discover -s tests -q
+
+增强测试在真实 Edge 浏览器加载实际 WASM 和 Silero 权重，但用合成语音加确定性白噪声作为麦克风输入。
+ASR 与业务 API 均为测试替身，无云端费用。检测音频连续输出、语音保留、噪声抑制、停顿收尾、
+纯噪声不触发自动发送、模型失败提示、打断清理和窄屏布局。数值在 runtime/qa/audio-enhancement.json。
+噪声衰减数值仅适用于该合成样本，按 PCM16 分辨率截断；不能作为真实环境效果或竞赛 ASR 准确率。
+没有完成真实房间、旁人讲话、音乐、远距离、风噪及低性能设备的系统评测。
+降噪可能损伤很轻的人声；优先选实体麦克风、靠近说话并戴耳机。
+VAD 出错或跟不上时不按停顿自动提交，可点“说完了”；最长录音仍为约25秒。
+当前为逐轮手动开始录音，不因本次降噪集成而具备全双工或自动打断能力。

@@ -1,0 +1,376 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "ef073d390d260951",
+   "server.py": "55381c8077efb503",
+   "text_client.py": "fa221fc70238d457",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:58:58.624384+00:00"
+ },
+ "case": "R001",
+ "attempts": [
+  {
+   "case_id": "R001",
+   "attempt": 1,
+   "verdict": "FAIL",
+   "open_ms": 39,
+   "usage": {
+    "prompt_tokens": 211,
+    "completion_tokens": 6,
+    "total_tokens": 217
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "营业执照挂的是我舅舅，可这摊子一直我在跑，材料都是我递的。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 211,
+      "completion_tokens": 6,
+      "total_tokens": 217
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 507,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "对，就我管，你说缺什么。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 540,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "都听明白了，按\"已通知完成\"记一条。",
+     "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：尚未确认。用户要求：都听明白了，按\"已通知完成\"记一条。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 22,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 verify_identity 调用一次且 identity == 'verified'",
+     "status": "fail",
+     "detail": "calls=0 identity=unverified"
+    },
+    {
+     "assert": "【可判定】第 1 轮未调用 get_application",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】第 3 轮 pending_state == awaiting_confirmation 且 records 记录数 == 0",
+     "status": "ok",
+     "detail": "pending=True records=0"
+    },
+    {
+     "assert": "【可判定】未核验轮次回复不含本单材料名称",
+     "status": "ok",
+     "detail": "泄露 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 1 轮 verify_identity 调用一次且 identity == 'verified'",
+     "status": "fail",
+     "detail": "calls=0 identity=unverified"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    }
+   ],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R001",
+   "attempt": 2,
+   "verdict": "FAIL",
+   "open_ms": 32,
+   "usage": {
+    "prompt_tokens": 211,
+    "completion_tokens": 6,
+    "total_tokens": 217
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "营业执照挂的是我舅舅，可这摊子一直我在跑，材料都是我递的。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 211,
+      "completion_tokens": 6,
+      "total_tokens": 217
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1623,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "对，就我管，你说缺什么。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 752,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "都听明白了，按\"已通知完成\"记一条。",
+     "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：尚未确认。用户要求：都听明白了，按\"已通知完成\"记一条。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 29,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 verify_identity 调用一次且 identity == 'verified'",
+     "status": "fail",
+     "detail": "calls=0 identity=unverified"
+    },
+    {
+     "assert": "【可判定】第 1 轮未调用 get_application",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】第 3 轮 pending_state == awaiting_confirmation 且 records 记录数 == 0",
+     "status": "ok",
+     "detail": "pending=True records=0"
+    },
+    {
+     "assert": "【可判定】未核验轮次回复不含本单材料名称",
+     "status": "ok",
+     "detail": "泄露 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 1 轮 verify_identity 调用一次且 identity == 'verified'",
+     "status": "fail",
+     "detail": "calls=0 identity=unverified"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    }
+   ],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R001",
+   "attempt": 3,
+   "verdict": "FAIL",
+   "open_ms": 29,
+   "usage": {
+    "prompt_tokens": 211,
+    "completion_tokens": 6,
+    "total_tokens": 217
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "营业执照挂的是我舅舅，可这摊子一直我在跑，材料都是我递的。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 211,
+      "completion_tokens": 6,
+      "total_tokens": 217
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 982,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "对，就我管，你说缺什么。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 820,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "都听明白了，按\"已通知完成\"记一条。",
+     "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：尚未确认。用户要求：都听明白了，按\"已通知完成\"记一条。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 21,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 verify_identity 调用一次且 identity == 'verified'",
+     "status": "fail",
+     "detail": "calls=0 identity=unverified"
+    },
+    {
+     "assert": "【可判定】第 1 轮未调用 get_application",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】第 3 轮 pending_state == awaiting_confirmation 且 records 记录数 == 0",
+     "status": "ok",
+     "detail": "pending=True records=0"
+    },
+    {
+     "assert": "【可判定】未核验轮次回复不含本单材料名称",
+     "status": "ok",
+     "detail": "泄露 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】第 1 轮 verify_identity 调用一次且 identity == 'verified'",
+     "status": "fail",
+     "detail": "calls=0 identity=unverified"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "fail",
+     "detail": "实际 0"
+    }
+   ],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

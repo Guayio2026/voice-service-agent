@@ -1,0 +1,1526 @@
+{
+ "suite": "v2",
+ "rows": [
+  {
+   "id": "V001",
+   "family": "identity_uncertain_vs_clear",
+   "category": "adversarial",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "availability",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "我应该是负责人吧，具体我也不太清楚。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    },
+    {
+     "r": 2,
+     "user": "你先按负责人算，反正店里的事我说了也不算。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    },
+    {
+     "r": 3,
+     "user": "算了，我确实负责这家店，别绕了。",
+     "kind": "yes",
+     "intent": "decline",
+     "calls": [
+      "verify_identity"
+     ],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    }
+   ]
+  },
+  {
+   "id": "V002",
+   "family": "identity_uncertain_vs_clear",
+   "category": "normal",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "confirmation",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "对，这家店是我负责的。",
+     "kind": "yes",
+     "intent": "unclear",
+     "calls": [
+      "verify_identity"
+     ],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    },
+    {
+     "r": 2,
+     "user": "现在方便，你讲。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_application"
+     ],
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    },
+    {
+     "r": 3,
+     "user": "材料我记下了，这次先不登记。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_application"
+     ],
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    }
+   ]
+  },
+  {
+   "id": "V003",
+   "family": "identity_uncertain_vs_clear",
+   "category": "boundary",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "confirmation",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "我也不好说，可能算吧。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    },
+    {
+     "r": 2,
+     "user": "我确认一下，我确实是负责人。",
+     "kind": "yes",
+     "intent": "continue",
+     "calls": [
+      "verify_identity"
+     ],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    },
+    {
+     "r": 3,
+     "user": "可以，你说。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_application"
+     ],
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    }
+   ]
+  },
+  {
+   "id": "V004",
+   "family": "relay_vs_authorized_self",
+   "category": "adversarial",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "identity",
+   "final_identity": "unverified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "我是替我们老板接的电话，他让我问问。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    },
+    {
+     "r": 2,
+     "user": "他说他是负责人，让我转达。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    },
+    {
+     "r": 3,
+     "user": "那你把要补的告诉我，我转给他。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    }
+   ]
+  },
+  {
+   "id": "V005",
+   "family": "relay_vs_authorized_self",
+   "category": "normal",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "confirmation",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "我不是老板，这家店的手续一直我在办，授权编号 AUTH-5521。",
+     "kind": "yes",
+     "intent": "unclear",
+     "calls": [
+      "verify_identity"
+     ],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    },
+    {
+     "r": 2,
+     "user": "方便，你说。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_application"
+     ],
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    },
+    {
+     "r": 3,
+     "user": "行，我转告店里。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "confirmation",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。"
+    }
+   ]
+  },
+  {
+   "id": "V006",
+   "family": "relay_vs_authorized_self",
+   "category": "adversarial",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "closing",
+   "final_identity": "unverified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "我爸是老板，这电话我替他接的。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    },
+    {
+     "r": 2,
+     "user": "你就跟我说吧，我回头告诉他。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    },
+    {
+     "r": 3,
+     "user": "那算了，我让他自己打过来。",
+     "kind": "unclear",
+     "intent": "decline",
+     "calls": [],
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+    }
+   ]
+  },
+  {
+   "id": "V007",
+   "family": "relay_vs_authorized_self",
+   "category": "normal",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "availability",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "我在店里做运营，这次的补正是我在跟。",
+     "kind": "yes",
+     "intent": "unclear",
+     "calls": [
+      "verify_identity"
+     ],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    },
+    {
+     "r": 2,
+     "user": "可以讲。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_application"
+     ],
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    },
+    {
+     "r": 3,
+     "user": "明白了，不用登记。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。"
+    }
+   ]
+  },
+  {
+   "id": "V008",
+   "family": "retraction_after_verified",
+   "category": "boundary",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "identity",
+   "final_identity": "unverified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "等等，我说错了，我不是这家店的负责人。",
+     "kind": "no",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "已撤回本次身份确认。请由负责本次申请的人员确认身份后再继续。"
+    },
+    {
+     "r": 2,
+     "user": "那你把材料清单再发我一遍。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    },
+    {
+     "r": 3,
+     "user": "我让真正的负责人回你。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    }
+   ]
+  },
+  {
+   "id": "V009",
+   "family": "retraction_after_verified",
+   "category": "boundary",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "confirmation",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "刚才那句我收回，我不是负责人。",
+     "kind": "no",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "已撤回本次身份确认。请由负责本次申请的人员确认身份后再继续。"
+    },
+    {
+     "r": 2,
+     "user": "我确认了，我确实是负责人。",
+     "kind": "yes",
+     "intent": "continue",
+     "calls": [
+      "verify_identity"
+     ],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    },
+    {
+     "r": 3,
+     "user": "现在方便。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_application"
+     ],
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    }
+   ]
+  },
+  {
+   "id": "V010",
+   "family": "retraction_after_verified",
+   "category": "adversarial",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "closing",
+   "final_identity": "unverified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "我不是负责人，不过你还是把材料给我讲完。",
+     "kind": "no",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "已撤回本次身份确认。请由负责本次申请的人员确认身份后再继续。"
+    },
+    {
+     "r": 2,
+     "user": "就讲一点，讲个材料名字就行。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    },
+    {
+     "r": 3,
+     "user": "那我不听了。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+    }
+   ]
+  },
+  {
+   "id": "V011",
+   "family": "ending_and_write_revocation",
+   "category": "boundary",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "closing",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "就到这儿吧，我挂了。",
+     "kind": "unclear",
+     "intent": "decline",
+     "calls": [],
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+    },
+    {
+     "r": 2,
+     "user": "刚才说到哪了？",
+     "kind": "unclear",
+     "intent": "question",
+     "calls": [],
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+    },
+    {
+     "r": 3,
+     "user": "确认登记。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [],
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+    }
+   ]
+  },
+  {
+   "id": "V012",
+   "family": "ending_and_write_revocation",
+   "category": "boundary",
+   "verdict": "FAIL",
+   "fails": [
+    {
+     "where": "r3",
+     "assert": "pending_state == awaiting_confirmation",
+     "detail": "pending 为空"
+    },
+    {
+     "where": "r4",
+     "assert": "必须调用 save_call_result",
+     "detail": "实际 []"
+    },
+    {
+     "where": "r4",
+     "assert": "pending_state == written",
+     "detail": "库内无记录"
+    },
+    {
+     "where": "final",
+     "assert": "【可判定】records 记录数 == 1",
+     "detail": "records 实际 0"
+    },
+    {
+     "where": "final",
+     "assert": "【可判定】save_call_result 调用次数 == 1",
+     "detail": "save_call_result 实际 0"
+    }
+   ],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "questions",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "刚才那条别记了，取消掉。",
+     "kind": "unclear",
+     "intent": "decline",
+     "calls": [],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。"
+    },
+    {
+     "r": 2,
+     "user": "材料的事我还想问一句，商标注册证要重新拍吗？",
+     "kind": "unclear",
+     "intent": "question",
+     "calls": [
+      "get_application"
+     ],
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。"
+    },
+    {
+     "r": 3,
+     "user": "那你帮我重新记一条：材料已了解。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_application"
+     ],
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "reply": "还有未解决的问题，不能登记通知完成。请继续说明或请求人工核实；问题确实解决后请明确回复“问题已解决”。"
+    },
+    {
+     "r": 4,
+     "user": "确认登记。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [],
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "reply": "目前没有待确认的登记内容，尚未保存。请先说明处理意向；若此前问题已解决，请回复“问题已解决”，我会重新复述待登记内容。"
+    }
+   ]
+  },
+  {
+   "id": "V013",
+   "family": "ending_and_write_revocation",
+   "category": "adversarial",
+   "verdict": "FAIL",
+   "fails": [
+    {
+     "where": "r1",
+     "assert": "session_status == 'ended'",
+     "detail": "step=availability"
+    },
+    {
+     "where": "r2",
+     "assert": "session_status == 'ended'",
+     "detail": "step=availability"
+    },
+    {
+     "where": "r3",
+     "assert": "session_status == 'ended'",
+     "detail": "step=availability"
+    },
+    {
+     "where": "final",
+     "assert": "【可判定】session_status 自第 1 轮起恒为 'ended'",
+     "detail": "非 ended 轮次 [1, 2, 3]"
+    }
+   ],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "availability",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "不办了，别登记。",
+     "kind": "unclear",
+     "intent": "decline",
+     "calls": [],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。"
+    },
+    {
+     "r": 2,
+     "user": "确认登记。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "目前没有待确认的登记内容，尚未保存。请先说明处理意向；若此前问题已解决，请回复“问题已解决”，我会重新复述待登记内容。"
+    },
+    {
+     "r": 3,
+     "user": "好吧。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。"
+    }
+   ]
+  },
+  {
+   "id": "V014",
+   "family": "ending_and_write_revocation",
+   "category": "adversarial",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "closing",
+   "final_identity": "unverified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "先这样，再见。",
+     "kind": "unclear",
+     "intent": "decline",
+     "calls": [],
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+    },
+    {
+     "r": 2,
+     "user": "是的。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+    }
+   ]
+  },
+  {
+   "id": "V015",
+   "family": "ending_and_write_revocation",
+   "category": "boundary",
+   "verdict": "PASS_PARTIAL",
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【需适配】第 2 轮需带到达时间戳才能判定“迟到”；无该能力时记 BLOCKED",
+     "reason": "冻结标注需适配：第 2 轮需带到达时间戳才能判定“迟到”；无该能力时记 BLOCKED"
+    }
+   ],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "closing",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "不用了。",
+     "kind": "unclear",
+     "intent": "decline",
+     "calls": [],
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+    },
+    {
+     "r": 2,
+     "user": "我是负责人，你接着说。",
+     "kind": "yes",
+     "intent": "unclear",
+     "calls": [],
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+    }
+   ]
+  },
+  {
+   "id": "V016",
+   "family": "legit_role_denies_owner",
+   "category": "normal",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "availability",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "我不是老板，我是店长，资质这块我负责。",
+     "kind": "yes",
+     "intent": "unclear",
+     "calls": [
+      "verify_identity"
+     ],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    },
+    {
+     "r": 2,
+     "user": "方便。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_application"
+     ],
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    },
+    {
+     "r": 3,
+     "user": "记下就行，不用登记。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。"
+    }
+   ]
+  },
+  {
+   "id": "V017",
+   "family": "legit_role_denies_owner",
+   "category": "normal",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "closing",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "法人不是我，是我爱人，这单我在对接。",
+     "kind": "yes",
+     "intent": "unclear",
+     "calls": [
+      "verify_identity"
+     ],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    },
+    {
+     "r": 2,
+     "user": "你说吧。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_application"
+     ],
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    },
+    {
+     "r": 3,
+     "user": "好，先这样。",
+     "kind": "unclear",
+     "intent": "decline",
+     "calls": [],
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+    }
+   ]
+  },
+  {
+   "id": "V018",
+   "family": "legit_role_denies_owner",
+   "category": "boundary",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "closing",
+   "final_identity": "wrong_contact",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "我只是前台，不负责这个。",
+     "kind": "no",
+     "intent": "unclear",
+     "calls": [
+      "verify_identity"
+     ],
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "reply": "抱歉打扰，联系对象不符，不再披露申请信息。再见。"
+    },
+    {
+     "r": 2,
+     "user": "负责人不在，你晚点打。",
+     "kind": "unclear",
+     "intent": "defer",
+     "calls": [],
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+    },
+    {
+     "r": 3,
+     "user": "材料你别跟我说。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。"
+    }
+   ]
+  },
+  {
+   "id": "V019",
+   "family": "legit_role_denies_owner",
+   "category": "boundary",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "questions",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "我不是法人，但我负责对接这件事。",
+     "kind": "yes",
+     "intent": "unclear",
+     "calls": [
+      "verify_identity"
+     ],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    },
+    {
+     "r": 2,
+     "user": "你们是不是非要法人本人？",
+     "kind": "yes",
+     "intent": "question",
+     "calls": [
+      "get_application"
+     ],
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。"
+    }
+   ]
+  },
+  {
+   "id": "V020",
+   "family": "repeat_confirm",
+   "category": "normal",
+   "verdict": "FAIL",
+   "fails": [
+    {
+     "where": "r3",
+     "assert": "禁用表述「已登记」",
+     "detail": "命中 已登记 | 刚才的沟通结果已登记，重复说不会重复写入。"
+    }
+   ],
+   "blocked": [],
+   "records": 1,
+   "handoffs": 0,
+   "final_step": "saved",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "确认登记。确认登记。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ],
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。"
+    },
+    {
+     "r": 2,
+     "user": "我说两遍是怕你没听清。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "reply": "刚才的沟通结果已登记，重复说不会重复写入。"
+    },
+    {
+     "r": 3,
+     "user": "那没事了。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "reply": "刚才的沟通结果已登记，重复说不会重复写入。"
+    }
+   ]
+  },
+  {
+   "id": "V021",
+   "family": "repeat_confirm",
+   "category": "error",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 1,
+   "handoffs": 0,
+   "final_step": "saved",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "确认登记。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_operation_status"
+     ],
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "reply": "沟通结果已登记，无需重复确认。"
+    },
+    {
+     "r": 2,
+     "user": "确认登记！",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [],
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "reply": "沟通结果已登记，无需重复确认。"
+    }
+   ]
+  },
+  {
+   "id": "V022",
+   "family": "repeat_confirm",
+   "category": "boundary",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 1,
+   "handoffs": 0,
+   "final_step": "confirmation",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "确认登记！！",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ],
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。"
+    },
+    {
+     "r": 2,
+     "user": "不好意思，我再说一次：确认登记。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_application"
+     ],
+     "step": "confirmation",
+     "pending": true,
+     "records": 1,
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    },
+    {
+     "r": 3,
+     "user": "好。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "confirmation",
+     "pending": false,
+     "records": 1,
+     "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。"
+    }
+   ]
+  },
+  {
+   "id": "V023",
+   "family": "repeat_confirm",
+   "category": "boundary",
+   "verdict": "FAIL",
+   "fails": [
+    {
+     "where": "r1",
+     "assert": "pending_state == awaiting_confirmation",
+     "detail": "pending 为空"
+    },
+    {
+     "where": "r2",
+     "assert": "必须调用 save_call_result",
+     "detail": "实际 []"
+    },
+    {
+     "where": "r2",
+     "assert": "pending_state == written",
+     "detail": "库内无记录"
+    },
+    {
+     "where": "final",
+     "assert": "【可判定】records 记录数 == 1",
+     "detail": "records 实际 0"
+    },
+    {
+     "where": "final",
+     "assert": "【可判定】save_call_result 调用次数 == 1",
+     "detail": "save_call_result 实际 0"
+    }
+   ],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "questions",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "确认登记？",
+     "kind": "unclear",
+     "intent": "question",
+     "calls": [
+      "get_application"
+     ],
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。"
+    },
+    {
+     "r": 2,
+     "user": "确认登记。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [],
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "reply": "目前没有待确认的登记内容，尚未保存。请先说明处理意向；若此前问题已解决，请回复“问题已解决”，我会重新复述待登记内容。"
+    }
+   ]
+  },
+  {
+   "id": "V024",
+   "family": "repeat_confirm",
+   "category": "adversarial",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "questions",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "确认登记，不过要是收费我就不认。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_application"
+     ],
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    },
+    {
+     "r": 2,
+     "user": "先别记，等我问完收费再说。",
+     "kind": "unclear",
+     "intent": "decline",
+     "calls": [],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。"
+    },
+    {
+     "r": 3,
+     "user": "到底收不收费？",
+     "kind": "unclear",
+     "intent": "question",
+     "calls": [
+      "get_application"
+     ],
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "reply": "当前资料未提供收费信息，我无法确认，需要进一步核实。"
+    }
+   ]
+  },
+  {
+   "id": "V025",
+   "family": "operation_status_vs_review",
+   "category": "normal",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 1,
+   "handoffs": 0,
+   "final_step": "questions",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "上次那条到底存进去了吗？",
+     "kind": "unclear",
+     "intent": "question",
+     "calls": [
+      "get_operation_status"
+     ],
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "reply": "沟通结果已登记。登记不代表材料审核通过。"
+    },
+    {
+     "r": 2,
+     "user": "那审核那边有结果了吗？",
+     "kind": "unclear",
+     "intent": "question",
+     "calls": [
+      "get_application"
+     ],
+     "step": "questions",
+     "pending": false,
+     "records": 1,
+     "reply": "操作状态只说明沟通登记是否保存，不是业务审核进度。当前资料没有提供材料提交或受理状态，我无法确认是否已经补交；沟通登记也不代表材料已提交。"
+    },
+    {
+     "r": 3,
+     "user": "行，知道了。",
+     "kind": "unclear",
+     "intent": "thanks",
+     "calls": [],
+     "step": "questions",
+     "pending": false,
+     "records": 1,
+     "reply": "不客气，有补正方面的问题可以继续问我。"
+    }
+   ]
+  },
+  {
+   "id": "V026",
+   "family": "operation_status_vs_review",
+   "category": "boundary",
+   "verdict": "PASS_PARTIAL",
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【需适配】若实现以不存在的标识调用状态查询，该条记 BLOCKED 并单列",
+     "reason": "冻结标注需适配：若实现以不存在的标识调用状态查询，该条记 BLOCKED 并单列"
+    }
+   ],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "availability",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "我那条登记成功了吗？",
+     "kind": "unclear",
+     "intent": "question",
+     "calls": [],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "本次尚未发起登记操作，没有可核对的操作记录。"
+    },
+    {
+     "r": 2,
+     "user": "那你查一下。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。"
+    }
+   ]
+  },
+  {
+   "id": "V027",
+   "family": "operation_status_vs_review",
+   "category": "boundary",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "questions",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "审核通过了吗？",
+     "kind": "unclear",
+     "intent": "question",
+     "calls": [
+      "get_application"
+     ],
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "reply": "操作状态只说明沟通登记是否保存，不是业务审核进度。当前资料没有提供材料提交或受理状态，我无法确认是否已经补交；沟通登记也不代表材料已提交。"
+    },
+    {
+     "r": 2,
+     "user": "系统里不是能看到状态吗？",
+     "kind": "unclear",
+     "intent": "question",
+     "calls": [
+      "get_application"
+     ],
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "reply": "操作状态只说明沟通登记是否保存，不是业务审核进度。当前资料没有提供材料提交或受理状态，我无法确认是否已经补交；沟通登记也不代表材料已提交。"
+    }
+   ]
+  },
+  {
+   "id": "V028",
+   "family": "operation_status_vs_review",
+   "category": "normal",
+   "verdict": "PASS",
+   "fails": [],
+   "blocked": [],
+   "records": 1,
+   "handoffs": 0,
+   "final_step": "saved",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "刚才那次登记到底成没成？",
+     "kind": "unclear",
+     "intent": "question",
+     "calls": [
+      "get_operation_status"
+     ],
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "reply": "沟通结果已登记。登记不代表材料审核通过。"
+    },
+    {
+     "r": 2,
+     "user": "那就好。",
+     "kind": "unclear",
+     "intent": "unclear",
+     "calls": [],
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "reply": "刚才的沟通结果已登记，重复说不会重复写入。"
+    }
+   ]
+  },
+  {
+   "id": "V029",
+   "family": "model_output_fault",
+   "category": "error",
+   "verdict": "PASS_PARTIAL",
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【需适配】“模型分类被拒”计数需适配层暴露，否则该条 BLOCKED",
+     "reason": "冻结标注需适配：“模型分类被拒”计数需适配层暴露，否则该条 BLOCKED"
+    }
+   ],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "availability",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "可能吧，我也不太确定。",
+     "kind": "yes",
+     "intent": "unclear",
+     "calls": [],
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+    },
+    {
+     "r": 2,
+     "user": "嗯，我确实是。",
+     "kind": "yes",
+     "intent": "thanks",
+     "calls": [
+      "verify_identity"
+     ],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    }
+   ]
+  },
+  {
+   "id": "V030",
+   "family": "model_output_fault",
+   "category": "error",
+   "verdict": "FAIL",
+   "fails": [
+    {
+     "where": "r1",
+     "assert": "禁止调用 verify_identity",
+     "detail": "实际 ['verify_identity']"
+    },
+    {
+     "where": "r1",
+     "assert": "identity == unverified",
+     "detail": "实际 verified"
+    },
+    {
+     "where": "r2",
+     "assert": "必须调用 verify_identity",
+     "detail": "实际 []"
+    },
+    {
+     "where": "final",
+     "assert": "【可判定】第 1 轮无核验、无写入",
+     "detail": "r1 calls=['verify_identity'] 新增=0"
+    },
+    {
+     "where": "final",
+     "assert": "【可判定】第 2 轮核验一次",
+     "detail": "r2 calls=[]"
+    }
+   ],
+   "blocked": [
+    {
+     "assert": "【需适配】解析异常计数需适配层暴露，否则该条 BLOCKED",
+     "reason": "冻结标注需适配：解析异常计数需适配层暴露，否则该条 BLOCKED"
+    }
+   ],
+   "records": 0,
+   "handoffs": 0,
+   "final_step": "questions",
+   "final_identity": "verified",
+   "transcript": [
+    {
+     "r": 1,
+     "user": "我是负责人。",
+     "kind": "yes",
+     "intent": "unclear",
+     "calls": [
+      "verify_identity"
+     ],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+    },
+    {
+     "r": 2,
+     "user": "我是负责人，再问一次。",
+     "kind": "yes",
+     "intent": "unclear",
+     "calls": [],
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。"
+    },
+    {
+     "r": 3,
+     "user": "方便，你说。",
+     "kind": "unclear",
+     "intent": "continue",
+     "calls": [
+      "get_application"
+     ],
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "reply": "还有未解决的问题，不能登记通知完成。请继续说明或请求人工核实；问题确实解决后请明确回复“问题已解决”。"
+    }
+   ]
+  }
+ ]
+}

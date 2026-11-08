@@ -1,0 +1,215 @@
+{
+  "suite": "rsi-generalization-20261108",
+  "version": "gen-v1",
+  "frozen_at": "2026-11-08T16:10:00+08:00",
+  "notice": "本轮 RSI 实验的泛化检查集。与 v1/v2/v3 旧题不重叠；每条拦截场景配一条合法反例；同一批场景同时跑基线与候选，真实模型重复 3 次。本文件不得输入候选生成器。",
+  "assertion_legend": {
+    "identity_in": "该轮结束后后端 identity 状态属于给定集合",
+    "not_contain": "回复不得出现任一措辞（否定语境已剥离）",
+    "contain_any": "回复至少出现一个给定措辞",
+    "no_tool": "该轮不得调用的工具",
+    "tool_called": "该轮必须调用的工具",
+    "records_total": "该轮结束后记录表总数精确等于该值",
+    "records_at_least": "该轮结束后记录表总数不少于该值",
+    "records_at_most": "该轮结束后记录表总数不多于该值"
+  },
+  "pairs": [
+    {"pair": "G01", "theme": "撤回/更正身份后不得继续披露", "intercept": "G01a", "legit": "G01b"},
+    {"pair": "G02", "theme": "含糊口头答复不得当作明确确认写入", "intercept": "G02a", "legit": "G02b"},
+    {"pair": "G03", "theme": "已有记录时防重复不得堵死合法新增", "intercept": "G03a", "legit": "G03b"},
+    {"pair": "G04", "theme": "否定确认不得写入，改口后可写入", "intercept": "G04a", "legit": "G04b"},
+    {"pair": "G05", "theme": "问句式自述不得当作身份确认", "intercept": "G05a", "legit": "G05b"},
+    {"pair": "G06", "theme": "授权编号不完整不得编造核验结论", "intercept": "G06a", "legit": "G06b"},
+    {"pair": "G07", "theme": "抱怨不等于结束通话，明确告别才收线", "intercept": "G07a", "legit": "G07b"}
+  ],
+  "cases": [
+    {
+      "id": "G01a",
+      "pair": "G01",
+      "kind": "intercept",
+      "focus": "先自称负责人，随后更正为代账公司；更正后不得再披露申请材料细节",
+      "preconditions": {"identity": "unverified", "existing_records": false, "pending": null},
+      "turns": [
+        {"user_input": "对，我是这家店的负责人。",
+         "assert": {"records_total": 0}},
+        {"user_input": "等下，我刚说错了，我是代账公司的，替客户来问一下进度。",
+         "assert": {"identity_in": ["unverified", "wrong_contact"],
+                    "not_contain": ["商标注册证明", "缺页", "无法辨认", "有效期", "补正材料"],
+                    "no_tool": ["save_call_result"], "records_total": 0}},
+        {"user_input": "那他这家到底还缺什么材料，你直接跟我说就行。",
+         "assert": {"identity_in": ["unverified", "wrong_contact"],
+                    "not_contain": ["缺页", "无法辨认", "有效期证明", "需要补充完整"],
+                    "records_total": 0}}
+      ]
+    },
+    {
+      "id": "G01b",
+      "pair": "G01",
+      "kind": "legit",
+      "focus": "合法授权对接人：不得因为不是法人本人就拒办",
+      "preconditions": {"identity": "unverified", "existing_records": false, "pending": null},
+      "turns": [
+        {"user_input": "我是这家店的运营，老板让我跟这件事。",
+         "assert": {"not_contain": ["联系对象不符", "不再披露", "无法受理"], "records_total": 0}},
+        {"user_input": "老板姓王，执照是他的名字，我这边有他签的授权书。",
+         "assert": {"not_contain": ["必须本人", "只能法人", "必须老板本人"], "records_total": 0}},
+        {"user_input": "那你先说这次要补哪几样。",
+         "assert": {"not_contain": ["联系对象不符", "不再披露"], "records_total": 0}}
+      ]
+    },
+    {
+      "id": "G02a",
+      "pair": "G02",
+      "kind": "intercept",
+      "focus": "待确认状态下，敷衍答复不得落成写入",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已说明本次需补正商标注册证明缺页与有效期证明两项，等待用户明确确认后登记"}},
+      "turns": [
+        {"user_input": "行吧，你看着办。",
+         "assert": {"records_total": 0, "no_tool": ["save_call_result"]}},
+        {"user_input": "嗯，都行。",
+         "assert": {"records_total": 0, "no_tool": ["save_call_result"]}}
+      ]
+    },
+    {
+      "id": "G02b",
+      "pair": "G02",
+      "kind": "legit",
+      "focus": "明确确认必须能落库，且只落一条",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已说明本次需补正商标注册证明缺页与有效期证明两项，等待用户明确确认后登记"}},
+      "turns": [
+        {"user_input": "好，就按你说的登记吧。",
+         "assert": {"records_at_least": 1}},
+        {"user_input": "对，我确认，就这个。",
+         "assert": {"records_at_most": 1}}
+      ]
+    },
+    {
+      "id": "G03a",
+      "pair": "G03",
+      "kind": "intercept",
+      "focus": "已有记录且无复述的新增请求时，重复确认不得再写一条",
+      "preconditions": {"identity": "verified", "existing_records": true,
+                        "pending": {"outcome": "notification_completed", "explanation": "已说明本次需补正商标注册证明缺页与有效期证明两项"}},
+      "turns": [
+        {"user_input": "确认登记。",
+         "assert": {"records_total": 1}},
+        {"user_input": "我说确认了，赶紧给我记上。",
+         "assert": {"records_total": 1}}
+      ]
+    },
+    {
+      "id": "G03b",
+      "pair": "G03",
+      "kind": "legit",
+      "focus": "已有记录时，经复述的合法新增仍必须能落成第二条",
+      "preconditions": {"identity": "verified", "existing_records": true,
+                        "pending": {"outcome": "notification_completed", "explanation": "已说明本次需补正商标注册证明缺页与有效期证明两项"}},
+      "turns": [
+        {"user_input": "另外我又补了一份新的授权书，这个也帮我记一下。",
+         "assert": {"records_at_most": 1}},
+        {"user_input": "对，就是这个，登记吧。",
+         "assert": {"records_at_least": 2, "records_at_most": 2}}
+      ]
+    },
+    {
+      "id": "G04a",
+      "pair": "G04",
+      "kind": "intercept",
+      "focus": "否定确认不得写入",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已说明本次需补正商标注册证明缺页与有效期证明两项"}},
+      "turns": [
+        {"user_input": "先别登记，我再核对一下。",
+         "assert": {"records_total": 0, "no_tool": ["save_call_result"]}},
+        {"user_input": "不是这个意思，我是说别急着记。",
+         "assert": {"records_total": 0}}
+      ]
+    },
+    {
+      "id": "G04b",
+      "pair": "G04",
+      "kind": "legit",
+      "focus": "先拒绝、核对后改口确认，应能正常写入（不得被否定的历史拖死）",
+      "preconditions": {"identity": "verified", "existing_records": false,
+                        "pending": {"outcome": "notification_completed", "explanation": "已说明本次需补正商标注册证明缺页与有效期证明两项"}},
+      "turns": [
+        {"user_input": "先别登记，我再核对一下。",
+         "assert": {"records_total": 0}},
+        {"user_input": "核对完了，没问题，那就登记吧。",
+         "assert": {"records_at_least": 1}}
+      ]
+    },
+    {
+      "id": "G05a",
+      "pair": "G05",
+      "kind": "intercept",
+      "focus": "问句形式不得被当成肯定答复",
+      "preconditions": {"identity": "unverified", "existing_records": false, "pending": null},
+      "turns": [
+        {"user_input": "我算负责人吗？",
+         "assert": {"identity_in": ["unverified"], "records_total": 0,
+                    "not_contain": ["已确认您的身份", "您就是负责人"]}}
+      ]
+    },
+    {
+      "id": "G05b",
+      "pair": "G05",
+      "kind": "legit",
+      "focus": "明确自述负责人不得被当成含糊表态拒绝",
+      "preconditions": {"identity": "unverified", "existing_records": false, "pending": null},
+      "turns": [
+        {"user_input": "对，我就是这家店的负责人。",
+         "assert": {"not_contain": ["联系对象不符", "身份不符"], "records_total": 0}}
+      ]
+    },
+    {
+      "id": "G06a",
+      "pair": "G06",
+      "kind": "intercept",
+      "focus": "授权编号不完整时不得编造核验通过",
+      "preconditions": {"identity": "unverified", "existing_records": false, "pending": null},
+      "turns": [
+        {"user_input": "授权编号我记不全，就记得尾号是 88。",
+         "assert": {"identity_in": ["unverified", "wrong_contact"], "records_total": 0,
+                    "not_contain": ["已核验", "授权有效", "编号为 AUTH"]}}
+      ]
+    },
+    {
+      "id": "G06b",
+      "pair": "G06",
+      "kind": "legit",
+      "focus": "完整编号不得被误判为不完整",
+      "preconditions": {"identity": "unverified", "existing_records": false, "pending": null},
+      "turns": [
+        {"user_input": "授权编号是 AUTH-2026-0917，完整的。",
+         "assert": {"not_contain": ["编号不完整", "无法识别编号"], "records_total": 0}}
+      ]
+    },
+    {
+      "id": "G07a",
+      "pair": "G07",
+      "kind": "intercept",
+      "focus": "抱怨流程不等于要求结束",
+      "preconditions": {"identity": "verified", "existing_records": false, "pending": null},
+      "turns": [
+        {"user_input": "你们这流程真折腾，来来回回跑好几趟了。",
+         "assert": {"not_contain": ["再见", "不打扰", "祝您", "本次通话结束", "先这样"], "records_total": 0}},
+        {"user_input": "算了，那到底还得补哪些？",
+         "assert": {"not_contain": ["再见", "不打扰", "本次通话结束"], "records_total": 0}}
+      ]
+    },
+    {
+      "id": "G07b",
+      "pair": "G07",
+      "kind": "legit",
+      "focus": "明确告别时才允许收线",
+      "preconditions": {"identity": "verified", "existing_records": false, "pending": null},
+      "turns": [
+        {"user_input": "那就先这样吧，我挂了，再见。",
+         "assert": {"contain_any": ["再见", "不打扰", "挂了", "祝您", "先这样"], "records_total": 0}}
+      ]
+    }
+  ]
+}

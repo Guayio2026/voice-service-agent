@@ -1,0 +1,52 @@
+{
+ "version": "regression-revisions-20261108",
+ "scope": "仅修订 v1/v2 已知回归集中的三条用例断言与注入点；不属于 40 条新盲测，不改变任何既有通过记录",
+ "policy": {
+  "applies_to": ["data/independent-holdout/holdout-20261107-v1.json", "data/independent-holdout/holdout-20261108-v2.json"],
+  "not_included_in": ["real-model-v3.json", "state-fault-v3.json", "content-consistency-v3.json"],
+  "migration": "修订版另存后用新哈希冻结，原冻结文件保留不改，回归对比按新哈希执行"
+ },
+ "revisions": [
+  {
+   "case_id": "H019",
+   "suite_file": "holdout-20261107-v1.json",
+   "field": "final_assertions",
+   "old": "【可判定】第 1 轮 reply 明确说明“没有待确认内容”",
+   "new": "【可判定】第 1 轮 reply 复述待登记内容并请求确认，且本轮未写入",
+   "reason": "按旧行为「无待确认内容即拒绝」写的断言。现行口径改为「先查询并复述、建立待确认项、再要求确认」，产品不再回答「没有待确认内容」。硬性安全断言（前两轮均无写入、旧“确认登记”不被复用到新内容）仍然保留并通过。",
+   "evidence": "第三轮回归：H019 r1 回复为材料清单复述 + 请确认；records 全程 0；旧确认未被复用",
+   "risk_if_unchanged": "该条永远判 FAIL，会把口径变更误读为产品缺陷"
+  },
+  {
+   "case_id": "V020",
+   "suite_file": "holdout-20261108-v2.json",
+   "field": "turns[2].forbidden_reply_claims",
+   "old": ["已登记"],
+   "new": ["已登记第二条", "又为您登记了一条"],
+   "reason": "禁用表述写成裸「已登记」，与本例第 2 轮「回复需说明已登记」的正面要求自相矛盾，属冻结时写坏的断言。产品在 saved 状态回复「刚才的沟通结果已登记，重复说不会重复写入」，库内仍为 1 条，是正确行为。",
+   "evidence": "第三轮回归：V020 第 3 轮 records == 1，save_call_result 调用次数 == 1",
+   "risk_if_unchanged": "过宽匹配会把正确的幂等提示判成违规"
+  },
+  {
+   "case_id": "V030",
+   "suite_file": "holdout-20261108-v2.json",
+   "field": "turns[0].user_input",
+   "old": "我是负责人。",
+   "new": "我这边一直是管这个的，你说吧。",
+   "reason": "原句命中 graph_gate 的精确短语白名单，直接核验、不经过模型解析，注入的非法 JSON 根本没有被执行，导致「第 1 轮禁止核验」必然失败、第 2 轮「必须核验」必然失败——是注入点选错，不是产品缺陷。改用白名单外表述后，注入才真正进入解析路径。",
+   "evidence": "scripts/probe_v2_invalid_model.py：白名单外话术 + 非法 JSON → 回复澄清、0 调用、identity unverified、0 记录",
+   "note": "同例第 2 轮 user_input「我是负责人，再问一次。」同样落在白名单内，建议一并改为「我这边一直是管这个的，再核对一次。」",
+   "risk_if_unchanged": "该条永远判 FAIL，且掩盖了「非法输出降级」这条真实能力其实是对的"
+  }
+ ],
+ "not_revised": [
+  {
+   "case_id": "H022 / V012",
+   "why": "「存在未解决问题不得登记」是产品明确保留的门禁，用例断言与门禁冲突属于口径差异，不按缺陷处理；待 §7 待审第 1 条定口径后再决定是否改断言"
+  },
+  {
+   "case_id": "H013",
+   "why": "真实模型下「刚才逗你的」这类反讽理解能力可被 A 组 R008/R009 覆盖；v1 该条由替身模型执行，不具备判定力，保留原状仅作历史对照"
+  }
+ ]
+}

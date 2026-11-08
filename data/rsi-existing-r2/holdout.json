@@ -1,0 +1,42 @@
+{
+  "role": "holdout",
+  "reviewed": true,
+  "version": "rsi-existing-hold-1",
+  "notice": "本轮新编的小规模封存集：话术按业务契约新写，未取自 v1/v2/v3 任一用例文本，未参与候选生成，运行前不向候选生成器提供。由本轮执行者自编自查，不是外部独立盲测；首次消费后登记哈希，不得重复使用。",
+  "provenance": {
+    "cases": {
+      "E-hold-deadline": {"basis": "docs/business-flow.txt 期限口径 + 提示词 deadline 主题定义", "independence": "新话术，与开发/验证集无相同句子"},
+      "E-hold-thanks-handoff": {"basis": "提示词：纯感谢归 thanks；要求人工归 handoff；同一句含寒暄与业务需求时处理业务需求", "independence": "新话术，family 与开发集 handoff 例（third_party_callback）不同"},
+      "E-hold-cancel-then-end": {"basis": "docs/generated-100-defects.md D3：告别即结束、不新增登记；提示词：撤销与拒绝、结束三者不同", "independence": "新话术，仅断言零写入与结束状态"}
+    }
+  },
+  "cases": [
+    {
+      "id": "E-hold-deadline",
+      "family": "deadline_question_direct",
+      "identity": "verified",
+      "turns": [
+        {"text": "补正截止到哪天？", "expect": {"identity": "verified", "records": 0, "decision": {"intent": "question", "topics": ["deadline"], "issue_numbers": []}}},
+        {"text": "那我今天交还来得及吗？", "expect": {"identity": "verified", "records": 0, "decision": {"intent": "question", "topics": ["deadline"], "issue_numbers": []}}}
+      ]
+    },
+    {
+      "id": "E-hold-thanks-handoff",
+      "family": "thanks_then_handoff",
+      "identity": "verified",
+      "turns": [
+        {"text": "谢谢你。", "expect": {"identity": "verified", "records": 0}},
+        {"text": "不过我还是想找真人确认一下。", "expect": {"identity": "verified", "records": 0, "decision": {"intent": "handoff", "topics": [], "issue_numbers": []}}}
+      ]
+    },
+    {
+      "id": "E-hold-cancel-then-end",
+      "family": "cancel_then_end",
+      "identity": "verified",
+      "turns": [
+        {"text": "先别急着登记，我还没说完。", "expect": {"identity": "verified", "records": 0}},
+        {"text": "不聊了，先这样吧。", "expect": {"identity": "verified", "records": 0, "step": "closing", "forbid_tools": ["save_call_result", "create_handoff"]}}
+      ]
+    }
+  ]
+}

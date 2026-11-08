@@ -1,0 +1,46 @@
+[
+  {
+    "provider": "DeepSeek official",
+    "model": "deepseek-flash",
+    "n": 30,
+    "http_success": 30,
+    "valid_json": 30,
+    "correct": 30,
+    "p50_ms": 737.46,
+    "p95_ms": 1033.08,
+    "max_ms": 1091.25
+  },
+  {
+    "provider": "Bailian",
+    "model": "deepseek-v4.1-flash",
+    "n": 30,
+    "http_success": 30,
+    "valid_json": 30,
+    "correct": 30,
+    "p50_ms": 615.81,
+    "p95_ms": 844.63,
+    "max_ms": 853.35
+  },
+  {
+    "provider": "Bailian",
+    "model": "qwen3.8-flash",
+    "n": 30,
+    "http_success": 30,
+    "valid_json": 30,
+    "correct": 30,
+    "p50_ms": 558.12,
+    "p95_ms": 711.68,
+    "max_ms": 718.1
+  },
+  {
+    "provider": "Bailian",
+    "model": "qwen-flash",
+    "n": 30,
+    "http_success": 30,
+    "valid_json": 26,
+    "correct": 26,
+    "p50_ms": 343.81,
+    "p95_ms": 426.18,
+    "max_ms": 429.23
+  }
+]

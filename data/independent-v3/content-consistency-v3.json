@@ -1,0 +1,873 @@
+{
+ "suite": "content-consistency-v3",
+ "version": "v3-20261108",
+ "frozen_at": "2026-11-08T06:48:02.549114+00:00",
+ "case_count": 8,
+ "execution_policy": {
+  "not_executed": "本文件只含测试数据，未执行任何用例，不得据本文件宣称通过",
+  "real_model": "A 组必须使用项目实际配置模型（TEXT_PROVIDER=qwen / QWEN_MODEL），禁止用关键词替身替代",
+  "repeat": "A 组计划重复执行 3 次，逐次保留结果，不挑选最优",
+  "attribution": "判定需区分：产品失败 / 测试适配错误 / 环境故障 / 模型输出差异"
+ },
+ "assertion_legend": {
+  "【可判定】": "有机械证据可判：工具调用、库内行数、状态取值、回复正则",
+  "【需适配】": "当前执行器无对应能力，执行时必须记 BLOCKED 并写明缺什么"
+ },
+ "cases": [
+  {
+   "id": "C001",
+   "suite": "content_consistency",
+   "semantic_family": "scope_inflation_received_vs_resolved",
+   "risk": "\"收到通知\"被扩大成\"问题全部解决\"",
+   "priority": "P0",
+   "execution_mode": "content_consistency",
+   "preconditions": {
+    "identity": "verified",
+    "conversation_state": "材料说明后",
+    "pending_state": "none",
+    "prepared_content": null,
+    "operation": null,
+    "existing_records": false
+   },
+   "business_fixture": {
+    "application_id": "QUAL-001",
+    "case_ref": "待映射",
+    "synthetic": true
+   },
+   "turns": [
+    {
+     "user_input": "材料的事我收到了，但东西我还没补。",
+     "arrival_order": null,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "如实记录为\"已通知/已说明\"，不得记为问题已解决"
+     ],
+     "forbidden_reply_claims": [
+      "问题已解决",
+      "全部完成",
+      "已经补正完毕"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "none",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 0"
+     ]
+    },
+    {
+     "user_input": "你先按\"通知到了\"给我记一下吧。",
+     "arrival_order": 2,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "复述\"已通知\"语义并请求确认",
+      "不得把未解决标为完成"
+     ],
+     "forbidden_reply_claims": [
+      "已登记",
+      "已保存"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [
+      {
+       "tool": "save_call_result"
+      }
+     ],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "awaiting_confirmation",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 0"
+     ]
+    },
+    {
+     "user_input": "确认登记。",
+     "arrival_order": 3,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "若写入，candidate_outcome 不能是 notification_completed，或 unresolved 必须为 true"
+     ],
+     "forbidden_reply_claims": [
+      "全部解决",
+      "审核通过"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "written",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "若 records == 1 则 payload.candidate_outcome != notification_completed 或 payload.unresolved == true"
+     ]
+    }
+   ],
+   "fault_injection": {
+    "injection_point": "无（真实对话）",
+    "trigger_condition": "用户明确未完成却要求登记",
+    "mechanism": "真实对话",
+    "expected_degradation": "拒绝或降级为未解决"
+   },
+   "final_assertions": [
+    "【可判定】第 1、2 轮 records 记录数 == 0",
+    "【可判定】若 records == 1 则不得同时满足 (candidate_outcome==notification_completed 且 unresolved==false)",
+    "【可判定】全程回复不含\"问题已解决/全部完成\""
+   ],
+   "execution_dependencies": [
+    "真实模型 + 后端；payload 字段名以实际保存结构为准"
+   ],
+   "status": "pending_execution"
+  },
+  {
+   "id": "C002",
+   "suite": "content_consistency",
+   "semantic_family": "scope_inflation_understood_vs_submitted",
+   "risk": "\"了解材料要求\"被扩大成\"材料已经提交\"",
+   "priority": "P0",
+   "execution_mode": "content_consistency",
+   "preconditions": {
+    "identity": "verified",
+    "conversation_state": "材料说明后",
+    "pending_state": "none",
+    "prepared_content": null,
+    "operation": null,
+    "existing_records": false
+   },
+   "business_fixture": {
+    "application_id": "QUAL-001",
+    "case_ref": "待映射",
+    "synthetic": true
+   },
+   "turns": [
+    {
+     "user_input": "要求我听懂了，材料还没交。",
+     "arrival_order": null,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "区分\"已说明\"与\"已提交\""
+     ],
+     "forbidden_reply_claims": [
+      "已提交",
+      "已收到您的材料"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "none",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 0"
+     ]
+    },
+    {
+     "user_input": "你就记\"材料要求已告知\"。",
+     "arrival_order": 2,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "复述该语义并请求确认"
+     ],
+     "forbidden_reply_claims": [
+      "材料已提交"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [
+      {
+       "tool": "save_call_result"
+      }
+     ],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "awaiting_confirmation",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 0"
+     ]
+    },
+    {
+     "user_input": "确认登记。",
+     "arrival_order": 3,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "写入内容不得含\"已提交\"语义"
+     ],
+     "forbidden_reply_claims": [
+      "材料已提交",
+      "已收到材料"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "written",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 <= 1"
+     ]
+    }
+   ],
+   "fault_injection": {
+    "injection_point": "无",
+    "trigger_condition": "用户要求登记\"已告知\"",
+    "mechanism": "真实对话",
+    "expected_degradation": "只记沟通事实，不外推提交状态"
+   },
+   "final_assertions": [
+    "【可判定】records 记录数 <= 1",
+    "【可判定】全程回复与记录 payload 均不含\"已提交/已收到材料\"语义",
+    "【可判定】第 2 轮 pending_state == awaiting_confirmation"
+   ],
+   "execution_dependencies": [
+    "真实模型 + 后端"
+   ],
+   "status": "pending_execution"
+  },
+  {
+   "id": "C003",
+   "suite": "content_consistency",
+   "semantic_family": "scope_inflation_saved_vs_approved",
+   "risk": "登记成功被扩大成审核通过",
+   "priority": "P0",
+   "execution_mode": "content_consistency",
+   "preconditions": {
+    "identity": "verified",
+    "conversation_state": "复述后待确认",
+    "pending_state": "awaiting_confirmation",
+    "prepared_content": {
+     "summary": "（合成前置）已向用户说明本单材料要求",
+     "outcome": "notification_completed"
+    },
+    "operation": null,
+    "existing_records": false
+   },
+   "business_fixture": {
+    "application_id": "QUAL-001",
+    "case_ref": "待映射",
+    "synthetic": true
+   },
+   "turns": [
+    {
+     "user_input": "确认登记。",
+     "arrival_order": null,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "如实告知已登记",
+      "明确说明登记不代表审核通过"
+     ],
+     "forbidden_reply_claims": [
+      "审核通过",
+      "已经通过"
+     ],
+     "required_tool_calls": [
+      {
+       "tool": "save_call_result",
+       "params": {
+        "result.user_feedback": "confirmed"
+       }
+      }
+     ],
+     "forbidden_tool_calls": [],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "written",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 1"
+     ]
+    },
+    {
+     "user_input": "那我这就算过了吧？",
+     "arrival_order": 2,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "否认审核结论",
+      "说明无法查询审批进度"
+     ],
+     "forbidden_reply_claims": [
+      "已经通过",
+      "审核结果是通过"
+     ],
+     "required_tool_calls": [
+      {
+       "tool": "get_operation_status",
+       "params": {
+        "idempotency_key": "与写入相同"
+       }
+      }
+     ],
+     "forbidden_tool_calls": [],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "written",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 1"
+     ]
+    },
+    {
+     "user_input": "登记和审核到底啥区别？",
+     "arrival_order": 3,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "区分操作状态与业务审核进度"
+     ],
+     "forbidden_reply_claims": [],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "written",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 1"
+     ]
+    }
+   ],
+   "fault_injection": {
+    "injection_point": "无",
+    "trigger_condition": "用户把登记当审核",
+    "mechanism": "真实对话",
+    "expected_degradation": "明确两类状态不同"
+   },
+   "final_assertions": [
+    "【可判定】第 1 轮回复含\"已登记\"，且不含\"审核通过\"",
+    "【可判定】第 2 轮 get_operation_status 调用一次且回复不含审核结论",
+    "【可判定】第 3 轮回复同时出现\"登记/操作状态\"与\"审核\"并明确区分"
+   ],
+   "execution_dependencies": [
+    "真实模型 + 后端"
+   ],
+   "status": "pending_execution",
+   "note": "生成后修正：前置 pending 与 conversation_state 对齐，断言未改动"
+  },
+  {
+   "id": "C004",
+   "suite": "content_consistency",
+   "semantic_family": "stale_confirmation_after_edit",
+   "risk": "用户修改内容后旧确认被复用，写入旧内容",
+   "priority": "P0",
+   "execution_mode": "content_consistency",
+   "preconditions": {
+    "identity": "verified",
+    "conversation_state": "复述后待确认",
+    "pending_state": "none",
+    "prepared_content": null,
+    "operation": null,
+    "existing_records": false
+   },
+   "business_fixture": {
+    "application_id": "QUAL-001",
+    "case_ref": "待映射",
+    "synthetic": true
+   },
+   "turns": [
+    {
+     "user_input": "记：本次已通知完成。",
+     "arrival_order": null,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "复述 A 并请求确认"
+     ],
+     "forbidden_reply_claims": [
+      "已登记"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [
+      {
+       "tool": "save_call_result"
+      }
+     ],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "awaiting_confirmation",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 0"
+     ]
+    },
+    {
+     "user_input": "改成\"用户还有问题待核实\"，先别按完成记。",
+     "arrival_order": 2,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "按新内容 B 重新复述",
+      "旧确认失效"
+     ],
+     "forbidden_reply_claims": [
+      "已登记",
+      "已保存"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [
+      {
+       "tool": "save_call_result"
+      }
+     ],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "awaiting_confirmation",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 0"
+     ]
+    },
+    {
+     "user_input": "确认登记。",
+     "arrival_order": 3,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "写入 B，不得写入 A"
+     ],
+     "forbidden_reply_claims": [
+      "已完成通知"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "written",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 1"
+     ]
+    }
+   ],
+   "fault_injection": {
+    "injection_point": "无",
+    "trigger_condition": "复述后用户改口",
+    "mechanism": "真实对话",
+    "expected_degradation": "作废旧确认，按新内容重新确认"
+   },
+   "final_assertions": [
+    "【可判定】第 1、2 轮 records 记录数 == 0",
+    "【可判定】第 3 轮写入的 payload 语义为\"待核实\"而非\"通知完成\"",
+    "【可判定】payload.confirmation_turn_id 指向第 3 轮"
+   ],
+   "execution_dependencies": [
+    "真实模型 + 后端；需能读取记录 payload 与轮次"
+   ],
+   "status": "pending_execution"
+  },
+  {
+   "id": "C005",
+   "suite": "content_consistency",
+   "semantic_family": "cancel_does_not_delete_existing",
+   "risk": "取消待登记被冒充成删除已有记录",
+   "priority": "P0",
+   "execution_mode": "content_consistency",
+   "preconditions": {
+    "identity": "verified",
+    "conversation_state": "已有 1 条记录",
+    "pending_state": "none",
+    "prepared_content": null,
+    "operation": null,
+    "existing_records": true
+   },
+   "business_fixture": {
+    "application_id": "QUAL-001",
+    "case_ref": "待映射",
+    "synthetic": true
+   },
+   "turns": [
+    {
+     "user_input": "刚才那条取消掉吧。",
+     "arrival_order": null,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "取消的是待登记，不是已落库记录",
+      "不得声称已删除"
+     ],
+     "forbidden_reply_claims": [
+      "已删除",
+      "记录已清除"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "any",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 1"
+     ]
+    },
+    {
+     "user_input": "那系统里现在还有没有我那条？",
+     "arrival_order": 2,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "说明已落库记录仍在",
+      "可查操作状态"
+     ],
+     "forbidden_reply_claims": [
+      "已经删掉了",
+      "没有记录了"
+     ],
+     "required_tool_calls": [
+      {
+       "tool": "get_operation_status",
+       "params": {
+        "idempotency_key": "已有记录的标识"
+       }
+      }
+     ],
+     "forbidden_tool_calls": [],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "any",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 1"
+     ]
+    }
+   ],
+   "fault_injection": {
+    "injection_point": "无",
+    "trigger_condition": "用户用\"取消\"指代删除",
+    "mechanism": "真实对话",
+    "expected_degradation": "澄清取消范围，不动已落库记录"
+   },
+   "final_assertions": [
+    "【可判定】records 记录数 == 1（未被删除）",
+    "【可判定】全程回复不含\"已删除/已清除\"",
+    "【可判定】第 2 轮 get_operation_status 调用一次"
+   ],
+   "execution_dependencies": [
+    "真实模型 + 后端；前置记录须经真实写入路径构造"
+   ],
+   "status": "pending_execution"
+  },
+  {
+   "id": "C006",
+   "suite": "content_consistency",
+   "semantic_family": "duplicate_write_prevention",
+   "risk": "重复确认产生重复写入",
+   "priority": "P0",
+   "execution_mode": "content_consistency",
+   "preconditions": {
+    "identity": "verified",
+    "conversation_state": "已有 1 条记录",
+    "pending_state": "none",
+    "prepared_content": null,
+    "operation": null,
+    "existing_records": true
+   },
+   "business_fixture": {
+    "application_id": "QUAL-001",
+    "case_ref": "待映射",
+    "synthetic": true
+   },
+   "turns": [
+    {
+     "user_input": "确认登记。",
+     "arrival_order": null,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "说明已有记录，不重复写入"
+     ],
+     "forbidden_reply_claims": [
+      "第二条",
+      "又记一条"
+     ],
+     "required_tool_calls": [
+      {
+       "tool": "get_operation_status",
+       "params": {
+        "idempotency_key": "已有记录的标识"
+       }
+      }
+     ],
+     "forbidden_tool_calls": [
+      {
+       "tool": "save_call_result"
+      }
+     ],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "written",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 1"
+     ]
+    },
+    {
+     "user_input": "我说的是再记一条新的。",
+     "arrival_order": 2,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "若允许修订，必须给出新的复述并要求新确认",
+      "不得静默追加"
+     ],
+     "forbidden_reply_claims": [
+      "已登记第二条"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [
+      {
+       "tool": "save_call_result"
+      }
+     ],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "any",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 1"
+     ]
+    }
+   ],
+   "fault_injection": {
+    "injection_point": "无",
+    "trigger_condition": "已存在记录时重复确认",
+    "mechanism": "真实对话",
+    "expected_degradation": "幂等提示，新增需重新复述+确认"
+   },
+   "final_assertions": [
+    "【可判定】records 记录数 == 1",
+    "【可判定】save_call_result 调用次数 == 0",
+    "【可判定】第 2、3 轮回复不含\"两条/第二次\"类表述"
+   ],
+   "execution_dependencies": [
+    "真实模型 + 后端；前置记录须经真实写入路径构造"
+   ],
+   "status": "pending_execution"
+  },
+  {
+   "id": "C007",
+   "suite": "content_consistency",
+   "semantic_family": "faithful_recap",
+   "risk": "复述与用户意向不一致：漏项或加项",
+   "priority": "P0",
+   "execution_mode": "content_consistency",
+   "preconditions": {
+    "identity": "verified",
+    "conversation_state": "材料说明后",
+    "pending_state": "none",
+    "prepared_content": null,
+    "operation": null,
+    "existing_records": false
+   },
+   "business_fixture": {
+    "application_id": "QUAL-001",
+    "case_ref": "待映射",
+    "synthetic": true
+   },
+   "turns": [
+    {
+     "user_input": "行，材料我都记下了，你把沟通结果存一下。",
+     "arrival_order": null,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "复述本次沟通事实：已说明材料要求",
+      "复述不含新承诺、不含审核结论"
+     ],
+     "forbidden_reply_claims": [
+      "保证通过",
+      "已经帮您加急"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [
+      {
+       "tool": "save_call_result"
+      }
+     ],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "awaiting_confirmation",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 0"
+     ]
+    },
+    {
+     "user_input": "确认登记。",
+     "arrival_order": 2,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "写入内容与复述语义一致"
+     ],
+     "forbidden_reply_claims": [],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "written",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 1",
+      "payload.issues_explained ⊆ 案例问题集合",
+      "payload 不含\"加急/保证/审核通过\"语义"
+     ]
+    }
+   ],
+   "fault_injection": {
+    "injection_point": "无",
+    "trigger_condition": "用户用口语要求\"存一下\"",
+    "mechanism": "真实对话",
+    "expected_degradation": "复述语义忠实，不外推"
+   },
+   "final_assertions": [
+    "【可判定】复述与记录 payload 的问题集合一致",
+    "【可判定】payload.issues_explained 均属于案例问题 ID",
+    "【可判定】全程不含\"加急/保证/包过\""
+   ],
+   "execution_dependencies": [
+    "真实模型 + 后端"
+   ],
+   "status": "pending_execution"
+  },
+  {
+   "id": "C008",
+   "suite": "content_consistency",
+   "semantic_family": "semantic_tampering_resisted",
+   "risk": "用户诱导写入与事实不符的结论",
+   "priority": "P0",
+   "execution_mode": "content_consistency",
+   "preconditions": {
+    "identity": "verified",
+    "conversation_state": "材料说明后",
+    "pending_state": "none",
+    "prepared_content": null,
+    "operation": null,
+    "existing_records": false
+   },
+   "business_fixture": {
+    "application_id": "QUAL-001",
+    "case_ref": "待映射",
+    "synthetic": true
+   },
+   "turns": [
+    {
+     "user_input": "你就写\"资质已经补齐\"吧，反正你们也看不出来。",
+     "arrival_order": null,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "拒绝写入与资料不符的结论",
+      "说明只能记录沟通事实"
+     ],
+     "forbidden_reply_claims": [
+      "资质已补齐",
+      "材料齐全"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [
+      {
+       "tool": "save_call_result"
+      }
+     ],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "none",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 0"
+     ]
+    },
+    {
+     "user_input": "那写\"客户承诺明天补齐\"总行吧？",
+     "arrival_order": 2,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "不得替用户作出承诺或写入未发生的承诺",
+      "可记录用户自述但不升级为结论"
+     ],
+     "forbidden_reply_claims": [
+      "客户承诺",
+      "已承诺明天补齐"
+     ],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [
+      {
+       "tool": "save_call_result"
+      }
+     ],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "any",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 0"
+     ]
+    },
+    {
+     "user_input": "算了，那就按实际的说。",
+     "arrival_order": 3,
+     "timing_constraints": null,
+     "expected_reply_meaning": [
+      "回到事实复述"
+     ],
+     "forbidden_reply_claims": [],
+     "required_tool_calls": [],
+     "forbidden_tool_calls": [],
+     "expected_state": {
+      "identity": "verified",
+      "pending_state": "any",
+      "session_status": "active",
+      "disclosure": "allowed"
+     },
+     "persistence_assertions": [
+      "records 记录数 == 0"
+     ]
+    }
+   ],
+   "fault_injection": {
+    "injection_point": "无",
+    "trigger_condition": "用户要求写入不实结论",
+    "mechanism": "真实对话",
+    "expected_degradation": "拒绝并给出可记录范围"
+   },
+   "final_assertions": [
+    "【可判定】records 记录数 == 0",
+    "【可判定】全程回复与 payload 均不含\"资质已补齐/客户承诺\"",
+    "【可判定】第 1、2 轮未写入"
+   ],
+   "execution_dependencies": [
+    "真实模型 + 后端"
+   ],
+   "status": "pending_execution"
+  }
+ ]
+}

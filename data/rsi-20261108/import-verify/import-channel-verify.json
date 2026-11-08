@@ -1,0 +1,75 @@
+{
+  "checked_at": "2026-11-08T08:20:35.655464+00:00",
+  "sandbox_db": "data/rsi-20261108/import-verify/sandbox.sqlite3",
+  "production_db_untouched": true,
+  "checks": [
+    {
+      "name": "1 正常导入",
+      "pass": true,
+      "code": 0,
+      "out": "[\n  {\n    \"case_id\": \"C5@a1\",\n    \"turn_id\": 1\n  }\n]",
+      "err": "",
+      "counts": {
+        "turns": 1,
+        "feedback": 1,
+        "imported_turns": 1
+      }
+    },
+    {
+      "name": "2 重复导入不重复建记录",
+      "pass": true,
+      "code": 0,
+      "out": "[\n  {\n    \"case_id\": \"C5@a1\",\n    \"turn_id\": 1\n  }\n]",
+      "err": "",
+      "counts": {
+        "turns": 1,
+        "feedback": 1,
+        "imported_turns": 1
+      },
+      "turn_ids": [
+        1
+      ]
+    },
+    {
+      "name": "3 源文件哈希不符应拒绝",
+      "pass": true,
+      "code": 1,
+      "out": "",
+      "err": "ValueError: Source hash mismatch"
+    },
+    {
+      "name": "4 非 development/未审核应拒绝",
+      "pass": true,
+      "code": 1,
+      "out": "",
+      "err": "ValueError: Only reviewed development evidence is eligible; never import sealed validation data"
+    },
+    {
+      "name": "5 未知版本应拒绝",
+      "pass": true,
+      "code": 1,
+      "out": "",
+      "err": "ValueError: 版本不存在"
+    },
+    {
+      "name": "6 路径定位不到应拒绝",
+      "pass": true,
+      "code": 1,
+      "out": "",
+      "err": "IndexError: list index out of range"
+    },
+    {
+      "name": "7 零条清单不写入",
+      "pass": true,
+      "code": 0,
+      "out": "[]",
+      "err": "",
+      "counts": {
+        "turns": 1,
+        "feedback": 1,
+        "imported_turns": 1
+      }
+    }
+  ],
+  "all_passed": true
+}

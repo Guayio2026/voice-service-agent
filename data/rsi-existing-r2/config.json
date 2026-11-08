@@ -1,0 +1,9 @@
+{
+  "development": "development.json",
+  "validation": "validation.json",
+  "holdout": "holdout.json",
+  "repeat": 3,
+  "max_calls": 128,
+  "token_budget": 1000000,
+  "proposal_token_budget": 30000
+}

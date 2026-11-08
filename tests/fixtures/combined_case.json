@@ -1,0 +1,74 @@
+[
+  {
+    "application_id": "QUAL-005",
+    "label": "四类材料综合补正（演示）",
+    "synthetic": true,
+    "merchant": "演示商家5",
+    "company": "合成示例商贸公司5",
+    "store": "合成示例店铺5",
+    "brand": "示例品牌青禾",
+    "category": "食品（演示）",
+    "application_type": "新增品牌",
+    "rule_version": "DEMO-v1",
+    "basis_status": "valid",
+    "review_status": "correction_required",
+    "formal_rejection_status": "not_connected",
+    "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+    "materials": [
+      {
+        "material_id": "M01",
+        "material_type": "trademark",
+        "review_status": "needs_correction",
+        "synthetic": true
+      },
+      {
+        "material_id": "M02",
+        "material_type": "authorization",
+        "review_status": "needs_correction",
+        "synthetic": true
+      },
+      {
+        "material_id": "M03",
+        "material_type": "purchase",
+        "review_status": "needs_correction",
+        "synthetic": true
+      },
+      {
+        "material_id": "M04",
+        "material_type": "industry",
+        "review_status": "needs_correction",
+        "synthetic": true
+      }
+    ],
+    "issues": [
+      {
+        "issue_id": "Q01",
+        "material_type": "trademark",
+        "reason": "商标注册证上的持有人与本次申请填写的持有人不一致",
+        "action": "核对申请中的持有人信息，并补充与申请信息一致的商标注册证明",
+        "evidence_id": "DEMO-R01"
+      },
+      {
+        "issue_id": "Q02",
+        "material_type": "authorization",
+        "reason": "品牌授权链缺少从商标持有人到开店公司的中间授权证明",
+        "action": "补充缺失的中间授权证明，使商标持有人到开店公司的授权链完整衔接",
+        "evidence_id": "DEMO-R02"
+      },
+      {
+        "issue_id": "Q03",
+        "material_type": "purchase",
+        "reason": "购货发票与银行流水记载的交易主体无法对应",
+        "action": "核对交易主体并补充能相互对应的购货发票、银行流水或关联说明，交由审核人员核实",
+        "evidence_id": "DEMO-R03"
+      },
+      {
+        "issue_id": "Q04",
+        "material_type": "industry",
+        "reason": "本次食品类目演示申请缺少审核记录要求的食品经营许可材料",
+        "action": "补充本次审核记录要求的食品经营许可材料，具体适用要求由审核人员复核",
+        "evidence_id": "DEMO-R04"
+      }
+    ]
+  }
+]

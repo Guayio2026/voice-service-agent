@@ -1,0 +1,6 @@
+2026-11-04 第6—7步授权记录
+无新增第三方依赖、模型、语音、图片或外部数据；沿用项目Python3.12标准库sqlite3/http.server/unittest。
+业务代码及合成案例为本次自行实现，未复制第三方实现。
+只读参考：Python官方CPython 3.12 sqlite3模块源代码（GitHub），了解标准库接口与授权边界：
+https://github.com/python/cpython/blob/3.12/Lib/sqlite3/dbapi2.py
+未将该文件复制进项目；其源文件包含pysqlite许可头。现有候选框架仍未安装，不改变批准状态。

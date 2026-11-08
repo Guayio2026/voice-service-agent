@@ -1,0 +1,152 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "3cd68920acfcc7e1",
+   "server.py": "6f5a455300a5d6bc",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:10:41.539315+00:00"
+ },
+ "case": "C001",
+ "attempts": [
+  {
+   "case_id": "C001",
+   "attempt": 1,
+   "verdict": "PASS",
+   "open_ms": 648,
+   "usage": {
+    "prompt_tokens": 2306,
+    "completion_tokens": 40,
+    "total_tokens": 2346
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "材料的事我收到了，但东西我还没补。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {
+      "prompt_tokens": 1185,
+      "completion_tokens": 20,
+      "total_tokens": 1205
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 704,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "你先按\"通知到了\"给我记一下吧。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {
+      "prompt_tokens": 1121,
+      "completion_tokens": 20,
+      "total_tokens": 1141
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 611,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 37,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "unresolved",
+     "issues_explained": [
+      "Q01",
+      "Q02"
+     ],
+     "user_feedback": "unknown",
+     "confirmation_turn_id": null,
+     "unresolved": true,
+     "questions": [],
+     "registration_summary": "本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。",
+     "session_id": "qEpDWRmZaZ-IbY4y7TpKh4vv9fAWdM5oNyac3pf5cug",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "309982c8de949625d89aa3871e345cfa",
+     "result_revision": 1,
+     "outcome": "unresolved",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T07:13:11.128561+00:00",
+     "updated_at": "2026-11-08T07:13:11.128561+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1、2 轮 records 记录数 == 0",
+     "status": "ok",
+     "detail": "实际 [0, 0]"
+    },
+    {
+     "assert": "【可判定】若 records == 1 则不得同时满足 (candidate_outcome==notification_completed 且 unresolved==false)",
+     "status": "ok",
+     "detail": "outcome=unresolved unresolved=True"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"问题已解决/全部完成\"",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "若 records == 1 则 payload.candidate_outcome != notification_completed 或 payload.unresolved == true",
+     "status": "ok",
+     "detail": "outcome=unresolved unresolved=True"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

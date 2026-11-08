@@ -1,0 +1,109 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "3cd68920acfcc7e1",
+   "server.py": "6f5a455300a5d6bc",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:10:41.539315+00:00"
+ },
+ "case": "S009",
+ "attempts": [
+  {
+   "case_id": "S009",
+   "attempt": 1,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 681,
+   "usage": {
+    "prompt_tokens": 1148,
+    "completion_tokens": 22,
+    "total_tokens": 1170
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "确认登记。",
+     "reply": "登记结果未知，尚不能确认成功，请核对操作状态。",
+     "usage": {},
+     "identity": "verified",
+     "step": "unknown",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 14,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result",
+      "get_operation_status"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "那到底行不行？",
+     "reply": "操作状态只说明沟通登记是否保存，不是业务审核进度。当前资料没有提供材料提交或受理状态，我无法确认是否已经补交；沟通登记也不代表材料已提交。",
+     "usage": {
+      "prompt_tokens": 1148,
+      "completion_tokens": 22,
+      "total_tokens": 1170
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 731,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"已登记/已保存/登记成功\"",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 2 轮 get_operation_status 返回非 confirmed",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 2 轮 get_operation_status 返回非 confirmed"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【可判定】第 2 轮 get_operation_status 返回非 confirmed",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 2 轮 get_operation_status 返回非 confirmed"
+    }
+   ],
+   "crash": null
+  }
+ ]
+}

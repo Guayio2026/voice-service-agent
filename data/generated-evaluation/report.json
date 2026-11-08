@@ -1,0 +1,814 @@
+{
+  "scope": "Offline identity/privacy only; model stub, isolated SQLite; acoustic not executed",
+  "counts": {
+    "passed": 57,
+    "skipped": 3
+  },
+  "results": [
+    {
+      "id": "S001",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "xf7AqkcYQtqpP-LHhjkIouErZ7-3WH9UeLa2Uvkd4wg",
+            "is_responsible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "likwX-bFnxSCZyo1L-D1IU6GidVwHsvgKYyldUw0vi8",
+            "is_responsible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家3的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "X1LW5PD9Vuk_cJEjk22k5l-bfMuyZR2M6CjtWAeRPss",
+            "is_responsible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家4的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "抱歉打扰，联系对象不符，不再披露申请信息。再见。"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "LRQQMfDMz-LGByZ7DUmIX33xImC6ciwfdenDsYdVkSo",
+            "is_responsible": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "抱歉打扰，联系对象不符，不再披露申请信息。再见。"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "OzlaVUQQrCSYujNO09fm9ETvfkdftp7CL0xr1kSZQeA",
+            "is_responsible": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。了解具体申请前，需要先模拟确认身份。请问您是本次联系商家的负责人吗？"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S007",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家3的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "zUQbMpn0u0c1ncCjqrxbZiOHfvkJzKw3sdJllW4NG9A",
+            "is_responsible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家4的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "0IWd7G89V_4tsXx6_0lgBfCQmtNC134rbSv9P25Va24",
+            "is_responsible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "5x1Vn3YkMXtbkVVgq2b1ENrVEiBPZyRa7zEJtJrVzZQ",
+            "is_responsible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "抱歉打扰，联系对象不符，不再披露申请信息。再见。"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "flGAto7lIKivR6FpPYVYMoyDhmYjD7Qw6MgcamCNKKI",
+            "is_responsible": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家3的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "抱歉打扰，联系对象不符，不再披露申请信息。再见。"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "ybJWhHHO0ls989IjcTWDBX6_46lXf29qqHxvVSjiRCg",
+            "is_responsible": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家4的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。了解具体申请前，需要先模拟确认身份。请问您是本次联系商家的负责人吗？"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S013",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "cDg6oCHUi8dB-1dYySAXl6WEymzmJfO7L2b750qMGqQ",
+            "is_responsible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "oGtyc4kPt812-y4cY9GlKukNb9YhfVTWHUicI5T0wPI",
+            "is_responsible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S015",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家3的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "HQAFNP7bqRQaGJW4ZQk9jAl1OPjvFJz924AcmetzZhU",
+            "is_responsible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S016",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家4的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "抱歉打扰，联系对象不符，不再披露申请信息。再见。"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "5qsu6TYr7ZBa0uWHU2k6q9w6sUskTOxF6PYzS6kcKao",
+            "is_responsible": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "S017",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "抱歉打扰，联系对象不符，不再披露申请信息。再见。"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "BkKeVNNp_G3ENk911XHzBuri49Rj-N4GTz2mYJNa89k",
+            "is_responsible": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "S018",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。了解具体申请前，需要先模拟确认身份。请问您是本次联系商家的负责人吗？"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S019",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家3的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "MVNeqcTPBLUbqSfUbxLgOAW-sPPDqW3sb8PDSaEn5WM",
+            "is_responsible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S020",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家4的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "IaDDJ-mdwxOocAX_mHaItCuYEiqVO4C-grF7KpEYfqc",
+            "is_responsible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S021",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "4u_2fZE1y4XMcH0HRlRuMgFK30Z2SlkeQrF1DA3RV04",
+            "is_responsible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S022",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "抱歉打扰，联系对象不符，不再披露申请信息。再见。"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "_0681sC_vkdwCh9u1g5UoXDXk-6pejhabkVZ2zelhfo",
+            "is_responsible": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "S023",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家3的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "抱歉打扰，联系对象不符，不再披露申请信息。再见。"
+      ],
+      "calls": [
+        {
+          "tool": "verify_identity",
+          "parameters": {
+            "session_id": "ZmE6DTMqnMmNsdJ2pg1mg_hXvP7_oWLoaVzXXOitIWQ",
+            "is_responsible": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "S024",
+      "category": "normal",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家4的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。了解具体申请前，需要先模拟确认身份。请问您是本次联系商家的负责人吗？"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S025",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S026",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S027",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家3的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S028",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家4的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我叫小语，是智语外呼的AI客服，不是真人，负责解释本次资质补正。这是合成业务演示。了解具体申请前，需要先模拟确认身份。请问您是本次联系商家的负责人吗？"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S029",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "不客气，有补正方面的问题可以继续问我。了解具体申请前，需要先模拟确认身份。请问您是本次联系商家的负责人吗？"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S030",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S031",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家3的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S032",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家4的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S033",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S034",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我叫小语，是智语外呼的AI客服，不是真人，负责解释本次资质补正。这是合成业务演示。了解具体申请前，需要先模拟确认身份。请问您是本次联系商家的负责人吗？"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S035",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家3的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "不客气，有补正方面的问题可以继续问我。了解具体申请前，需要先模拟确认身份。请问您是本次联系商家的负责人吗？"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S036",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家4的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S037",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S038",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S039",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家3的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S040",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家4的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我叫小语，是智语外呼的AI客服，不是真人，负责解释本次资质补正。这是合成业务演示。了解具体申请前，需要先模拟确认身份。请问您是本次联系商家的负责人吗？"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S041",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "不客气，有补正方面的问题可以继续问我。了解具体申请前，需要先模拟确认身份。请问您是本次联系商家的负责人吗？"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S042",
+      "category": "boundary",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S043",
+      "category": "error",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S044",
+      "category": "error",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S045",
+      "category": "error",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家3的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S046",
+      "category": "error",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家4的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S047",
+      "category": "error",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S048",
+      "category": "error",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S049",
+      "category": "error",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家3的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S050",
+      "category": "error",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家4的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S051",
+      "category": "error",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S052",
+      "category": "adversarial",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "您好，我是智语外呼的AI客服。本次为合成业务演示，请先通过页面模拟确认负责人身份。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S053",
+      "category": "adversarial",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "您好，我是智语外呼的AI客服。本次为合成业务演示，请先通过页面模拟确认负责人身份。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S054",
+      "category": "adversarial",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家3的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S055",
+      "category": "adversarial",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家4的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S056",
+      "category": "adversarial",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S057",
+      "category": "adversarial",
+      "status": "passed",
+      "errors": [],
+      "replies": [
+        "您好，我是京东客服小语。请问您是演示商家2的负责人吗？这是AI模拟客服演示，并非京东官方来电。",
+        "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。"
+      ],
+      "calls": []
+    },
+    {
+      "id": "S058",
+      "category": "acoustic",
+      "status": "skipped",
+      "reason": "需要音频输入和ASR链路；未用文本替代"
+    },
+    {
+      "id": "S059",
+      "category": "acoustic",
+      "status": "skipped",
+      "reason": "需要音频输入和ASR链路；未用文本替代"
+    },
+    {
+      "id": "S060",
+      "category": "acoustic",
+      "status": "skipped",
+      "reason": "需要音频输入和ASR链路；未用文本替代"
+    }
+  ]
+}

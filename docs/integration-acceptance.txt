@@ -1,0 +1,12 @@
+独立联调验收 | 2026-11-04
+结论：不通过，先修复前端再进行文字Agent开发。
+执行：后端unittest 9/9通过；使用Edge无头浏览器、临时SQLite与临时本地端口进行功能检查；仅在浏览器测试路由中替换API地址，未改业务配置或演示库。
+通过：页面加载7个案例；可创建会话、模拟身份确认、查询问题；未接入真实语音的标识存在。
+F01 阻断：mock-business.js保存构造issues_explained使用[...$('issues input:checked')]，但$是getElementById，返回null，抛出“$ is not a function or its return value is not iterable”。正常保存未发出，数据库历史为空，刷新持久化无法验收。应使用querySelectorAll('#issues input:checked')。
+F02 阻断：案例onchange直接覆盖s并persist，丢弃会话和pending。浏览器注入模拟待核对记录、刷新后切换案例，sessionStorage仅剩app。应按案例保存会话，或在pending存在时禁止切换和新建；保留原会话恢复入口。
+F03 代码检查：write/settle将完整保存响应写入status，clear不清理status；身份撤销可能保留先前申请详情。正常保存因F01未成功，此泄露路径本轮未完成端到端复现；修复后必须专门测试。
+F04 代码检查：health只在初始化探测，后台随后断开仍可能显示旧连接成功；需要更新状态或标明最后检查时间并提供重新检测。
+浏览器首轮正常保存失败导致刷新等待超时；复跑确认准确JS报错。不能据此声称持久化或十项联调场景均已通过。
+未修改前端与后端。下一步修复以上问题并完成正常保存/刷新、身份撤销、响应丢失核对及案例切换回归，然后接文字AI。
+
+复验更新：F01—F04已修复，详见integration-verification.txt。原不通过结论为历史记录；当前本地Mock联调复验通过。

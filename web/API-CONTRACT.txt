@@ -1,0 +1,18 @@
+待联调草案 — 以下能力不是已存在的接口
+建议由受控后端提供 capabilities：{backend,asr,tts,audio,provider}。provider 可为 breezeblue/local；前端不可据 health 成功认定语音可用，全部必要能力与会话握手成功后才允许通话。
+建议命令：start_session({application_id})、stop_session({session_id})、set_muted({session_id,muted})。实际传输路径和 WebRTC/WebSocket 协议待协商。
+事件信封：{schema_version:1,session_id,event_id,sequence,turn_id,timestamp,simulated:false,type,payload}。
+事件类型：session_started、identity_verified、transcript_partial、transcript_final、workflow_changed、tool_started、tool_finished、result_updated、audio_started、audio_stopped、session_ended、error。
+字幕 payload：{speaker,text,final}；前端仅按纯文本呈现。乱序按 sequence 恢复，event_id 去重，终态丢弃旧轮次音频和生成，重连由服务端恢复状态。
+工具 payload：{name,operation_id,idempotency_key,status,input_summary,output_summary,record_id,result_revision,error}。status 区分 pending/confirmed/failed/unknown。超时不能显示成功，应以原幂等键核对 get_operation_status，不新建重复写入。
+结果 payload：{identity_status,issues_explained,user_feedback,confirmation_turn_id,candidate_outcome,outcome,persistence_status,record_id,result_revision}。只有服务端已验证确认与记录编号才显示真实登记成功；通知完成不等于审核通过。
+身份未核实不得获取或展示受限详情；错联系只保存最小异常结果。授权由后端实现，不能信任前端的场景、身份或模拟事件。
+指标：真实端到端时延提供 speech_end_at、first_audible_at、clock_domain、sample_id、有效样本标记和口径版本；同一时钟域计算，展示样本数后统计 P50/P95。模拟时间不得混入。
+音频：只有用户明确点击开始后才调用 getUserMedia；拒绝权限需可恢复错误。结束释放所有 tracks、停止播放及定时器。没有音频输入不绘制音量。
+密钥仅服务端持有，浏览器只使用受限短期会话凭据；日志脱敏，不记录凭据。前端不直连收费 TTS。提供商切换通过后端适配器完成。
+实际 Mock 页面：mock.html / mock-business.js；配置：mock-config.js。
+使用 docs/backend-api.txt 中 GET health/cases 及全部八个 POST 契约。
+旧文档事件流/语音内容仅为未来草案；当前无事件流、真实认证或音频。
+待核对写操作保留原键及载荷，经 get_operation_status 查询，unknown 时原样重试。
+
+2026-11-04 Mock实际联调：mock.html/mock-business.js按../docs/backend-api.txt调用HTTP接口，旧语音事件约定仍为草案。有未决写入时锁定案例/新会话/新写入，核对使用原会话、幂等键和载荷；结果只显示后台确认。无WebRTC或真实语音接入。

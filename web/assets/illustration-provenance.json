@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-07",
+  "generator": "image_gen",
+  "reference": "blue-desk-neutral-v1.png",
+  "assets": [
+    "assistant-review-v1.png",
+    "session-evidence-v1.png"
+  ],
+  "prompts": [
+    "Use case: illustration-story. Standalone production illustration for a Chinese voice-service app, NO UI, NO border, NO interface screenshot. Use attached reference to preserve EXACT white rounded robot character with cobalt blue and gold headphones, black glass face and two cyan pill-shaped eyes, small white arms, speech logo on chest. A richly detailed cinematic 3D scene of this robot at a midnight-blue wood desk carefully reviewing an open blue-bound authorization document binder, holding one ivory paper sheet. The open binder has a visibly empty page pocket and one paper with simple gray text-like lines, no legible text, no seals or official stamps. A cobalt task lamp casts warm golden light onto papers. Dark blue study background with softly blurred books and one plant. Character occupies top-middle; open binder prominent foreground. Composition vertical 4:5, premium tactile materials, white ceramic, brushed gold, blue leather, warm ivory papers, blue room ambient light, detailed but uncluttered. The reference is character/material reference only, not composition. Crop tight enough to read at 400px wide. NO lettering, NO labels, NO graphs, NO audio waveforms, NO buttons. Illustration itself is whole image.",
+    "Use case: product-mockup. Standalone editorial 3D illustration for a voice-service conversation report. Attached reference sets material and art style only. Hero subject is the cobalt-blue and brushed silver/gold reel-to-reel recorder from the reference, sitting beside a neatly opened ivory case folder, a short paper transcript with simple horizontal ink lines (no readable words), and a blue fountain pen with gold nib. Arrange on a midnight-blue wooden tabletop with subtle textile at bottom, warm lamp illumination from left and soft blue ambient light. Quiet, sophisticated diorama, not a UI screen. No robot, no person, no screen, no icons, no lettering, no legible text, no official seals. Recorder reels static, no fake playback effects. Landscape 3:2, recorder on right half, ivory paper folder on left foreground, camera three-quarter front view. Rich tactile materials consistent with the supplied room image; clean silhouette and purposeful composition suitable for a report cover illustration."
+  ],
+  "guideImages": "Local Edge/Playwright captures of implemented UI; illustrative partial session, not live user records."
+}

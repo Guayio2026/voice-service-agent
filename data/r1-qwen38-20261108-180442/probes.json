@@ -1,0 +1,46 @@
+[
+  {
+    "ok": true,
+    "http_status": 200,
+    "returned_model": "deepseek-r1-distill-qwen-1.5b",
+    "usage": {
+      "prompt_tokens": 998,
+      "completion_tokens": 288,
+      "total_tokens": 1286
+    },
+    "finish_reason": "stop",
+    "text": "```json\n{\n  \"intent\": \"correct\",\n  \"topics\": [\"reason\"],\n  \"issue_numbers\": [],\n  \"actions\": [\"correct\"]\n}\n```",
+    "reasoning_chars": 532,
+    "latency_ms": 1694.28,
+    "valid_json": false,
+    "model": "deepseek-r1-distill-qwen-1.5b"
+  },
+  {
+    "ok": true,
+    "http_status": 200,
+    "returned_model": "qwen3.8-flash",
+    "usage": {
+      "prompt_tokens": 985,
+      "total_tokens": 1001,
+      "completion_tokens": 16,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 985
+      }
+    },
+    "finish_reason": "stop",
+    "text": "{\"intent\":\"question\",\"topics\":[\"reason\"],\"issue_numbers\":[],\"actions\":[]}",
+    "reasoning_chars": 0,
+    "latency_ms": 549.06,
+    "decision": {
+      "intent": "question",
+      "topics": [
+        "reason"
+      ],
+      "issue_numbers": [],
+      "actions": []
+    },
+    "valid_json": true,
+    "model": "qwen3.8-flash"
+  }
+]

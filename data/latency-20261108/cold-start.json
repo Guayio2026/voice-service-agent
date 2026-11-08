@@ -1,0 +1,349 @@
+{
+  "note": "冷启动=每批重启隔离实例后第 1 轮；稳态=其余轮次。批次一致性仅列各批 P50/P95，未对批次分位数取平均。",
+  "cold_start": {
+    "n": 5,
+    "rounds": [
+      {
+        "batch": "b1",
+        "layer": "L1_rule",
+        "speech_end_to_first_audio_ms": 672,
+        "asr_ms": 140,
+        "chat_client_ms": 79,
+        "chat_server_ms": 63,
+        "tts_first_audio_ms": 453,
+        "composite_asr_to_first_audio_ms": 532
+      },
+      {
+        "batch": "b2",
+        "layer": "L1_rule",
+        "speech_end_to_first_audio_ms": 687,
+        "asr_ms": 109,
+        "chat_client_ms": 109,
+        "chat_server_ms": 62,
+        "tts_first_audio_ms": 469,
+        "composite_asr_to_first_audio_ms": 578
+      },
+      {
+        "batch": "b3",
+        "layer": "L1_rule",
+        "speech_end_to_first_audio_ms": 641,
+        "asr_ms": 94,
+        "chat_client_ms": 62,
+        "chat_server_ms": 47,
+        "tts_first_audio_ms": 485,
+        "composite_asr_to_first_audio_ms": 547
+      },
+      {
+        "batch": "b4",
+        "layer": "L1_rule",
+        "speech_end_to_first_audio_ms": 2562,
+        "asr_ms": 125,
+        "chat_client_ms": 2000,
+        "chat_server_ms": 1359,
+        "tts_first_audio_ms": 437,
+        "composite_asr_to_first_audio_ms": 2437
+      },
+      {
+        "batch": "b5",
+        "layer": "L1_rule",
+        "speech_end_to_first_audio_ms": 750,
+        "asr_ms": 204,
+        "chat_client_ms": 47,
+        "chat_server_ms": 31,
+        "tts_first_audio_ms": 484,
+        "composite_asr_to_first_audio_ms": 546
+      }
+    ],
+    "summary": {
+      "speech_end_to_first_audio_ms": {
+        "n": 5,
+        "p50": 687,
+        "p95": 2562,
+        "max": 2562
+      },
+      "asr_ms": {
+        "n": 5,
+        "p50": 125,
+        "p95": 204,
+        "max": 204
+      },
+      "chat_client_ms": {
+        "n": 5,
+        "p50": 79,
+        "p95": 2000,
+        "max": 2000
+      },
+      "chat_server_ms": {
+        "n": 5,
+        "p50": 62,
+        "p95": 1359,
+        "max": 1359
+      },
+      "tts_first_audio_ms": {
+        "n": 5,
+        "p50": 469,
+        "p95": 485,
+        "max": 485
+      },
+      "composite_asr_to_first_audio_ms": {
+        "n": 5,
+        "p50": 547,
+        "p95": 2437,
+        "max": 2437
+      }
+    }
+  },
+  "steady_state": {
+    "n": 95,
+    "summary": {
+      "speech_end_to_first_audio_ms": {
+        "n": 95,
+        "p50": 1188,
+        "p95": 2453,
+        "max": 4375
+      },
+      "asr_ms": {
+        "n": 95,
+        "p50": 125,
+        "p95": 281,
+        "max": 953
+      },
+      "chat_client_ms": {
+        "n": 95,
+        "p50": 109,
+        "p95": 1375,
+        "max": 3156
+      },
+      "chat_server_ms": {
+        "n": 95,
+        "p50": 78,
+        "p95": 1360,
+        "max": 2578
+      },
+      "tts_first_audio_ms": {
+        "n": 95,
+        "p50": 547,
+        "p95": 1266,
+        "max": 2094
+      },
+      "composite_asr_to_first_audio_ms": {
+        "n": 95,
+        "p50": 1016,
+        "p95": 2250,
+        "max": 4015
+      }
+    }
+  },
+  "per_batch": {
+    "b1": {
+      "n": 20,
+      "summary": {
+        "speech_end_to_first_audio_ms": {
+          "n": 20,
+          "p50": 1000,
+          "p95": 2000,
+          "max": 2046
+        },
+        "asr_ms": {
+          "n": 20,
+          "p50": 110,
+          "p95": 156,
+          "max": 485
+        },
+        "chat_client_ms": {
+          "n": 20,
+          "p50": 94,
+          "p95": 1156,
+          "max": 1391
+        },
+        "chat_server_ms": {
+          "n": 20,
+          "p50": 78,
+          "p95": 1141,
+          "max": 1375
+        },
+        "tts_first_audio_ms": {
+          "n": 20,
+          "p50": 469,
+          "p95": 812,
+          "max": 937
+        },
+        "composite_asr_to_first_audio_ms": {
+          "n": 20,
+          "p50": 843,
+          "p95": 1859,
+          "max": 1968
+        }
+      },
+      "first_round_composite": 532
+    },
+    "b2": {
+      "n": 20,
+      "summary": {
+        "speech_end_to_first_audio_ms": {
+          "n": 20,
+          "p50": 1047,
+          "p95": 2188,
+          "max": 2453
+        },
+        "asr_ms": {
+          "n": 20,
+          "p50": 140,
+          "p95": 219,
+          "max": 281
+        },
+        "chat_client_ms": {
+          "n": 20,
+          "p50": 93,
+          "p95": 1188,
+          "max": 1328
+        },
+        "chat_server_ms": {
+          "n": 20,
+          "p50": 78,
+          "p95": 1172,
+          "max": 1312
+        },
+        "tts_first_audio_ms": {
+          "n": 20,
+          "p50": 485,
+          "p95": 1625,
+          "max": 2094
+        },
+        "composite_asr_to_first_audio_ms": {
+          "n": 20,
+          "p50": 922,
+          "p95": 2093,
+          "max": 2172
+        }
+      },
+      "first_round_composite": 578
+    },
+    "b3": {
+      "n": 20,
+      "summary": {
+        "speech_end_to_first_audio_ms": {
+          "n": 20,
+          "p50": 1203,
+          "p95": 2531,
+          "max": 4375
+        },
+        "asr_ms": {
+          "n": 20,
+          "p50": 110,
+          "p95": 360,
+          "max": 953
+        },
+        "chat_client_ms": {
+          "n": 20,
+          "p50": 172,
+          "p95": 1672,
+          "max": 3156
+        },
+        "chat_server_ms": {
+          "n": 20,
+          "p50": 141,
+          "p95": 1657,
+          "max": 2578
+        },
+        "tts_first_audio_ms": {
+          "n": 20,
+          "p50": 547,
+          "p95": 859,
+          "max": 922
+        },
+        "composite_asr_to_first_audio_ms": {
+          "n": 20,
+          "p50": 1016,
+          "p95": 2485,
+          "max": 4015
+        }
+      },
+      "first_round_composite": 547
+    },
+    "b4": {
+      "n": 20,
+      "summary": {
+        "speech_end_to_first_audio_ms": {
+          "n": 20,
+          "p50": 1453,
+          "p95": 2562,
+          "max": 3734
+        },
+        "asr_ms": {
+          "n": 20,
+          "p50": 125,
+          "p95": 250,
+          "max": 437
+        },
+        "chat_client_ms": {
+          "n": 20,
+          "p50": 94,
+          "p95": 2000,
+          "max": 3156
+        },
+        "chat_server_ms": {
+          "n": 20,
+          "p50": 78,
+          "p95": 1360,
+          "max": 2531
+        },
+        "tts_first_audio_ms": {
+          "n": 20,
+          "p50": 485,
+          "p95": 1359,
+          "max": 1422
+        },
+        "composite_asr_to_first_audio_ms": {
+          "n": 20,
+          "p50": 1157,
+          "p95": 2437,
+          "max": 3609
+        }
+      },
+      "first_round_composite": 2437
+    },
+    "b5": {
+      "n": 20,
+      "summary": {
+        "speech_end_to_first_audio_ms": {
+          "n": 20,
+          "p50": 1000,
+          "p95": 1859,
+          "max": 1938
+        },
+        "asr_ms": {
+          "n": 20,
+          "p50": 110,
+          "p95": 265,
+          "max": 265
+        },
+        "chat_client_ms": {
+          "n": 20,
+          "p50": 172,
+          "p95": 953,
+          "max": 953
+        },
+        "chat_server_ms": {
+          "n": 20,
+          "p50": 156,
+          "p95": 937,
+          "max": 937
+        },
+        "tts_first_audio_ms": {
+          "n": 20,
+          "p50": 484,
+          "p95": 875,
+          "max": 890
+        },
+        "composite_asr_to_first_audio_ms": {
+          "n": 20,
+          "p50": 844,
+          "p95": 1750,
+          "max": 1828
+        }
+      },
+      "first_round_composite": 546
+    }
+  }
+}

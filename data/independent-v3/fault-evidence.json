@@ -1,0 +1,76 @@
+{
+  "plans_in_suite": {
+    "S006": {
+      "1": {
+        "save_call_result": "response_lost"
+      }
+    },
+    "S008": {
+      "1": {
+        "get_application": "query_fail"
+      }
+    },
+    "S009": {
+      "1": {
+        "save_call_result": "write_fail"
+      }
+    }
+  },
+  "fault_runs": [
+    {
+      "case_id": "S006",
+      "turn": 1,
+      "tool": "save_call_result",
+      "fault": "response_lost",
+      "raised": "TimeoutError: RESPONSE_LOST(adapter)",
+      "returned_error": null,
+      "returned_ok": false,
+      "records_after": 1,
+      "committed_before_raise": true
+    },
+    {
+      "case_id": "S008",
+      "turn": 1,
+      "tool": "get_application",
+      "fault": "query_fail",
+      "raised": "Error: ('QUERY_FAILED', 503)",
+      "returned_error": null,
+      "returned_ok": false,
+      "records_after": 0,
+      "committed_before_raise": false
+    },
+    {
+      "case_id": "S009",
+      "turn": 1,
+      "tool": "save_call_result",
+      "fault": "write_fail",
+      "raised": "Error: ('WRITE_FAILED', 503)",
+      "returned_error": null,
+      "returned_ok": false,
+      "records_after": 0,
+      "committed_before_raise": false
+    }
+  ],
+  "baseline_no_fault": {
+    "records_after": 1,
+    "keys": [
+      "application_id",
+      "candidate_outcome",
+      "confirmation_turn_id",
+      "created_at",
+      "identity_status",
+      "issues_explained",
+      "outcome",
+      "persistence_status",
+      "questions",
+      "record_id",
+      "result_revision",
+      "rule_version",
+      "session_id",
+      "simulated",
+      "unresolved",
+      "updated_at",
+      "user_feedback"
+    ]
+  }
+}

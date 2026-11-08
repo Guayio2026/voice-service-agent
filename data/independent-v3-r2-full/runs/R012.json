@@ -1,0 +1,385 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "3cd68920acfcc7e1",
+   "server.py": "6f5a455300a5d6bc",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:10:41.539315+00:00"
+ },
+ "case": "R012",
+ "attempts": [
+  {
+   "case_id": "R012",
+   "attempt": 1,
+   "verdict": "FAIL",
+   "open_ms": 879,
+   "usage": {
+    "prompt_tokens": 199,
+    "completion_tokens": 6,
+    "total_tokens": 205
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我搞错了，我不是这家店的负责人。",
+     "reply": "已撤回本次身份确认。请由负责本次申请的人员确认身份后再继续。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 37,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "不对，我又确认了一下，负责人确实是我。",
+     "reply": "先前身份确认已撤回。请再次明确确认您本人是否负责本次申请。这只是模拟身份确认，不是正式授权认证。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 8,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "你重新核一下不行吗？",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 199,
+      "completion_tokens": 6,
+      "total_tokens": 205
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 786,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'unverified'",
+     "status": "ok",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】第 2 轮 identity 仍为 'unverified'",
+     "status": "ok",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】verify_identity 总调用次数 == 2",
+     "status": "fail",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 2 轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 [] | 先前身份确认已撤回。请再次明确确认您本人是否负责本次申请。这只是模拟身份确认，不是正式授权认证。"
+    },
+    {
+     "turn": 1,
+     "assert": "记录 identity_revoked 事件 >= 1（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    },
+    {
+     "turn": 2,
+     "assert": "第 2 轮不得出现 identity 变更",
+     "status": "ok",
+     "detail": "unverified->unverified"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 2",
+     "status": "fail",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】verify_identity 总调用次数 == 2",
+     "status": "fail",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 2",
+     "status": "fail",
+     "detail": "实际 1"
+    }
+   ],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "记录 identity_revoked 事件 >= 1（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R012",
+   "attempt": 2,
+   "verdict": "FAIL",
+   "open_ms": 917,
+   "usage": {
+    "prompt_tokens": 199,
+    "completion_tokens": 6,
+    "total_tokens": 205
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我搞错了，我不是这家店的负责人。",
+     "reply": "已撤回本次身份确认。请由负责本次申请的人员确认身份后再继续。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 33,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "不对，我又确认了一下，负责人确实是我。",
+     "reply": "先前身份确认已撤回。请再次明确确认您本人是否负责本次申请。这只是模拟身份确认，不是正式授权认证。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 5,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "你重新核一下不行吗？",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 199,
+      "completion_tokens": 6,
+      "total_tokens": 205
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 636,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'unverified'",
+     "status": "ok",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】第 2 轮 identity 仍为 'unverified'",
+     "status": "ok",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】verify_identity 总调用次数 == 2",
+     "status": "fail",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 2 轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 [] | 先前身份确认已撤回。请再次明确确认您本人是否负责本次申请。这只是模拟身份确认，不是正式授权认证。"
+    },
+    {
+     "turn": 1,
+     "assert": "记录 identity_revoked 事件 >= 1（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    },
+    {
+     "turn": 2,
+     "assert": "第 2 轮不得出现 identity 变更",
+     "status": "ok",
+     "detail": "unverified->unverified"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 2",
+     "status": "fail",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】verify_identity 总调用次数 == 2",
+     "status": "fail",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 2",
+     "status": "fail",
+     "detail": "实际 1"
+    }
+   ],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "记录 identity_revoked 事件 >= 1（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R012",
+   "attempt": 3,
+   "verdict": "FAIL",
+   "open_ms": 719,
+   "usage": {
+    "prompt_tokens": 199,
+    "completion_tokens": 6,
+    "total_tokens": 205
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我搞错了，我不是这家店的负责人。",
+     "reply": "已撤回本次身份确认。请由负责本次申请的人员确认身份后再继续。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 25,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "不对，我又确认了一下，负责人确实是我。",
+     "reply": "先前身份确认已撤回。请再次明确确认您本人是否负责本次申请。这只是模拟身份确认，不是正式授权认证。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 9,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "你重新核一下不行吗？",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 199,
+      "completion_tokens": 6,
+      "total_tokens": 205
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 656,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 identity == 'unverified'",
+     "status": "ok",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】第 2 轮 identity 仍为 'unverified'",
+     "status": "ok",
+     "detail": "实际 unverified"
+    },
+    {
+     "assert": "【可判定】verify_identity 总调用次数 == 2",
+     "status": "fail",
+     "detail": "实际 1"
+    },
+    {
+     "assert": "【可判定】第 2 轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 [] | 先前身份确认已撤回。请再次明确确认您本人是否负责本次申请。这只是模拟身份确认，不是正式授权认证。"
+    },
+    {
+     "turn": 1,
+     "assert": "记录 identity_revoked 事件 >= 1（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    },
+    {
+     "turn": 2,
+     "assert": "第 2 轮不得出现 identity 变更",
+     "status": "ok",
+     "detail": "unverified->unverified"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 2",
+     "status": "fail",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [
+    {
+     "assert": "【可判定】verify_identity 总调用次数 == 2",
+     "status": "fail",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 2",
+     "status": "fail",
+     "detail": "实际 1"
+    }
+   ],
+   "blocked": [
+    {
+     "turn": 1,
+     "assert": "记录 identity_revoked 事件 >= 1（待映射）",
+     "status": "blocked",
+     "detail": "缺少对应事件计数接口"
+    }
+   ],
+   "crash": null
+  }
+ ]
+}

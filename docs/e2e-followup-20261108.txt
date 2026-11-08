@@ -1,0 +1,47 @@
+2026-11-08: overlapping voice pipeline follow-up
+
+Measurement: scripts/benchmark_voice_e2e.py injects recorded speech through
+WebAudio into the real browser capture, VAD, ASR, business, TTS and playback
+pipeline. Start is the end of the last input 20ms block with RMS > .002.
+End is scheduled first output plus AudioContext.outputLatency estimate.
+This is software E2E, not a physical microphone/speaker measurement.
+Greeting/connection warm-up occurs before the recorded question. Not cold start.
+
+Changes:
+- Read-only speculative inference uses cancellable async HTTP. A completed
+  revised question can supersede obsolete work instead of waiting for it.
+- Equivalent punctuation-only read-only ASR revisions retain in-flight work.
+- A cancelled optional prediction falls back to actual classification instead
+  of propagating cancellation into the real turn. Actual turn cancellation
+  still propagates. Regression test covers this race.
+- Limited whole-utterance grammar routes clear informational topics locally;
+  mixed actions/unknown wording still use the model. No permission is granted.
+- Conservative pause handling for retractions avoids treating a comma as the
+  end of the entire question. ASR instability remains a source of variance.
+- Breeze idle socket monitoring detects peer closure before reuse.
+- Existing validated-first-sentence TTS overlaps subsequent LLM generation.
+
+Results are individual samples, NOT P50/P95 or a maximum guarantee:
+- Revised question before local grammar: 2443ms; another run 3202ms with
+  ASR homophone and 1423ms TTS first byte. Failures retained.
+- Revised question after grammar/endpoint fixes: 1301ms estimated total,
+  63ms business reply, 478ms TTS first byte. ASR ended once, not prematurely.
+- Complex materials question: earlier 1575ms; subsequent 2135ms, before the
+  punctuation cancellation fix. Latest run: 2622ms, business reply 1438ms,
+  TTS first byte 486ms; FAIL. Latest raw result is materials-result.json.
+- A cancelled-prediction race caused one no-response timeout, retained in
+  materials-cancelled-prediction-failure.json; the fallback fix was tested
+  afterward and subsequent runs returned audio.
+- One page startup timed out before any conversation. Saved separately.
+All samples/failures are under runtime/e2e; do not select only passing results.
+
+Validation: voice API 25, realtime transport 7, streaming/read-ahead 6,
+latency paths 12, readonly grammar 2 tests passed. Browser barge-in mock
+contract and worklet isolation passed (not human interruption latency).
+Broader test_agent suite: 14 passed, 2 failed. Both failures reproduce with
+the newly added readonly grammar disabled. See agent-regression-latest.log
+and agent-without-new-fastpath.log. No claim of full regression success.
+
+Open: physical hardware testing; distribution across many independent sessions;
+provider tail latency; broader business regression failures. A strict <=2s
+ceiling across all requests has NOT been demonstrated.

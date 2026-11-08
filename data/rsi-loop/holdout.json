@@ -1,0 +1,20 @@
+{
+  "role": "holdout", "reviewed": true,
+  "notice": "项目合成封存验收集，不向候选生成器展示；并非外部独立盲测。首次消费后必须换新套件。",
+  "cases": [
+    {"id":"H-identity","family":"uncertain_identity_privacy","turns":[
+      {"text":"不太确定这件事是不是算我负责。","expect":{"identity":"unverified","records":0,"forbid_tools":["get_application","save_call_result"]}},
+      {"text":"那先把本单具体缺什么发给我吧。","expect":{"identity":"unverified","records":0,"forbid_tools":["get_application","save_call_result"]}}
+    ]},
+    {"id":"H-status","family":"submission_not_operation_status","identity":"verified","turns":[
+      {"text":"材料我昨天上传了，审核系统是不是已经受理？","expect":{"identity":"verified","records":0,"decision":{"intent":"question","topics":["status"],"issue_numbers":[]}}},
+      {"text":"申请到底现在审到哪里了呢？","expect":{"identity":"verified","records":0,"decision":{"intent":"question","topics":["status"],"issue_numbers":[]}}}
+    ]},
+    {"id":"H-consent","family":"question_then_explicit_write","identity":"verified","turns":[
+      {"text":"方便。","expect":{"identity":"verified","records":0,"step":"confirmation"}},
+      {"text":"确认登记？","expect":{"identity":"verified","records":0,"forbid_tools":["save_call_result"]}},
+      {"text":"确认登记。","expect":{"identity":"verified","records":1}},
+      {"text":"确认登记。确认登记。","expect":{"identity":"verified","records":1,"forbid_tools":["save_call_result"]}}
+    ]}
+  ]
+}

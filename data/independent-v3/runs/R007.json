@@ -1,0 +1,367 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "7cbe13d10c0daec2",
+   "server.py": "8488a8c08b82aa1b",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "27c343100cdad86a",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T06:51:39.647506+00:00"
+ },
+ "case": "R007",
+ "attempts": [
+  {
+   "case_id": "R007",
+   "attempt": 1,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 36,
+   "usage": {
+    "prompt_tokens": 409,
+    "completion_tokens": 12,
+    "total_tokens": 421
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "如果这事儿真是我管的，那我是不是就得补材料？",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 204,
+      "completion_tokens": 6,
+      "total_tokens": 210
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 563,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "假设我确实是负责人，你会先给我看哪几份？",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 205,
+      "completion_tokens": 6,
+      "total_tokens": 211
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1041,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "好，那我就是，别绕了。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 811,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】前两轮无 verify_identity 调用、无 get_application 调用",
+     "status": "blocked",
+     "detail": "无机械判定规则：前两轮无 verify_identity 调用、无 get_application 调用"
+    },
+    {
+     "assert": "【可判定】前两轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 3 轮 identity == 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【可判定】前两轮无 verify_identity 调用、无 get_application 调用",
+     "status": "blocked",
+     "detail": "无机械判定规则：前两轮无 verify_identity 调用、无 get_application 调用"
+    },
+    {
+     "turn": 2,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R007",
+   "attempt": 2,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 31,
+   "usage": {
+    "prompt_tokens": 409,
+    "completion_tokens": 12,
+    "total_tokens": 421
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "如果这事儿真是我管的，那我是不是就得补材料？",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 204,
+      "completion_tokens": 6,
+      "total_tokens": 210
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 566,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "假设我确实是负责人，你会先给我看哪几份？",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 205,
+      "completion_tokens": 6,
+      "total_tokens": 211
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 950,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "好，那我就是，别绕了。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 421,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】前两轮无 verify_identity 调用、无 get_application 调用",
+     "status": "blocked",
+     "detail": "无机械判定规则：前两轮无 verify_identity 调用、无 get_application 调用"
+    },
+    {
+     "assert": "【可判定】前两轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 3 轮 identity == 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【可判定】前两轮无 verify_identity 调用、无 get_application 调用",
+     "status": "blocked",
+     "detail": "无机械判定规则：前两轮无 verify_identity 调用、无 get_application 调用"
+    },
+    {
+     "turn": 2,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R007",
+   "attempt": 3,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 24,
+   "usage": {
+    "prompt_tokens": 409,
+    "completion_tokens": 12,
+    "total_tokens": 421
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "如果这事儿真是我管的，那我是不是就得补材料？",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 204,
+      "completion_tokens": 6,
+      "total_tokens": 210
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 612,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "假设我确实是负责人，你会先给我看哪几份？",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 205,
+      "completion_tokens": 6,
+      "total_tokens": 211
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 724,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "好，那我就是，别绕了。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 632,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】前两轮无 verify_identity 调用、无 get_application 调用",
+     "status": "blocked",
+     "detail": "无机械判定规则：前两轮无 verify_identity 调用、无 get_application 调用"
+    },
+    {
+     "assert": "【可判定】前两轮回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "assert": "【可判定】第 3 轮 identity == 'verified'",
+     "status": "ok",
+     "detail": "实际 verified"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    },
+    {
+     "turn": 3,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【可判定】前两轮无 verify_identity 调用、无 get_application 调用",
+     "status": "blocked",
+     "detail": "无机械判定规则：前两轮无 verify_identity 调用、无 get_application 调用"
+    },
+    {
+     "turn": 2,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    }
+   ],
+   "crash": null
+  }
+ ]
+}

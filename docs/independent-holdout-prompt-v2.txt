@@ -1,0 +1,8 @@
+请独立生成30条资质补正客服Agent测试用例，保存为新的v2 JSON文件，不覆盖v1。不要参考v1话术或实现代码，不声称已经执行。
+业务是合成演示：负责人或授权对接人自述确认身份→询问是否方便→说明材料/回答追问→复述待登记内容→明确确认登记→写入。自述确认不是正式身份认证。
+覆盖不同语义家族：身份不确定与明确负责、转述与本人授权、已确认身份后的撤回、结束与仅撤销写入、合法角色否定所有者身份、重复识别与重复确认、登记操作状态与业务审核进度。
+每项拦截配合法反例；至少20条多轮对话。模型故障注入必须显式标注，不能把替身模型失败直接当产品缺陷。不要只换名字或同义词。
+确认必须针对已准备的当前内容；空白、句号、感叹号不改变明确确认。疑问/否定/附加条件不应保存。成功后的重复输入不得重复写入。身份撤回后停止材料披露。结束后的迟到输入不得重开。无业务审核接口时不能用操作状态冒充审核结果。
+工具verify_identity/get_application/get_results/get_operation_status/save_call_result/create_handoff；未知字段标待映射，状态查询需要真实操作标识，不要求凭空构造标识。接口不支持的断言标BLOCKED。
+每条包含id、semantic_family、category、execution_mode、preconditions、turns、final_assertions；每轮包括user_input、injected_model_output、injected_tool_behavior、expected_reply_meaning、forbidden_reply_claims、required_tool_calls、forbidden_tool_calls、expected_state、persistence_assertions。
+有歧义的产品预期单列待审，不为刷全绿放宽确认门禁；不包含音频占位。由独立评审审核适配后交WorkBuddy执行。修复者首次看到内容后，该批转为已知回归集。

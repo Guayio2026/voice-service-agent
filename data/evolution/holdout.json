@@ -1,0 +1,12 @@
+{
+  "version":"synthetic-holdout-v1",
+  "notice":"仅候选通过独立验证后运行；不得提供给候选生成器或按本文件调参。项目自建，非官方。",
+  "cases":[
+    {"id":"sealed-reason", "text":"想请你解释一下，为何让我补交这份文件", "expected":{"intent":"question","topics":["reason"],"issue_numbers":[]}},
+    {"id":"sealed-channel", "text":"这些需要补齐的东西应该从哪个入口上传", "expected":{"intent":"question","topics":["channel"],"issue_numbers":[]}},
+    {"id":"sealed-status", "text":"文件已经重新上传了，你能确认有没有被受理吗", "expected":{"intent":"question","topics":["status"],"issue_numbers":[]}},
+    {"id":"sealed-thanks-request", "text":"你辛苦了，可我还是需要找个人工帮忙处理", "expected":{"intent":"handoff","topics":[],"issue_numbers":[]}},
+    {"id":"sealed-outside", "text":"顺便问问国际象棋的马怎么走", "expected":{"intent":"off_topic","topics":[],"issue_numbers":[]}},
+    {"id":"sealed-correction", "text":"你说我的授权材料缺页，这个审核记录有误，完整页都在里面", "expected":{"intent":"correct","topics":[],"issue_numbers":[]}}
+  ]
+}

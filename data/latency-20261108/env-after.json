@@ -1,0 +1,93 @@
+{
+  "phase": "after",
+  "captured_at": "2026-11-08T17:07:27.899798+08:00",
+  "epoch_ms": 1794128847899,
+  "code_hashes": {
+    "src/business_agent.py": "398818e5828dfb5e",
+    "src/voice_server.py": "595cc9876a4eedeb",
+    "src/server.py": "55381c8077efb503",
+    "src/text_client.py": "fa221fc70238d457",
+    "src/qwen_client.py": "df704a62f3c5a644",
+    "src/breeze_realtime.py": "b1840d3d8ea90218",
+    "src/cosy_audio.py": "254af311fe0a8d27",
+    "src/next_turn_audio.py": "c301effd6c717dff",
+    "src/streaming_reply.py": "72304983f1c60a8e",
+    "src/streaming_model.py": "6379086895ca2bf7",
+    "src/read_ahead.py": "afe6bb4725df094d",
+    "src/prefetch_agent.py": "6052e6c969b9a0de",
+    "src/audio_cache.py": "7dfe4d68e15fe12a",
+    "src/turn_endpoint.py": "31113d713942d54a",
+    "src/speech_text.py": "f231c2000f06b15b",
+    "src/model_transport.py": "a0895dbcdfa972b0",
+    "src/prompts/customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt": {
+    "active_version": "base-6b13e03f1b116f21",
+    "content_hash": "6b13e03f1b116f21",
+    "guidance_len": 0,
+    "base_file_hash": "a7d8c95078bc9d60",
+    "base_digest_now": "6b13e03f1b116f21"
+  },
+  "providers": {
+    "asr": {
+      "provider": "DashScope",
+      "model": "fun-asr-realtime",
+      "transport": "websocket",
+      "sample_rate": 16000,
+      "format": "pcm_s16le",
+      "host": "dashscope.aliyuncs.com (wss, /api-ws/v1/inference)"
+    },
+    "llm": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "base_url": "默认",
+      "streaming_in_product_path": false
+    },
+    "tts": {
+      "provider": "breeze_realtime",
+      "model_reported_by_api": "BreezeBlue",
+      "transport": "websocket",
+      "output": "pcm_s16le 24000",
+      "voice_id": "…"
+    }
+  },
+  "toggles": {
+    "semantic_endpoint": true,
+    "exact_intent": true,
+    "audio_cache": true,
+    "speculative_classification": true,
+    "stream_reply_path": "eligible-only (question & len>60)",
+    "read_ahead": true,
+    "next_turn_prefetch": true,
+    "asr_vocabulary_id_set": false
+  },
+  "runtime": {
+    "deployment": "local single host, 127.0.0.1",
+    "python": "3.12.14",
+    "os": "Windows-11-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "cpu_count": 24,
+    "machine": "AMD64",
+    "client_concurrency": 1
+  },
+  "network": {
+    "loopback_only_between_client_and_server": true,
+    "tcp_connect_ms": {
+      "dashscope.aliyuncs.com:443": [
+        63.0,
+        31.0,
+        16.0
+      ],
+      "api.breeze.blue:443": [
+        109.0,
+        78.0,
+        94.0
+      ]
+    },
+    "note": "TTS/ASR/LLM 均走公网；connect 时间仅作网络条件参考，不进入延迟统计。修正记录：before 快照误用 api.breezex.tech（DNS 无法解析，已作废），事后核对 src/breeze_realtime.py 实际为 wss://api.breeze.blue。"
+  },
+  "server_processes": {
+    "shared_8766": "用户既有实例，本次测量不使用",
+    "isolated_8767": "本次测量实例，独立 sqlite 库 data/latency-20261108/isolated.sqlite3"
+  }
+}

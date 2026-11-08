@@ -1,0 +1,6 @@
+{
+  "generator": "image_gen",
+  "reference": "help-background-v1.png",
+  "asset": "help-background-v2.png",
+  "prompt": "Edit this exact help-page background. Remove the robot's legs and feet completely. Robot should have only its rounded upper body and small arms, positioned behind the open blue manual on the desk, like a tabletop assistant. No legs, no knees, no feet, no shoes, no lower limb shapes at all. Preserve the robot's face, cyan eyes, cobalt-and-gold headphones, open book, lamp, bookshelf, blue-gold lighting, panoramic composition, and large empty dark navy space on the right. Keep it natural and polished; the book and desktop conceal the bottom of the rounded torso. No other changes, no text or UI."
+}

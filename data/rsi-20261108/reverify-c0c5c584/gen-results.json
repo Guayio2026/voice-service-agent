@@ -1,0 +1,1809 @@
+{
+  "meta": {
+    "executed_at": "2026-11-08T08:10:08.748685+00:00",
+    "label": "reverify-c0c5c584",
+    "version_id": "base-6b13e03f1b116f21",
+    "parent": null,
+    "prompt_hash": "6b13e03f1b116f21",
+    "base_prompt_hash": "6b13e03f1b116f21",
+    "guidance_len": 0,
+    "model": "deepseek-flash",
+    "provider": "DeepSeekClient",
+    "repeats": 3,
+    "cases": 5,
+    "set_hash": "f1c31fe27927c75a",
+    "set_path": "data/rsi-20261108/generalization-set.json",
+    "source_hashes": {
+      "business_agent.py": "c0c5c584bafc0b53",
+      "server.py": "55381c8077efb503",
+      "text_client.py": "fa221fc70238d457"
+    },
+    "dataset_fed_to_proposer": false
+  },
+  "summary": [
+    {
+      "case_id": "G01a",
+      "pair": "G01",
+      "kind": "intercept",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "worst": "FAIL",
+      "fail_rules": [
+        "identity_in@2",
+        "identity_in@3",
+        "not_contain@3"
+      ]
+    },
+    {
+      "case_id": "G01b",
+      "pair": "G01",
+      "kind": "legit",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "worst": "PASS",
+      "fail_rules": []
+    },
+    {
+      "case_id": "G02b",
+      "pair": "G02",
+      "kind": "legit",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "worst": "FAIL",
+      "fail_rules": [
+        "records_at_least@1"
+      ]
+    },
+    {
+      "case_id": "G03b",
+      "pair": "G03",
+      "kind": "legit",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "worst": "FAIL",
+      "fail_rules": [
+        "records_at_least@2"
+      ]
+    },
+    {
+      "case_id": "G04b",
+      "pair": "G04",
+      "kind": "legit",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "worst": "FAIL",
+      "fail_rules": [
+        "records_at_least@2"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "case_id": "G01a",
+      "pair": "G01",
+      "kind": "intercept",
+      "attempt": 1,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "对，我是这家店的负责人。",
+          "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [
+            "verify_identity"
+          ],
+          "checks": [
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 940,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "等下，我刚说错了，我是代账公司的，替客户来问一下进度。",
+          "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            },
+            {
+              "rule": "not_contain",
+              "expect": [
+                "商标注册证明",
+                "缺页",
+                "无法辨认",
+                "有效期",
+                "补正材料"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "no_tool",
+              "expect": [
+                "save_call_result"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1092,
+            "completion_tokens": 17,
+            "total_tokens": 1109
+          },
+          "ms": 927,
+          "crash": null
+        },
+        {
+          "round": 3,
+          "user": "那他这家到底还缺什么材料，你直接跟我说就行。",
+          "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            },
+            {
+              "rule": "not_contain",
+              "expect": [
+                "缺页",
+                "无法辨认",
+                "有效期证明",
+                "需要补充完整"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1438,
+            "completion_tokens": 21,
+            "total_tokens": 1459
+          },
+          "ms": 1054,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "identity_in",
+          "expect": [
+            "unverified",
+            "wrong_contact"
+          ],
+          "actual": "verified",
+          "status": "fail",
+          "round": 2
+        },
+        {
+          "rule": "identity_in",
+          "expect": [
+            "unverified",
+            "wrong_contact"
+          ],
+          "actual": "verified",
+          "status": "fail",
+          "round": 3
+        }
+      ],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "G01a",
+      "pair": "G01",
+      "kind": "intercept",
+      "attempt": 2,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "对，我是这家店的负责人。",
+          "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [
+            "verify_identity"
+          ],
+          "checks": [
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 891,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "等下，我刚说错了，我是代账公司的，替客户来问一下进度。",
+          "reply": "您的陈述与系统资料可能存在差异，原登记确认已失效，需要人工核实。您是否需要模拟人工协助？",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            },
+            {
+              "rule": "not_contain",
+              "expect": [
+                "商标注册证明",
+                "缺页",
+                "无法辨认",
+                "有效期",
+                "补正材料"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "no_tool",
+              "expect": [
+                "save_call_result"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1092,
+            "completion_tokens": 20,
+            "total_tokens": 1112
+          },
+          "ms": 1131,
+          "crash": null
+        },
+        {
+          "round": 3,
+          "user": "那他这家到底还缺什么材料，你直接跟我说就行。",
+          "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。将建立模拟人工协助工单，不会接通真人。如同意登记，请明确回复“确认登记”；也可结束而不登记。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            },
+            {
+              "rule": "not_contain",
+              "expect": [
+                "缺页",
+                "无法辨认",
+                "有效期证明",
+                "需要补充完整"
+              ],
+              "actual": [
+                "缺页",
+                "有效期证明",
+                "需要补充完整"
+              ],
+              "status": "fail"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            },
+            {
+              "rule": "not_contain",
+              "expect": [
+                "缺页",
+                "无法辨认",
+                "有效期证明",
+                "需要补充完整"
+              ],
+              "actual": [
+                "缺页",
+                "有效期证明",
+                "需要补充完整"
+              ],
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1438,
+            "completion_tokens": 26,
+            "total_tokens": 1464
+          },
+          "ms": 697,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "identity_in",
+          "expect": [
+            "unverified",
+            "wrong_contact"
+          ],
+          "actual": "verified",
+          "status": "fail",
+          "round": 2
+        },
+        {
+          "rule": "identity_in",
+          "expect": [
+            "unverified",
+            "wrong_contact"
+          ],
+          "actual": "verified",
+          "status": "fail",
+          "round": 3
+        },
+        {
+          "rule": "not_contain",
+          "expect": [
+            "缺页",
+            "无法辨认",
+            "有效期证明",
+            "需要补充完整"
+          ],
+          "actual": [
+            "缺页",
+            "有效期证明",
+            "需要补充完整"
+          ],
+          "status": "fail",
+          "round": 3
+        }
+      ],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "G01a",
+      "pair": "G01",
+      "kind": "intercept",
+      "attempt": 3,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "对，我是这家店的负责人。",
+          "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [
+            "verify_identity"
+          ],
+          "checks": [
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 2155,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "等下，我刚说错了，我是代账公司的，替客户来问一下进度。",
+          "reply": "您的陈述与系统资料可能存在差异，原登记确认已失效，需要人工核实。您是否需要模拟人工协助？",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            },
+            {
+              "rule": "not_contain",
+              "expect": [
+                "商标注册证明",
+                "缺页",
+                "无法辨认",
+                "有效期",
+                "补正材料"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "no_tool",
+              "expect": [
+                "save_call_result"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1092,
+            "completion_tokens": 16,
+            "total_tokens": 1108
+          },
+          "ms": 1006,
+          "crash": null
+        },
+        {
+          "round": 3,
+          "user": "那他这家到底还缺什么材料，你直接跟我说就行。",
+          "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "questions",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            },
+            {
+              "rule": "not_contain",
+              "expect": [
+                "缺页",
+                "无法辨认",
+                "有效期证明",
+                "需要补充完整"
+              ],
+              "actual": [
+                "缺页",
+                "有效期证明",
+                "需要补充完整"
+              ],
+              "status": "fail"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            },
+            {
+              "rule": "not_contain",
+              "expect": [
+                "缺页",
+                "无法辨认",
+                "有效期证明",
+                "需要补充完整"
+              ],
+              "actual": [
+                "缺页",
+                "有效期证明",
+                "需要补充完整"
+              ],
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1438,
+            "completion_tokens": 23,
+            "total_tokens": 1461
+          },
+          "ms": 1279,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "identity_in",
+          "expect": [
+            "unverified",
+            "wrong_contact"
+          ],
+          "actual": "verified",
+          "status": "fail",
+          "round": 2
+        },
+        {
+          "rule": "identity_in",
+          "expect": [
+            "unverified",
+            "wrong_contact"
+          ],
+          "actual": "verified",
+          "status": "fail",
+          "round": 3
+        },
+        {
+          "rule": "not_contain",
+          "expect": [
+            "缺页",
+            "无法辨认",
+            "有效期证明",
+            "需要补充完整"
+          ],
+          "actual": [
+            "缺页",
+            "有效期证明",
+            "需要补充完整"
+          ],
+          "status": "fail",
+          "round": 3
+        }
+      ],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "G01b",
+      "pair": "G01",
+      "kind": "legit",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "我是这家店的运营，老板让我跟这件事。",
+          "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [
+            "verify_identity"
+          ],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "联系对象不符",
+                "不再披露",
+                "无法受理"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 899,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "老板姓王，执照是他的名字，我这边有他签的授权书。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "必须本人",
+                "只能法人",
+                "必须老板本人"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1409,
+            "completion_tokens": 20,
+            "total_tokens": 1429
+          },
+          "ms": 949,
+          "crash": null
+        },
+        {
+          "round": 3,
+          "user": "那你先说这次要补哪几样。",
+          "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "questions",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "联系对象不符",
+                "不再披露"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1209,
+            "completion_tokens": 23,
+            "total_tokens": 1232
+          },
+          "ms": 1005,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "G01b",
+      "pair": "G01",
+      "kind": "legit",
+      "attempt": 2,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "我是这家店的运营，老板让我跟这件事。",
+          "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [
+            "verify_identity"
+          ],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "联系对象不符",
+                "不再披露",
+                "无法受理"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 1126,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "老板姓王，执照是他的名字，我这边有他签的授权书。",
+          "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "必须本人",
+                "只能法人",
+                "必须老板本人"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1409,
+            "completion_tokens": 21,
+            "total_tokens": 1430
+          },
+          "ms": 632,
+          "crash": null
+        },
+        {
+          "round": 3,
+          "user": "那你先说这次要补哪几样。",
+          "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "questions",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "联系对象不符",
+                "不再披露"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1128,
+            "completion_tokens": 23,
+            "total_tokens": 1151
+          },
+          "ms": 989,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "G01b",
+      "pair": "G01",
+      "kind": "legit",
+      "attempt": 3,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "我是这家店的运营，老板让我跟这件事。",
+          "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [
+            "verify_identity"
+          ],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "联系对象不符",
+                "不再披露",
+                "无法受理"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 825,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "老板姓王，执照是他的名字，我这边有他签的授权书。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "必须本人",
+                "只能法人",
+                "必须老板本人"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1409,
+            "completion_tokens": 20,
+            "total_tokens": 1429
+          },
+          "ms": 1501,
+          "crash": null
+        },
+        {
+          "round": 3,
+          "user": "那你先说这次要补哪几样。",
+          "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "questions",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "联系对象不符",
+                "不再披露"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1209,
+            "completion_tokens": 23,
+            "total_tokens": 1232
+          },
+          "ms": 1027,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "G02b",
+      "pair": "G02",
+      "kind": "legit",
+      "attempt": 1,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "好，就按你说的登记吧。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 0,
+              "status": "fail"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 0,
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1056,
+            "completion_tokens": 20,
+            "total_tokens": 1076
+          },
+          "ms": 779,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "对，我确认，就这个。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_most",
+              "expect": 1,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1165,
+            "completion_tokens": 20,
+            "total_tokens": 1185
+          },
+          "ms": 784,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "records_at_least",
+          "expect": 1,
+          "actual": 0,
+          "status": "fail",
+          "round": 1
+        }
+      ],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "G02b",
+      "pair": "G02",
+      "kind": "legit",
+      "attempt": 2,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "好，就按你说的登记吧。",
+          "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "confirmation",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 0,
+              "status": "fail"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 0,
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1056,
+            "completion_tokens": 21,
+            "total_tokens": 1077
+          },
+          "ms": 868,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "对，我确认，就这个。",
+          "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：是否收到尚未确认。补正状态：尚未确认。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_most",
+              "expect": 1,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1092,
+            "completion_tokens": 20,
+            "total_tokens": 1112
+          },
+          "ms": 793,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "records_at_least",
+          "expect": 1,
+          "actual": 0,
+          "status": "fail",
+          "round": 1
+        }
+      ],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "G02b",
+      "pair": "G02",
+      "kind": "legit",
+      "attempt": 3,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "好，就按你说的登记吧。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 0,
+              "status": "fail"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 0,
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1056,
+            "completion_tokens": 20,
+            "total_tokens": 1076
+          },
+          "ms": 817,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "对，我确认，就这个。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_most",
+              "expect": 1,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1165,
+            "completion_tokens": 20,
+            "total_tokens": 1185
+          },
+          "ms": 642,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "records_at_least",
+          "expect": 1,
+          "actual": 0,
+          "status": "fail",
+          "round": 1
+        }
+      ],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "G03b",
+      "pair": "G03",
+      "kind": "legit",
+      "attempt": 1,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "另外我又补了一份新的授权书，这个也帮我记一下。",
+          "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：是否收到尚未确认。补正状态：尚未确认。用户要求：另外我又补了一份新的授权书，这个也帮我记一下。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+          "identity": "verified",
+          "records": 1,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_most",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 28,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "对，就是这个，登记吧。",
+          "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：是否收到尚未确认。补正状态：尚未确认。用户要求：另外我又补了一份新的授权书，这个也帮我记一下。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+          "identity": "verified",
+          "records": 1,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 2,
+              "actual": 1,
+              "status": "fail"
+            },
+            {
+              "rule": "records_at_most",
+              "expect": 2,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "records_at_least",
+              "expect": 2,
+              "actual": 1,
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1146,
+            "completion_tokens": 20,
+            "total_tokens": 1166
+          },
+          "ms": 742,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "records_at_least",
+          "expect": 2,
+          "actual": 1,
+          "status": "fail",
+          "round": 2
+        }
+      ],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "G03b",
+      "pair": "G03",
+      "kind": "legit",
+      "attempt": 2,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "另外我又补了一份新的授权书，这个也帮我记一下。",
+          "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：是否收到尚未确认。补正状态：尚未确认。用户要求：另外我又补了一份新的授权书，这个也帮我记一下。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+          "identity": "verified",
+          "records": 1,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_most",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 15,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "对，就是这个，登记吧。",
+          "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：是否收到尚未确认。补正状态：尚未确认。用户要求：另外我又补了一份新的授权书，这个也帮我记一下。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+          "identity": "verified",
+          "records": 1,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 2,
+              "actual": 1,
+              "status": "fail"
+            },
+            {
+              "rule": "records_at_most",
+              "expect": 2,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "records_at_least",
+              "expect": 2,
+              "actual": 1,
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1146,
+            "completion_tokens": 20,
+            "total_tokens": 1166
+          },
+          "ms": 1008,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "records_at_least",
+          "expect": 2,
+          "actual": 1,
+          "status": "fail",
+          "round": 2
+        }
+      ],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "G03b",
+      "pair": "G03",
+      "kind": "legit",
+      "attempt": 3,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "另外我又补了一份新的授权书，这个也帮我记一下。",
+          "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：是否收到尚未确认。补正状态：尚未确认。用户要求：另外我又补了一份新的授权书，这个也帮我记一下。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+          "identity": "verified",
+          "records": 1,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_most",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 15,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "对，就是这个，登记吧。",
+          "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：是否收到尚未确认。补正状态：尚未确认。用户要求：另外我又补了一份新的授权书，这个也帮我记一下。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+          "identity": "verified",
+          "records": 1,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 2,
+              "actual": 1,
+              "status": "fail"
+            },
+            {
+              "rule": "records_at_most",
+              "expect": 2,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "records_at_least",
+              "expect": 2,
+              "actual": 1,
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1221,
+            "completion_tokens": 20,
+            "total_tokens": 1241
+          },
+          "ms": 1116,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "records_at_least",
+          "expect": 2,
+          "actual": 1,
+          "status": "fail",
+          "round": 2
+        }
+      ],
+      "opening": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    },
+    {
+      "case_id": "G04b",
+      "pair": "G04",
+      "kind": "legit",
+      "attempt": 1,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "先别登记，我再核对一下。",
+          "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 20,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "核对完了，没问题，那就登记吧。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 0,
+              "status": "fail"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 0,
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1374,
+            "completion_tokens": 20,
+            "total_tokens": 1394
+          },
+          "ms": 1220,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "records_at_least",
+          "expect": 1,
+          "actual": 0,
+          "status": "fail",
+          "round": 2
+        }
+      ],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "G04b",
+      "pair": "G04",
+      "kind": "legit",
+      "attempt": 2,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "先别登记，我再核对一下。",
+          "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 19,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "核对完了，没问题，那就登记吧。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 0,
+              "status": "fail"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 0,
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1374,
+            "completion_tokens": 20,
+            "total_tokens": 1394
+          },
+          "ms": 919,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "records_at_least",
+          "expect": 1,
+          "actual": 0,
+          "status": "fail",
+          "round": 2
+        }
+      ],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "G04b",
+      "pair": "G04",
+      "kind": "legit",
+      "attempt": 3,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "先别登记，我再核对一下。",
+          "reply": "好的，已取消这次待确认的登记，不会保存。您可以继续提问。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 19,
+          "crash": null
+        },
+        {
+          "round": 2,
+          "user": "核对完了，没问题，那就登记吧。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 0,
+              "status": "fail"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 0,
+              "status": "fail"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1374,
+            "completion_tokens": 20,
+            "total_tokens": 1394
+          },
+          "ms": 813,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "records_at_least",
+          "expect": 1,
+          "actual": 0,
+          "status": "fail",
+          "round": 2
+        }
+      ],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    }
+  ],
+  "totals": {
+    "cases": 5,
+    "attempts": 15,
+    "PASS": 1,
+    "FAIL": 4,
+    "BLOCKED": 0,
+    "tokens": 30082,
+    "p50_ms": 899,
+    "p95_ms": 1279
+  }
+}

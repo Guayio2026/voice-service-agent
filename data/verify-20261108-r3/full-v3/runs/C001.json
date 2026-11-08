@@ -1,0 +1,412 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "c6b01a66ee093221",
+   "server.py": "55381c8077efb503",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:48:06.175534+00:00"
+ },
+ "case": "C001",
+ "attempts": [
+  {
+   "case_id": "C001",
+   "attempt": 1,
+   "verdict": "PASS",
+   "open_ms": 435,
+   "usage": {
+    "prompt_tokens": 1185,
+    "completion_tokens": 20,
+    "total_tokens": 1205
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "材料的事我收到了，但东西我还没补。",
+     "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {
+      "prompt_tokens": 1185,
+      "completion_tokens": 20,
+      "total_tokens": 1205
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 539,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "你先按\"通知到了\"给我记一下吧。",
+     "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。用户要求：你先按\"通知到了\"给我记一下吧。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 16,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 39,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "unresolved",
+     "issues_explained": [
+      "Q01",
+      "Q02"
+     ],
+     "user_feedback": "unknown",
+     "confirmation_turn_id": 4,
+     "unresolved": true,
+     "questions": [],
+     "registration_summary": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。用户要求：你先按\"通知到了\"给我记一下吧。",
+     "notification_status": "received",
+     "remediation_status": "incomplete",
+     "session_id": "rFDEJYDNotNJluPNUPw7CJ3kl1BnSPOk2EdDRBRDuW8",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "e6b24dc228f1fd1e465afaf72d45c383",
+     "result_revision": 1,
+     "outcome": "unresolved",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T07:50:36.002917+00:00",
+     "updated_at": "2026-11-08T07:50:36.002917+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1、2 轮 records 记录数 == 0",
+     "status": "ok",
+     "detail": "实际 [0, 0]"
+    },
+    {
+     "assert": "【可判定】若 records == 1 则不得同时满足 (candidate_outcome==notification_completed 且 unresolved==false)",
+     "status": "ok",
+     "detail": "outcome=unresolved unresolved=True"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"问题已解决/全部完成\"",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "若 records == 1 则 payload.candidate_outcome != notification_completed 或 payload.unresolved == true",
+     "status": "ok",
+     "detail": "outcome=unresolved unresolved=True"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "C001",
+   "attempt": 2,
+   "verdict": "PASS",
+   "open_ms": 1352,
+   "usage": {
+    "prompt_tokens": 1260,
+    "completion_tokens": 20,
+    "total_tokens": 1280
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "材料的事我收到了，但东西我还没补。",
+     "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {
+      "prompt_tokens": 1260,
+      "completion_tokens": 20,
+      "total_tokens": 1280
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 698,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "你先按\"通知到了\"给我记一下吧。",
+     "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。用户要求：你先按\"通知到了\"给我记一下吧。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 15,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 33,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "unresolved",
+     "issues_explained": [
+      "Q01",
+      "Q02"
+     ],
+     "user_feedback": "unknown",
+     "confirmation_turn_id": 4,
+     "unresolved": true,
+     "questions": [],
+     "registration_summary": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。用户要求：你先按\"通知到了\"给我记一下吧。",
+     "notification_status": "received",
+     "remediation_status": "incomplete",
+     "session_id": "SsvA4dJnGYasO2cX-LxSmdfuM3f_QTHZXkXPZvKF1GY",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "ac8325897b1323defedacb0655f1f303",
+     "result_revision": 1,
+     "outcome": "unresolved",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T07:50:38.399395+00:00",
+     "updated_at": "2026-11-08T07:50:38.399395+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1、2 轮 records 记录数 == 0",
+     "status": "ok",
+     "detail": "实际 [0, 0]"
+    },
+    {
+     "assert": "【可判定】若 records == 1 则不得同时满足 (candidate_outcome==notification_completed 且 unresolved==false)",
+     "status": "ok",
+     "detail": "outcome=unresolved unresolved=True"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"问题已解决/全部完成\"",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "若 records == 1 则 payload.candidate_outcome != notification_completed 或 payload.unresolved == true",
+     "status": "ok",
+     "detail": "outcome=unresolved unresolved=True"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "C001",
+   "attempt": 3,
+   "verdict": "PASS",
+   "open_ms": 760,
+   "usage": {
+    "prompt_tokens": 1185,
+    "completion_tokens": 20,
+    "total_tokens": 1205
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "材料的事我收到了，但东西我还没补。",
+     "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {
+      "prompt_tokens": 1185,
+      "completion_tokens": 20,
+      "total_tokens": 1205
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 504,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "你先按\"通知到了\"给我记一下吧。",
+     "reply": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。用户要求：你先按\"通知到了\"给我记一下吧。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {},
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 17,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "确认登记。",
+     "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+     "usage": {},
+     "identity": "verified",
+     "step": "saved",
+     "pending": false,
+     "records": 1,
+     "handoffs": 0,
+     "ms": 34,
+     "crash": null,
+     "calls": [
+      "get_results",
+      "save_call_result"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "candidate_outcome": "unresolved",
+     "issues_explained": [
+      "Q01",
+      "Q02"
+     ],
+     "user_feedback": "unknown",
+     "confirmation_turn_id": 4,
+     "unresolved": true,
+     "questions": [],
+     "registration_summary": "拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。通知状态：用户已表示收到。补正状态：用户表示尚未完成。用户要求：你先按\"通知到了\"给我记一下吧。",
+     "notification_status": "received",
+     "remediation_status": "incomplete",
+     "session_id": "5sIvWAQeDrjxW6lsnLSTvsJ_Ilgz5PXXRNzmnI1hT3A",
+     "application_id": "QUAL-001",
+     "identity_status": "verified",
+     "rule_version": "DEMO-v2",
+     "record_id": "e889f562faabf0a612f86c0b60a63961",
+     "result_revision": 1,
+     "outcome": "unresolved",
+     "persistence_status": "confirmed",
+     "created_at": "2026-11-08T07:50:39.995952+00:00",
+     "updated_at": "2026-11-08T07:50:39.995952+00:00",
+     "simulated": true
+    }
+   ],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1、2 轮 records 记录数 == 0",
+     "status": "ok",
+     "detail": "实际 [0, 0]"
+    },
+    {
+     "assert": "【可判定】若 records == 1 则不得同时满足 (candidate_outcome==notification_completed 且 unresolved==false)",
+     "status": "ok",
+     "detail": "outcome=unresolved unresolved=True"
+    },
+    {
+     "assert": "【可判定】全程回复不含\"问题已解决/全部完成\"",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "若 records == 1 则 payload.candidate_outcome != notification_completed 或 payload.unresolved == true",
+     "status": "ok",
+     "detail": "outcome=unresolved unresolved=True"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

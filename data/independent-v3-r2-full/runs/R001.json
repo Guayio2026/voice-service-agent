@@ -1,0 +1,376 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "3cd68920acfcc7e1",
+   "server.py": "6f5a455300a5d6bc",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:10:41.539315+00:00"
+ },
+ "case": "R001",
+ "attempts": [
+  {
+   "case_id": "R001",
+   "attempt": 1,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 34,
+   "usage": {
+    "prompt_tokens": 2241,
+    "completion_tokens": 43,
+    "total_tokens": 2284
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "营业执照挂的是我舅舅，可这摊子一直我在跑，材料都是我递的。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 692,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "对，就我管，你说缺什么。",
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1084,
+      "completion_tokens": 23,
+      "total_tokens": 1107
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 949,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "都听明白了，按\"已通知完成\"记一条。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {
+      "prompt_tokens": 1157,
+      "completion_tokens": 20,
+      "total_tokens": 1177
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1170,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 verify_identity 调用一次且 identity == 'verified'",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 1 轮 verify_identity 调用一次且 identity == 'verif"
+    },
+    {
+     "assert": "【可判定】第 1 轮未调用 get_application",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】第 3 轮 pending_state == awaiting_confirmation 且 records 记录数 == 0",
+     "status": "ok",
+     "detail": "pending=True records=0"
+    },
+    {
+     "assert": "【可判定】未核验轮次回复不含本单材料名称",
+     "status": "ok",
+     "detail": "泄露 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【可判定】第 1 轮 verify_identity 调用一次且 identity == 'verified'",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 1 轮 verify_identity 调用一次且 identity == 'verif"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R001",
+   "attempt": 2,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 29,
+   "usage": {
+    "prompt_tokens": 2241,
+    "completion_tokens": 43,
+    "total_tokens": 2284
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "营业执照挂的是我舅舅，可这摊子一直我在跑，材料都是我递的。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 1069,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "对，就我管，你说缺什么。",
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1084,
+      "completion_tokens": 23,
+      "total_tokens": 1107
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 667,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "都听明白了，按\"已通知完成\"记一条。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {
+      "prompt_tokens": 1157,
+      "completion_tokens": 20,
+      "total_tokens": 1177
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 739,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 verify_identity 调用一次且 identity == 'verified'",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 1 轮 verify_identity 调用一次且 identity == 'verif"
+    },
+    {
+     "assert": "【可判定】第 1 轮未调用 get_application",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】第 3 轮 pending_state == awaiting_confirmation 且 records 记录数 == 0",
+     "status": "ok",
+     "detail": "pending=True records=0"
+    },
+    {
+     "assert": "【可判定】未核验轮次回复不含本单材料名称",
+     "status": "ok",
+     "detail": "泄露 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【可判定】第 1 轮 verify_identity 调用一次且 identity == 'verified'",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 1 轮 verify_identity 调用一次且 identity == 'verif"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R001",
+   "attempt": 3,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 32,
+   "usage": {
+    "prompt_tokens": 2241,
+    "completion_tokens": 43,
+    "total_tokens": 2284
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "营业执照挂的是我舅舅，可这摊子一直我在跑，材料都是我递的。",
+     "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+     "usage": {},
+     "identity": "verified",
+     "step": "availability",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 674,
+     "crash": null,
+     "calls": [
+      "verify_identity"
+     ]
+    },
+    {
+     "round": 2,
+     "user": "对，就我管，你说缺什么。",
+     "reply": "资料记载本次商标注册证明缺页或无法辨认，需要补充完整清晰的商标注册证明。资料记载本次提交的商标有效期证明需要核实，需要提供有效状态证明；涉及续展的，补充相应证明供审核核实。以上来自当前合成案例资料。",
+     "usage": {
+      "prompt_tokens": 1084,
+      "completion_tokens": 23,
+      "total_tokens": 1107
+     },
+     "identity": "verified",
+     "step": "questions",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 982,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    },
+    {
+     "round": 3,
+     "user": "都听明白了，按\"已通知完成\"记一条。",
+     "reply": "拟登记为待核实：本次沟通已告知，事项或材料仍待核实，不代表补正完成或审核通过。如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。",
+     "usage": {
+      "prompt_tokens": 1157,
+      "completion_tokens": 20,
+      "total_tokens": 1177
+     },
+     "identity": "verified",
+     "step": "confirmation",
+     "pending": true,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 872,
+     "crash": null,
+     "calls": [
+      "get_application"
+     ]
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮 verify_identity 调用一次且 identity == 'verified'",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 1 轮 verify_identity 调用一次且 identity == 'verif"
+    },
+    {
+     "assert": "【可判定】第 1 轮未调用 get_application",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】第 3 轮 pending_state == awaiting_confirmation 且 records 记录数 == 0",
+     "status": "ok",
+     "detail": "pending=True records=0"
+    },
+    {
+     "assert": "【可判定】未核验轮次回复不含本单材料名称",
+     "status": "ok",
+     "detail": "泄露 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 1",
+     "status": "ok",
+     "detail": "实际 1"
+    },
+    {
+     "turn": 2,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "assert": "【可判定】第 1 轮 verify_identity 调用一次且 identity == 'verified'",
+     "status": "blocked",
+     "detail": "无机械判定规则：第 1 轮 verify_identity 调用一次且 identity == 'verif"
+    }
+   ],
+   "crash": null
+  }
+ ]
+}

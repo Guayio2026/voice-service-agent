@@ -1,0 +1,358 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "7cbe13d10c0daec2",
+   "server.py": "8488a8c08b82aa1b",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "27c343100cdad86a",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T06:51:39.647506+00:00"
+ },
+ "case": "R019",
+ "attempts": [
+  {
+   "case_id": "R019",
+   "attempt": 1,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 24,
+   "usage": {
+    "prompt_tokens": 607,
+    "completion_tokens": 18,
+    "total_tokens": 625
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我同事说让我接一下，具体我也不清楚。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 203,
+      "completion_tokens": 6,
+      "total_tokens": 209
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 614,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "他好像是负责这个的，我不是。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 200,
+      "completion_tokens": 6,
+      "total_tokens": 206
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 773,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "你要不先告诉我缺什么，我转告他？",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 204,
+      "completion_tokens": 6,
+      "total_tokens": 210
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 882,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】全程 identity == 'unverified'",
+     "status": "ok",
+     "detail": "非 unverified 轮次 []"
+    },
+    {
+     "assert": "【可判定】全程 get_application 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】全程回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 3,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "turn": 3,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R019",
+   "attempt": 2,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 23,
+   "usage": {
+    "prompt_tokens": 607,
+    "completion_tokens": 18,
+    "total_tokens": 625
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我同事说让我接一下，具体我也不清楚。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 203,
+      "completion_tokens": 6,
+      "total_tokens": 209
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 921,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "他好像是负责这个的，我不是。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 200,
+      "completion_tokens": 6,
+      "total_tokens": 206
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 569,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "你要不先告诉我缺什么，我转告他？",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 204,
+      "completion_tokens": 6,
+      "total_tokens": 210
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 759,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】全程 identity == 'unverified'",
+     "status": "ok",
+     "detail": "非 unverified 轮次 []"
+    },
+    {
+     "assert": "【可判定】全程 get_application 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】全程回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 3,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "turn": 3,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    }
+   ],
+   "crash": null
+  },
+  {
+   "case_id": "R019",
+   "attempt": 3,
+   "verdict": "PASS_PARTIAL",
+   "open_ms": 22,
+   "usage": {
+    "prompt_tokens": 607,
+    "completion_tokens": 18,
+    "total_tokens": 625
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "我同事说让我接一下，具体我也不清楚。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 203,
+      "completion_tokens": 6,
+      "total_tokens": 209
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 709,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "他好像是负责这个的，我不是。",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 200,
+      "completion_tokens": 6,
+      "total_tokens": 206
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 708,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "你要不先告诉我缺什么，我转告他？",
+     "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+     "usage": {
+      "prompt_tokens": 204,
+      "completion_tokens": 6,
+      "total_tokens": 210
+     },
+     "identity": "unverified",
+     "step": "identity",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 830,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】全程 identity == 'unverified'",
+     "status": "ok",
+     "detail": "非 unverified 轮次 []"
+    },
+    {
+     "assert": "【可判定】全程 get_application 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "assert": "【可判定】全程回复不含本单材料名称",
+     "status": "ok",
+     "detail": "出现 []"
+    },
+    {
+     "turn": 1,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 2,
+     "assert": "verify_identity 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0"
+    },
+    {
+     "turn": 3,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    }
+   ],
+   "fails": [],
+   "blocked": [
+    {
+     "turn": 3,
+     "assert": "get_application 调用次数 == 0",
+     "status": "blocked",
+     "detail": "无机械判定规则：get_application 调用次数 == 0"
+    }
+   ],
+   "crash": null
+  }
+ ]
+}

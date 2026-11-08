@@ -1,0 +1,182 @@
+Model classification benchmark
+
+Metric: wall-clock HTTP request start to full non-stream response; not TTFT or voice end-to-end.
+30 formal requests/model; 10 synthetic single-turn cases repeated three times, randomized interleaving, concurrency 1.
+Production base system prompt and classification reminder reused; dynamic application context/history absent.
+Thinking disabled, max_tokens=220, 15s timeout, no retries; successful probe per model excluded as warmup.
+Connection reuse and provider prompt cache allowed. Correctness exact intent + set-equivalent topics/numbers/actions.
+P50/P95 nearest-rank on HTTP-successful requests. Failures retained separately. No production config changed.
+
+[
+  {
+    "provider": "Bailian",
+    "model": "qwen-flash",
+    "n": 30,
+    "http_success": 30,
+    "valid_json": 26,
+    "correct": 26,
+    "p50_ms": 343.81,
+    "p95_ms": 426.18,
+    "max_ms": 429.23
+  },
+  {
+    "provider": "Bailian",
+    "model": "qwen3.8-flash",
+    "n": 30,
+    "http_success": 30,
+    "valid_json": 30,
+    "correct": 30,
+    "p50_ms": 558.12,
+    "p95_ms": 711.68,
+    "max_ms": 718.1
+  },
+  {
+    "provider": "Bailian",
+    "model": "deepseek-v4.1-flash",
+    "n": 30,
+    "http_success": 30,
+    "valid_json": 30,
+    "correct": 30,
+    "p50_ms": 615.81,
+    "p95_ms": 844.63,
+    "max_ms": 853.35
+  },
+  {
+    "provider": "DeepSeek official",
+    "model": "deepseek-flash",
+    "n": 30,
+    "http_success": 30,
+    "valid_json": 30,
+    "correct": 30,
+    "p50_ms": 737.46,
+    "p95_ms": 1033.08,
+    "max_ms": 1091.25
+  }
+]
+
+Unavailable probes:
+[
+  {
+    "provider": "Bailian",
+    "model": "qwen3.5-4b",
+    "http_status": 400,
+    "error_code": "access_denied"
+  },
+  {
+    "provider": "Bailian",
+    "model": "qwen3.5-9b",
+    "http_status": 400,
+    "error_code": "access_denied"
+  },
+  {
+    "provider": "Bailian",
+    "model": "qwen3-8b",
+    "http_status": 404,
+    "error_code": "model_not_found"
+  }
+]
+
+Incorrect or invalid formal responses:
+[
+  {
+    "ok": true,
+    "http_status": 200,
+    "returned_model": "qwen-flash",
+    "usage": {
+      "completion_tokens": 13,
+      "prompt_tokens": 1009,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 1022
+    },
+    "finish_reason": "stop",
+    "text": "{\"intent\":\"correct\",\"topics\":[\"materials\"],\"issue_numbers\":[]}",
+    "reasoning_chars": 0,
+    "latency_ms": 331.53,
+    "valid_json": false,
+    "provider": "Bailian",
+    "model": "qwen-flash",
+    "phase": "formal",
+    "case": 7,
+    "repetition": 0,
+    "correct": false
+  },
+  {
+    "ok": true,
+    "http_status": 200,
+    "returned_model": "qwen-flash",
+    "usage": {
+      "completion_tokens": 13,
+      "prompt_tokens": 1009,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "total_tokens": 1022
+    },
+    "finish_reason": "stop",
+    "text": "{\"intent\":\"correct\",\"topics\":[\"materials\"],\"issue_numbers\":[]}",
+    "reasoning_chars": 0,
+    "latency_ms": 350.68,
+    "valid_json": false,
+    "provider": "Bailian",
+    "model": "qwen-flash",
+    "phase": "formal",
+    "case": 7,
+    "repetition": 1,
+    "correct": false
+  },
+  {
+    "ok": true,
+    "http_status": 200,
+    "returned_model": "qwen-flash",
+    "usage": {
+      "completion_tokens": 18,
+      "prompt_tokens": 1011,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "total_tokens": 1029
+    },
+    "finish_reason": "stop",
+    "text": "{\"intent\":\"handoff\",\"topics\":[],\"issue_numbers\":[],\"actions\":[\"handoff\"]}",
+    "reasoning_chars": 0,
+    "latency_ms": 429.23,
+    "valid_json": false,
+    "provider": "Bailian",
+    "model": "qwen-flash",
+    "phase": "formal",
+    "case": 9,
+    "repetition": 1,
+    "correct": false
+  },
+  {
+    "ok": true,
+    "http_status": 200,
+    "returned_model": "qwen-flash",
+    "usage": {
+      "completion_tokens": 13,
+      "prompt_tokens": 1009,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "total_tokens": 1022
+    },
+    "finish_reason": "stop",
+    "text": "{\"intent\":\"correct\",\"topics\":[\"materials\"],\"issue_numbers\":[]}",
+    "reasoning_chars": 0,
+    "latency_ms": 268.59,
+    "valid_json": false,
+    "provider": "Bailian",
+    "model": "qwen-flash",
+    "phase": "formal",
+    "case": 7,
+    "repetition": 2,
+    "correct": false
+  }
+]
+
+Sources:
+https://api-docs.deepseek.com/updates/
+https://help.aliyun.com/zh/model-studio/deepseek-v4-1-flash
+https://help.aliyun.com/zh/model-studio/model-list-text-generation

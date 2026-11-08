@@ -1,0 +1,678 @@
+{
+  "source": [
+    "rounds-b1-20261108-164826.jsonl",
+    "rounds-b2-20261108-165129.jsonl",
+    "rounds-b3-20261108-165431.jsonl",
+    "rounds-b4-20261108-165731.jsonl",
+    "rounds-b5-20261108-170046.jsonl",
+    "rounds-warmup-20261108-164706.jsonl"
+  ],
+  "n_lines": 105,
+  "batches": [
+    "b1",
+    "b2",
+    "b3",
+    "b4",
+    "b5",
+    "warmup"
+  ],
+  "warmup": {
+    "label": "预热（不计入分位数）",
+    "n_total": 5,
+    "n_success": 5,
+    "n_fail": 0,
+    "n_timeout": 0,
+    "metrics": {
+      "speech_end_to_first_audio_ms": {
+        "n": 5,
+        "p50": 1421,
+        "p95": 2328,
+        "max": 2328,
+        "min": 782
+      },
+      "asr_ms": {
+        "n": 5,
+        "p50": 172,
+        "p95": 343,
+        "max": 343,
+        "min": 109
+      },
+      "chat_client_ms": {
+        "n": 5,
+        "p50": 282,
+        "p95": 1031,
+        "max": 1031,
+        "min": 47
+      },
+      "chat_server_ms": {
+        "n": 5,
+        "p50": 219,
+        "p95": 1000,
+        "max": 1000,
+        "min": 31
+      },
+      "tts_first_audio_ms": {
+        "n": 5,
+        "p50": 469,
+        "p95": 1406,
+        "max": 1406,
+        "min": 437
+      },
+      "composite_asr_to_first_audio_ms": {
+        "n": 5,
+        "p50": 1078,
+        "p95": 2219,
+        "max": 2219,
+        "min": 484
+      },
+      "gap_asr_to_chat_ms": {
+        "n": 5,
+        "p50": 0,
+        "p95": 15,
+        "max": 15,
+        "min": 0
+      },
+      "gap_chat_to_speech_ms": {
+        "n": 5,
+        "p50": 0,
+        "p95": 0,
+        "max": 0,
+        "min": 0
+      },
+      "round_ms": {
+        "n": 5,
+        "p50": 10422,
+        "p95": 12187,
+        "max": 12187,
+        "min": 5984
+      }
+    },
+    "fail_detail": []
+  },
+  "overall": {
+    "label": "全部正式样本",
+    "n_total": 100,
+    "n_success": 100,
+    "n_fail": 0,
+    "n_timeout": 0,
+    "metrics": {
+      "speech_end_to_first_audio_ms": {
+        "n": 100,
+        "p50": 1047,
+        "p95": 2453,
+        "max": 4375,
+        "min": 594
+      },
+      "asr_ms": {
+        "n": 100,
+        "p50": 125,
+        "p95": 266,
+        "max": 953,
+        "min": 46
+      },
+      "chat_client_ms": {
+        "n": 100,
+        "p50": 94,
+        "p95": 1375,
+        "max": 3156,
+        "min": 32
+      },
+      "chat_server_ms": {
+        "n": 100,
+        "p50": 78,
+        "p95": 1359,
+        "max": 2578,
+        "min": 16
+      },
+      "tts_first_audio_ms": {
+        "n": 100,
+        "p50": 500,
+        "p95": 1250,
+        "max": 2094,
+        "min": 437
+      },
+      "composite_asr_to_first_audio_ms": {
+        "n": 100,
+        "p50": 922,
+        "p95": 2250,
+        "max": 4015,
+        "min": 485
+      },
+      "gap_asr_to_chat_ms": {
+        "n": 100,
+        "p50": 0,
+        "p95": 15,
+        "max": 16,
+        "min": 0
+      },
+      "gap_chat_to_speech_ms": {
+        "n": 100,
+        "p50": 0,
+        "p95": 0,
+        "max": 0,
+        "min": 0
+      },
+      "round_ms": {
+        "n": 100,
+        "p50": 8703,
+        "p95": 12547,
+        "max": 16390,
+        "min": 4469
+      }
+    },
+    "fail_detail": []
+  },
+  "layers": {
+    "L1_rule": {
+      "label": "L1_rule",
+      "n_total": 25,
+      "n_success": 25,
+      "n_fail": 0,
+      "n_timeout": 0,
+      "metrics": {
+        "speech_end_to_first_audio_ms": {
+          "n": 25,
+          "p50": 641,
+          "p95": 766,
+          "max": 2562,
+          "min": 594
+        },
+        "asr_ms": {
+          "n": 25,
+          "p50": 110,
+          "p95": 204,
+          "max": 265,
+          "min": 94
+        },
+        "chat_client_ms": {
+          "n": 25,
+          "p50": 62,
+          "p95": 172,
+          "max": 2000,
+          "min": 32
+        },
+        "chat_server_ms": {
+          "n": 25,
+          "p50": 32,
+          "p95": 156,
+          "max": 1359,
+          "min": 16
+        },
+        "tts_first_audio_ms": {
+          "n": 25,
+          "p50": 469,
+          "p95": 485,
+          "max": 547,
+          "min": 437
+        },
+        "composite_asr_to_first_audio_ms": {
+          "n": 25,
+          "p50": 531,
+          "p95": 641,
+          "max": 2437,
+          "min": 485
+        },
+        "gap_asr_to_chat_ms": {
+          "n": 25,
+          "p50": 0,
+          "p95": 15,
+          "max": 15,
+          "min": 0
+        },
+        "gap_chat_to_speech_ms": {
+          "n": 25,
+          "p50": 0,
+          "p95": 0,
+          "max": 0,
+          "min": 0
+        },
+        "round_ms": {
+          "n": 25,
+          "p50": 7312,
+          "p95": 9235,
+          "max": 11922,
+          "min": 5078
+        }
+      },
+      "fail_detail": []
+    },
+    "L2_model": {
+      "label": "L2_model",
+      "n_total": 25,
+      "n_success": 25,
+      "n_fail": 0,
+      "n_timeout": 0,
+      "metrics": {
+        "speech_end_to_first_audio_ms": {
+          "n": 25,
+          "p50": 1484,
+          "p95": 2453,
+          "max": 3734,
+          "min": 641
+        },
+        "asr_ms": {
+          "n": 25,
+          "p50": 141,
+          "p95": 265,
+          "max": 437,
+          "min": 63
+        },
+        "chat_client_ms": {
+          "n": 25,
+          "p50": 765,
+          "p95": 1391,
+          "max": 3156,
+          "min": 63
+        },
+        "chat_server_ms": {
+          "n": 25,
+          "p50": 765,
+          "p95": 1375,
+          "max": 2531,
+          "min": 47
+        },
+        "tts_first_audio_ms": {
+          "n": 25,
+          "p50": 469,
+          "p95": 657,
+          "max": 1359,
+          "min": 437
+        },
+        "composite_asr_to_first_audio_ms": {
+          "n": 25,
+          "p50": 1297,
+          "p95": 2250,
+          "max": 3609,
+          "min": 516
+        },
+        "gap_asr_to_chat_ms": {
+          "n": 25,
+          "p50": 0,
+          "p95": 0,
+          "max": 16,
+          "min": 0
+        },
+        "gap_chat_to_speech_ms": {
+          "n": 25,
+          "p50": 0,
+          "p95": 0,
+          "max": 0,
+          "min": 0
+        },
+        "round_ms": {
+          "n": 25,
+          "p50": 9875,
+          "p95": 11141,
+          "max": 16390,
+          "min": 8016
+        }
+      },
+      "fail_detail": []
+    },
+    "L3_tool": {
+      "label": "L3_tool",
+      "n_total": 25,
+      "n_success": 25,
+      "n_fail": 0,
+      "n_timeout": 0,
+      "metrics": {
+        "speech_end_to_first_audio_ms": {
+          "n": 25,
+          "p50": 1766,
+          "p95": 2375,
+          "max": 2531,
+          "min": 1359
+        },
+        "asr_ms": {
+          "n": 25,
+          "p50": 109,
+          "p95": 219,
+          "max": 250,
+          "min": 46
+        },
+        "chat_client_ms": {
+          "n": 25,
+          "p50": 891,
+          "p95": 1375,
+          "max": 1672,
+          "min": 515
+        },
+        "chat_server_ms": {
+          "n": 25,
+          "p50": 860,
+          "p95": 1360,
+          "max": 1657,
+          "min": 484
+        },
+        "tts_first_audio_ms": {
+          "n": 25,
+          "p50": 781,
+          "p95": 1250,
+          "max": 1266,
+          "min": 438
+        },
+        "composite_asr_to_first_audio_ms": {
+          "n": 25,
+          "p50": 1656,
+          "p95": 2250,
+          "max": 2485,
+          "min": 1265
+        },
+        "gap_asr_to_chat_ms": {
+          "n": 25,
+          "p50": 0,
+          "p95": 15,
+          "max": 16,
+          "min": 0
+        },
+        "gap_chat_to_speech_ms": {
+          "n": 25,
+          "p50": 0,
+          "p95": 0,
+          "max": 0,
+          "min": 0
+        },
+        "round_ms": {
+          "n": 25,
+          "p50": 12015,
+          "p95": 13016,
+          "max": 14641,
+          "min": 7828
+        }
+      },
+      "fail_detail": []
+    },
+    "L4_confirm": {
+      "label": "L4_confirm",
+      "n_total": 25,
+      "n_success": 25,
+      "n_fail": 0,
+      "n_timeout": 0,
+      "metrics": {
+        "speech_end_to_first_audio_ms": {
+          "n": 25,
+          "p50": 1015,
+          "p95": 2453,
+          "max": 4375,
+          "min": 672
+        },
+        "asr_ms": {
+          "n": 25,
+          "p50": 125,
+          "p95": 485,
+          "max": 953,
+          "min": 94
+        },
+        "chat_client_ms": {
+          "n": 25,
+          "p50": 93,
+          "p95": 266,
+          "max": 3156,
+          "min": 46
+        },
+        "chat_server_ms": {
+          "n": 25,
+          "p50": 78,
+          "p95": 234,
+          "max": 2578,
+          "min": 46
+        },
+        "tts_first_audio_ms": {
+          "n": 25,
+          "p50": 812,
+          "p95": 1625,
+          "max": 2094,
+          "min": 437
+        },
+        "composite_asr_to_first_audio_ms": {
+          "n": 25,
+          "p50": 890,
+          "p95": 2172,
+          "max": 4015,
+          "min": 547
+        },
+        "gap_asr_to_chat_ms": {
+          "n": 25,
+          "p50": 0,
+          "p95": 0,
+          "max": 15,
+          "min": 0
+        },
+        "gap_chat_to_speech_ms": {
+          "n": 25,
+          "p50": 0,
+          "p95": 0,
+          "max": 0,
+          "min": 0
+        },
+        "round_ms": {
+          "n": 25,
+          "p50": 5484,
+          "p95": 6938,
+          "max": 8984,
+          "min": 4469
+        }
+      },
+      "fail_detail": []
+    }
+  },
+  "composition": {
+    "n": 100,
+    "layer_counts": {
+      "L1_rule": 25,
+      "L2_model": 25,
+      "L3_tool": 25,
+      "L4_confirm": 25
+    },
+    "model_called": 40,
+    "layer_model_called": {
+      "L1_rule": 0,
+      "L2_model": 15,
+      "L3_tool": 25,
+      "L4_confirm": 0
+    },
+    "tool_calls_total": 100,
+    "layer_tool_calls": {
+      "L1_rule": 0,
+      "L2_model": 25,
+      "L3_tool": 25,
+      "L4_confirm": 50
+    },
+    "tokens_total": 50451,
+    "audio_cache": {
+      "miss": 100
+    },
+    "audio_cache_hit_rate": 0.0,
+    "recordings": [
+      "L1_rule_0",
+      "L1_rule_1",
+      "L2_model_0",
+      "L2_model_1",
+      "L3_tool_0",
+      "L3_tool_1",
+      "L4_confirm_0",
+      "L4_confirm_1"
+    ],
+    "recording_reused": "所有轮次复用同一批固定录音（8 条），音频缓存按服务端 key 判定，见 audio_cache",
+    "duplicate_write": 0,
+    "request_id_echo_fail": 0,
+    "empty_audio": 0,
+    "empty_reply": 0
+  },
+  "slowest_10": [
+    {
+      "seq": 20,
+      "layer": "L4_confirm",
+      "recording": "L4_confirm_0",
+      "asr_ms": 360,
+      "chat_client_ms": 3156,
+      "chat_server_ms": 2578,
+      "tts_first_audio_ms": 859,
+      "composite_ms": 4015,
+      "reply_chars": 28,
+      "tokens": null,
+      "tool_calls": 2,
+      "audio_bytes": 330240
+    },
+    {
+      "seq": 2,
+      "layer": "L2_model",
+      "recording": "L2_model_0",
+      "asr_ms": 125,
+      "chat_client_ms": 3156,
+      "chat_server_ms": 2531,
+      "tts_first_audio_ms": 437,
+      "composite_ms": 3609,
+      "reply_chars": 64,
+      "tokens": 1162,
+      "tool_calls": 1,
+      "audio_bytes": 817920
+    },
+    {
+      "seq": 19,
+      "layer": "L3_tool",
+      "recording": "L3_tool_0",
+      "asr_ms": 46,
+      "chat_client_ms": 1672,
+      "chat_server_ms": 1657,
+      "tts_first_audio_ms": 813,
+      "composite_ms": 2485,
+      "reply_chars": 99,
+      "tokens": 1351,
+      "tool_calls": 1,
+      "audio_bytes": 1086720
+    },
+    {
+      "seq": 1,
+      "layer": "L1_rule",
+      "recording": "L1_rule_0",
+      "asr_ms": 125,
+      "chat_client_ms": 2000,
+      "chat_server_ms": 1359,
+      "tts_first_audio_ms": 437,
+      "composite_ms": 2437,
+      "reply_chars": 75,
+      "tokens": null,
+      "tool_calls": 0,
+      "audio_bytes": 810240
+    },
+    {
+      "seq": 15,
+      "layer": "L3_tool",
+      "recording": "L3_tool_1",
+      "asr_ms": 125,
+      "chat_client_ms": 968,
+      "chat_server_ms": 953,
+      "tts_first_audio_ms": 1266,
+      "composite_ms": 2250,
+      "reply_chars": 59,
+      "tokens": 1278,
+      "tool_calls": 1,
+      "audio_bytes": 625920
+    },
+    {
+      "seq": 18,
+      "layer": "L2_model",
+      "recording": "L2_model_0",
+      "asr_ms": 203,
+      "chat_client_ms": 891,
+      "chat_server_ms": 891,
+      "tts_first_audio_ms": 1359,
+      "composite_ms": 2250,
+      "reply_chars": 64,
+      "tokens": 1162,
+      "tool_calls": 1,
+      "audio_bytes": 698880
+    },
+    {
+      "seq": 20,
+      "layer": "L4_confirm",
+      "recording": "L4_confirm_0",
+      "asr_ms": 281,
+      "chat_client_ms": 78,
+      "chat_server_ms": 78,
+      "tts_first_audio_ms": 2094,
+      "composite_ms": 2172,
+      "reply_chars": 28,
+      "tokens": null,
+      "tool_calls": 2,
+      "audio_bytes": 345600
+    },
+    {
+      "seq": 3,
+      "layer": "L3_tool",
+      "recording": "L3_tool_0",
+      "asr_ms": 78,
+      "chat_client_ms": 1375,
+      "chat_server_ms": 1360,
+      "tts_first_audio_ms": 766,
+      "composite_ms": 2141,
+      "reply_chars": 99,
+      "tokens": 1351,
+      "tool_calls": 1,
+      "audio_bytes": 1105920
+    },
+    {
+      "seq": 19,
+      "layer": "L3_tool",
+      "recording": "L3_tool_0",
+      "asr_ms": 63,
+      "chat_client_ms": 1328,
+      "chat_server_ms": 1312,
+      "tts_first_audio_ms": 765,
+      "composite_ms": 2093,
+      "reply_chars": 99,
+      "tokens": 1351,
+      "tool_calls": 1,
+      "audio_bytes": 1167360
+    },
+    {
+      "seq": 15,
+      "layer": "L3_tool",
+      "recording": "L3_tool_1",
+      "asr_ms": 125,
+      "chat_client_ms": 1157,
+      "chat_server_ms": 938,
+      "tts_first_audio_ms": 828,
+      "composite_ms": 2000,
+      "reply_chars": 59,
+      "tokens": 1278,
+      "tool_calls": 1,
+      "audio_bytes": 706560
+    }
+  ],
+  "unmeasured": [
+    {
+      "metric": "e2e_speech_end_to_playback_ms",
+      "label": "语音端到端：用户最后一个有效采样结束 → 客户端开始播放首段音频",
+      "reason": "未测：本环境为无头进程，无音频播放设备与客户端播放时间戳；无真实麦克风。已实测其中的 speech_end_to_first_audio_ms（说完 → 首段音频到达客户端），仅缺客户端「开始播放」这一跳；该跳不能用 TTS 首字节替代，故主指标仍记为未测"
+    },
+    {
+      "metric": "endpoint_detection_ms",
+      "label": "端点检测等待：用户说完 → 系统判定本轮结束",
+      "reason": "未测：本环境由执行器自行判定轮次结束并发送 finish，网页端判定策略未驱动；仅离线单独测得端点模型单次推理耗时（见 endpoint-probe.json）"
+    },
+    {
+      "metric": "model_first_token_ms",
+      "label": "模型首 Token 延迟",
+      "reason": "未测：产品链路 /api/chat 为整段返回，未使用流式文本调用"
+    },
+    {
+      "metric": "transport_playback_ms",
+      "label": "传输及播放等待：首段音频就绪 → 客户端开始播放",
+      "reason": "未测：无播放设备；仅测得\"首段音频到达客户端\""
+    }
+  ],
+  "thresholds_ms": {
+    "asr_final": 15000,
+    "chat": 30000,
+    "first_audio": 30000,
+    "round": 45000
+  },
+  "method": {
+    "percentile": "nearest-rank, 1-based, ceil(p*N)",
+    "population": "成功且通过正确性校验的请求",
+    "no_batching": "未合并批次，未对批次 P95 取平均",
+    "no_retry_overwrite": "失败轮次保留原记录，不补跑覆盖"
+  }
+}

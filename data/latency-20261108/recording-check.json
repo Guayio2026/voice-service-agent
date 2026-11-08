@@ -1,0 +1,66 @@
+[
+  {
+    "tag": "L1_rule_0",
+    "expected": "你是谁？",
+    "asr": "你是谁？",
+    "match": true,
+    "asr_ms": 188,
+    "error": null
+  },
+  {
+    "tag": "L1_rule_1",
+    "expected": "谢谢。",
+    "asr": "谢谢。",
+    "match": true,
+    "asr_ms": 94,
+    "error": null
+  },
+  {
+    "tag": "L2_model_0",
+    "expected": "这次为什么要补正材料？",
+    "asr": "这次为什么要补正材料？",
+    "match": true,
+    "asr_ms": 203,
+    "error": null
+  },
+  {
+    "tag": "L2_model_1",
+    "expected": "我需要补充什么材料？",
+    "asr": "我需要补充什么材料？",
+    "match": true,
+    "asr_ms": 110,
+    "error": null
+  },
+  {
+    "tag": "L3_tool_0",
+    "expected": "帮我查一下这次申请还差什么材料。",
+    "asr": "帮我查一下，这次申请还差什么材料。",
+    "match": false,
+    "asr_ms": 62,
+    "error": null
+  },
+  {
+    "tag": "L3_tool_1",
+    "expected": "提交入口和截止时间能确定吗？",
+    "asr": "提交入口和截止时间能确定吗？",
+    "match": true,
+    "asr_ms": 110,
+    "error": null
+  },
+  {
+    "tag": "L4_confirm_0",
+    "expected": "确认登记。",
+    "asr": "确认登记。",
+    "match": true,
+    "asr_ms": 172,
+    "error": null
+  },
+  {
+    "tag": "L4_confirm_1",
+    "expected": "行，我确认登记。",
+    "asr": "行，我确认登记。",
+    "match": true,
+    "asr_ms": 93,
+    "error": null
+  }
+]

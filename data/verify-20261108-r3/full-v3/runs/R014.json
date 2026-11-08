@@ -1,0 +1,301 @@
+{
+ "meta": {
+  "adapter": "v3-runner/0.1",
+  "provider": "DeepSeekClient",
+  "model": "deepseek-flash",
+  "source_sha256": {
+   "business_agent.py": "c6b01a66ee093221",
+   "server.py": "55381c8077efb503",
+   "text_client.py": "c3eeb791566f48d0",
+   "qwen_client.py": "df704a62f3c5a644",
+   "customer_service.txt": "a7d8c95078bc9d60"
+  },
+  "prompt_sha256": "a7d8c95078bc9d60",
+  "started_at": "2026-11-08T07:48:06.175534+00:00"
+ },
+ "case": "R014",
+ "attempts": [
+  {
+   "case_id": "R014",
+   "attempt": 1,
+   "verdict": "PASS",
+   "open_ms": 37,
+   "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "先不弄了，就这样，拜拜。",
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 40,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "等下，我问最后一个问题。",
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 20,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "算了。",
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 19,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮后 session_status == 'ended'",
+     "status": "ok",
+     "detail": "step=closing"
+    },
+    {
+     "assert": "【可判定】session 全程保持 ended",
+     "status": "ok",
+     "detail": "非 ended 轮次 []"
+    },
+    {
+     "assert": "【可判定】全程 get_application 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0（不含开场预热）"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "非 ended 轮次 == 0",
+     "status": "ok",
+     "detail": "非 ended 轮次 []"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R014",
+   "attempt": 2,
+   "verdict": "PASS",
+   "open_ms": 32,
+   "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "先不弄了，就这样，拜拜。",
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 37,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "等下，我问最后一个问题。",
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 18,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "算了。",
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 16,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮后 session_status == 'ended'",
+     "status": "ok",
+     "detail": "step=closing"
+    },
+    {
+     "assert": "【可判定】session 全程保持 ended",
+     "status": "ok",
+     "detail": "非 ended 轮次 []"
+    },
+    {
+     "assert": "【可判定】全程 get_application 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0（不含开场预热）"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "非 ended 轮次 == 0",
+     "status": "ok",
+     "detail": "非 ended 轮次 []"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  },
+  {
+   "case_id": "R014",
+   "attempt": 3,
+   "verdict": "PASS",
+   "open_ms": 32,
+   "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+   },
+   "snaps": [
+    {
+     "round": 1,
+     "user": "先不弄了，就这样，拜拜。",
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 34,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 2,
+     "user": "等下，我问最后一个问题。",
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 19,
+     "crash": null,
+     "calls": []
+    },
+    {
+     "round": 3,
+     "user": "算了。",
+     "reply": "好的，那就先不打扰了。本次没有新增业务登记。",
+     "usage": {},
+     "identity": "unverified",
+     "step": "closing",
+     "pending": false,
+     "records": 0,
+     "handoffs": 0,
+     "ms": 18,
+     "crash": null,
+     "calls": []
+    }
+   ],
+   "records": [],
+   "assertions": [
+    {
+     "assert": "【可判定】第 1 轮后 session_status == 'ended'",
+     "status": "ok",
+     "detail": "step=closing"
+    },
+    {
+     "assert": "【可判定】session 全程保持 ended",
+     "status": "ok",
+     "detail": "非 ended 轮次 []"
+    },
+    {
+     "assert": "【可判定】全程 get_application 调用次数 == 0",
+     "status": "ok",
+     "detail": "实际 0（不含开场预热）"
+    },
+    {
+     "turn": 1,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    },
+    {
+     "turn": 2,
+     "assert": "非 ended 轮次 == 0",
+     "status": "ok",
+     "detail": "非 ended 轮次 []"
+    },
+    {
+     "turn": 3,
+     "assert": "records 记录数 == 0",
+     "status": "ok",
+     "detail": "records=0"
+    }
+   ],
+   "fails": [],
+   "blocked": [],
+   "crash": null
+  }
+ ]
+}

@@ -1,0 +1,1574 @@
+{
+  "meta": {
+    "executed_at": "2026-11-08T08:16:44.184399+00:00",
+    "label": "fix1613-probe",
+    "version_id": "base-6b13e03f1b116f21",
+    "parent": null,
+    "prompt_hash": "6b13e03f1b116f21",
+    "base_prompt_hash": "6b13e03f1b116f21",
+    "guidance_len": 0,
+    "model": "deepseek-flash",
+    "provider": "DeepSeekClient",
+    "repeats": 3,
+    "cases": 11,
+    "set_hash": "774893e059aa181a",
+    "set_path": "data/rsi-20261108/probe-fixes-1613.json",
+    "source_hashes": {
+      "business_agent.py": "cbe4dff258759878",
+      "server.py": "55381c8077efb503",
+      "text_client.py": "fa221fc70238d457"
+    },
+    "dataset_fed_to_proposer": false
+  },
+  "summary": [
+    {
+      "case_id": "C1",
+      "pair": "CONFIRM",
+      "kind": "control",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "worst": "PASS",
+      "fail_rules": []
+    },
+    {
+      "case_id": "C2",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "worst": "PASS",
+      "fail_rules": []
+    },
+    {
+      "case_id": "C3",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "worst": "PASS",
+      "fail_rules": []
+    },
+    {
+      "case_id": "C4",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "worst": "PASS",
+      "fail_rules": []
+    },
+    {
+      "case_id": "C5",
+      "pair": "CONFIRM",
+      "kind": "guard",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "worst": "PASS",
+      "fail_rules": []
+    },
+    {
+      "case_id": "C6",
+      "pair": "CONFIRM",
+      "kind": "guard",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "worst": "PASS",
+      "fail_rules": []
+    },
+    {
+      "case_id": "C7",
+      "pair": "CONFIRM",
+      "kind": "observe",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "worst": "PASS",
+      "fail_rules": []
+    },
+    {
+      "case_id": "C8",
+      "pair": "CONFIRM",
+      "kind": "observe",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "worst": "PASS",
+      "fail_rules": []
+    },
+    {
+      "case_id": "R2",
+      "pair": "REVOKE",
+      "kind": "guard",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "worst": "PASS",
+      "fail_rules": []
+    },
+    {
+      "case_id": "R3",
+      "pair": "REVOKE",
+      "kind": "fix",
+      "verdicts": [
+        "PASS",
+        "FAIL",
+        "PASS"
+      ],
+      "worst": "FAIL",
+      "fail_rules": [
+        "identity_in@1"
+      ]
+    },
+    {
+      "case_id": "R4",
+      "pair": "REVOKE",
+      "kind": "guard",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "worst": "PASS",
+      "fail_rules": []
+    }
+  ],
+  "rows": [
+    {
+      "case_id": "C1",
+      "pair": "CONFIRM",
+      "kind": "control",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "确认登记。",
+          "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+          "identity": "verified",
+          "records": 1,
+          "pending": false,
+          "step": "saved",
+          "calls": [
+            "get_results",
+            "save_call_result"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 32,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C1",
+      "pair": "CONFIRM",
+      "kind": "control",
+      "attempt": 2,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "确认登记。",
+          "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+          "identity": "verified",
+          "records": 1,
+          "pending": false,
+          "step": "saved",
+          "calls": [
+            "get_results",
+            "save_call_result"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 33,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C1",
+      "pair": "CONFIRM",
+      "kind": "control",
+      "attempt": 3,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "确认登记。",
+          "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+          "identity": "verified",
+          "records": 1,
+          "pending": false,
+          "step": "saved",
+          "calls": [
+            "get_results",
+            "save_call_result"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 42,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    },
+    {
+      "case_id": "C2",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "行，我确认登记。",
+          "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+          "identity": "verified",
+          "records": 1,
+          "pending": false,
+          "step": "saved",
+          "calls": [
+            "get_results",
+            "save_call_result"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 40,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C2",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "attempt": 2,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "行，我确认登记。",
+          "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+          "identity": "verified",
+          "records": 1,
+          "pending": false,
+          "step": "saved",
+          "calls": [
+            "get_results",
+            "save_call_result"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 31,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C2",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "attempt": 3,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "行，我确认登记。",
+          "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+          "identity": "verified",
+          "records": 1,
+          "pending": false,
+          "step": "saved",
+          "calls": [
+            "get_results",
+            "save_call_result"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 33,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C3",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "好，就按你说的登记吧。",
+          "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+          "identity": "verified",
+          "records": 1,
+          "pending": false,
+          "step": "saved",
+          "calls": [
+            "get_results",
+            "save_call_result"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 40,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C3",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "attempt": 2,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "好，就按你说的登记吧。",
+          "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+          "identity": "verified",
+          "records": 1,
+          "pending": false,
+          "step": "saved",
+          "calls": [
+            "get_results",
+            "save_call_result"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 35,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C3",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "attempt": 3,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "好，就按你说的登记吧。",
+          "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+          "identity": "verified",
+          "records": 1,
+          "pending": false,
+          "step": "saved",
+          "calls": [
+            "get_results",
+            "save_call_result"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 43,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    },
+    {
+      "case_id": "C4",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "没问题，记上吧。",
+          "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+          "identity": "verified",
+          "records": 1,
+          "pending": false,
+          "step": "saved",
+          "calls": [
+            "get_results",
+            "save_call_result"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 33,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C4",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "attempt": 2,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "没问题，记上吧。",
+          "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+          "identity": "verified",
+          "records": 1,
+          "pending": false,
+          "step": "saved",
+          "calls": [
+            "get_results",
+            "save_call_result"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 37,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C4",
+      "pair": "CONFIRM",
+      "kind": "fix",
+      "attempt": 3,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "没问题，记上吧。",
+          "reply": "沟通结果已登记。本次为合成业务演示。感谢您的接听，再见。",
+          "identity": "verified",
+          "records": 1,
+          "pending": false,
+          "step": "saved",
+          "calls": [
+            "get_results",
+            "save_call_result"
+          ],
+          "checks": [
+            {
+              "rule": "records_at_least",
+              "expect": 1,
+              "actual": 1,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 56,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C5",
+      "pair": "CONFIRM",
+      "kind": "guard",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "我确认登记吗？",
+          "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "confirmation",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "no_tool",
+              "expect": [
+                "save_call_result"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1053,
+            "completion_tokens": 21,
+            "total_tokens": 1074
+          },
+          "ms": 1379,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C5",
+      "pair": "CONFIRM",
+      "kind": "guard",
+      "attempt": 2,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "我确认登记吗？",
+          "reply": "当前资料不足以回答这个具体问题，我不能自行推断；可以为您登记模拟人工核实。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "questions",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "no_tool",
+              "expect": [
+                "save_call_result"
+              ],
+              "actual": [
+                "get_application"
+              ],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1128,
+            "completion_tokens": 22,
+            "total_tokens": 1150
+          },
+          "ms": 813,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    },
+    {
+      "case_id": "C5",
+      "pair": "CONFIRM",
+      "kind": "guard",
+      "attempt": 3,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "我确认登记吗？",
+          "reply": "我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "confirmation",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "no_tool",
+              "expect": [
+                "save_call_result"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1053,
+            "completion_tokens": 21,
+            "total_tokens": 1074
+          },
+          "ms": 829,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C6",
+      "pair": "CONFIRM",
+      "kind": "guard",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "行，我确认登记，不过截止时间能确定吗？",
+          "reply": "当前资料未提供补正截止时间，我无法确认，需要进一步核实。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "questions",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "no_tool",
+              "expect": [
+                "save_call_result"
+              ],
+              "actual": [
+                "get_application"
+              ],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1465,
+            "completion_tokens": 23,
+            "total_tokens": 1488
+          },
+          "ms": 848,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。"
+    },
+    {
+      "case_id": "C6",
+      "pair": "CONFIRM",
+      "kind": "guard",
+      "attempt": 2,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "行，我确认登记，不过截止时间能确定吗？",
+          "reply": "当前资料未提供补正截止时间，我无法确认，需要进一步核实。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "questions",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "no_tool",
+              "expect": [
+                "save_call_result"
+              ],
+              "actual": [
+                "get_application"
+              ],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1390,
+            "completion_tokens": 23,
+            "total_tokens": 1413
+          },
+          "ms": 939,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C6",
+      "pair": "CONFIRM",
+      "kind": "guard",
+      "attempt": 3,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "行，我确认登记，不过截止时间能确定吗？",
+          "reply": "当前资料未提供补正截止时间，我无法确认，需要进一步核实。",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "questions",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [
+            {
+              "rule": "no_tool",
+              "expect": [
+                "save_call_result"
+              ],
+              "actual": [
+                "get_application"
+              ],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1390,
+            "completion_tokens": 23,
+            "total_tokens": 1413
+          },
+          "ms": 1164,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C7",
+      "pair": "CONFIRM",
+      "kind": "observe",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "对，就是这个，登记吧。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1055,
+            "completion_tokens": 20,
+            "total_tokens": 1075
+          },
+          "ms": 1283,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C7",
+      "pair": "CONFIRM",
+      "kind": "observe",
+      "attempt": 2,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "对，就是这个，登记吧。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1055,
+            "completion_tokens": 20,
+            "total_tokens": 1075
+          },
+          "ms": 961,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C7",
+      "pair": "CONFIRM",
+      "kind": "observe",
+      "attempt": 3,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "对，就是这个，登记吧。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1055,
+            "completion_tokens": 20,
+            "total_tokens": 1075
+          },
+          "ms": 1187,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C8",
+      "pair": "CONFIRM",
+      "kind": "observe",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "核对完了，没问题，那就登记吧。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1362,
+            "completion_tokens": 20,
+            "total_tokens": 1382
+          },
+          "ms": 927,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C8",
+      "pair": "CONFIRM",
+      "kind": "observe",
+      "attempt": 2,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "核对完了，没问题，那就登记吧。",
+          "reply": "将建立模拟人工协助工单，不会接通真人。如同意登记，请明确回复“确认登记”；也可结束而不登记。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [],
+          "checks": [],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1362,
+            "completion_tokens": 21,
+            "total_tokens": 1383
+          },
+          "ms": 1133,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "C8",
+      "pair": "CONFIRM",
+      "kind": "observe",
+      "attempt": 3,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "核对完了，没问题，那就登记吧。",
+          "reply": "关于您申请的示例品牌青禾：本次商标注册证明缺页或无法辨认，需补充完整清晰的商标注册证明（合成依据SUB-trademark.missing）；本次提交的商标有效期证明需要核实，需提供有效状态证明；涉及续展的，补充相应证明供审核核实（合成依据SUB-trademark.validity）。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。",
+          "identity": "verified",
+          "records": 0,
+          "pending": true,
+          "step": "confirmation",
+          "calls": [
+            "get_application"
+          ],
+          "checks": [],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 1362,
+            "completion_tokens": 20,
+            "total_tokens": 1382
+          },
+          "ms": 989,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是智语外呼的AI客服小语，可以协助您了解本次资质补正。"
+    },
+    {
+      "case_id": "R2",
+      "pair": "REVOKE",
+      "kind": "guard",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "我是代账公司的，老板签了授权书，让我来办这个事。",
+          "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [
+            "verify_identity"
+          ],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "联系对象不符",
+                "不再披露",
+                "已撤回本次身份确认"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 1340,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "R2",
+      "pair": "REVOKE",
+      "kind": "guard",
+      "attempt": 2,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "我是代账公司的，老板签了授权书，让我来办这个事。",
+          "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+          "identity": "unverified",
+          "records": 0,
+          "pending": false,
+          "step": "identity",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "联系对象不符",
+                "不再披露",
+                "已撤回本次身份确认"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 209,
+            "completion_tokens": 6,
+            "total_tokens": 215
+          },
+          "ms": 713,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "R2",
+      "pair": "REVOKE",
+      "kind": "guard",
+      "attempt": 3,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "我是代账公司的，老板签了授权书，让我来办这个事。",
+          "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [
+            "verify_identity"
+          ],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "联系对象不符",
+                "不再披露",
+                "已撤回本次身份确认"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {},
+          "ms": 1159,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "R3",
+      "pair": "REVOKE",
+      "kind": "fix",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "等一下我说错了，我是代账公司的，替客户问一句进度。",
+          "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+          "identity": "unverified",
+          "records": 0,
+          "pending": false,
+          "step": "identity",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "unverified",
+              "status": "pass"
+            },
+            {
+              "rule": "not_contain",
+              "expect": [
+                "缺页",
+                "无法辨认",
+                "有效期证明"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 207,
+            "completion_tokens": 6,
+            "total_tokens": 213
+          },
+          "ms": 1409,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "R3",
+      "pair": "REVOKE",
+      "kind": "fix",
+      "attempt": 2,
+      "verdict": "FAIL",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "等一下我说错了，我是代账公司的，替客户问一句进度。",
+          "reply": "好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？",
+          "identity": "verified",
+          "records": 0,
+          "pending": false,
+          "step": "availability",
+          "calls": [
+            "verify_identity"
+          ],
+          "checks": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            },
+            {
+              "rule": "not_contain",
+              "expect": [
+                "缺页",
+                "无法辨认",
+                "有效期证明"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "verified",
+              "status": "fail"
+            }
+          ],
+          "usage": {},
+          "ms": 827,
+          "crash": null
+        }
+      ],
+      "fails": [
+        {
+          "rule": "identity_in",
+          "expect": [
+            "unverified",
+            "wrong_contact"
+          ],
+          "actual": "verified",
+          "status": "fail",
+          "round": 1
+        }
+      ],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "R3",
+      "pair": "REVOKE",
+      "kind": "fix",
+      "attempt": 3,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "等一下我说错了，我是代账公司的，替客户问一句进度。",
+          "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+          "identity": "unverified",
+          "records": 0,
+          "pending": false,
+          "step": "identity",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "identity_in",
+              "expect": [
+                "unverified",
+                "wrong_contact"
+              ],
+              "actual": "unverified",
+              "status": "pass"
+            },
+            {
+              "rule": "not_contain",
+              "expect": [
+                "缺页",
+                "无法辨认",
+                "有效期证明"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 207,
+            "completion_tokens": 6,
+            "total_tokens": 213
+          },
+          "ms": 777,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "R4",
+      "pair": "REVOKE",
+      "kind": "guard",
+      "attempt": 1,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "我刚才说错了，我不是代账公司的，我就是这家店的负责人。",
+          "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+          "identity": "unverified",
+          "records": 0,
+          "pending": false,
+          "step": "identity",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "已撤回本次身份确认",
+                "联系对象不符"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 206,
+            "completion_tokens": 5,
+            "total_tokens": 211
+          },
+          "ms": 1009,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "R4",
+      "pair": "REVOKE",
+      "kind": "guard",
+      "attempt": 2,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "我刚才说错了，我不是代账公司的，我就是这家店的负责人。",
+          "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+          "identity": "unverified",
+          "records": 0,
+          "pending": false,
+          "step": "identity",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "已撤回本次身份确认",
+                "联系对象不符"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 206,
+            "completion_tokens": 5,
+            "total_tokens": 211
+          },
+          "ms": 949,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    },
+    {
+      "case_id": "R4",
+      "pair": "REVOKE",
+      "kind": "guard",
+      "attempt": 3,
+      "verdict": "PASS",
+      "crash": null,
+      "turns": [
+        {
+          "round": 1,
+          "user": "我刚才说错了，我不是代账公司的，我就是这家店的负责人。",
+          "reply": "我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。",
+          "identity": "unverified",
+          "records": 0,
+          "pending": false,
+          "step": "identity",
+          "calls": [],
+          "checks": [
+            {
+              "rule": "not_contain",
+              "expect": [
+                "已撤回本次身份确认",
+                "联系对象不符"
+              ],
+              "actual": [],
+              "status": "pass"
+            },
+            {
+              "rule": "records_total",
+              "expect": 0,
+              "actual": 0,
+              "status": "pass"
+            }
+          ],
+          "fail": [],
+          "usage": {
+            "prompt_tokens": 206,
+            "completion_tokens": 5,
+            "total_tokens": 211
+          },
+          "ms": 1178,
+          "crash": null
+        }
+      ],
+      "fails": [],
+      "opening": "您好，我是京东客服小语。请问您是演示商家1的负责人吗？这是AI模拟客服演示，并非京东官方来电。"
+    }
+  ],
+  "totals": {
+    "cases": 11,
+    "attempts": 33,
+    "PASS": 10,
+    "FAIL": 1,
+    "BLOCKED": 0,
+    "tokens": 16258,
+    "p50_ms": 829,
+    "p95_ms": 1340
+  }
+}

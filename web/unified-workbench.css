@@ -1,0 +1,26 @@
+body.unified-workbench { background: #081d36; color: #edf4fb; }
+.unified-heading { max-width: 1240px; margin: auto; padding: 28px 24px 0; }
+.unified-heading h1 { font-size: 28px; margin: 0 0 8px; letter-spacing: 0; }
+.unified-heading p { color: #afc1d4; font-size: 14px; line-height: 1.7; }
+.mode-switch { display: flex; gap: 8px; padding: 12px 0 20px; border-bottom: 1px solid #31455e; }
+.mode-switch button { background: transparent; color: #cedbea; border: 1px solid #6c829c; padding: 10px 20px; border-radius: 5px; min-height: 44px; cursor: pointer; font: inherit; }
+.mode-switch button[aria-pressed="true"] { background: #d5f4fa; color: #102c46; border-color: #d5f4fa; }
+.mode-switch button:focus-visible { outline: 3px solid #50d7e5; outline-offset: 3px; }
+.unified-workbench [hidden] { display: none !important; }
+.unified-workbench .voice-layout { padding-top: 24px; }
+.unified-workbench .voice-layout h2 { color: #edf4fb; }
+.unified-workbench .voice-layout :is(label, .voice-note, summary, .voice-message strong) { color: #b9c9dc; }
+.unified-workbench .voice-layout :is(select, textarea) { background: #102a46; color: #edf4fb; border-color: #6c829c; }
+.unified-workbench .voice-layout textarea::placeholder { color: #acbfd3; }
+.unified-workbench .voice-layout button { background: #16334f; border-color: #6c829c; color: #edf4fb; }
+.unified-workbench .voice-layout button:hover:not(:disabled) { background: #254967; }
+.unified-workbench .voice-layout #send { background: #d5f4fa; color: #102c46; border-color: #d5f4fa; }
+.unified-workbench #conversation { background: #0d263f; border-color: #31455e; }
+.unified-workbench :is(#phase, #live-transcript) { color: #a6deef; }
+.unified-workbench .voice-empty { color: #b9c9dc; }
+.unified-workbench .voice-settings hr { border-color: #31455e; }
+.unified-workbench .subpage-header { flex-wrap: wrap; gap: 14px; }
+.unified-workbench .subpage-header nav { flex-wrap: wrap; }
+.unified-workbench .independent-workbench { padding-top: 24px; }
+@media(max-width:800px) { .unified-workbench .voice-settings { border-color: #31455e; } }
+@media(max-width:430px) { .unified-heading { padding: 22px 16px 0; } }
