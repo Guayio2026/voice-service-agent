@@ -11,7 +11,12 @@ def fast_decision(text):
         if phrase in phrases:
             return {'intent': intent, 'topics': [], 'issue_numbers': []}
     for topic, phrases in {
-        'materials': {'需要补什么材料', '我需要补充什么材料', '要补哪些材料', '怎么补材料'},
+        'materials': {'需要补什么材料', '我需要补充什么材料', '要补哪些材料', '怎么补材料',
+                      # "补正事项" is the same request without the word 材料; the
+                      # classifier otherwise filed it under other and the answer
+                      # degraded to the "资料不足" fallback.
+                      '是什么补正事项', '补正事项是什么', '补正事项有哪些', '补正事项是哪些',
+                      '什么补正事项', '补正事项是啥', '要补什么', '需要补什么', '缺什么', '缺少什么'},
         'reason': {'为什么要补材料', '补正原因是什么'},
         'channel': {'补充材料在哪里提交', '在哪里提交材料'},
         'deadline': {'补正截止时间是什么', '什么时候截止'},

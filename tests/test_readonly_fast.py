@@ -30,6 +30,16 @@ class ReadonlyGrammarTests(unittest.TestCase):
         ]:
             with self.subTest(text=text):
                 self.assertEqual(fast_decision(text),{'intent':'question','topics':topics,'issue_numbers':[]})
+    def test_material_subject_questions(self):
+        # "补正事项" without the word 材料 still asks what to supplement. These
+        # used to fall through to the model, get filed under other, and degrade
+        # to the "资料不足以回答" fallback mid-conversation.
+        for text in ['是什么补正事项', '是什么补正事项？', '补正事项是什么', '补正事项有哪些',
+                     '要补什么', '缺什么']:
+            with self.subTest(text=text):
+                self.assertEqual(fast_decision(text),{'intent':'question','topics':['materials'],'issue_numbers':[]})
+        for text in ['我不想知道补正事项', '补正事项是什么帮我提交', '他的补正事项是什么']:
+            with self.subTest(text=text): self.assertIsNone(fast_decision(text))
     def test_ambiguous_or_action_requests_fall_back(self):
         for text in ['我不想知道截止时间','请问截止时间但是我要取消','请问提交入口并帮我提交',
                      '我先不问材料了','我不问材料了请问为什么','请问截止时间不是明天吗',
