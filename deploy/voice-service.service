@@ -1,0 +1,21 @@
+# Voice service (FastAPI + WebSocket, listens on 127.0.0.1:8766).
+# Install: sudo cp deploy/*.service /etc/systemd/system/
+#          sudo systemctl daemon-reload
+#          sudo systemctl enable --now voice-service mock-business auto-rsi
+
+[Unit]
+Description=Voice service agent (port 8766)
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/srv/voice-service-agent
+ExecStart=/srv/voice-service-agent/.venv/bin/python src/voice_server.py
+Restart=always
+RestartSec=5
+MemoryMax=700M
+# .env is read by the app itself (load_config); do not put it in git.
+
+[Install]
+WantedBy=multi-user.target

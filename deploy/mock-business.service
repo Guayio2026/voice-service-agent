@@ -1,0 +1,19 @@
+# Mock business server (http.server, listens on 127.0.0.1:8765).
+# MOCK_ORIGINS must match the Origin header nginx rewrites in deploy/nginx.conf.
+
+[Unit]
+Description=Mock business API (port 8765)
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/srv/voice-service-agent
+Environment=MOCK_ORIGINS=http://127.0.0.1:8766
+ExecStart=/srv/voice-service-agent/.venv/bin/python src/server.py
+Restart=always
+RestartSec=5
+MemoryMax=300M
+
+[Install]
+WantedBy=multi-user.target

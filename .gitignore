@@ -4,7 +4,10 @@
 !.env.example
 __pycache__/
 *.pyc
-runtime/
+runtime/*
+# 例外：端点检测模型运行必需且无法自动生成，单独纳入版本库（见 SETUP.txt）
+!runtime/models/
+!runtime/models/*.onnx
 data/official/
 *.log
 web/qa/

@@ -1,0 +1,20 @@
+# Auto-RSI worker (long-running loop, single-instance lock on 127.0.0.1:18767).
+# Do NOT start more than one instance; the socket lock makes the second crash.
+
+[Unit]
+Description=Auto RSI worker (conversation-driven prompt evolution)
+After=network.target voice-service.service
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/srv/voice-service-agent
+ExecStart=/srv/voice-service-agent/.venv/bin/python src/auto_rsi.py
+Restart=always
+RestartSec=30
+MemoryMax=500M
+# To disable evolution without stopping the worker, set "enabled": false in
+# runtime/auto-rsi-config.json (gitignored; upload it separately with scp).
+
+[Install]
+WantedBy=multi-user.target

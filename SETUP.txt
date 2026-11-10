@@ -1,0 +1,59 @@
+在新电脑上运行（换机部署说明）
+最后核对：2026-11-10。以下步骤已在干净 clone（无 .venv、无 .env、无 runtime 目录）上实测通过。
+
+一、环境
+Python 3.12。3.13 未验证。Windows 使用 PowerShell。
+
+二、恢复依赖
+.venv 不入库，需在新机器重建：
+  uv venv --python 3.12 .venv
+  .venv\Scripts\python.exe -m pip install -r requirements-voice.txt
+建议同时安装端点检测依赖（影响语音打断的句末判断）：
+  .venv\Scripts\python.exe -m pip install -r requirements-endpoint.txt
+说明：requirements-endpoint.txt 只含 numpy / onnxruntime / transformers，不需要 PyTorch。
+
+三、配置密钥
+复制 .env.example 为 .env 后按需填写：
+  DASHSCOPE_API_KEY、DASHSCOPE_BASE_URL   Fun-ASR 与千问共用，不填则无法语音识别
+  BREEZE_API_KEY、BREEZE_VOICE_ID         语音合成；缺省时字幕正常但没有声音
+  DEEPSEEK_API_KEY                        仅 TEXT_PROVIDER=deepseek 时需要
+未填写 .env 也能启动服务，只在真正发起对话时报配置错误。
+
+四、启动
+语音联调版（推荐）：
+  powershell -ExecutionPolicy Bypass -File scripts/start-voice.ps1
+  浏览器打开 http://127.0.0.1:8766
+纯 Mock 业务服务（无语音，供接口与回归测试）：
+  powershell -ExecutionPolicy Bypass -File scripts/start.ps1
+  http://127.0.0.1:8765/health
+
+五、自检（不需要麦克风、不需要密钥）
+  .venv\Scripts\python.exe -m unittest discover -s tests -p "test_backend.py"
+  .venv\Scripts\python.exe -m unittest discover -s tests -p "test_readonly_fast.py"
+实测结果：前者 9 项通过，后者 5 项通过。
+注意必须用 discover -s tests 调用；直接 -m unittest tests.xxx 会因 tests 目录不在导入路径而失败。
+
+六、仓库里有什么 / 没什么
+已包含：
+  src/                后端全部源码
+  web/                前端，含 vendor/audio 内的 onnxruntime 与 silero_vad 模型
+  data/synthetic/     合成案例集（当前 104 条）
+  runtime/models/     smart-turn-v3.2-cpu.onnx 端点检测模型（8.3 MB，已纳入版本库）
+  tests/ scripts/ docs/ compliance/
+未包含，需自行重建：
+  .venv/              按第二节重建
+  .env                真实密钥，任何情况下都不入库
+  runtime/mock.sqlite3、runtime/audio-cache   数据库与 TTS 缓存，首次启动自动创建
+  web/qa/             验收截图，不属于运行依赖
+  *.log、web/.history 运行日志与编辑备份
+
+七、缺文件时的降级行为（不会崩溃，但功能会缩水）
+  缺 TTS 密钥        字幕与流程正常，无音频
+  缺 ASR 密钥        不能用麦克风，文字工作台仍可用
+  缺端点模型         load_endpoint 返回 None，改用词法判断句末
+  缺 .env            服务可启动，首次对话请求才报错
+  缺 .venv           启动脚本会直接报 Missing .venv 并退出
+
+八、已知状态
+tests/test_speech_budget.py 有 2 条断言尚未通过（basis_status=valid 时待确认项未建立），
+属进行中的边界修复，不影响上述自检命令。
