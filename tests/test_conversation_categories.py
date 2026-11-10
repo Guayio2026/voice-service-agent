@@ -96,7 +96,7 @@ class ConversationTests(unittest.IsolatedAsyncioTestCase):
         model = Plan(intent='handoff')
         answer = await self.agent.turn('谢谢，帮我转人工', model, True)
         self.assertEqual(len(model.calls), 1)
-        self.assertIn('确认登记', answer['text'])
+        self.assertIn('自动存', answer['text'])
         self.assertIsNone(self.agent.result)
 
     async def test_off_topic_keeps_business_identity_and_no_conflict(self):

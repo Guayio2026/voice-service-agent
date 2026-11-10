@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 from contextlib import closing
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
-from server import Backend, Error, connect
+from server import Backend, Error, connect, CASES
 from business_agent import Agent
 from grounding import ground_application
 
@@ -41,8 +41,8 @@ class QualificationTests(unittest.IsolatedAsyncioTestCase):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp)/'db'
             b = Backend(path)
-            for n in range(1, 6):
-                app_id = f'QUAL-{n:03}'
+            pool = [k for k, v in CASES.items() if v.get('selectable')]
+            for app_id in [f'QUAL-{n:03}' for n in range(1, 6)] + pool[:1] + pool[-1:]:
                 sid = b.call('start_session', {'application_id':app_id})['session_id']
                 with self.assertRaises(Error):
                     b.call('get_application', {'session_id':sid,'application_id':app_id})
@@ -52,7 +52,11 @@ class QualificationTests(unittest.IsolatedAsyncioTestCase):
             b = Backend(path)
             with closing(connect(path)) as db:
                 self.assertEqual(db.execute('SELECT count(*) FROM qualification_material_types').fetchone()[0], 4)
-                self.assertEqual(db.execute("SELECT count(*) FROM qualification_applications WHERE id LIKE 'QUAL-%'").fetchone()[0], 5)
+                seeded = db.execute("SELECT count(*) FROM qualification_applications WHERE id LIKE 'QUAL-%'").fetchone()[0]
+            self.assertGreaterEqual(seeded, 5)
+            Backend(path)
+            with closing(connect(path)) as db:
+                self.assertEqual(db.execute("SELECT count(*) FROM qualification_applications WHERE id LIKE 'QUAL-%'").fetchone()[0], seeded)
 
     async def test_legacy_migration_does_not_invent_progress(self):
         with tempfile.TemporaryDirectory() as tmp:

@@ -12,7 +12,7 @@ from grounding import ground_application, citations_current
 from evolution_store import redact
 from pathlib import Path
 SYSTEM_PROMPT = (Path(__file__).parent / "prompts/customer_service.txt").read_text(encoding="utf-8")
-from server import Error, require, CASES
+from server import Error, require, CASES, customer_label
 from intent_graph import INTENT_GRAPH
 from knowledge import retrieve, context, public_references
 from business_graph import BUSINESS_GRAPH
@@ -23,12 +23,12 @@ TOPICS = {'materials', 'reason', 'action', 'basis', 'deadline', 'channel', 'fees
 SOCIAL_REPLIES = {
     'greeting': '您好，我是智语外呼的AI客服{name}，可以协助您了解本次资质补正。',
     'thanks': '不客气，有补正方面的问题可以继续问我。',
-    'identity': '我叫{name}，是智语外呼的AI客服，不是真人，负责解释本次资质补正。这是合成业务演示。',
+    'identity': '我叫{name}，是智语外呼的AI客服，不是真人，负责解释本次资质补正。',
 }
 
 def confirmation_phrase(text):
     # Ignore spacing and declarative punctuation, but never questions or extra words.
-    return bool(re.fullmatch(r'(?:确认登记)+', re.sub(r'[\s，。！、,.!～~]', '', unicodedata.normalize('NFKC', text))))
+    return bool(re.fullmatch(r'(?:确认(?:登记|保存))+', re.sub(r'[\s，。！、,.!～~]', '', unicodedata.normalize('NFKC', text))))
 
 
 _SUBTYPE_LABELS = None
@@ -50,6 +50,61 @@ def subtype_label(issue):
         except Exception:
             _SUBTYPE_LABELS = {}
     return _SUBTYPE_LABELS.get(code, '')
+
+
+REASON_TEMPLATE = '本次合成审核记录标记：'
+
+
+def reason_detail(issue):
+    """Reason wording that adds information beyond the subtype label; '' when it only echoes it."""
+    reason = (issue.get('reason') or '').strip()
+    label = subtype_label(issue)
+    if reason.startswith(REASON_TEMPLATE):
+        reason = reason[len(REASON_TEMPLATE):].strip()
+    return '' if reason == label else reason
+
+
+def num_cn(value):
+    """Spoken Chinese for small counts: 1->一, 2->两, 3->三 (TTS reads 二项 wrong)."""
+    words = {1: '一', 2: '两', 3: '三', 4: '四', 5: '五', 6: '六', 7: '七', 8: '八', 9: '九', 10: '十'}
+    return words.get(value, str(value))
+
+
+def spoken_action(issue):
+    """The action as a caller says it: the review hand-off clause is implied.
+
+    Catalogue actions end with "，补充对应材料或说明后交由审核人员复核"; keeping it
+    on every call adds ~15 spoken characters that tell the caller nothing they
+    can act on. The stored record keeps the official wording untouched.
+    """
+    action = (issue.get('action') or '').strip('。')
+    action = re.sub(r'(，)?补充对应材料或说明(后)?交由审核人员(复核|核实)$', '，补上对应材料或说明', action)
+    action = re.sub(r'(，)?后?交由审核人员(复核|核实)$', '', action)
+    return action.strip('，')
+
+
+def spoken_issue(issue, budget=42):
+    """One spoken sentence for a single issue, kept inside a length budget.
+
+    Label plus action while it fits; an over-long pair falls back to the action
+    alone, because the caller needs the task more than the terminology.
+    """
+    action = spoken_action(issue)
+    if not action:
+        return '这单需要补正，具体要求我在页面上也发给您了。'
+    label = subtype_label(issue)
+    if label:
+        text = f'您这单是「{label}」，{action}就行。'
+        if len(text) <= budget:
+            return text
+    return f'您这单{action}就行。'
+
+
+def _issue_line(number, issue):
+    """One numbered item in the pre-registration recap."""
+    label, detail = subtype_label(issue), reason_detail(issue)
+    head = f'第 {number} 项「{label}」' if label else f'第 {number} 项'
+    return f"{head}{'：' + detail if detail else ''}，需要{issue['action']}"
 
 
 def contextual_confirmation(text):
@@ -95,6 +150,68 @@ def simple_social(text):
             return intent
     return None
 
+def order_no(application_id):
+    """Customer-facing case number: digits only, stable for a given case.
+
+    The application id stays the internal key; customers only ever hear a
+    number, because a mixed code like QUAL-001 is not readable over the phone.
+    """
+    digits = ''.join(ch for ch in str(application_id) if ch.isdigit()) or '0'
+    return '2026' + digits.zfill(6)
+
+
+# Spoken numbers are unstable over a phone line: match a bare 8-12 digit run
+# only when the caller frames it as a case number.
+ORDER_NO_RE = re.compile(r'(?<!\d)(\d{8,12})(?!\d)')
+ORDER_WORDS = re.compile(r'单号|编号|申请号|工单号|案子号|案件号|这个单')
+
+def spoken_order_no(text):
+    """Return the customer/case identifier a caller stated, else None."""
+    cleaned = re.sub(r'[\s\-]', '', text or '')
+    label = re.search(r'用户(\d{3,6})', cleaned)
+    if label:
+        return '用户' + label.group(1).zfill(4)
+    match = ORDER_NO_RE.search(cleaned)
+    if not match:
+        return None
+    digits = match.group(1)
+    if ORDER_WORDS.search(text or '') or digits.startswith('2026'):
+        return digits
+    return None
+
+ORDERS = {order_no(key): key for key in CASES}
+USER_LABELS = {customer_label(key): key for key in CASES}
+
+END_CALL = re.compile(r'(?:请)?(?:结束|挂断|断开|终止)(?:本次|这次)?(?:对话|通话|会话|电话|沟通)?(?:吧|了)?'
+                      r'|先这样吧|就这样吧|不聊了|先到这里|就到这里')
+
+
+def end_request(text):
+    """An explicit request to end the call, which is not a complaint about materials.
+
+    "结束对话" used to be classified as decline and answered with "您是对材料要求
+    有异议，还是希望结束沟通？", so saying it again changed nothing.
+    """
+    return bool(END_CALL.fullmatch(re.sub(r'[\s，。！？、,.!?]', '', text or '')))
+
+
+def scoped_default(decision, text):
+    """An in-scope question read as unclear/other is not a dead end.
+
+    Only the topic is defaulted; every fact in the answer still comes from the
+    application record, so nothing is inferred. Out-of-scope or contentless
+    utterances keep the clarifying branch.
+    """
+    topics = decision.get('topics') or []
+    if decision.get('actions') or not (decision.get('intent') == 'unclear' or topics == ['other']):
+        return decision
+    if not re.search(r'补正|补交|补充|材料|资质|审核|申请', text):
+        return decision
+    if not re.search(r'什么|啥|哪些|哪个|多少|怎么|如何|吗|[?？]', text):
+        return decision
+    return {'intent': 'question', 'topics': ['materials'], 'issue_numbers': []}
+
+
 def validate_decision(decision):
     require(type(decision) is dict and 'intent' in decision
             and set(decision) <= {'intent', 'topics', 'issue_numbers', 'actions'}
@@ -136,6 +253,11 @@ def same_readonly_asr_input(old_key, new_key):
 class Agent:
     def __init__(self, backend, sid, app, classifier_prompt=None, version_id='baseline'):
         self.backend, self.sid, self.app = backend, sid, app
+        self.turn_text = ''
+        # Earlier calls on the same application, announced once per call.
+        self.history, self.history_announced = [], False
+        self.order_no = order_no(self.app)
+        self.order_label = customer_label(self.app)
         self.name = backend.agent_name()
         backend.control_session(sid)
         self.step = 'availability'
@@ -222,7 +344,7 @@ class Agent:
     async def turn(self, text, model, verified):
         require(type(text) is str and 0 < len(text.strip()) <= 1000, 'TEXT_LIMIT')
         if self.step == 'closing':
-            return self.reply('好的，那就先不打扰了。本次没有新增业务登记。', stage='closing')
+            return self.reply('好的，已停止本次沟通，先不打扰了；没有保存新的记录。', stage='closing')
         self.grounding = {}
         guard = inspect_input(text)
         self.events.append({'type': 'input_guard', **{k:v for k,v in guard.items() if k != 'text'}})
@@ -276,14 +398,14 @@ class Agent:
             if kind == 'identity':
                 return self.graph_gate('你是谁')
             replies = {
-                'purpose':'这次是资质补正的模拟沟通。我可以解释演示流程；涉及具体申请前，需要先确认您是否为负责人。',
-                'decline':'好的，那就先不打扰了。本次没有新增业务登记。',
-                'unclear':'我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。',
+                'purpose':'这次是资质补正。涉及具体申请前，要先确认您是不是负责人。',
+                'decline':'好的，已停止本次沟通，先不打扰了；没有保存新的记录。',
+                'unclear':'我还没确定您是否是负责人。您也可以先问我是谁、来意或补正要求。',
             }
             return self.reply(replies[kind])
         except Exception:
             require(token == self.generation, 'TURN_CANCELLED', 409)
-            return self.reply('我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。')
+            return self.reply('我还没确定您是否是负责人。您也可以先问我是谁、来意或补正要求。')
 
     def check_graph_authority(self, token):
         # An interrupt invalidates every later node. Model output never grants authority.
@@ -294,7 +416,7 @@ class Agent:
         self.interrupt()
         self.questions.clear()
         self.step = 'closing'
-        return self.reply('好的，那就先不打扰了。本次没有新增业务登记。', stage='closing')
+        return self.reply('好的，已停止本次沟通，先不打扰了；没有保存新的记录。', stage='closing')
 
     def graph_gate(self, text):
         self.usage = {}
@@ -333,14 +455,14 @@ class Agent:
             self.backend.call('verify_identity', {'session_id': self.sid, 'is_responsible': True})
             identity = 'verified'
             self.step = 'availability'
-            return self.reply('好的，已更正本次模拟身份确认。现在方便沟通资质补正事项吗？')
+            return self.reply('好的，已更正本次身份确认。现在方便沟通资质补正事项吗？')
         verified = identity == 'verified'
         if identity == 'unverified' and representative_without_responsibility(text):
             self.identity_prompted = True
             self.step = 'identity'
             self.pending = None
             self.events.append({'type': 'identity_clarification', 'reason': 'representative_without_responsibility'})
-            return self.reply('仅说明代客户询问还不能确认负责关系。请明确说明：您本人是否负责本次申请的办理或对接？未确认前不能查询本单材料。')
+            return self.reply('代问不等于您负责。您本人负责这次申请吗？确认前不能查本单材料。')
         if verified and re.search(r'改成|我要记|重新记|再记一条|记的是|登记为', text):
             self.requested_registration = text
         if not verified and self.identity_reconfirmation and personal_responsibility(text):
@@ -352,20 +474,20 @@ class Agent:
             self.identity_reconfirmation = False
             self.identity_prompted = True
             self.step = 'identity'
-            return self.reply('先前身份确认已撤回。请再次明确确认您本人是否负责本次申请。这只是模拟身份确认，不是正式授权认证。')
+            return self.reply('身份确认已撤回。您本人负责这次申请吗？这只是身份确认，不是授权。')
         if not verified and re.search(r'授权.{0,6}(?:编号|核一下)|AUTH-', text, re.I) and not personal_responsibility(text):
             self.identity_prompted = True
             self.step = 'identity'
-            return self.reply('当前演示没有授权编号核验接口，不能据此确认授权。请明确回答：您本人是否负责本次申请？这里只记录模拟自述确认；正式授权请走人工核实。')
+            return self.reply('授权编号查不了，只能记您本人的说法。您本人负责这次申请吗？正式授权请走人工核实。')
         if not verified and re.search(r'如果|假设|假如', text):
-            return self.reply('一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。')
+            return self.reply('先确认负责人，再讲材料要求，最后复述要记的内容。确认前不能提供本单材料。')
         if verified and re.search(r'还没补|尚未补|没有补|还未提交|尚未提交|待核实', text):
             self.materials_incomplete = True
             self.unresolved = True
         if verified and re.search(r'收到了|收到通知|已收到|已通知|已经念给我|清单.*了解', text):
             self.notification_received = True
         if verified and re.search(r'登记|记录', text) and re.search(r'审核|审批', text) and re.search(r'区别|什么关系|啥关系|一样', text):
-            return self.reply('登记是保存本次沟通记录；审核是对申请材料作出业务判断。登记成功不代表材料已补齐，也不代表审核通过；当前没有审核进度查询接口。')
+            return self.reply('登记只是记录，审核是看材料。记了也不等于审核通过，这里查不到审核进度。')
         if verified and cancel_write:
             if not re.search(r'改成|我要记|重新记|再记一条|记的是|登记为', text):
                 self.requested_registration = None
@@ -377,8 +499,8 @@ class Agent:
                 self.turn_number += 1
                 return self.prepare_review_registration(self.requested_registration, self.turn_number)
             if self.backend.latest_save_key(self.sid):
-                return self.reply('已取消本次待确认内容；此前保存的记录仍保留，当前接口不能删除已有记录。您可以继续提问。')
-            return self.reply('好的，已取消这次待确认的登记，不会保存。您可以继续提问。')
+                return self.reply('已取消待保存的内容；之前保存的记录删不掉，仍保留。')
+            return self.reply('好的，已取消这次待保存的记录，不会保存。您可以继续提问。')
         if verified and re.search(r'登记.*(?:成没成|成功|状态|了吗)|记录.*(?:存|成功)|还有没有.{0,8}(?:那条|记录)|(?:那条|上次|刚才).{0,12}存.{0,6}(?:了吗|没有|成功)|核对状态', text):
             op = self.operation or {}
             self.last_operation_key = (op.get('params', {}).get('idempotency_key') if op.get('name') == 'save_call_result' else None) or self.backend.latest_save_key(self.sid)
@@ -386,25 +508,25 @@ class Agent:
                 try:
                     status = self.tool('get_operation_status', idempotency_key=self.last_operation_key)
                 except Exception:
-                    return self.reply('登记状态暂时无法核对，请稍后再试。')
+                    return self.reply('保存状态暂时无法核对，请稍后再试。')
                 if status['status'] == 'confirmed':
                     self.result = status['result']
                     if op.get('name') == 'save_call_result':
                         self.operation = None
                     self.step = 'saved'
-                    return self.reply('沟通结果已登记。登记不代表材料审核通过。')
-                return self.reply('登记结果尚未确认，请稍后核对操作状态。')
-            return self.reply('本次尚未发起登记操作，没有可核对的操作记录。')
+                    return self.reply('沟通结果已保存。保存不代表材料审核通过。')
+                return self.reply('保存结果尚未确认，请稍后核对操作状态。')
+            return self.reply('本次还没有发起保存，没有可核对的操作记录。')
         if verified and self.result and not self.pending and confirmation_phrase(text):
             self.pending = None
             self.step = 'saved'
-            return self.reply('沟通结果已登记，无需重复确认。')
+            return self.reply('沟通结果已保存，无需重复确认。')
         if not verified:
             self.questions.clear()
         if identity == 'wrong_contact':
             self.pending = None
             self.issues = []
-            return self.reply('抱歉打扰，身份不符，不再披露申请信息。本次为模拟核验。再见。')
+            return self.reply('抱歉打扰，身份不符，不再披露申请信息。再见。')
         if not verified:
             self.pending = None
             self.issues = []
@@ -417,6 +539,11 @@ class Agent:
             phrase = re.sub(r'[\s，。！？、,.!?]', '', text)
             if self.identity_prompted:
                 if re.search(r'我(?:不是.{0,12}(?:负责人|对接人)|不负责|只是前台.{0,8}不负责)', text):
+                    # "是的，但我不是负责人" agrees and denies at once; that is an
+                    # ambiguous answer, not a refusal, so ask once more instead of
+                    # closing the call on a contradiction.
+                    if re.match(r'(?:是的|是|对|嗯|好)', phrase):
+                        return self.reply('您先说“是的”又说不负责，我需要确认一下：这次申请是您本人负责吗？')
                     self.backend.call('verify_identity', {'session_id': self.sid, 'is_responsible': False})
                     self.step = 'closing'
                     return self.reply('抱歉打扰，联系对象不符，不再披露申请信息。再见。', stage='closing')
@@ -424,14 +551,22 @@ class Agent:
                     self.backend.call('verify_identity', {'session_id': self.sid, 'is_responsible': True})
                     self.events.append({'type': 'identity_confirmation', 'text': text, 'simulated': True})
                     self.step = 'availability'
-                    return self.reply('好的，已记录您的负责人身份确认。本次是合成业务演示，想和您沟通资质补正事项，现在方便吗？')
+                    brand, records = self.outbound_context()
+                    lead = '好的。'
+                    lead += f'{brand}这次是资质补正，' if brand else '这单是资质补正，'
+                    if records:
+                        last = {'notification_completed':'已完成通知','unresolved':'待核实','declined':'已拒绝',
+                                'deferred':'稍后联系','handoff_registered':'转人工'}.get(records[-1].get('outcome'),'待核实')
+                        lead += f'之前有{num_cn(len(records))}次记录、最近一次{last}。'
+                        self.history, self.history_announced = records, True
+                    return self.reply(lead + '现在方便吗？')
                 if phrase in {'不是', '不是的', '我不是', '我不是负责人', '不是本人', '打错了', '你打错了', '不认识', '不是这家商家', '不是该商家的负责人', '我不是该商家的负责人', '不是这家商家的负责人', '我不是这家商家的负责人', '不是我是我同事负责', '我不负责这个申请', '我不是商家'}:
                     self.backend.call('verify_identity', {'session_id': self.sid, 'is_responsible': False})
                     self.events.append({'type': 'identity_confirmation', 'text': text, 'simulated': True})
                     return self.reply('抱歉打扰，联系对象不符，不再披露申请信息。再见。')
             if self.identity_prompted:
                 if phrase in {'什么事','找我什么事','找我干嘛','你有什么事','有什么事吗','什么事情'}:
-                    return self.reply('这次是资质补正的模拟沟通。我可以解释演示流程；涉及具体申请前，需要先确认您是否为负责人。')
+                    return self.reply('这次是资质补正。涉及具体申请前，要先确认您是不是负责人。')
                 if phrase in {'不方便','现在不方便','不方便晚点再说','晚点再说','我在忙'}:
                     return self.close_conversation()
                 self.step = 'identity'
@@ -439,10 +574,10 @@ class Agent:
             self.identity_prompted = True
             self.step = 'identity'
             merchant = CASES[self.app]['merchant']
-            return self.reply(f'您好，我是京东客服{self.name}。请问您是{merchant}的负责人吗？这是AI模拟客服演示，并非京东官方来电。' + ('请明确回答是否为该商家的负责人。' if text != '开始通话' else ''), stage='introduction')
+            return self.reply(f'您好，我是京东客服{self.name}，本次为AI外呼。请问您是{merchant}的负责人吗？' + ('请明确回答是否为该商家的负责人。' if text != '开始通话' else ''), stage='introduction')
         if self.step == 'declined' and not confirmation_phrase(text):
             self.pending = None
-            return self.reply('好的，已停止本次沟通；未新增演示记录。再见。')
+            return self.reply('好的，已停止本次沟通；未新增记录。再见。')
         if self.operation:
             if text.strip() == '核对状态':
                 try:
@@ -453,13 +588,13 @@ class Agent:
                         if op['name'] == 'save_call_result':
                             self.result = status['result']
                             self.step = 'saved'
-                            return self.reply('已核对，沟通结果已登记。')
+                            return self.reply('已核对，沟通结果已保存。')
                         self.step = 'handoff_registered'
                         self.result = status['result']
-                        return self.reply('已核对，模拟人工协助工单已登记，未接通真人；沟通结果尚未保存。')
+                        return self.reply('已核对，模拟人工协助工单已建立，未接通真人；沟通结果尚未保存。')
                 except Exception:
                     pass
-            return self.reply('上一笔操作结果待核对，暂不接受新的登记。请回复“核对状态”，不会重新写入。')
+            return self.reply('上一笔操作结果待核对，暂不接受新的保存请求。请回复“核对状态”，不会重新写入。')
         token = self.generation
         self.turn_number += 1
         turn = self.turn_number
@@ -471,38 +606,46 @@ class Agent:
         if not verified:
             self.pending = None
             self.issues = []
-            return self.reply(f'您好，我是智语外呼的AI客服{self.name}，本次为合成业务演示。请先通过页面模拟确认负责人身份。')
+            return self.reply(f'您好，我是智语外呼的AI客服{self.name}。请先通过页面确认负责人身份。')
         return {'_next': 'confirmation', 'turn': turn}
 
     def graph_confirmation(self, text, turn):
         # Only exact explicit phrases confirm the precise server-owned pending content.
         pending = self.pending
         self.pending = None
-        confirmed = confirmation_phrase(text) or (bool(pending) and contextual_confirmation(text))
+        confirmed = (confirmation_phrase(text) or (bool(pending) and contextual_confirmation(text))
+                     # Ending the call confirms the content already read back;
+                     # saving is the default, not a separate permission step.
+                     or (bool(pending) and end_request(text)))
         # A question about confirmation is not consent and does not create an
         # unresolved business issue or discard the content already presented.
         query = re.sub(r'\s+', '', unicodedata.normalize('NFKC', text))
-        if re.fullmatch(r'确认登记[?？]+', query):
+        if re.fullmatch(r'(?:确认登记|确认保存)[?？]+', query):
             self.pending = pending
-            return self.reply('需要先向您复述待登记内容，再由您明确回复“确认登记”才会保存；刚才的问句没有触发保存。')
+            return self.reply('我先复述内容才能保存；刚才那句还没保存任何东西。')
         if pending and confirmed and pending.get('grounding') and not citations_current(pending['grounding']):
             self.unresolved = True
             return self.reply('业务依据已更新，原确认已失效。需要重新核实材料要求后再确认。')
         if pending and confirmed:
             try:
                 history = self.tool('get_results')['results']
-                if history and not pending.get('explicit_new_revision'):
+                # History is aggregated per application now, so only this call's
+                # own result means "already saved"; earlier calls are new revisions.
+                if self.result and not pending.get('explicit_new_revision'):
                     self.result = history[-1]
                     self.step = 'saved'
-                    return self.reply('沟通结果已登记，无需重复确认。')
+                    return self.reply('沟通结果已保存，无需重复确认。')
                 outcome = pending['outcome']
                 extra = {}
                 if outcome == 'handoff_registered':
                     h = self.write('create_handoff', idempotency_key=f'agent-handoff-{turn}', consent=True, reason='user_request')
                     extra['handoff_id'] = h['handoff_id']
                 key = f'agent-save-{turn}'
-                params = dict(idempotency_key=key, result_revision=len(history)+1,
-                    result=dict(candidate_outcome=outcome, issues_explained=self.issues[:],
+                # Revision counts within this call, not across the application;
+                # earlier calls on the same application are separate records.
+                revision = (self.result or {}).get('result_revision', 0) + 1
+                params = dict(idempotency_key=key, result_revision=revision,
+                    result=dict(application_id=self.app, order_no=self.order_no, candidate_outcome=outcome, issues_explained=self.issues[:],
                         user_feedback='confirmed' if outcome=='notification_completed' else 'unknown',
                         confirmation_turn_id=turn,
                         unresolved=outcome!='notification_completed', questions=copy.deepcopy(self.questions), **extra))
@@ -517,14 +660,14 @@ class Agent:
                     status = self.tool('get_operation_status', idempotency_key=key)
                     if status['status'] != 'confirmed':
                         self.step = 'unknown'
-                        return self.reply('登记结果未知，尚不能确认成功，请核对操作状态。')
+                        return self.reply('保存结果未知，尚不能确认成功，请核对操作状态。')
                     self.result = status['result']
                 self.step = 'saved'
                 self.requested_registration = None
-                return self.reply('沟通结果已登记。' + ('仅建立模拟人工协助工单，未接通真人。' if extra else '本次为合成业务演示。') + '感谢您的接听，再见。', stage='closing')
+                return self.reply(f'沟通结果已保存。' + ('仅建立模拟人工协助工单，未接通真人。' if extra else '') + '感谢您的接听，再见。', stage='closing')
             except Exception:
                 self.step = 'unknown' if self.operation else 'failed'
-                return self.reply('工具执行未确认成功，不能宣称已登记。请重新核实后确认。')
+                return self.reply('工具执行未确认成功，不能宣称已保存。请重新核实后确认。')
         if confirmation_phrase(text):
             key = self.backend.latest_save_key(self.sid)
             if key:
@@ -532,13 +675,17 @@ class Agent:
                 if status['status'] == 'confirmed':
                     self.result = status['result']
                     self.step = 'saved'
-                    return self.reply('沟通结果已登记，无需重复确认。')
+                    return self.reply('沟通结果已保存，无需重复确认。')
             # Recover the two-step flow, never treat this same utterance as
             # consent for content that has not yet been presented.
             lookup = self.graph_lookup()
             if '_next' not in lookup:
                 return lookup
-            return self.graph_prepare_confirmation(text, lookup['application'], turn)
+            reply = self.graph_prepare_confirmation(text, lookup['application'], turn)
+            if any(q['status'] != 'answered' for q in self.questions):
+                self.pending = None
+                return self.reply('还有问题没确认，现在不能保存；确认完我再记一次。')
+            return reply
         return {'_next': 'classify', 'pending': pending}
 
     def classification_input(self, text, current_turn=False):
@@ -571,7 +718,23 @@ class Agent:
         self.speculation = (key, asyncio.create_task(INTENT_GRAPH.ainvoke({**inputs, 'model': model})))
 
     async def graph_classify(self, text, model, token):
-        if re.search(r'改成|我要记|重新记|再记一条|记的是|登记为|帮我(?:记|登记)|记一下|记一条|^记[：:]', text):
+        # Kept for wording decisions further down; the rule-only path returns
+        # before the model branch, so it has to be recorded up front.
+        self.turn_text = text
+        if self.step == 'declined' and not re.search(r'继续|那你说|还是说|算了|你讲|说下去', text):
+            # A refusal already ended the call; answering afterwards would
+            # reopen it without consent.
+            return self.reply('本次沟通已停止，不再继续；有需要再联系我们。', stage='closing')
+        # A promise to send materials later is a result to record, not a
+        # request to call back: say it once instead of pushing it to defer.
+        if (re.search(r'(?:后续|之后|稍后|尽快|回头|晚点)(?:会)?补(?:交|材料|上)|会补交|会补上', text)
+                and self.backend.identity_status(self.sid) == 'verified'):
+            self.materials_incomplete = True
+            return self.prepare_review_registration(text, len(self.events) + 1)
+        stated = spoken_order_no(text)
+        if stated:
+            return self.order_lookup_reply(stated)
+        if re.search(r'改成|我要记|重新记|再记一条|记的是|登记为|帮我(?:记|登记|保存)|记一下|记一条|保存一下|^记[：:]', text):
             self.requested_registration = text
             return {'_next': 'route', 'decision': {'intent': 'continue'}}
         if re.search(r'我是运营|不是老板', text) and re.search(r'归我|我.{0,3}负责|我在办', text) and not re.search(r'不负责|不是我|如果|假设', text):
@@ -630,6 +793,12 @@ class Agent:
             if graph_result.get('error'):
                 raise ValueError(graph_result['error'])
             decision = graph_result['decision']
+            self.turn_text = text
+            scoped = scoped_default(decision, text)
+            if scoped is not decision:
+                self.events.append({'type': 'scoped_default', 'intent': decision.get('intent'),
+                                    'topics': decision.get('topics') or []})
+                decision = scoped
             self.last_decision = decision
             # Registered regression runs feed the same automatic improvement
             # queue as live conversations. Telemetry cannot fail a user turn.
@@ -641,13 +810,17 @@ class Agent:
         except Exception:
             self.last_error = 'CLASSIFICATION_FAILED'
             require(token == self.generation, 'TURN_CANCELLED', 409)
-            return self.reply('未能可靠理解，请重新说明您的意思；尚未登记。')
+            return self.reply('未能可靠理解，请重新说明您的意思；尚未保存。')
         require(token == self.generation, 'TURN_CANCELLED', 409)
         return {'_next': 'route', 'decision': decision}
 
     def graph_route(self, decision):
         # Return an explicit branch label; classification never grants tool authority.
         intent = decision['intent']
+        # An explicit "end the call" is authoritative even when the reading was
+        # unclear; otherwise repeating it only produces the same unclear reply.
+        if end_request(getattr(self, 'turn_text', '')) and intent in {'decline', 'unclear', 'thanks', 'continue'}:
+            return {'_next': 'disposition'}
         if intent == 'question':
             if len(self.questions) + len(decision.get('topics') or ['materials', 'guarantee']) > 300:
                 return {'_next': 'clarify'}
@@ -675,25 +848,85 @@ class Agent:
         self.pending = pending  # Small talk cannot grant or change confirmation.
         return self.reply(SOCIAL_REPLIES[decision['intent']].format(name=self.name))
 
+    def outbound_context(self):
+        """What an outbound call already knows before the customer says anything.
+
+        The dialer loads the application and its saved results, so the assistant
+        opens with facts instead of asking the caller for a case number.
+        """
+        try:
+            app = self.backend.call('get_application', {'session_id': self.sid, 'application_id': self.app})
+            brand = app.get('brand') or ''
+        except Exception:
+            brand = ''
+        try:
+            records = self.backend.call('get_results', {'session_id': self.sid}).get('results') or []
+        except Exception:
+            records = []
+        return brand, records
+
+    def order_lookup_reply(self, digits):
+        """Recall a case by the number the caller reads out.
+
+        Identity first, so the reply never confirms whether an arbitrary number
+        exists. A mismatched number is refused rather than silently switched,
+        because one call stays bound to one application.
+        """
+        if self.backend.identity_status(self.sid) != 'verified':
+            return self.reply('查询单号前需要先确认您的负责人身份。请问您本人是否负责本次申请？')
+        target = (self.backend.app_by_order_no(digits) or ORDERS.get(digits)
+                  or USER_LABELS.get(digits))
+        if target is None:
+            return self.reply(f'系统里没有查到您说的这个编号，麻烦您核对一下再报一次。')
+        if target != self.app:
+            return self.reply('您说的这单跟本次外呼对应的不是同一单，为避免串单，我不能在这通电话里查另一个单；'
+                              '需要的话我帮您转人工核对。')
+        brand, records = self.outbound_context()
+        self.history, self.history_announced = records, True
+        if not records:
+            return self.reply(f'这单还没有保存过沟通结果，这次是第一次。'
+                              '您想先了解需要补哪些材料吗？')
+        outcome = {'notification_completed':'已完成通知','unresolved':'待核实','declined':'已拒绝',
+                   'deferred':'稍后联系','handoff_registered':'转人工'}.get(records[-1].get('outcome'),'待核实')
+        return self.reply(f'此前有{num_cn(len(records))}次保存记录，'
+                          f'最近一次状态是「{outcome}」。您想继续问补正要求，还是要改记上次的内容？')
+
     def graph_disposition(self, decision, turn):
         intent = decision['intent']
-        if intent == 'decline':
+        # Ending the call is a decision the user already made explicitly, so it
+        # is handled before any intent-specific outcome and registers nothing.
+        if end_request(getattr(self, 'turn_text', '')):
+            # Saving is the default, so ending the call commits the result the
+            # assistant already read back instead of asking permission again.
+            if self.pending and not self.result:
+                turn = self.pending.get('source_turn') or (len(self.events) + 1)
+                saved = self.graph_confirmation('确认保存', turn)
+                if self.result:
+                    self.step = 'closed'
+                    return self.reply(saved['text'])
+                self.pending = None
             self.pending = None
-            self.step = 'questions'
-            return self.reply('您是对材料要求有异议，还是希望结束沟通？您可以继续说明问题；这句话没有触发登记。')
+            self.step = 'closed'
+            return self.reply('好的，本次沟通到此结束；没有保存新的业务结果。需要继续时可随时再联系。')
+        if intent == 'decline':
+            # A refusal ends the call: answering it or asking again would keep
+            # pushing after the customer already said no.
+            self.pending = None
+            self.step = 'declined'
+            return self.reply('好的，已停止本次沟通，先不打扰了；没有保存新的记录。', stage='closing')
         outcome = {'decline':'declined','defer':'deferred','handoff':'handoff_registered'}[intent]
         self.pending = {'outcome':outcome, 'source_turn':turn}
         self.step = 'declined' if intent == 'decline' else 'confirmation'
-        return self.reply({'decline':'将记录拒绝沟通。','defer':'将记录稍后联系意愿，不承诺回访时间。','handoff':'将建立模拟人工协助工单，不会接通真人。'}[intent] + '如同意登记，请明确回复“确认登记”；也可结束而不登记。')
+        return self.reply({'decline':'将记录拒绝沟通。','defer':'将记录稍后联系意愿，不承诺回访时间。','handoff':'将建立模拟人工协助工单，不会接通真人。'}[intent] + '挂断后会自动存档；不想记的话说一声就行。')
 
     def graph_off_topic(self):
-        return self.reply('我目前只处理本次申请的资质补正，无法回答这个范围之外的问题。您想了解需要补充的材料吗？')
+        return self.reply('我只处理本次资质补正，这个问题在范围之外。要了解需要补哪些材料吗？')
 
     def graph_clarify(self):
         if self.step == 'saved' and self.result:
-            return self.reply('刚才的沟通结果已登记，重复说不会重复写入。')
+            return self.reply('刚才的沟通结果已保存，重复说不会重复写入。')
         self.unresolved = True
-        return self.reply('我还没有理解清楚您的意思，请换个说法，说明想咨询的补正问题；尚未登记新的结果。')
+        return self.reply('我还没听明白您的意思，麻烦换个说法，告诉我想问哪方面；目前没有保存任何结果。')
 
     def graph_correction(self):
         self.unresolved = True
@@ -701,7 +934,7 @@ class Agent:
         for question in self.questions:
             question['status'] = 'needs_verification'
         self.step = 'availability'
-        return self.reply('您的陈述与系统资料可能存在差异，原登记确认已失效，需要人工核实。您是否需要模拟人工协助？')
+        return self.reply('您说的跟资料不一致，之前的确认失效了，需要核实。要转人工吗？')
 
     def graph_lookup(self):
         try:
@@ -715,12 +948,22 @@ class Agent:
         except Exception:
             self.issues = []
             self.step = 'basis_unavailable'
-            return self.reply('审核依据缺失、冲突或查询失败，需要核实，不能编造补正要求。您是否需要登记人工协助？')
+            return self.reply('审核依据缺失、冲突或查询失败，需要核实，不能编造补正要求。您是否需要转人工协助？')
+        try:
+            # Read-only: earlier saved results on this application, so a
+            # returning contact is not asked the same things again.
+            self.history = self.backend.call('get_results', {'session_id': self.sid}).get('results') or []
+        except Exception:
+            self.history = []
         return {'_next': 'answer', 'application': app}
 
     def graph_business_question(self, decision, app):
         self.unresolved = True
         self.step = 'questions'
+        # A new question invalidates the unresolved draft: it will be read back
+        # again before anything is saved.
+        if self.pending and self.pending.get('outcome') == 'unresolved':
+            self.pending = None
         result = self.answer_question(app, decision)
         if not result['output_guard']['blocked']:
             evidence = set(self.grounding.get('answer_topics', [])) & {'materials', 'reason', 'action', 'basis'}
@@ -733,21 +976,40 @@ class Agent:
         if action and not self.result:
             followup = self.graph_disposition({'intent': action}, len(self.events) + 1)
             return self.reply(result['text'] + followup['text'])
+        if self.history and not self.history_announced and not result['output_guard']['blocked']:
+            self.history_announced = True
+            last = self.history[-1]
+            outcome = {'notification_completed':'已完成通知','unresolved':'待核实',
+                       'declined':'已拒绝','deferred':'稍后联系','handoff_registered':'转人工'}.get(last.get('outcome'),'待核实')
+            try:
+                result = self.reply(result['text'] + f'另外，这单此前有{num_cn(len(self.history))}次保存记录，最近一次状态是「{outcome}」。')
+            except Exception:
+                self.events.append({'type':'history_announce_failed'})
         return result
 
     def prepare_review_registration(self, text, turn):
         self.unresolved = True
-        summary = '拟保存本次沟通记录，事项仍待核实，不代表补正完成或审核通过。'
+        # Read the caller's own words once, so the recap repeats what was said
+        # instead of a wall of unconfirmed statuses.
+        if re.search(r'后续(会)?补|会补交|稍后补|尽快补|会补充|晚点补', text):
+            self.materials_incomplete = True
+        if re.search(r'(知道了|收到|明白|了解了).{0,6}(会|后续|稍后)', text):
+            self.notification_received = True
+        # Stored wording stays complete; the spoken version is one sentence,
+        # because a phone answer cannot carry three clauses of caveats.
+        summary = '我先保存这次沟通记录：涉及的事项还需要核实，不代表补正已经完成，也不代表审核会通过。'
         summary += '通知状态：' + ('用户已表示收到。' if self.notification_received else '是否收到尚未确认。')
         summary += '补正状态：' + ('用户表示尚未完成。' if self.materials_incomplete else '尚未确认。')
         if self.requested_registration:
-            summary += '用户要求：' + self.requested_registration
+            summary += '用户要求：' + self.requested_registration.rstrip('。.') + '。'
+        spoken = ['您已收到通知' if self.notification_received else '通知的事还没确认']
+        spoken.append('材料后续补交' if self.materials_incomplete else '材料还没补上')
         self.pending = {'outcome': 'unresolved', 'source_turn': turn, 'registration_summary': summary,
                         'explicit_new_revision': bool(self.requested_registration and re.search(r'改成|重新记|再记一条|新增|另记', self.requested_registration)),
                         'notification_status': 'received' if self.notification_received else 'unknown',
                         'remediation_status': 'incomplete' if self.materials_incomplete else 'unknown'}
         self.step = 'confirmation'
-        return self.reply(summary + '如同意保存这条待核实记录，请回复“确认登记”；也可继续提问或请求人工协助。')
+        return self.reply(f'好，我记下了：{"，".join(spoken)}。挂断后这条会自动存档，要改随时说。')
 
     def graph_prepare_confirmation(self, text, app, turn):
         needs_review = self.unresolved or self.materials_incomplete or any(q['status'] in {'pending', 'needs_verification'} for q in self.questions)
@@ -756,25 +1018,26 @@ class Agent:
             return self.prepare_review_registration(text, turn)
         if any(i.get('basis_status', 'valid') != 'valid' for i in app['issues']):
             self.unresolved = True
-            return self.reply('本次存在依据未核实的材料项，可能涉及缺失、冲突或有效期问题。可逐项咨询；不能登记全部完成。需要模拟人工协助时请告诉我。')
+            return self.reply('有一项依据没核实，不能记成“全部完成”。可以逐项问，或转人工核实。')
         if self.unresolved and text.strip() != '问题已解决':
             self.step = 'questions'
-            return self.reply('还有未解决的问题，不能登记通知完成。请继续说明或请求人工核实；问题确实解决后请明确回复“问题已解决”。')
+            return self.reply('还有问题没解决，先记成“未完成”。解决后回我一句“问题已解决”就行。')
         if any(q['status'] in {'pending', 'needs_verification'} for q in self.questions):
-            return self.reply('仍有问题缺少有效依据，需要核实；不能登记为全部解决。可以继续咨询或请求模拟人工协助。')
+            return self.reply('还有问题没依据，不能记成“全部解决”。可以继续问或转人工。')
         if text.strip() == '问题已解决':
             self.unresolved = False
         self.issues = [x['issue_id'] for x in app['issues']]
-        numbered = '；'.join(f"第 {n} 项「{subtype_label(x)}」：{x['reason']}，需要{x['action']}（合成依据{x['evidence_id']}）"
-                             if subtype_label(x) else f"第 {n} 项：{x['reason']}，需要{x['action']}（合成依据{x['evidence_id']}）"
-                             for n, x in enumerate(app['issues'], 1))
-        explanation = (f"本次需要补正的有 {len(app['issues'])} 项。" if len(app['issues']) > 1 else '') + numbered
+        numbered = '；'.join(_issue_line(n, x) for n, x in enumerate(app['issues'], 1))
+        explanation = (f"本次需要补正的有{num_cn(len(app['issues']))}项。" if len(app['issues']) > 1 else '') + numbered
         self.pending = {'outcome':'notification_completed', 'issues':self.issues[:], 'source_turn':turn, 'explanation':explanation, 'grounding':copy.deepcopy(self.grounding)}
         self.step = 'confirmation'
-        brand = app.get('brand')
-        if brand:
-            explanation = f'关于您申请的{brand}：' + explanation
-        return self.reply(explanation + '。如已理解且无其他问题，并同意保存沟通结果，请回复“确认登记”；有问题请继续提出。', stage='explanation')
+        # The opening already named the brand, so the spoken recap skips it and
+        # a single issue drops the ordinal; stored wording stays complete.
+        if len(app['issues']) == 1:
+            spoken = spoken_issue(app['issues'][0])
+        else:
+            spoken = explanation + '。'
+        return self.reply(spoken, stage='explanation')
 
     def answer_question(self, app, decision):
         """Render a bounded answer plan from backend facts, never model-invented policy."""
@@ -785,34 +1048,79 @@ class Agent:
         topics = list(dict.fromkeys(decision.get('topics', []))) or ['materials', 'guarantee']
         parts, evidence = [], []
         for topic in topics:
+            if topic == 'materials' and issues:
+                # Spoken answers list items in order instead of repeating a label
+                # prefix on every sentence; a single item needs no ordinal.
+                ordinal = ('第一项','第二项','第三项','第四项','第五项','第六项')
+                single = len(issues) == 1
+                for number, issue in enumerate(issues, 1):
+                    label, detail = subtype_label(issue), reason_detail(issue)
+                    head = '' if single else (ordinal[number - 1] if number <= len(ordinal) else f'第{number}项')
+                    if issue.get('basis_status', 'valid') != 'valid':
+                        parts.append((head + '，' if head else '这次要核实一项：') +
+                                     f'{label or "该项材料"}的依据需要核实，暂不提供补正要求。')
+                        continue
+                    sep = '，' if head else ''
+                    if label and detail:
+                        body = f'{head}{sep}{label}：{detail}，需要{issue["action"]}。'
+                    elif label:
+                        body = f'{head}{sep}{label}，需要{issue["action"]}。'
+                    elif detail:
+                        body = f'{head}{sep}{detail}，需要{issue["action"]}。'
+                    else:
+                        body = f'{head}{sep}需要{issue["action"]}。'
+                    parts.append(('这次需要补正一项：' if single else '') + body)
+                    evidence.append(issue['evidence_id'])
+                if not single:
+                    parts.insert(0, f'这次需要补正的有{num_cn(len(issues))}项。')
+                continue
             if topic in {'materials', 'reason', 'action', 'basis'}:
                 for issue in issues:
                     label = subtype_label(issue)
                     tag = f'「{label}」' if label else ''
+                    detail = reason_detail(issue)
                     if issue.get('basis_status', 'valid') != 'valid':
-                        parts.append(tag + issue['reason'] + '，需要人工核实，暂不提供补正要求。')
+                        parts.append(tag + (detail or '该项材料的依据需要核实') + '，需要人工核实，暂不提供补正要求。')
                         continue
                     if topic == 'reason':
-                        parts.append(tag + '需要补正的原因是：' + issue['reason'] + '。')
+                        if detail:
+                            parts.append(f'{tag}需要补正的原因是：{detail}。')
+                        else:
+                            parts.append(f'{tag}这一项，资料只标注了问题类别，没有更细的说明。')
                     elif topic == 'action':
-                        parts.append(tag + '对应的处理方式是：' + issue['action'] + '。')
+                        parts.append(f'{tag}对应的处理方式是：{issue["action"]}。')
                     elif topic == 'basis':
-                        parts.append(f"{tag}本次合成依据为{issue['evidence_id']}，记录的问题是{issue['reason']}。")
+                        if detail:
+                            parts.append(f"{tag}本次合成依据为{issue['evidence_id']}，记录的问题是{detail}。")
+                        else:
+                            parts.append(f"{tag}本次合成依据为{issue['evidence_id']}，记录的问题类别是{label}。")
+                    elif detail:
+                        parts.append(f'资料记载{tag}：{detail}，需要{issue["action"]}。')
                     else:
-                        head = f'资料记载{tag}：' if tag else '资料记载'
-                        parts.append(f"{head}{issue['reason']}，需要{issue['action']}。")
+                        parts.append(f'资料记载{tag}，需要{issue["action"]}。')
                     evidence.append(issue['evidence_id'])
-                if topic != 'basis':
-                    parts.append('以上来自当前合成案例资料。')
             elif topic == 'guarantee':
                 parts.append('无法保证审核通过。补充材料不等于审核通过，最终结果需要以审核结果为准。')
             elif topic == 'status':
-                parts.append('操作状态只说明沟通登记是否保存，不是业务审核进度。当前资料没有提供材料提交或受理状态，我无法确认是否已经补交；沟通登记也不代表材料已提交。')
+                # "第一项已经提交了" is a claim about submission, not a question
+                # about progress; answer the claim instead of reciting the
+                # operation-status disclaimer.
+                said = getattr(self, 'turn_text', '')
+                claimed = (re.search(r'(?:已经|已|刚|都)?(?:提交|交|上传|补交|补上)(?:了|上去|过了)', said)
+                           # A question about approval must stay a question.
+                           and not re.search(r'吗|呢|[?？]|保证|通过|审核|能不能|是否|确认一下', said))
+                if claimed:
+                    names = '、'.join((subtype_label(app['issues'][n - 1]) or f'第{num_cn(n)}项')
+                                      for n in dict.fromkeys(numbers) if 1 <= n <= len(app['issues'])) \
+                        if numbers else '您提到的这项'
+                    parts.append(f'好，{names}您说已提交。受理状态我查不到，不能替您确认；我会记成您的说明。')
+                else:
+                    parts.append('操作状态只说明沟通记录是否保存，不是业务审核进度。当前资料没有提供材料提交或受理状态，我无法确认是否已经补交；沟通记录也不代表材料已提交。')
             elif topic in {'deadline', 'channel', 'fees'}:
                 subject = {'deadline': '补正截止时间', 'channel': '提交入口或办理渠道', 'fees': '收费信息'}[topic]
                 parts.append('当前资料未提供' + subject + '，我无法确认，需要进一步核实。')
             else:
-                parts.append('当前资料不足以回答这个具体问题，我不能自行推断；可以为您登记模拟人工核实。')
+                parts.append('当前资料不足以回答这个具体问题，我不能自行推断；可以为您安排模拟人工核实。')
         for question in self.questions:
             if question['status'] == 'pending' and question['topic'] in topics and question['issue_numbers'] == numbers:
                 question['status'] = 'answered' if question['topic'] in {'materials', 'reason', 'action', 'basis', 'guarantee'} else 'needs_verification'
@@ -830,15 +1138,18 @@ class Agent:
         suffix = '了解具体申请前，请先通过页面模拟确认负责人身份。'
         allowed = [v.format(name=self.name) + suffix for v in SOCIAL_REPLIES.values()]
         allowed += [v.format(name=self.name) + '了解具体申请前，需要先模拟确认身份。请问您是本次联系商家的负责人吗？' for v in SOCIAL_REPLIES.values()]
-        allowed += [f'您好，我是智语外呼的AI客服{self.name}，本次为合成业务演示。请先通过页面模拟确认负责人身份。',
-                    '抱歉打扰，身份不符，不再披露申请信息。本次为模拟核验。再见。']
-        opening = f'您好，我是京东客服{self.name}。请问您是{CASES.get(self.app, {}).get("merchant", "本次联系商家")}的负责人吗？这是AI模拟客服演示，并非京东官方来电。'
+        allowed += [f'您好，我是智语外呼的AI客服{self.name}。请先通过页面确认负责人身份。',
+                    '抱歉打扰，身份不符，不再披露申请信息。再见。']
+        opening = f'您好，我是京东客服{self.name}，本次为AI外呼。请问您是{CASES.get(self.app, {}).get("merchant", "本次联系商家")}的负责人吗？'
         allowed += ['还未确认您的身份。请问您是本次联系商家的负责人吗？可以回答“是的”或“不是”。']
+        allowed += ['您先说“是的”又说不负责，我需要确认一下：这次申请是您本人负责吗？']
+        allowed += ['本次沟通已停止，不再继续；有需要再联系我们。',
+                    '还有问题没确认，现在不能保存；确认完我再记一次。']
         allowed += ['已撤回本次身份确认。请由负责本次申请的人员确认身份后再继续。']
-        allowed += ['仅说明代客户询问还不能确认负责关系。请明确说明：您本人是否负责本次申请的办理或对接？未确认前不能查询本单材料。']
-        allowed += ['当前演示没有授权编号核验接口，不能据此确认授权。请明确回答：您本人是否负责本次申请？这里只记录模拟自述确认；正式授权请走人工核实。']
-        allowed += ['先前身份确认已撤回。请再次明确确认您本人是否负责本次申请。这只是模拟身份确认，不是正式授权认证。', '当前演示没有授权编号核验接口，不能据此确认授权。请由负责人明确确认，或通过正式渠道人工核实。', '一般流程是先确认负责关系，再解释材料要求，复述登记内容并征求确认。未确认身份前，不能提供本单材料。']
-        allowed += ['这次是资质补正的模拟沟通。我可以解释演示流程；涉及具体申请前，需要先确认您是否为负责人。', '好的，那就先不打扰了。本次没有新增业务登记。', '我还没确定您是否是负责人。您也可以先问我是谁、来意或演示流程。']
+        allowed += ['代问不等于您负责。您本人负责这次申请吗？确认前不能查本单材料。']
+        allowed += ['授权编号查不了，只能记您本人的说法。您本人负责这次申请吗？正式授权请走人工核实。']
+        allowed += ['身份确认已撤回。您本人负责这次申请吗？这只是身份确认，不是授权。', '当前没有授权编号核验接口，不能据此确认授权。请由负责人明确确认，或通过正式渠道人工核实。', '先确认负责人，再讲材料要求，最后复述要记的内容。确认前不能提供本单材料。']
+        allowed += ['这次是资质补正。涉及具体申请前，要先确认您是不是负责人。', '好的，已停止本次沟通，先不打扰了；没有保存新的记录。', '我还没确定您是否是负责人。您也可以先问我是谁、来意或补正要求。']
         allowed += [opening, opening + '请明确回答是否为该商家的负责人。', '抱歉打扰，联系对象不符，不再披露申请信息。再见。']
         guard = inspect_output(text, verified=self.backend.identity_status(self.sid) == 'verified',
                               allowed_unverified=allowed, grounding=self.grounding)
@@ -846,7 +1157,7 @@ class Agent:
         for phrase in ('不能宣称已登记', '尚不能确认登记成功', '尚未保存', '未保存', '没有保存'):
             checked = checked.replace(phrase, '')
         if re.search(r'(?:已登记|登记成功|已保存|保存成功)', checked) and (not self.result or self.step not in {'saved', 'handoff_registered'}):
-            guard.update(text='登记结果尚未确认，暂不能宣称成功，需要先核对操作状态。', blocked=True)
+            guard.update(text='保存结果尚未确认，暂不能宣称成功，需要先核对操作状态。', blocked=True)
             guard['rules'].append('unconfirmed_operation')
         guard.update(safe=not guard['blocked'], detected_category=guard['rules'][0] if guard['rules'] else 'none', replacement_phrase=guard['text'] if guard['blocked'] else '')
         return guard

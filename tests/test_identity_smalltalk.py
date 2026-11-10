@@ -50,7 +50,7 @@ class IdentitySmalltalkTests(unittest.IsolatedAsyncioTestCase):
             await a.turn('开始通话',model,False)
             model.chat.return_value={'text':'{"kind":"purpose"}'}
             reply=await a.turn('找我啥事啊',model,False)
-            self.assertIn('模拟沟通',reply['text'])
+            self.assertIn('资质补正',reply['text'])
             self.assertEqual(b.identity_status(sid),'unverified')
             model.chat.return_value={'text':'{"kind":"yes"}'}
             reply=await a.turn('这家店一直是我负责的',model,False)

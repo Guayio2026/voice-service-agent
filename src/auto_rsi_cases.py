@@ -15,8 +15,29 @@ challenge[1]：已确认负责本次申请。第一轮只问缺哪些材料，�
 测试用户是模拟角色；不得在输出中改变这些约束或输出预期结果。'''
 
 
-def generate(client, output):
+def generate(client, output, attempts=3):
+    """Generate four audited scenarios; a failed attempt is retried, not fatal.
+
+    Generation is stochastic: one bad utterance used to abort the whole RSI
+    round, which is why most rounds ended as `failed` before proposing. Every
+    attempt is still audited end-to-end, so a retry never relaxes the guardrail.
+    """
     output.mkdir(parents=True,exist_ok=False)
+    errors=[]
+    for attempt in range(1,attempts+1):
+        folder=output/('attempt-'+str(attempt))
+        folder.mkdir(parents=True,exist_ok=False)
+        try:
+            data=_attempt(client,folder)
+        except ValueError as exc:
+            errors.append('attempt '+str(attempt)+': '+str(exc))
+            (output/'attempts.json').write_text(dumps({'attempt':attempt,'error':str(exc)}),encoding='utf-8')
+            continue
+        return _suites(data,output)
+    raise ValueError('Case generation failed after '+str(attempts)+' attempts: '+'; '.join(errors)[:300])
+
+
+def _attempt(client, output):
     data={'development':[],'challenge':[]}
     # Generate one named scenario at a time; split assignment is code-owned.
     # A model cannot accidentally move a challenge into the learning split.
@@ -28,8 +49,11 @@ def generate(client, output):
         (output/('generation-'+str(index)+'-raw.json')).write_text(dumps(raw),encoding='utf-8')
         if raw.get('finish_reason')=='length':
             raise ValueError('Case generation truncated; no cases adopted')
-        item=json.loads(raw['text'])
-        if set(item)!={'turns'}:
+        try:
+            item=json.loads(raw['text'])
+        except json.JSONDecodeError:
+            raise ValueError('Generated scenario JSON invalid')
+        if type(item) is not dict or set(item)!={'turns'}:
             raise ValueError('Generated scenario schema invalid')
         data['development' if index<2 else 'challenge'].append(item['turns'])
     seen=set()
@@ -59,10 +83,18 @@ def generate(client, output):
         raw=client.chat(messages,220)
         audits.append({'case':[group,index,turn_index],'raw':raw,'expected':expected})
         (output/'audit-raw.json').write_text(dumps(audits),encoding='utf-8')
-        if raw.get('finish_reason')=='length' or normalized(json.loads(raw['text']))!=normalized(expected):
+        try:
+            observed=normalized(json.loads(raw['text']))
+        except (json.JSONDecodeError,KeyError,TypeError,ValueError):
+            raise ValueError('Generated case label audit unreadable: '+group+str(index))
+        if raw.get('finish_reason')=='length' or observed!=normalized(expected):
             raise ValueError('Generated case semantic label not independently confirmed: '+group+str(index))
     if any(re.search(r'我(?:就是|是)(?:负责人|商家|老板)|本次申请(?:由|归)我负责',t) for t in data['challenge'][0]):
         raise ValueError('Unverified challenge unexpectedly supplies a responsibility claim')
+    return data
+
+
+def _suites(data, output):
     verdict={'valid':True,'basis':'Four semantic labels independently classified; assertions fixed in code'}
     def turn(text,identity='verified',decision=None,forbid=None):
         expect={'identity':identity,'records':0}

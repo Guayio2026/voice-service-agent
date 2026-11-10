@@ -37,7 +37,7 @@ action('save',async()=>{if(s.pending)throw Error('请先核对待定操作');awa
 action('handoff',async()=>{if(s.pending)throw Error('请先核对待定操作');await write('create_handoff',{session_id:s.session,idempotency_key:crypto.randomUUID(),consent:$('consent').checked,reason:'user_request'});});
 action('reconcile',settle);
 controls();
-try{const h=await api('health');$('health').textContent='实际后台连接：'+JSON.stringify(h);const d=await api('cases');for(const c of d.cases){const o=document.createElement('option');o.value=c.application_id;o.textContent=c.label+' · '+c.application_id;$('cases').append(o);}if(s.app)$('cases').value=s.app;if(s.session){$('identity').textContent='已恢复模拟会话，历史按后台当前身份读取';await history();if(s.pending)status('存在结果待核对操作，请核对');}}catch(e){$('health').textContent='后台连接失败：'+e.message;}
+try{const h=await api('health');$('health').textContent='实际后台连接：'+JSON.stringify(h);const d=await api('cases');const groups={};for(const c of d.cases)(groups[c.business||'其他']??=[]).push(c);const names=Object.keys(groups).sort((a,b)=>{const ak=a.split(' · ')[0],bk=b.split(' · ')[0];if(ak!==bk)return ak<bk?-1:1;return a<b?-1:1;});for(const name of names){const list=groups[name];const og=document.createElement('optgroup');og.label=name+'（'+list.length+'）';for(const c of list){const o=document.createElement('option');o.value=c.application_id;o.textContent=c.label+' · '+c.application_id;og.append(o);}$('cases').append(og);}if(s.app)$('cases').value=s.app;if(s.session){$('identity').textContent='已恢复模拟会话，历史按后台当前身份读取';await history();if(s.pending)status('存在结果待核对操作，请核对');}}catch(e){$('health').textContent='后台连接失败：'+e.message;}
 
 busy=false;controls();
 let checking=false;

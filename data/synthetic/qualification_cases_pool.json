@@ -1,0 +1,5602 @@
+[
+ {
+  "application_id": "QUAL-101",
+  "label": "商标注册证·证明缺失或不清晰（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家001",
+  "company": "合成示例商贸公司001",
+  "store": "合成示例店铺001",
+  "brand": "示例品牌云栖",
+  "category": "美妆（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.missing",
+    "subtype_label": "证明缺失或不清晰",
+    "reason": "本次商标注册证明缺页或无法辨认",
+    "action": "补充完整清晰的商标注册证明",
+    "evidence_id": "SUB-trademark.missing"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-102",
+  "label": "商标注册证·有效期问题（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家002",
+  "company": "合成示例商贸公司002",
+  "store": "合成示例店铺002",
+  "brand": "示例品牌沐野",
+  "category": "家居（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.validity",
+    "subtype_label": "有效期问题",
+    "reason": "本次提交的商标有效期证明需要核实",
+    "action": "提供有效状态证明；涉及续展的，补充相应证明供审核核实",
+    "evidence_id": "SUB-trademark.validity"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-103",
+  "label": "商标注册证·持有人不一致（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家003",
+  "company": "合成示例商贸公司003",
+  "store": "合成示例店铺003",
+  "brand": "示例品牌星野",
+  "category": "服饰（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.holder",
+    "subtype_label": "持有人不一致",
+    "reason": "商标注册证上的持有人与申请填写的持有人不一致",
+    "action": "核对持有人信息，补充一致的证明；涉及变更或转让的，提供相关证明",
+    "evidence_id": "SUB-trademark.holder"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-104",
+  "label": "商标注册证·商标信息不一致（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家004",
+  "company": "合成示例商贸公司004",
+  "store": "合成示例店铺004",
+  "brand": "示例品牌白鹭",
+  "category": "数码（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.brand",
+    "subtype_label": "商标信息不一致",
+    "reason": "本次申请品牌与商标证明记载的信息不一致",
+    "action": "核对品牌名称及商标信息并补充对应证明",
+    "evidence_id": "SUB-trademark.brand"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-105",
+  "label": "商标注册证·类别不匹配（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家005",
+  "company": "合成示例商贸公司005",
+  "store": "合成示例店铺005",
+  "brand": "示例品牌长川",
+  "category": "母婴（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.category",
+    "subtype_label": "类别不匹配",
+    "reason": "本次申请类目与商标证明类别的对应关系不明确",
+    "action": "补充类别对应说明与相应证明，交由审核人员核实",
+    "evidence_id": "SUB-trademark.category"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-106",
+  "label": "品牌授权书·授权链缺环（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家006",
+  "company": "合成示例商贸公司006",
+  "store": "合成示例店铺006",
+  "brand": "示例品牌拾光",
+  "category": "宠物（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.chain",
+    "subtype_label": "授权链缺环",
+    "reason": "品牌授权链缺少中间授权证明",
+    "action": "补齐商标持有人至开店公司之间缺失的授权证明",
+    "evidence_id": "SUB-authorization.chain"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-107",
+  "label": "品牌授权书·授权有效期问题（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家007",
+  "company": "合成示例商贸公司007",
+  "store": "合成示例店铺007",
+  "brand": "示例品牌南枝",
+  "category": "图书（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.validity",
+    "subtype_label": "授权有效期问题",
+    "reason": "本次授权书记载的授权期限已过",
+    "action": "补充有效授权文件供审核核实",
+    "evidence_id": "SUB-authorization.validity"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-108",
+  "label": "品牌授权书·授权主体不对应（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家008",
+  "company": "合成示例商贸公司008",
+  "store": "合成示例店铺008",
+  "brand": "示例品牌木言",
+  "category": "运动（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.entity",
+    "subtype_label": "授权主体不对应",
+    "reason": "相邻授权文件的授权方与被授权方无法衔接",
+    "action": "核对各层授权主体并补充衔接证明",
+    "evidence_id": "SUB-authorization.entity"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-109",
+  "label": "品牌授权书·授权品牌不一致（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家009",
+  "company": "合成示例商贸公司009",
+  "store": "合成示例店铺009",
+  "brand": "示例品牌洛川",
+  "category": "家清（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.brand",
+    "subtype_label": "授权品牌不一致",
+    "reason": "授权文件中的品牌与本次申请品牌不一致",
+    "action": "核对品牌并补充对应品牌的授权证明",
+    "evidence_id": "SUB-authorization.brand"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-110",
+  "label": "品牌授权书·授权范围不覆盖（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家010",
+  "company": "合成示例商贸公司010",
+  "store": "合成示例店铺010",
+  "brand": "示例品牌明野",
+  "category": "食品（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.scope",
+    "subtype_label": "授权范围不覆盖",
+    "reason": "本次申请类目不在所提交授权文件记载的范围内",
+    "action": "补充覆盖申请范围的授权文件，具体适用性需审核核实",
+    "evidence_id": "SUB-authorization.scope"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-111",
+  "label": "购货发票／银行流水·采购凭证缺失（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家011",
+  "company": "合成示例商贸公司011",
+  "store": "合成示例店铺011",
+  "brand": "示例品牌时雨",
+  "category": "美妆（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.missing",
+    "subtype_label": "采购凭证缺失",
+    "reason": "本次采购链记录缺少对应购货凭证",
+    "action": "补充对应购货发票或本次审核记录要求的采购凭证",
+    "evidence_id": "SUB-purchase.missing"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-112",
+  "label": "购货发票／银行流水·交易主体不对应（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家012",
+  "company": "合成示例商贸公司012",
+  "store": "合成示例店铺012",
+  "brand": "示例品牌河图",
+  "category": "家居（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.entity",
+    "subtype_label": "交易主体不对应",
+    "reason": "购货发票与银行流水记载的交易主体无法对应",
+    "action": "核对交易双方并提供相互对应的凭证或关联说明",
+    "evidence_id": "SUB-purchase.entity"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-113",
+  "label": "购货发票／银行流水·交易时间或金额疑点（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家013",
+  "company": "合成示例商贸公司013",
+  "store": "合成示例店铺013",
+  "brand": "示例品牌半山",
+  "category": "服饰（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.transaction",
+    "subtype_label": "交易时间或金额疑点",
+    "reason": "本次发票与银行流水的时间或金额存在待核实差异",
+    "action": "补充交易对应说明；涉及分批付款等情况，提供相关凭证",
+    "evidence_id": "SUB-purchase.transaction"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-114",
+  "label": "购货发票／银行流水·采购链路不明确（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家014",
+  "company": "合成示例商贸公司014",
+  "store": "合成示例店铺014",
+  "brand": "示例品牌鹿鸣",
+  "category": "数码（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.chain",
+    "subtype_label": "采购链路不明确",
+    "reason": "现有凭证无法对应本次申请涉及的采购链路",
+    "action": "补充关联采购凭证和链路说明供审核核实",
+    "evidence_id": "SUB-purchase.chain"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-115",
+  "label": "购货发票／银行流水·凭证不清晰（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家015",
+  "company": "合成示例商贸公司015",
+  "store": "合成示例店铺015",
+  "brand": "示例品牌松间",
+  "category": "母婴（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.clarity",
+    "subtype_label": "凭证不清晰",
+    "reason": "本次采购凭证的关键内容无法辨认",
+    "action": "提供完整清晰的凭证，通过受控业务渠道提交",
+    "evidence_id": "SUB-purchase.clarity"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-116",
+  "label": "行业资质·所需资质缺失（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家016",
+  "company": "合成示例商贸公司016",
+  "store": "合成示例店铺016",
+  "brand": "示例品牌澜山",
+  "category": "宠物（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.missing",
+    "subtype_label": "所需资质缺失",
+    "reason": "本次演示审核记录缺少对应行业资质材料",
+    "action": "根据经营情形核实适用的许可、备案或例外，再补充相应材料",
+    "evidence_id": "SUB-industry.missing"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-117",
+  "label": "行业资质·资质有效期问题（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家017",
+  "company": "合成示例商贸公司017",
+  "store": "合成示例店铺017",
+  "brand": "示例品牌砚池",
+  "category": "图书（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.validity",
+    "subtype_label": "资质有效期问题",
+    "reason": "本次行业资质材料的有效状态需要核实",
+    "action": "提供当前有效状态的证明材料供审核核实",
+    "evidence_id": "SUB-industry.validity"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-118",
+  "label": "行业资质·资质主体不一致（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家018",
+  "company": "合成示例商贸公司018",
+  "store": "合成示例店铺018",
+  "brand": "示例品牌秋池",
+  "category": "运动（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.entity",
+    "subtype_label": "资质主体不一致",
+    "reason": "行业资质记载主体与本次申请主体不一致",
+    "action": "核对主体并补充对应资质或主体关系说明",
+    "evidence_id": "SUB-industry.entity"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-119",
+  "label": "行业资质·经营范围不匹配（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家019",
+  "company": "合成示例商贸公司019",
+  "store": "合成示例店铺019",
+  "brand": "示例品牌竹里",
+  "category": "家清（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.scope",
+    "subtype_label": "经营范围不匹配",
+    "reason": "行业资质记载范围与本次申请经营内容无法对应",
+    "action": "说明实际经营内容并补充适用资质供审核核实",
+    "evidence_id": "SUB-industry.scope"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-120",
+  "label": "行业资质·许可备案类型待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家020",
+  "company": "合成示例商贸公司020",
+  "store": "合成示例店铺020",
+  "brand": "示例品牌青禾",
+  "category": "食品（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.permit_record",
+    "subtype_label": "许可备案类型待核实",
+    "reason": "本次经营情形尚不足以确定适用许可还是备案",
+    "action": "补充具体经营范围和商品信息，由审核人员确认适用许可、备案或例外",
+    "evidence_id": "SUB-industry.permit_record"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-121",
+  "label": "商标注册证·证书正文缺失（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家021",
+  "company": "合成示例商贸公司021",
+  "store": "合成示例店铺021",
+  "brand": "示例品牌云栖",
+  "category": "美妆（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.certificate_page",
+    "subtype_label": "证书正文缺失",
+    "reason": "本次合成审核记录标记：证书正文缺失",
+    "action": "核对商标注册证正文，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.certificate_page"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-122",
+  "label": "商标注册证·附页缺失（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家022",
+  "company": "合成示例商贸公司022",
+  "store": "合成示例店铺022",
+  "brand": "示例品牌沐野",
+  "category": "家居（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.attachment_page",
+    "subtype_label": "附页缺失",
+    "reason": "本次合成审核记录标记：附页缺失",
+    "action": "核对商标注册证附页，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.attachment_page"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-123",
+  "label": "商标注册证·注册号不清晰（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家023",
+  "company": "合成示例商贸公司023",
+  "store": "合成示例店铺023",
+  "brand": "示例品牌星野",
+  "category": "服饰（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.number_blurred",
+    "subtype_label": "注册号不清晰",
+    "reason": "本次合成审核记录标记：注册号不清晰",
+    "action": "核对注册号，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.number_blurred"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-124",
+  "label": "商标注册证·持有人名称不清晰（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家024",
+  "company": "合成示例商贸公司024",
+  "store": "合成示例店铺024",
+  "brand": "示例品牌白鹭",
+  "category": "数码（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.owner_blurred",
+    "subtype_label": "持有人名称不清晰",
+    "reason": "本次合成审核记录标记：持有人名称不清晰",
+    "action": "核对持有人名称，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.owner_blurred"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-125",
+  "label": "商标注册证·日期不清晰（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家025",
+  "company": "合成示例商贸公司025",
+  "store": "合成示例店铺025",
+  "brand": "示例品牌长川",
+  "category": "母婴（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.date_blurred",
+    "subtype_label": "日期不清晰",
+    "reason": "本次合成审核记录标记：日期不清晰",
+    "action": "核对证载日期，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.date_blurred"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-126",
+  "label": "商标注册证·证书边缘裁切（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家026",
+  "company": "合成示例商贸公司026",
+  "store": "合成示例店铺026",
+  "brand": "示例品牌拾光",
+  "category": "宠物（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.cropped",
+    "subtype_label": "证书边缘裁切",
+    "reason": "本次合成审核记录标记：证书边缘裁切",
+    "action": "核对完整证书页面，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.cropped"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-127",
+  "label": "商标注册证·注册号不一致（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家027",
+  "company": "合成示例商贸公司027",
+  "store": "合成示例店铺027",
+  "brand": "示例品牌南枝",
+  "category": "图书（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.number_mismatch",
+    "subtype_label": "注册号不一致",
+    "reason": "本次合成审核记录标记：注册号不一致",
+    "action": "核对申请注册号与证书注册号，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.number_mismatch"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-128",
+  "label": "商标注册证·品牌文字不一致（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家028",
+  "company": "合成示例商贸公司028",
+  "store": "合成示例店铺028",
+  "brand": "示例品牌木言",
+  "category": "运动（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.name_mismatch",
+    "subtype_label": "品牌文字不一致",
+    "reason": "本次合成审核记录标记：品牌文字不一致",
+    "action": "核对品牌中英文名称，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.name_mismatch"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-129",
+  "label": "商标注册证·图形标识不一致（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家029",
+  "company": "合成示例商贸公司029",
+  "store": "合成示例店铺029",
+  "brand": "示例品牌洛川",
+  "category": "家清（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.graphic_mismatch",
+    "subtype_label": "图形标识不一致",
+    "reason": "本次合成审核记录标记：图形标识不一致",
+    "action": "核对品牌图形与证载图样，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.graphic_mismatch"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-130",
+  "label": "商标注册证·持有人变更证明缺失（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家030",
+  "company": "合成示例商贸公司030",
+  "store": "合成示例店铺030",
+  "brand": "示例品牌明野",
+  "category": "食品（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.owner_change",
+    "subtype_label": "持有人变更证明缺失",
+    "reason": "本次合成审核记录标记：持有人变更证明缺失",
+    "action": "核对持有人变更证明，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.owner_change"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-131",
+  "label": "商标注册证·转让办理状态待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家031",
+  "company": "合成示例商贸公司031",
+  "store": "合成示例店铺031",
+  "brand": "示例品牌时雨",
+  "category": "美妆（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.transfer_pending",
+    "subtype_label": "转让办理状态待核实",
+    "reason": "本次合成审核记录标记：转让办理状态待核实",
+    "action": "核对商标转让状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.transfer_pending"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-132",
+  "label": "商标注册证·续展状态待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家032",
+  "company": "合成示例商贸公司032",
+  "store": "合成示例店铺032",
+  "brand": "示例品牌河图",
+  "category": "家居（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.renewal_pending",
+    "subtype_label": "续展状态待核实",
+    "reason": "本次合成审核记录标记：续展状态待核实",
+    "action": "核对商标续展状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.renewal_pending"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-133",
+  "label": "商标注册证·续展证明缺失（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家033",
+  "company": "合成示例商贸公司033",
+  "store": "合成示例店铺033",
+  "brand": "示例品牌半山",
+  "category": "服饰（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.renewal_attachment",
+    "subtype_label": "续展证明缺失",
+    "reason": "本次合成审核记录标记：续展证明缺失",
+    "action": "核对续展证明与原注册证，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.renewal_attachment"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-134",
+  "label": "商标注册证·注销状态待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家034",
+  "company": "合成示例商贸公司034",
+  "store": "合成示例店铺034",
+  "brand": "示例品牌鹿鸣",
+  "category": "数码（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.cancellation_status",
+    "subtype_label": "注销状态待核实",
+    "reason": "本次合成审核记录标记：注销状态待核实",
+    "action": "核对当前商标状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.cancellation_status"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-135",
+  "label": "商标注册证·撤销状态待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家035",
+  "company": "合成示例商贸公司035",
+  "store": "合成示例店铺035",
+  "brand": "示例品牌松间",
+  "category": "母婴（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.revocation_status",
+    "subtype_label": "撤销状态待核实",
+    "reason": "本次合成审核记录标记：撤销状态待核实",
+    "action": "核对当前商标状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.revocation_status"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-136",
+  "label": "商标注册证·申请受理与注册证明混淆（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家036",
+  "company": "合成示例商贸公司036",
+  "store": "合成示例店铺036",
+  "brand": "示例品牌澜山",
+  "category": "宠物（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.application_vs_registration",
+    "subtype_label": "申请受理与注册证明混淆",
+    "reason": "本次合成审核记录标记：申请受理与注册证明混淆",
+    "action": "核对文件类型及当前注册状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.application_vs_registration"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-137",
+  "label": "商标注册证·具体商品范围待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家037",
+  "company": "合成示例商贸公司037",
+  "store": "合成示例店铺037",
+  "brand": "示例品牌砚池",
+  "category": "图书（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.class_detail",
+    "subtype_label": "具体商品范围待核实",
+    "reason": "本次合成审核记录标记：具体商品范围待核实",
+    "action": "核对核定商品与申请商品，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.class_detail"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-138",
+  "label": "商标注册证·多个商标对应不明确（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家038",
+  "company": "合成示例商贸公司038",
+  "store": "合成示例店铺038",
+  "brand": "示例品牌秋池",
+  "category": "运动（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.multiple_marks",
+    "subtype_label": "多个商标对应不明确",
+    "reason": "本次合成审核记录标记：多个商标对应不明确",
+    "action": "核对多个注册号与申请品牌的对应关系，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.multiple_marks"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-139",
+  "label": "商标注册证·外文信息对应待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家039",
+  "company": "合成示例商贸公司039",
+  "store": "合成示例店铺039",
+  "brand": "示例品牌竹里",
+  "category": "家清（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.translation",
+    "subtype_label": "外文信息对应待核实",
+    "reason": "本次合成审核记录标记：外文信息对应待核实",
+    "action": "核对外文证书与申请填写信息，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.translation"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-140",
+  "label": "商标注册证·不同版本证书信息冲突（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家040",
+  "company": "合成示例商贸公司040",
+  "store": "合成示例店铺040",
+  "brand": "示例品牌青禾",
+  "category": "食品（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M01",
+    "material_type": "trademark",
+    "subtype_code": "trademark.conflicting_versions",
+    "subtype_label": "不同版本证书信息冲突",
+    "reason": "本次合成审核记录标记：不同版本证书信息冲突",
+    "action": "核对各版本证书的时间和变更关系，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-trademark.conflicting_versions"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-141",
+  "label": "品牌授权书·授权书正文缺失（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家041",
+  "company": "合成示例商贸公司041",
+  "store": "合成示例店铺041",
+  "brand": "示例品牌云栖",
+  "category": "美妆（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.page_missing",
+    "subtype_label": "授权书正文缺失",
+    "reason": "本次合成审核记录标记：授权书正文缺失",
+    "action": "核对授权书完整正文，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.page_missing"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-142",
+  "label": "品牌授权书·签署页缺失（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家042",
+  "company": "合成示例商贸公司042",
+  "store": "合成示例店铺042",
+  "brand": "示例品牌沐野",
+  "category": "家居（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.signature_page",
+    "subtype_label": "签署页缺失",
+    "reason": "本次合成审核记录标记：签署页缺失",
+    "action": "核对签署页，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.signature_page"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-143",
+  "label": "品牌授权书·印章无法辨认（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家043",
+  "company": "合成示例商贸公司043",
+  "store": "合成示例店铺043",
+  "brand": "示例品牌星野",
+  "category": "服饰（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.seal_unclear",
+    "subtype_label": "印章无法辨认",
+    "reason": "本次合成审核记录标记：印章无法辨认",
+    "action": "核对签章清晰副本，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.seal_unclear"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-144",
+  "label": "品牌授权书·签署人权限待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家044",
+  "company": "合成示例商贸公司044",
+  "store": "合成示例店铺044",
+  "brand": "示例品牌白鹭",
+  "category": "数码（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.signer_authority",
+    "subtype_label": "签署人权限待核实",
+    "reason": "本次合成审核记录标记：签署人权限待核实",
+    "action": "核对签署人身份及授权依据，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.signer_authority"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-145",
+  "label": "品牌授权书·签署情况待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家045",
+  "company": "合成示例商贸公司045",
+  "store": "合成示例店铺045",
+  "brand": "示例品牌长川",
+  "category": "母婴（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.unsigned",
+    "subtype_label": "签署情况待核实",
+    "reason": "本次合成审核记录标记：签署情况待核实",
+    "action": "核对文件签署情况，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.unsigned"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-146",
+  "label": "品牌授权书·授权尚未生效（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家046",
+  "company": "合成示例商贸公司046",
+  "store": "合成示例店铺046",
+  "brand": "示例品牌拾光",
+  "category": "宠物（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.start_date",
+    "subtype_label": "授权尚未生效",
+    "reason": "本次合成审核记录标记：授权尚未生效",
+    "action": "核对授权开始时间，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.start_date"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-147",
+  "label": "品牌授权书·授权期限未明确（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家047",
+  "company": "合成示例商贸公司047",
+  "store": "合成示例店铺047",
+  "brand": "示例品牌南枝",
+  "category": "图书（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.end_date_missing",
+    "subtype_label": "授权期限未明确",
+    "reason": "本次合成审核记录标记：授权期限未明确",
+    "action": "核对授权期限，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.end_date_missing"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-148",
+  "label": "品牌授权书·各层授权期限不衔接（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家048",
+  "company": "合成示例商贸公司048",
+  "store": "合成示例店铺048",
+  "brand": "示例品牌木言",
+  "category": "运动（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.date_conflict",
+    "subtype_label": "各层授权期限不衔接",
+    "reason": "本次合成审核记录标记：各层授权期限不衔接",
+    "action": "核对各层授权起止时间，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.date_conflict"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-149",
+  "label": "品牌授权书·首层授权方与持有人不一致（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家049",
+  "company": "合成示例商贸公司049",
+  "store": "合成示例店铺049",
+  "brand": "示例品牌洛川",
+  "category": "家清（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.grantor_mismatch",
+    "subtype_label": "首层授权方与持有人不一致",
+    "reason": "本次合成审核记录标记：首层授权方与持有人不一致",
+    "action": "核对商标持有人及首层授权方，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.grantor_mismatch"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-150",
+  "label": "品牌授权书·末层被授权方与开店公司不一致（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家050",
+  "company": "合成示例商贸公司050",
+  "store": "合成示例店铺050",
+  "brand": "示例品牌明野",
+  "category": "食品（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.grantee_mismatch",
+    "subtype_label": "末层被授权方与开店公司不一致",
+    "reason": "本次合成审核记录标记：末层被授权方与开店公司不一致",
+    "action": "核对末层被授权方及开店公司，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.grantee_mismatch"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-151",
+  "label": "品牌授权书·中间主体更名关系不明（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家051",
+  "company": "合成示例商贸公司051",
+  "store": "合成示例店铺051",
+  "brand": "示例品牌时雨",
+  "category": "美妆（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.middle_entity_change",
+    "subtype_label": "中间主体更名关系不明",
+    "reason": "本次合成审核记录标记：中间主体更名关系不明",
+    "action": "核对主体更名与授权衔接证明，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.middle_entity_change"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-152",
+  "label": "品牌授权书·转授权权限未明确（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家052",
+  "company": "合成示例商贸公司052",
+  "store": "合成示例店铺052",
+  "brand": "示例品牌河图",
+  "category": "家居（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.subdelegation",
+    "subtype_label": "转授权权限未明确",
+    "reason": "本次合成审核记录标记：转授权权限未明确",
+    "action": "核对上层授权的转授权范围，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.subdelegation"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-153",
+  "label": "品牌授权书·地域范围待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家053",
+  "company": "合成示例商贸公司053",
+  "store": "合成示例店铺053",
+  "brand": "示例品牌半山",
+  "category": "服饰（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.territory",
+    "subtype_label": "地域范围待核实",
+    "reason": "本次合成审核记录标记：地域范围待核实",
+    "action": "核对授权地域及实际销售区域，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.territory"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-154",
+  "label": "品牌授权书·平台范围待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家054",
+  "company": "合成示例商贸公司054",
+  "store": "合成示例店铺054",
+  "brand": "示例品牌鹿鸣",
+  "category": "数码（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.platform",
+    "subtype_label": "平台范围待核实",
+    "reason": "本次合成审核记录标记：平台范围待核实",
+    "action": "核对授权平台范围，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.platform"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-155",
+  "label": "品牌授权书·店型授权适用性待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家055",
+  "company": "合成示例商贸公司055",
+  "store": "合成示例店铺055",
+  "brand": "示例品牌松间",
+  "category": "母婴（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.store_type",
+    "subtype_label": "店型授权适用性待核实",
+    "reason": "本次合成审核记录标记：店型授权适用性待核实",
+    "action": "核对拟开店型与授权用途，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.store_type"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-156",
+  "label": "品牌授权书·独占性表述待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家056",
+  "company": "合成示例商贸公司056",
+  "store": "合成示例店铺056",
+  "brand": "示例品牌澜山",
+  "category": "宠物（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.exclusive",
+    "subtype_label": "独占性表述待核实",
+    "reason": "本次合成审核记录标记：独占性表述待核实",
+    "action": "核对授权性质及适用店型要求，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.exclusive"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-157",
+  "label": "品牌授权书·商品范围未明确（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家057",
+  "company": "合成示例商贸公司057",
+  "store": "合成示例店铺057",
+  "brand": "示例品牌砚池",
+  "category": "图书（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.product_scope",
+    "subtype_label": "商品范围未明确",
+    "reason": "本次合成审核记录标记：商品范围未明确",
+    "action": "核对授权覆盖商品清单，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.product_scope"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-158",
+  "label": "品牌授权书·多品牌授权对应不明（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家058",
+  "company": "合成示例商贸公司058",
+  "store": "合成示例店铺058",
+  "brand": "示例品牌秋池",
+  "category": "运动（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.multiple_brands",
+    "subtype_label": "多品牌授权对应不明",
+    "reason": "本次合成审核记录标记：多品牌授权对应不明",
+    "action": "核对每个品牌的对应授权文件，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.multiple_brands"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-159",
+  "label": "品牌授权书·授权撤回情况待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家059",
+  "company": "合成示例商贸公司059",
+  "store": "合成示例店铺059",
+  "brand": "示例品牌竹里",
+  "category": "家清（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.revoked",
+    "subtype_label": "授权撤回情况待核实",
+    "reason": "本次合成审核记录标记：授权撤回情况待核实",
+    "action": "核对授权当前有效状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.revoked"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-160",
+  "label": "品牌授权书·多份授权内容冲突（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家060",
+  "company": "合成示例商贸公司060",
+  "store": "合成示例店铺060",
+  "brand": "示例品牌青禾",
+  "category": "食品（演示）",
+  "application_type": "新增品牌",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M02",
+    "material_type": "authorization",
+    "subtype_code": "authorization.conflicting_documents",
+    "subtype_label": "多份授权内容冲突",
+    "reason": "本次合成审核记录标记：多份授权内容冲突",
+    "action": "核对授权版本、主体、范围和时间，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-authorization.conflicting_documents"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-161",
+  "label": "购货发票／银行流水·购货发票缺失（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家061",
+  "company": "合成示例商贸公司061",
+  "store": "合成示例店铺061",
+  "brand": "示例品牌云栖",
+  "category": "美妆（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.invoice_missing",
+    "subtype_label": "购货发票缺失",
+    "reason": "本次合成审核记录标记：购货发票缺失",
+    "action": "核对对应购货发票，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.invoice_missing"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-162",
+  "label": "购货发票／银行流水·付款凭证缺失（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家062",
+  "company": "合成示例商贸公司062",
+  "store": "合成示例店铺062",
+  "brand": "示例品牌沐野",
+  "category": "家居（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.statement_missing",
+    "subtype_label": "付款凭证缺失",
+    "reason": "本次合成审核记录标记：付款凭证缺失",
+    "action": "核对审核记录要求的付款凭证，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.statement_missing"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-163",
+  "label": "购货发票／银行流水·发票号码无法辨认（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家063",
+  "company": "合成示例商贸公司063",
+  "store": "合成示例店铺063",
+  "brand": "示例品牌星野",
+  "category": "服饰（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.invoice_number",
+    "subtype_label": "发票号码无法辨认",
+    "reason": "本次合成审核记录标记：发票号码无法辨认",
+    "action": "核对发票识别信息，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.invoice_number"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-164",
+  "label": "购货发票／银行流水·发票查验状态待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家064",
+  "company": "合成示例商贸公司064",
+  "store": "合成示例店铺064",
+  "brand": "示例品牌白鹭",
+  "category": "数码（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.invoice_status",
+    "subtype_label": "发票查验状态待核实",
+    "reason": "本次合成审核记录标记：发票查验状态待核实",
+    "action": "核对官方发票查验结果，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.invoice_status"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-165",
+  "label": "购货发票／银行流水·红冲关系待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家065",
+  "company": "合成示例商贸公司065",
+  "store": "合成示例店铺065",
+  "brand": "示例品牌长川",
+  "category": "母婴（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.red_invoice",
+    "subtype_label": "红冲关系待核实",
+    "reason": "本次合成审核记录标记：红冲关系待核实",
+    "action": "核对原发票与红字发票对应关系，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.red_invoice"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-166",
+  "label": "购货发票／银行流水·作废状态待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家066",
+  "company": "合成示例商贸公司066",
+  "store": "合成示例店铺066",
+  "brand": "示例品牌拾光",
+  "category": "宠物（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.void_invoice",
+    "subtype_label": "作废状态待核实",
+    "reason": "本次合成审核记录标记：作废状态待核实",
+    "action": "核对发票有效状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.void_invoice"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-167",
+  "label": "购货发票／银行流水·购方与采购主体不一致（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家067",
+  "company": "合成示例商贸公司067",
+  "store": "合成示例店铺067",
+  "brand": "示例品牌南枝",
+  "category": "图书（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.buyer",
+    "subtype_label": "购方与采购主体不一致",
+    "reason": "本次合成审核记录标记：购方与采购主体不一致",
+    "action": "核对发票购方与采购主体，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.buyer"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-168",
+  "label": "购货发票／银行流水·销方与供货方不一致（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家068",
+  "company": "合成示例商贸公司068",
+  "store": "合成示例店铺068",
+  "brand": "示例品牌木言",
+  "category": "运动（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.seller",
+    "subtype_label": "销方与供货方不一致",
+    "reason": "本次合成审核记录标记：销方与供货方不一致",
+    "action": "核对发票销方与供货主体，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.seller"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-169",
+  "label": "购货发票／银行流水·付款方与购方不一致（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家069",
+  "company": "合成示例商贸公司069",
+  "store": "合成示例店铺069",
+  "brand": "示例品牌洛川",
+  "category": "家清（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.payer",
+    "subtype_label": "付款方与购方不一致",
+    "reason": "本次合成审核记录标记：付款方与购方不一致",
+    "action": "核对付款主体及关系说明，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.payer"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-170",
+  "label": "购货发票／银行流水·收款方与销方不一致（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家070",
+  "company": "合成示例商贸公司070",
+  "store": "合成示例店铺070",
+  "brand": "示例品牌明野",
+  "category": "食品（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.payee",
+    "subtype_label": "收款方与销方不一致",
+    "reason": "本次合成审核记录标记：收款方与销方不一致",
+    "action": "核对收款主体及关系说明，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.payee"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-171",
+  "label": "购货发票／银行流水·分笔付款对应不明确（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家071",
+  "company": "合成示例商贸公司071",
+  "store": "合成示例店铺071",
+  "brand": "示例品牌时雨",
+  "category": "美妆（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.split_payment",
+    "subtype_label": "分笔付款对应不明确",
+    "reason": "本次合成审核记录标记：分笔付款对应不明确",
+    "action": "核对分笔付款与同一交易的对应关系，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.split_payment"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-172",
+  "label": "购货发票／银行流水·合并付款对应不明确（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家072",
+  "company": "合成示例商贸公司072",
+  "store": "合成示例店铺072",
+  "brand": "示例品牌河图",
+  "category": "家居（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.combined_payment",
+    "subtype_label": "合并付款对应不明确",
+    "reason": "本次合成审核记录标记：合并付款对应不明确",
+    "action": "核对合并付款与多笔订单的对应关系，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.combined_payment"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-173",
+  "label": "购货发票／银行流水·预付款与尾款对应待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家073",
+  "company": "合成示例商贸公司073",
+  "store": "合成示例店铺073",
+  "brand": "示例品牌半山",
+  "category": "服饰（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.prepayment",
+    "subtype_label": "预付款与尾款对应待核实",
+    "reason": "本次合成审核记录标记：预付款与尾款对应待核实",
+    "action": "核对合同付款安排及交易凭证，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.prepayment"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-174",
+  "label": "购货发票／银行流水·退款记录影响待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家074",
+  "company": "合成示例商贸公司074",
+  "store": "合成示例店铺074",
+  "brand": "示例品牌鹿鸣",
+  "category": "数码（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.refund",
+    "subtype_label": "退款记录影响待核实",
+    "reason": "本次合成审核记录标记：退款记录影响待核实",
+    "action": "核对退款原因及实际采购情况，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.refund"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-175",
+  "label": "购货发票／银行流水·币种或汇率对应不明确（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家075",
+  "company": "合成示例商贸公司075",
+  "store": "合成示例店铺075",
+  "brand": "示例品牌松间",
+  "category": "母婴（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.currency",
+    "subtype_label": "币种或汇率对应不明确",
+    "reason": "本次合成审核记录标记：币种或汇率对应不明确",
+    "action": "核对交易币种及金额换算说明，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.currency"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-176",
+  "label": "购货发票／银行流水·商品名称无法对应（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家076",
+  "company": "合成示例商贸公司076",
+  "store": "合成示例店铺076",
+  "brand": "示例品牌澜山",
+  "category": "宠物（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.product_name",
+    "subtype_label": "商品名称无法对应",
+    "reason": "本次合成审核记录标记：商品名称无法对应",
+    "action": "核对发票品名与申请商品，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.product_name"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-177",
+  "label": "购货发票／银行流水·采购数量对应不明（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家077",
+  "company": "合成示例商贸公司077",
+  "store": "合成示例店铺077",
+  "brand": "示例品牌砚池",
+  "category": "图书（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.quantity",
+    "subtype_label": "采购数量对应不明",
+    "reason": "本次合成审核记录标记：采购数量对应不明",
+    "action": "核对订单、发票、收货数量，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.quantity"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-178",
+  "label": "购货发票／银行流水·重复凭证待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家078",
+  "company": "合成示例商贸公司078",
+  "store": "合成示例店铺078",
+  "brand": "示例品牌秋池",
+  "category": "运动（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.duplicate",
+    "subtype_label": "重复凭证待核实",
+    "reason": "本次合成审核记录标记：重复凭证待核实",
+    "action": "核对凭证编号与交易唯一性，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.duplicate"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-179",
+  "label": "购货发票／银行流水·供应商与授权链关系不明（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家079",
+  "company": "合成示例商贸公司079",
+  "store": "合成示例店铺079",
+  "brand": "示例品牌竹里",
+  "category": "家清（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.supplier_chain",
+    "subtype_label": "供应商与授权链关系不明",
+    "reason": "本次合成审核记录标记：供应商与授权链关系不明",
+    "action": "核对供货主体与授权链的关联，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.supplier_chain"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-180",
+  "label": "购货发票／银行流水·敏感字段处理后无法核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家080",
+  "company": "合成示例商贸公司080",
+  "store": "合成示例店铺080",
+  "brand": "示例品牌青禾",
+  "category": "食品（演示）",
+  "application_type": "新增类目",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "needs_correction",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M03",
+    "material_type": "purchase",
+    "subtype_code": "purchase.sensitive_fields",
+    "subtype_label": "敏感字段处理后无法核实",
+    "reason": "本次合成审核记录标记：敏感字段处理后无法核实",
+    "action": "核对经受控渠道提供的必要交易字段，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-purchase.sensitive_fields"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-181",
+  "label": "行业资质·仅预包装食品经营情形待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家081",
+  "company": "合成示例商贸公司081",
+  "store": "合成示例店铺081",
+  "brand": "示例品牌云栖",
+  "category": "美妆（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.food_prepacked",
+    "subtype_label": "仅预包装食品经营情形待核实",
+    "reason": "本次合成审核记录标记：仅预包装食品经营情形待核实",
+    "action": "核对实际食品经营项目及备案适用性，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.food_prepacked"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-182",
+  "label": "行业资质·混合食品经营范围待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家082",
+  "company": "合成示例商贸公司082",
+  "store": "合成示例店铺082",
+  "brand": "示例品牌沐野",
+  "category": "家居（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.food_mixed",
+    "subtype_label": "混合食品经营范围待核实",
+    "reason": "本次合成审核记录标记：混合食品经营范围待核实",
+    "action": "核对除预包装外是否存在其他经营项目，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.food_mixed"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-183",
+  "label": "行业资质·生产与经营主体关系待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家083",
+  "company": "合成示例商贸公司083",
+  "store": "合成示例店铺083",
+  "brand": "示例品牌星野",
+  "category": "服饰（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.food_producer",
+    "subtype_label": "生产与经营主体关系待核实",
+    "reason": "本次合成审核记录标记：生产与经营主体关系待核实",
+    "action": "核对生产许可主体及销售方式，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.food_producer"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-184",
+  "label": "行业资质·食用农产品范围待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家084",
+  "company": "合成示例商贸公司084",
+  "store": "合成示例店铺084",
+  "brand": "示例品牌白鹭",
+  "category": "数码（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.agricultural",
+    "subtype_label": "食用农产品范围待核实",
+    "reason": "本次合成审核记录标记：食用农产品范围待核实",
+    "action": "核对实际商品性质及适用资质要求，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.agricultural"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-185",
+  "label": "行业资质·特殊食品资质适用性待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家085",
+  "company": "合成示例商贸公司085",
+  "store": "合成示例店铺085",
+  "brand": "示例品牌长川",
+  "category": "母婴（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.food_special",
+    "subtype_label": "特殊食品资质适用性待核实",
+    "reason": "本次合成审核记录标记：特殊食品资质适用性待核实",
+    "action": "核对商品分类与现行适用要求，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.food_special"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-186",
+  "label": "行业资质·医疗器械分类待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家086",
+  "company": "合成示例商贸公司086",
+  "store": "合成示例店铺086",
+  "brand": "示例品牌拾光",
+  "category": "宠物（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.device_class",
+    "subtype_label": "医疗器械分类待核实",
+    "reason": "本次合成审核记录标记：医疗器械分类待核实",
+    "action": "核对产品分类及官方分类依据，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.device_class"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-187",
+  "label": "行业资质·器械经营资质类型待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家087",
+  "company": "合成示例商贸公司087",
+  "store": "合成示例店铺087",
+  "brand": "示例品牌南枝",
+  "category": "图书（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.device_business",
+    "subtype_label": "器械经营资质类型待核实",
+    "reason": "本次合成审核记录标记：器械经营资质类型待核实",
+    "action": "核对经营主体、产品分类及许可备案要求，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.device_business"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-188",
+  "label": "行业资质·产品注册备案与经营资质混淆（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家088",
+  "company": "合成示例商贸公司088",
+  "store": "合成示例店铺088",
+  "brand": "示例品牌木言",
+  "category": "运动（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.device_product",
+    "subtype_label": "产品注册备案与经营资质混淆",
+    "reason": "本次合成审核记录标记：产品注册备案与经营资质混淆",
+    "action": "核对产品证明和经营主体证明，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.device_product"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-189",
+  "label": "行业资质·器械型号与证载范围不对应（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家089",
+  "company": "合成示例商贸公司089",
+  "store": "合成示例店铺089",
+  "brand": "示例品牌洛川",
+  "category": "家清（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.device_model",
+    "subtype_label": "器械型号与证载范围不对应",
+    "reason": "本次合成审核记录标记：器械型号与证载范围不对应",
+    "action": "核对型号规格及注册备案信息，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.device_model"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-190",
+  "label": "行业资质·器械注册人与供货主体关系不明（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家090",
+  "company": "合成示例商贸公司090",
+  "store": "合成示例店铺090",
+  "brand": "示例品牌明野",
+  "category": "食品（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.device_holder",
+    "subtype_label": "器械注册人与供货主体关系不明",
+    "reason": "本次合成审核记录标记：器械注册人与供货主体关系不明",
+    "action": "核对注册备案主体与供货关系，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.device_holder"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-191",
+  "label": "行业资质·资质证照附页缺失（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家091",
+  "company": "合成示例商贸公司091",
+  "store": "合成示例店铺091",
+  "brand": "示例品牌时雨",
+  "category": "美妆（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.license_page",
+    "subtype_label": "资质证照附页缺失",
+    "reason": "本次合成审核记录标记：资质证照附页缺失",
+    "action": "核对证照正文和附页，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.license_page"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-192",
+  "label": "行业资质·许可证号无法辨认（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家092",
+  "company": "合成示例商贸公司092",
+  "store": "合成示例店铺092",
+  "brand": "示例品牌河图",
+  "category": "家居（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.license_number",
+    "subtype_label": "许可证号无法辨认",
+    "reason": "本次合成审核记录标记：许可证号无法辨认",
+    "action": "核对许可证号及可核验信息，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.license_number"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-193",
+  "label": "行业资质·经营地址对应待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家093",
+  "company": "合成示例商贸公司093",
+  "store": "合成示例店铺093",
+  "brand": "示例品牌半山",
+  "category": "服饰（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.business_address",
+    "subtype_label": "经营地址对应待核实",
+    "reason": "本次合成审核记录标记：经营地址对应待核实",
+    "action": "核对证照地址与实际经营场所，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.business_address"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-194",
+  "label": "行业资质·分支机构与持证主体关系不明（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家094",
+  "company": "合成示例商贸公司094",
+  "store": "合成示例店铺094",
+  "brand": "示例品牌鹿鸣",
+  "category": "数码（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.branch_entity",
+    "subtype_label": "分支机构与持证主体关系不明",
+    "reason": "本次合成审核记录标记：分支机构与持证主体关系不明",
+    "action": "核对总分支机构关系及资质适用范围，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.branch_entity"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-195",
+  "label": "行业资质·经营项目变更待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家095",
+  "company": "合成示例商贸公司095",
+  "store": "合成示例店铺095",
+  "brand": "示例品牌松间",
+  "category": "母婴（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.scope_change",
+    "subtype_label": "经营项目变更待核实",
+    "reason": "本次合成审核记录标记：经营项目变更待核实",
+    "action": "核对变更后的项目与证照范围，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.scope_change"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-196",
+  "label": "行业资质·换证办理状态待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家096",
+  "company": "合成示例商贸公司096",
+  "store": "合成示例店铺096",
+  "brand": "示例品牌澜山",
+  "category": "宠物（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.renewal_processing",
+    "subtype_label": "换证办理状态待核实",
+    "reason": "本次合成审核记录标记：换证办理状态待核实",
+    "action": "核对换证申请及当前有效状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.renewal_processing"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-197",
+  "label": "行业资质·暂停或注销状态待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家097",
+  "company": "合成示例商贸公司097",
+  "store": "合成示例店铺097",
+  "brand": "示例品牌砚池",
+  "category": "图书（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.suspension",
+    "subtype_label": "暂停或注销状态待核实",
+    "reason": "本次合成审核记录标记：暂停或注销状态待核实",
+    "action": "核对主管部门公示的证照状态，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.suspension"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-198",
+  "label": "行业资质·地域适用范围待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家098",
+  "company": "合成示例商贸公司098",
+  "store": "合成示例店铺098",
+  "brand": "示例品牌秋池",
+  "category": "运动（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.regional_scope",
+    "subtype_label": "地域适用范围待核实",
+    "reason": "本次合成审核记录标记：地域适用范围待核实",
+    "action": "核对证照地域与实际经营区域，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.regional_scope"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-199",
+  "label": "行业资质·跨类目资质覆盖不明（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家099",
+  "company": "合成示例商贸公司099",
+  "store": "合成示例店铺099",
+  "brand": "示例品牌竹里",
+  "category": "家清（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.cross_category",
+    "subtype_label": "跨类目资质覆盖不明",
+    "reason": "本次合成审核记录标记：跨类目资质覆盖不明",
+    "action": "核对各申请类目的对应资质，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.cross_category"
+   }
+  ],
+  "seed_revision": 3
+ },
+ {
+  "application_id": "QUAL-200",
+  "label": "行业资质·审核要求版本待核实（演示）",
+  "synthetic": true,
+  "selectable": true,
+  "merchant": "演示商家100",
+  "company": "合成示例商贸公司100",
+  "store": "合成示例店铺100",
+  "brand": "示例品牌青禾",
+  "category": "食品（演示）",
+  "application_type": "入驻",
+  "rule_version": "DEMO-v2",
+  "basis_status": "valid",
+  "review_status": "correction_required",
+  "formal_rejection_status": "not_connected",
+  "source_scope": "审核发现与整改动作均为合成数据，场景和材料类型参照赛题视频",
+  "materials": [
+   {
+    "material_id": "M01",
+    "material_type": "trademark",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M02",
+    "material_type": "authorization",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M03",
+    "material_type": "purchase",
+    "review_status": "not_reviewed",
+    "synthetic": true
+   },
+   {
+    "material_id": "M04",
+    "material_type": "industry",
+    "review_status": "needs_correction",
+    "synthetic": true
+   }
+  ],
+  "issues": [
+   {
+    "issue_id": "Q01",
+    "material_id": "M04",
+    "material_type": "industry",
+    "subtype_code": "industry.policy_version",
+    "subtype_label": "审核要求版本待核实",
+    "reason": "本次合成审核记录标记：审核要求版本待核实",
+    "action": "核对适用地区、类目、日期及规则版本，补充对应材料或说明后交由审核人员复核",
+    "evidence_id": "SUB-industry.policy_version"
+   }
+  ],
+  "seed_revision": 3
+ }
+]

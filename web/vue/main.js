@@ -6,7 +6,7 @@ const page = location.pathname.split('/').pop().replace('.html', '') || 'index';
 async function start() {
   if (!pages.has(page)) throw Error('未知页面');
   const [{default: component}, {default: modules}] = await Promise.all([
-    import(`./${page}.js?v=hierarchy-20261107`), import(`./${page}-modules.js?v=hierarchy-20261107`)
+    import(`./${page}.js?v=order-20261108d`), import(`./${page}-modules.js?v=order-20261108d`)
   ]);
   const query = new URLSearchParams(location.search);
   const initial = query.get('mode') === 'demo' || query.get('play') === '1' || ['#case-evidence', '#scenario'].includes(location.hash) ? 'demo' : 'voice';
@@ -21,7 +21,7 @@ async function start() {
     }
     onMounted(async () => {
       try {
-        for (const module of modules) await import(new URL('../' + module, import.meta.url));
+        for (const module of modules) await import(new URL('../' + module + '?v=order-20261108d', import.meta.url));
         document.getElementById('vue-app').dataset.ready = 'true';
       } catch (e) {
         const message = document.createElement('p');

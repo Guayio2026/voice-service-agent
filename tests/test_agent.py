@@ -76,7 +76,10 @@ class SafetyTests(unittest.IsolatedAsyncioTestCase):
   await self.a.turn('请具体说明当前申请的补正事项',Model(),True)
   await self.a.turn('截止时间是什么',Question(),True)
   await self.a.turn('确认登记',Model(),True)
-  self.assertIsNone(self.a.result); self.assertIsNone(self.a.pending)
+  # Nothing may be written before the content is read back; the pending entry is
+  # a draft recap, so the safety property is "no result", not "no draft".
+  self.assertIsNone(self.a.result)
+  self.assertEqual((self.a.pending or {}).get('outcome'),'unresolved')
   await self.a.turn('问题已解决',Model(),True)
   await self.a.turn('确认登记',Model(),True)
   self.assertIsNotNone(self.a.result)

@@ -12,9 +12,36 @@ from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 ROOT = Path(__file__).resolve().parents[1]
-CASES = {c['application_id']: c for filename in ('qualification_cases.json',)
+CASE_FILES = ('qualification_cases.json', 'qualification_cases_pool.json')
+FEATURED_CASES = {'QUAL-001', 'QUAL-002', 'QUAL-003', 'QUAL-004'}
+
+def order_no(application_id):
+    """Digits-only case number, the key a spoken number resolves against."""
+    digits = ''.join(ch for ch in str(application_id) if ch.isdigit()) or '0'
+    return '2026' + digits.zfill(6)
+
+
+def customer_label(application_id):
+    """What the customer is called out loud: 用户0001, not an internal code."""
+    digits = ''.join(ch for ch in str(application_id) if ch.isdigit()) or '0'
+    return '\u7528\u6237' + digits.zfill(4)
+
+CASES = {c['application_id']: c for filename in CASE_FILES if (ROOT/'data/synthetic'/filename).exists()
          for c in json.loads((ROOT/'data/synthetic'/filename).read_text(encoding='utf-8'))}
 OUTCOMES = {'notification_completed','wrong_contact','unverified','declined','deferred','handoff_registered','unresolved','interrupted'}
+
+def display_group(case):
+    """Selector grouping. 入驻 needs two groups because 品牌资质 and 行业资质 are different proofs."""
+    business = case.get('application_type', '')
+    if business != '入驻':
+        return business
+    types = {issue.get('material_type') for issue in case.get('issues', [])}
+    if 'trademark' in types:
+        return '入驻 · 品牌资质'
+    if 'industry' in types:
+        return '入驻 · 行业资质'
+    return business
+
 class Error(Exception):
     def __init__(self, code, status=400): self.code, self.status = code, status
 
@@ -47,6 +74,14 @@ class Backend:
             CREATE TABLE IF NOT EXISTS handoffs(id TEXT PRIMARY KEY, session TEXT, payload TEXT);
             CREATE TABLE IF NOT EXISTS operations(session TEXT, key TEXT, request TEXT, response TEXT, PRIMARY KEY(session,key));
             CREATE TABLE IF NOT EXISTS agent_profile(id INTEGER PRIMARY KEY CHECK(id=1), name TEXT NOT NULL);''')
+            # The case number is what a customer reads out, so it gets its own
+            # column instead of being recomputed from the internal key.
+            columns = {row[1] for row in db.execute('PRAGMA table_info(sessions)')}
+            if 'order_no' not in columns:
+                db.execute('ALTER TABLE sessions ADD COLUMN order_no TEXT')
+                for row in db.execute('SELECT id,app FROM sessions').fetchall():
+                    db.execute('UPDATE sessions SET order_no=? WHERE id=?', (order_no(row[1]), row[0]))
+                db.execute('CREATE INDEX IF NOT EXISTS sessions_order_no ON sessions(order_no)')
             db.execute('INSERT OR IGNORE INTO agent_profile(id,name) VALUES(1,?)', ('小语',))
             call_workflow.migrate(db)
             qualification_store.migrate(db, CASES, json.loads((ROOT/'data/synthetic/material_catalog.json').read_text(encoding='utf-8')))
@@ -93,6 +128,13 @@ class Backend:
         require(row is not None, 'SESSION_NOT_FOUND', 404)
         return row[0]
 
+    def app_by_order_no(self, number):
+        """Resolve a spoken case number straight from storage, not from code."""
+        with closing(connect(self.path)) as db:
+            row = db.execute('SELECT app FROM sessions WHERE order_no=? ORDER BY rowid DESC LIMIT 1',
+                             (str(number),)).fetchone()
+        return row[0] if row else None
+
     def authorize_write(self, sid, name, params):
         """Trusted controller only; never exposed as an HTTP/model tool.
 
@@ -105,13 +147,14 @@ class Backend:
 
     def call(self, name, p, fault=None):
         require(fault is None or (self.faults and fault in {'query_fail','write_fail','response_lost'}), 'FAULT_DISABLED')
-        if name=='cases': return {'simulated':True,'cases':[{'application_id':k,'label':v['label'],'synthetic':True} for k,v in CASES.items() if k in {'QUAL-001','QUAL-002','QUAL-003','QUAL-004'}]}
+        if name=='cases': return {'simulated':True,'cases':[{'application_id':k,'order_no':order_no(k),'customer_label':customer_label(k),'label':v['label'],'synthetic':True,'business':display_group(v)} for k,v in CASES.items() if v.get('selectable') or k in FEATURED_CASES]}
         if name=='start_session':
             fields(p,['application_id']); require(p['application_id'] in CASES)
             sid=secrets.token_urlsafe(32)
             with closing(connect(self.path)) as db:
                 db.execute('BEGIN IMMEDIATE')
-                db.execute('INSERT INTO sessions VALUES(?,?,?)',(sid,p['application_id'],'unverified'))
+                db.execute('INSERT INTO sessions(id,app,identity,order_no) VALUES(?,?,?,?)',
+                           (sid,p['application_id'],'unverified',order_no(p['application_id'])))
                 db.execute('INSERT INTO call_progress VALUES(?,?,?,?)', (sid,'introduction','new',datetime.now(timezone.utc).isoformat()))
                 db.commit()
             return {'session_id':sid,'identity_status':'unverified','simulated':True,'notice':'仅本地测试，不是生产身份认证'}
@@ -137,10 +180,14 @@ class Backend:
                 require(app['basis_status']=='valid','BASIS_UNAVAILABLE',409)
                 result=app
             elif name=='get_results':
-                rows=db.execute('SELECT payload FROM records WHERE session=? ORDER BY revision',(sid,)).fetchall()
-                result={'results':[json.loads(r[0]) for r in rows]}
+                # One call is a session; the application is what persists. Reading
+                # by application keeps earlier calls visible to this one, which is
+                # what a returning contact needs to hear.
+                rows=db.execute('SELECT r.payload FROM records r JOIN sessions x ON r.session=x.id '
+                                'WHERE x.app=? ORDER BY r.revision',(s['app'],)).fetchall()
+                result={'results':[json.loads(r[0]) for r in rows],'scope':'application'}
                 if not verified:
-                    result={'results':[visible_record(r, verified) for r in result['results']]}
+                    result={'results':[visible_record(r, verified) for r in result['results']],'scope':'application'}
             else:
                 require(string(p['idempotency_key']) and not p['idempotency_key'].startswith('__'))
                 old=db.execute('SELECT * FROM operations WHERE session=? AND key=?',(sid,p['idempotency_key'])).fetchone()
@@ -162,7 +209,12 @@ class Backend:
                     else:
                         rev=p['result_revision']; r=p['result']
                         require(type(rev) is int and rev>0)
-                        fields(r,['candidate_outcome','issues_explained','user_feedback','confirmation_turn_id','unresolved'],['handoff_id','questions','registration_summary','notification_status','remediation_status'])
+                        fields(r,['candidate_outcome','issues_explained','user_feedback','confirmation_turn_id','unresolved'],['handoff_id','questions','registration_summary','notification_status','remediation_status','application_id','order_no'])
+                        if 'application_id' in r:
+                            require(r['application_id'] == s['app'], 'APPLICATION_MISMATCH')
+                        if 'order_no' in r:
+                            require(string(r['order_no']) and r['order_no'].isdigit() and 6 <= len(r['order_no']) <= 20,
+                                    'INVALID_ORDER_NO')
                         if 'notification_status' in r:
                             require(r['notification_status'] in {'unknown','communicated','received'}, 'INVALID_NOTIFICATION_STATUS')
                         if 'remediation_status' in r:

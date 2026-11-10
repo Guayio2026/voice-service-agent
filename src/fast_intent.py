@@ -4,7 +4,8 @@ import re
 def fast_decision(text):
     phrase = re.sub(r'[\s，。！？、,.!?]', '', text)
     for intent, phrases in {
-        'decline': {'不需要了', '不要再联系我', '我拒绝沟通'},
+        'decline': {'不需要了', '不要再联系我', '我拒绝沟通', '结束对话', '结束通话', '挂断',
+                    '先这样吧', '就这样吧', '不聊了', '先到这里'},
         'defer': {'现在不方便', '稍后联系', '晚点联系'},
         'handoff': {'转人工', '我要转人工', '我需要人工协助'},
     }.items():
@@ -16,14 +17,42 @@ def fast_decision(text):
                       # classifier otherwise filed it under other and the answer
                       # degraded to the "资料不足" fallback.
                       '是什么补正事项', '补正事项是什么', '补正事项有哪些', '补正事项是哪些',
-                      '什么补正事项', '补正事项是啥', '要补什么', '需要补什么', '缺什么', '缺少什么'},
+                      '什么补正事项', '补正事项是啥', '要补什么', '需要补什么', '缺什么', '缺少什么',
+                      # "补正具体指什么" asks for the same content without naming
+                      # 事项/材料; unmatched it fell to the model, which returned
+                      # other and the answer degraded to "资料不足".
+                      '补正具体指什么', '补正指什么', '补正是什么意思', '补正具体是什么意思',
+                      '补正是啥', '补正具体是啥', '补正都包括什么', '补正包括什么'},
         'reason': {'为什么要补材料', '补正原因是什么'},
         'channel': {'补充材料在哪里提交', '在哪里提交材料'},
         'deadline': {'补正截止时间是什么', '什么时候截止'},
     }.items():
         if phrase in phrases:
             return {'intent': 'question', 'topics': [topic], 'issue_numbers': []}
-    return readonly_question(phrase) or material_question(phrase)
+    return readonly_question(phrase) or material_question(phrase) or correction_subject(phrase)
+
+
+def correction_subject(phrase):
+    """'补正 的问题/事项/内容/要求' + '是什么/指什么/包括什么' asks what to fix.
+
+    A whole-utterance grammar instead of another phrase list: the same request
+    keeps arriving with a new noun, and each new wording used to fall through to
+    the model, get filed under unclear/other and hit a "please rephrase" reply.
+    Negations, third-party subjects and action requests do not match the grammar.
+    """
+    intro = r'(?:(?:我)?(?:想(?:知道|了解一下|问一下|了解)|问一下|请问|咨询一下|请说明))?'
+    subject = r'(?:(?:这次|本次|当前)(?:的)?)?(?:资质)?补正(?:的)?'
+    noun = r'(?:问题|事项|内容|要求|材料|范围|情况|东西|地方)?'
+    ask = (r'(?:(?:具体|到底|究竟)?(?:是(?:什么|啥|哪些|什么问题|什么内容)|'
+           r'指(?:的)?是?(?:什么|啥)|包括(?:什么|哪些)|包含(?:什么|哪些)|'
+           r'有(?:哪些|什么)|是什么意思))')
+    if re.fullmatch(intro + subject + noun + ask, phrase):
+        return {'intent': 'question', 'topics': ['materials'], 'issue_numbers': []}
+    # "我现在需要补正什么" names the action instead of the subject.
+    need = r'(?:我)?(?:(?:现在|目前|这次|本次))?(?:到底|具体)?(?:需要|要|应该|得)(?:补正|补充|补)(?:些)?(?:什么|哪些)'
+    if re.fullmatch(intro + need, phrase):
+        return {'intent': 'question', 'topics': ['materials'], 'issue_numbers': []}
+    return None
 
 
 def material_question(phrase):

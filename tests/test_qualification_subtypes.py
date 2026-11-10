@@ -13,7 +13,7 @@ class SubtypeTests(unittest.TestCase):
                 self.assertEqual(db.execute('SELECT count(*) FROM qualification_issue_types').fetchone()[0],100)
             for n in range(1,5):
                 app=CASES[f'QUAL-{n:03}']
-                self.assertEqual(len(app['issues']),2)
+                self.assertGreaterEqual(len(app['issues']),2)
                 self.assertEqual(ground_application(app)['grounding']['status'],'supported')
                 sid=b.call('start_session',{'application_id':app['application_id']})['session_id']
                 b.call('verify_identity',{'session_id':sid,'is_responsible':True})
@@ -29,4 +29,4 @@ class SubtypeTests(unittest.TestCase):
             Backend(path);Backend(path)
             with closing(connect(path)) as db:
                 self.assertEqual(db.execute("SELECT count(*) FROM qualification_application_versions WHERE application='QUAL-001'").fetchone()[0],1)
-                self.assertEqual(db.execute("SELECT count(*) FROM qualification_issue_classifications WHERE application='QUAL-001'").fetchone()[0],2)
+                self.assertEqual(db.execute("SELECT count(*) FROM qualification_issue_classifications WHERE application='QUAL-001'").fetchone()[0],len(CASES['QUAL-001']['issues']))

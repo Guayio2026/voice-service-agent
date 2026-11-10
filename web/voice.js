@@ -485,12 +485,55 @@ try {
   const data = await api('status');
   $('provider-state').textContent = Object.entries(data.configured).map(([k,v]) => `${k.toUpperCase()}：${v ? '已配置' : '缺少配置'}`).join('；');
   if (data.models?.llm) $('provider-state').textContent += `；文字模型：${data.text_provider || ''} / ${data.models.llm}`;
-  for (const c of data.cases) {
-    const o = document.createElement('option');
-    o.value = c.application_id;
-    o.textContent = c.label;
-    $('voice-case').append(o);
+  const groups = {};
+  for (const c of data.cases) (groups[c.business || '其他'] ??= []).push(c);
+  const names = Object.keys(groups).sort((a, b) => {
+    const ak = a.split(' · ')[0], bk = b.split(' · ')[0];
+    if (ak !== bk) return ak < bk ? -1 : 1;
+    return a < b ? -1 : 1;
+  });
+  for (const name of names) {
+    const list = groups[name];
+    const og = document.createElement('optgroup');
+    og.label = `${name}（${list.length}）`;
+    for (const c of list) {
+      const o = document.createElement('option');
+      o.value = c.application_id;
+      o.dataset.orderNo = c.order_no || '';
+      o.dataset.customerLabel = c.customer_label || '';
+      o.textContent = c.label;
+      og.append(o);
+    }
+    $('voice-case').append(og);
   }
+  // A separate case-number picker: the scenario list stays as it was, the number
+  // is its own control, and the two stay in step.
+  let orderSelect = document.getElementById('voice-order');
+  if (!orderSelect) {
+    const orderLabel = document.createElement('label');
+    orderLabel.htmlFor = 'voice-order';
+    orderLabel.textContent = '客户编号';
+    orderSelect = document.createElement('select');
+    orderSelect.id = 'voice-order';
+    orderSelect.setAttribute('aria-label', '本次外呼单号');
+    $('voice-case').after(orderLabel);
+    orderLabel.after(orderSelect);
+  }
+  orderSelect.replaceChildren();
+  for (const opt of [...$('voice-case').options]) {
+    const o = document.createElement('option');
+    o.value = opt.value;
+    o.textContent = opt.dataset.customerLabel || opt.dataset.orderNo || opt.value;
+    orderSelect.append(o);
+  }
+  const syncFromCase = () => { orderSelect.value = $('voice-case').value; };
+  orderSelect.addEventListener('change', () => {
+    if ($('voice-case').value === orderSelect.value) return;
+    $('voice-case').value = orderSelect.value;
+    $('voice-case').dispatchEvent(new Event('change'));
+  });
+  $('voice-case').addEventListener('change', syncFromCase);
+  syncFromCase();
   await loadVoices();
   if (voiceList.some(v => v.voice_id === data.default_voice_id)) { $('voice-select').value = data.default_voice_id; voiceDetail(); }
 } catch (e) { error(e); }

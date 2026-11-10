@@ -27,7 +27,7 @@ class OpeningTests(unittest.IsolatedAsyncioTestCase):
             b=Backend(Path(d)/'db');sid=b.call('start_session',{'application_id':'QUAL-001'})['session_id'];a=Agent(b,sid,'QUAL-001');model=Mock()
             await a.turn('开始通话',model,False)
             reply=await a.turn('什么事',model,False)
-            self.assertIn('模拟沟通',reply['text']);self.assertEqual(b.identity_status(sid),'unverified')
+            self.assertIn('资质补正',reply['text']);self.assertEqual(b.identity_status(sid),'unverified')
             await a.turn('你打错了',model,False)
             self.assertEqual(b.identity_status(sid),'wrong_contact')
             reply=await a.turn('不是，我刚才说错了，我是负责人',model,False)

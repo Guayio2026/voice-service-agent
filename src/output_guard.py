@@ -9,7 +9,7 @@ from evolution_store import redact
 from grounding import citations_current
 
 VERSION = 'qualification-output-v2'
-IDENTITY_REPLY = '您好，我是智语外呼的AI客服。本次为合成业务演示，请先通过页面模拟确认负责人身份。'
+IDENTITY_REPLY = '您好，我是智语外呼的AI客服。请先通过页面确认负责人身份。'
 SAFE_REPLY = '补充材料后仍需审核，最终结果以实际审核通知为准。我可以解释当前资料中有依据的补正要求。'
 RULES = {
     'approval_promise': r'(?:一定|肯定|保证|确保|百分之百|100%|必定|包过|稳过).{0,12}(?:通过|批准|过审)|(?:包过|稳过|保过)|(?:通过|批准).{0,6}(?:没问题|有保证)',

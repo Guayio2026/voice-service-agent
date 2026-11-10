@@ -35,10 +35,12 @@ class ReadonlyGrammarTests(unittest.TestCase):
         # used to fall through to the model, get filed under other, and degrade
         # to the "资料不足以回答" fallback mid-conversation.
         for text in ['是什么补正事项', '是什么补正事项？', '补正事项是什么', '补正事项有哪些',
-                     '要补什么', '缺什么']:
+                     '要补什么', '缺什么', '补正具体指什么', '补正具体指什么？',
+                     '补正是什么意思', '补正都包括什么']:
             with self.subTest(text=text):
                 self.assertEqual(fast_decision(text),{'intent':'question','topics':['materials'],'issue_numbers':[]})
-        for text in ['我不想知道补正事项', '补正事项是什么帮我提交', '他的补正事项是什么']:
+        for text in ['我不想知道补正事项', '补正事项是什么帮我提交', '他的补正事项是什么',
+                     '补正具体指什么帮我提交', '我不想知道补正是什么意思']:
             with self.subTest(text=text): self.assertIsNone(fast_decision(text))
     def test_ambiguous_or_action_requests_fall_back(self):
         for text in ['我不想知道截止时间','请问截止时间但是我要取消','请问提交入口并帮我提交',

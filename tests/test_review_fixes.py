@@ -24,7 +24,11 @@ class ReviewFixTests(unittest.IsolatedAsyncioTestCase):
                 await a.turn('方便', self.model, True)
                 await a.turn(text, self.model, True)
                 await a.turn(text, self.model, True)
-                self.assertEqual(len(self.b.call('get_results', {'session_id': sid})['results']), 1)
+                # get_results now aggregates by application, so filter to this call
+                # when checking that repeating the phrase writes only once.
+                own = [r for r in self.b.call('get_results', {'session_id': sid})['results']
+                       if r.get('session_id') == sid]
+                self.assertEqual(len(own), 1)
 
     async def test_prefixed_farewell_closes_without_writing(self):
         for text in ['好，再见。', '谢谢，那先这样。', '行，先这样。', '我知道了，先这样吧。', '好的，服务不错，再见。', '对，挂了吧。']:
